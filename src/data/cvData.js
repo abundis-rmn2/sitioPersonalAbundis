@@ -13,7 +13,7 @@ export const bioData = {
     github: "https://github.com/abundis-rmn2",
     scholar: "https://scholar.google.com/citations?user=osg7xZkAAAAJ&hl=en",
     profile: "Sociólogo e investigador computacional especializado en la intersección de la ciencia de datos, el aprendizaje automático (Machine Learning) y los métodos cualitativos de investigación social. Fundador de Tejer.RED, una iniciativa enfocada en el desarrollo de herramientas tecnológicas de código abierto para apoyar a colectivos de búsqueda y realizar análisis forenses en México. Cuenta con experiencia en el diseño de pipelines de Procesamiento de Lenguaje Natural (NLP), modelos de aprendizaje automático basados en visión por computadora (TensorFlow), y desarrollo web full-stack enfocado en la visualización de redes y cartografía geoespacial.",
-    introText: "Ha explorado metodologías computacionales como estudiante, impulsado por una formación autodidacta en programación y una profunda curiosidad. Con base en la sociología, su investigación busca fusionar la ciencia de datos, el aprendizaje automático y el trabajo de campo para analizar fenómenos culturales y sociales."
+    introText: "Ha explorado metodologías computacionales como estudiante, impulsado por una formación autodidacta en programación y una profunda curiosidad. Con base en la sociología, su investigación busca fusionar la ciencia de datos, el aprendizaje automático y el trabajo de campo para analizar fenómenos culturales y sociales. A través del desarrollo de modelos de IA para el análisis de graffiti y su labor como asistente de investigación en campo, mantiene un firme compromiso de utilizar el código como una herramienta para abordar y proponer soluciones a problemáticas sociales urgentes."
   },
   en: {
     name: "Ángel Javier Ramírez Abundis",
@@ -26,13 +26,60 @@ export const bioData = {
     github: "https://github.com/abundis-rmn2",
     scholar: "https://scholar.google.com/citations?user=osg7xZkAAAAJ&hl=en",
     profile: "Sociologist and computational researcher specializing in the intersection of data science, machine learning, and qualitative social research methods. Founder of Tejer.RED, an initiative focused on developing open-source technological tools to support search collectives and perform forensic analysis in Mexico. Experienced in designing Natural Language Processing (NLP) pipelines, custom computer vision machine learning models (TensorFlow), and full-stack web development focused on network visualization and geospatial mapping.",
-    introText: "Has explored computational methodologies as a student, driven by a self-taught coding background and a deep curiosity. With a foundation in sociology, his research aimed to merge data science, machine learning, and fieldwork methods to explore cultural phenomena. Through his development of AI models for graffiti analysis and his role as a field research assistant, he is committed to leveraging coding as a tool to address and propose solutions for urgent social issues."
+    introText: "Has explored computational methodologies as a student, driven by a self-taught coding background and a deep curiosity. With a foundation in sociology, his research aims to merge data science, machine learning, and fieldwork methods to explore cultural phenomena. Through his development of AI models for graffiti analysis and his role as a field research assistant, he is committed to leveraging coding as a tool to address and propose solutions for urgent social issues."
   }
+};
+
+
+
+export const TAG_SCHEMA = {
+  dominio: [
+    "graffiti",
+    "desapariciones-mx",
+    "ciudad-espacio-publico",
+    "desarrollo-web-comercial",
+    "comunicacion-politica",
+    "construccion-manufactura"
+  ],
+  rol: [
+    "investigador",
+    "desarrollador",
+    "ponente",
+    "director-creativo",
+    "activista-tecnico",
+    "colaborador-laboral",
+    "difusion-externa",
+    "blog"
+  ],
+  metodo: [
+    "python-data",
+    "ml-vision",
+    "nlp",
+    "js-react-web",
+    "gis-espacial",
+    "etnografia",
+    "analisis-documental",
+    "audiovisual",
+    "ar-interactivo"
+  ],
+  contexto: [
+    "udg",
+    "tejer-red",
+    "autonomo",
+    "empleo-formal",
+    "internacional"
+  ]
 };
 
 export const cvPosts = [
   {
     "id": 96,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["etnografia", "python-data", "ml-vision", "js-react-web"],
+      "contexto": ["udg"]
+    },
     "type": "thesis",
     "related_posts": [
       46,
@@ -56,11 +103,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2024). <em>Visualización de un campo de interacción hipertextual en forma de red utilizando procesos computacionales. Caso de estudio: Graffiti en trenes de mercancía en Norteamérica</em> (Tesis de Maestría). Universidad de Guadalajara, México."
     },
     "en": {
-      "title": "Visualización de un campo de interacción hipertextual en forma de red utilizando procesos computacionales. Caso de estudio: Graffiti en trenes de mercancía en Norteamérica",
-      "abstract": "Exploration of railway graffiti using data mining, convolutional computer vision (CNN), and digital ethnography to map transnational network relationships of writers between Mexico, the US, and Canada.",
+      "title": "Visualization of a Hypertextual Interaction Field in Network Form Using Computational Processes. Case Study: Freight Train Graffiti in North America",
+      "abstract": "Exploration of freight train graffiti using data mining, convolutional computer vision (CNN), and digital ethnography to map transnational relational networks of writers across Mexico, the US, and Canada.",
       "content": "<p>Master's Thesis in Communication Studies at Universidad de Guadalajara. This pioneering study explored the subcultural phenomenon of freight train graffiti and the structuring of a hidden transnational community of practice along North American railway tracks.</p><p>Methodologically, field and digital ethnography were combined with automated Instagram hashtag data mining through the development of the <em>idmb</em> bot. Hypertextual interaction metadata was modeled in complex network graphs using ForceAtlas layouts with SigmaJS and Graphology to analyze style propagation and recognition flows. Additionally, a CNN classifier (ResNet) was trained to recognize graffiti styles (monikers, tags, throw-ups). The conceptual framework integrated Jenkins' participatory culture and Thompson's social mediation theories.</p>",
-      "displayDate": "Universidad de Guadalajara - Master of Communication Studies, 2024",
-      "citation": "Ramírez Abundis, A. J. (2024). <em>Visualización de un campo de interacción hipertextual en forma de red utilizando procesos computacionales. Caso de estudio: Graffiti en trenes de mercancía en Norteamérica</em> (Master's thesis). Universidad de Guadalajara, Mexico."
+      "displayDate": "Universidad de Guadalajara - Master in Communication Studies, 2024",
+      "citation": "Ramírez Abundis, A. J. (2024). <em>Visualization of a Hypertextual Interaction Field in Network Form Using Computational Processes. Case Study: Freight Train Graffiti in North America</em> (Master's thesis). Universidad de Guadalajara, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -71,6 +118,12 @@ export const cvPosts = [
   },
   {
     "id": 91,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["etnografia", "analisis-documental"],
+      "contexto": ["udg"]
+    },
     "type": "thesis",
     "related_posts": [
       52,
@@ -90,18 +143,18 @@ export const cvPosts = [
       "en": "thesis"
     },
     "es": {
-      "title": "El graffiti ha muerto: Aproximación sociohistorica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad",
+      "title": "El graffiti ha muerto: Aproximación sociohistórica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad",
       "abstract": "Estudio sociohistórico del graffiti en la ciudad de Guadalajara, analizando las dinámicas barriales y discursos de prensa mediante historias de vida y minería de texto.",
       "content": "<p>Monografía de Licenciatura en Sociología por la Universidad de Guadalajara. Ofrece una reconstrucción sociohistórica de la emergencia y evolución del graffiti en Guadalajara desde 1990 hasta la actualidad, bajo el marco conceptual de la sociohistoria y las historias de vida.</p><p>La investigación se dividió en dos vertientes metodológicas: un enfoque cualitativo con entrevistas en profundidad a pioneros del graffiti tapatío para registrar sus relatos de vida y álbumes fotográficos; y un enfoque de análisis documental mediante el diseño del plugin <em>Amoxeh</em> en PHP/MySQL para estructurar un corpus de 312 notas de periódicos locales. Los datos de prensa se sometieron a análisis léxico multidimensional y concordancia lingüística cruzada interactuando directamente con la plataforma Voyant Tools.</p>",
       "displayDate": "Universidad de Guadalajara - Licenciatura en Sociología, 2019",
-      "citation": "Ramírez Abundis, Á. J. (2019). <em>El graffiti ha muerto: Aproximación sociohistorica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad</em> (Monografía de Licenciatura). Universidad de Guadalajara, México."
+      "citation": "Ramírez Abundis, Á. J. (2019). <em>El graffiti ha muerto: Aproximación sociohistórica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad</em> (Monografía de Licenciatura). Universidad de Guadalajara, México."
     },
     "en": {
-      "title": "El graffiti ha muerto: Aproximación sociohistorica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad",
-      "abstract": "Sociohistorical study of graffiti in the city of Guadalajara, analyzing neighborhood dynamics and press discourses through life stories and text mining.",
+      "title": "Graffiti is Dead: Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in Guadalajara from 1990 to the Present",
+      "abstract": "Sociohistorical study of graffiti in Guadalajara, analyzing neighborhood dynamics and press discourses through life stories and text mining.",
       "content": "<p>Bachelor's Monograph in Sociology at Universidad de Guadalajara. Offers a sociohistorical reconstruction of the emergence and evolution of graffiti in Guadalajara from 1990 to the present, under the conceptual framework of sociohistory and life stories.</p><p>The research was divided into two methodological paths: a qualitative approach with in-depth interviews of local graffiti pioneers to record their life stories and photographic albums; and a documentary analysis approach using the custom-built <em>Amoxeh</em> plugin in PHP/MySQL to structure a corpus of 312 local newspaper articles. The press data underwent multidimensional lexical analysis and linguistic concordance by interacting directly with the Voyant Tools platform.</p>",
-      "displayDate": "Universidad de Guadalajara - Bachelor of Sociology, 2019",
-      "citation": "Ramírez Abundis, A. J. (2019). <em>El graffiti ha muerto: Aproximación sociohistorica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara desde 1990 hasta la actualidad</em> (Bachelor's monograph). Universidad de Guadalajara, Mexico."
+      "displayDate": "Universidad de Guadalajara - Bachelor in Sociology, 2019",
+      "citation": "Ramírez Abundis, A. J. (2019). <em>Graffiti is Dead: Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in Guadalajara from 1990 to the Present</em> (Bachelor's monograph). Universidad de Guadalajara, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -112,6 +165,12 @@ export const cvPosts = [
   },
   {
     "id": 75,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["etnografia", "python-data"],
+      "contexto": ["internacional"]
+    },
     "type": "articles",
     "related_posts": [
       96,
@@ -130,14 +189,14 @@ export const cvPosts = [
       "title": "Tagging the Writer’s Trace: How Computational Social Science Shaped (my) Freight Graffiti Research",
       "abstract": "Análisis sobre el impacto de las ciencias sociales computacionales en el estudio empírico del graffiti en trenes, integrando minería de redes y etnografía cualitativa.",
       "content": "<p>Artículo académico aceptado en el <em>Graffiti and Street Art Journal</em> (Portugal). Presenta una reflexión teórico-metodológica sobre cómo el giro computacional y la ciencia de datos sociales redefinieron la investigación sobre graffiti en trenes de carga en la región norteamericana.</p><p>El texto documenta la combinación de técnicas cuantitativas (como el procesamiento relacional de grafos de conversaciones hipertextuales en Instagram y la vectorización de corpus discursivos) con técnicas cualitativas tradicionales (etnografía de campo en patios ferroviarios de Guadalajara y entrevistas a escritores). Discute cómo los métodos computacionales permiten identificar patrones estructurales que superan las limitantes de escala geográfica del trabajo de campo tradicional, preservando el rigor del análisis sociológico cualitativo.</p>",
-      "displayDate": "",
+      "displayDate": "2024",
       "citation": "Ramírez Abundis, Á. J. (2024). Tagging the Writer’s Trace: How Computational Social Science Shaped (my) Freight Graffiti Research. <em>Graffiti and Street Art Journal</em>, 1(2). Portugal."
     },
     "en": {
       "title": "Tagging the Writer’s Trace: How Computational Social Science Shaped (my) Freight Graffiti Research",
       "abstract": "Analysis of the impact of computational social science on the empirical study of freight train graffiti, integrating network mining and qualitative ethnography.",
       "content": "<p>Academic article accepted in the <em>Graffiti and Street Art Journal</em> (Portugal). Presents a theoretical-methodological reflection on how the computational turn and computational social science redefined research on freight train graffiti in the North American region.</p><p>The text documents the combination of quantitative techniques (such as processing relational graphs of Instagram conversations and vectorizing discourse corpora) with traditional qualitative techniques (field ethnography in Guadalajara railway yards and interviews with writers). It discusses how computational methods reveal structural patterns that overcome the geographic limitations of traditional fieldwork while preserving qualitative sociological rigor.</p>",
-      "displayDate": "",
+      "displayDate": "2024",
       "citation": "Ramírez Abundis, A. J. (2024). Tagging the Writer’s Trace: How Computational Social Science Shaped (my) Freight Graffiti Research. <em>Graffiti and Street Art Journal</em>, 1(2). Portugal."
     },
     "project_url": "",
@@ -149,6 +208,12 @@ export const cvPosts = [
   },
   {
     "id": 77,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "investigador",
+      "metodo": ["analisis-documental"],
+      "contexto": ["udg"]
+    },
     "type": "articles",
     "related_posts": [
       91
@@ -165,15 +230,15 @@ export const cvPosts = [
       "title": "Si la calle es el medio, la calle es el mensaje: Grafiti como estrategia de comunicación extraoficial en Guadalajara",
       "abstract": "Investigación sobre el graffiti en Guadalajara concebido como un circuito alterno de comunicación extraoficial frente a la estigmatización discursiva de la prensa local.",
       "content": "<p>Artículo de investigación publicado en <em>Ixaya. Revista Universitaria de Desarrollo Social</em>. Analiza el graffiti de firma (tags y bombas) en el espacio urbano de Guadalajara bajo la premisa teórica del graffiti como medio de comunicación autónomo y alternativo frente a la hegemonía institucional.</p><p>El artículo examina de forma crítica las narrativas moralistas e higienistas de los diarios de circulación local que criminalizan las firmas juveniles, contrastándolas con las tácticas de visibilidad y territorialidad que los escritores ejercen sobre los muros públicos. Utiliza un corpus estructurado de notas de prensa analizadas con herramientas de lingüística de corpus para cuantificar colocaciones semánticas asociadas al estigma urbano.</p>",
-      "displayDate": "",
+      "displayDate": "2024",
       "citation": "Ramírez Abundis, Á. J. (2024). Si la calle es el medio, la calle es el mensaje: Grafiti como estrategia de comunicación extraoficial en Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 14(26), 27-58."
     },
     "en": {
-      "title": "Si la calle es el medio, la calle es el mensaje: Grafiti como estrategia de comunicación extraoficial en Guadalajara",
+      "title": "If the Street is the Medium, the Street is the Message: Graffiti as an Unofficial Communication Strategy in Guadalajara",
       "abstract": "Research on graffiti in Guadalajara conceived as an alternative circuit of unofficial communication challenging mass media stigmatization.",
       "content": "<p>Research article published in <em>Ixaya. Revista Universitaria de Desarrollo Social</em>. Analyzes signature graffiti (tags and throw-ups) in Guadalajara's urban space under the theoretical premise of graffiti as an autonomous, alternative communication circuit facing institutional hegemony.</p><p>The article critically examines the moral and clean-city narratives of local newspapers that criminalize youth signatures, contrasting them with the visibility and territorial tactics writers employ on public walls. It uses a structured corpus of press articles analyzed with corpus linguistics tools to quantify semantic collocations associated with urban stigma.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J. (2024). Si la calle es el medio, la calle es el mensaje: Grafiti como estrategia de comunicación extraoficial en Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 14(26), 27-58."
+      "displayDate": "2024",
+      "citation": "Ramírez Abundis, A. J. (2024). If the Street is the Medium, the Street is the Message: Graffiti as an Unofficial Communication Strategy in Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 14(26), 27-58."
     },
     "project_url": "",
     "github_repo": "",
@@ -184,13 +249,19 @@ export const cvPosts = [
   },
   {
     "id": 80,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["ml-vision", "js-react-web", "python-data"],
+      "contexto": ["internacional"]
+    },
     "type": "articles",
     "related_posts": [
       36,
       34
     ],
     "slugs": {
-      "en": "mining-shaping-visualizing-and-interpreting-instagram-hipertextual-networks-of-freight-train-graffiti-communalities-in-north-america-using-machine-learning-custom-models-and-graphology",
+      "en": "mining-shaping-visualizing-and-interpreting-instagram-hypertextual-networks-of-freight-train-graffiti-communalities-in-north-america-using-machine-learning-custom-models-and-graphology",
       "es": "mineria-estructuracion-visualizacion-e-interpretacion-de-redes-hipertextuales-de-instagram-sobre-graffiti-en-trenes-en-norteamerica"
     },
     "categories": {
@@ -198,18 +269,18 @@ export const cvPosts = [
       "en": "paper"
     },
     "es": {
-      "title": "Mining, Shaping, Visualizing, and Interpreting Instagram Hipertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology",
+      "title": "Mining, Shaping, Visualizing, and Interpreting Instagram Hypertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology",
       "abstract": "Desarrollo técnico y análisis empírico de redes de Instagram asociadas al graffiti en trenes de carga en Norteamérica mediante aprendizaje automático y grafología.",
       "content": "<p>Artículo académico publicado en <em>UXUC-User Experience and Urban Creativity</em> (Portugal). Expone detalladamente el diseño, la arquitectura y el análisis derivado de la integración del bot de extracción de datos en Python (idmb) y la Interfaz de Visualización de Datos (DVI) basada en Web.</p><p>El documento describe el procesamiento de un clúster relacional de publicaciones de Instagram asociadas al graffiti de carga transnacional. Detalla el uso de modelos convolucionales de visión por computadora para clasificar los estilos pictóricos impresos en las fotografías de los vagones, mapeando las relaciones hipertextuales entre perfiles mediante métricas de centralidad estructural con SigmaJS y Graphology.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, Á. J. (2023). Mining, Shaping, Visualizing, and Interpreting Instagram Hipertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology. <em>UXUC-User Experience and Urban Creativity</em>, 5(2), 68-87. Portugal."
+      "displayDate": "2023",
+      "citation": "Ramírez Abundis, Á. J. (2023). Mining, Shaping, Visualizing, and Interpreting Instagram Hypertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology. <em>UXUC-User Experience and Urban Creativity</em>, 5(2), 68-87. Portugal."
     },
     "en": {
-      "title": "Mining, Shaping, Visualizing, and Interpreting Instagram Hipertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology",
+      "title": "Mining, Shaping, Visualizing, and Interpreting Instagram Hypertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology",
       "abstract": "Technical development and empirical analysis of Instagram networks associated with freight train graffiti in North America using machine learning and graphology.",
       "content": "<p>Academic article published in <em>UXUC-User Experience and Urban Creativity</em> (Portugal). Explains in detail the design, architecture, and analysis derived from the integration of the Python data extraction bot (idmb) and the Web-based Data Visualization Interface (DVI).</p><p>The document describes the processing of a relational cluster of Instagram posts associated with transnational freight graffiti. It details the use of computer vision convolutional models to classify pictorial styles on cargo cars, mapping relational profiles using structural centrality metrics with SigmaJS and Graphology.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J. (2023). Mining, Shaping, Visualizing, and Interpreting Instagram Hipertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology. <em>UXUC-User Experience and Urban Creativity</em>, 5(2), 68-87. Portugal."
+      "displayDate": "2023",
+      "citation": "Ramírez Abundis, A. J. (2023). Mining, Shaping, Visualizing, and Interpreting Instagram Hypertextual Networks of Freight Train Graffiti Communalities in North America Using Machine Learning Custom Models and Graphology. <em>UXUC-User Experience and Urban Creativity</em>, 5(2), 68-87. Portugal."
     },
     "project_url": "",
     "github_repo": "",
@@ -220,6 +291,12 @@ export const cvPosts = [
   },
   {
     "id": 82,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["etnografia"],
+      "contexto": ["internacional"]
+    },
     "type": "articles",
     "related_posts": [
       96,
@@ -238,15 +315,15 @@ export const cvPosts = [
       "title": "Y sin embargo se mueve: Aproximación al concepto de graffiti en tránsito desde el graffiti en trenes de mercancía en la ciudad de Guadalajara",
       "abstract": "Aproximación al concepto de 'graffiti en tránsito' analizando la movilidad ferroviaria como soporte semiótico transnacional.",
       "content": "<p>Artículo publicado en <em>Ñawi: arte diseño comunicación</em> (Ecuador). Propone y desarrolla el concepto sociosemiótico de 'graffiti en tránsito' para analizar las piezas pintadas sobre vagones de carga en Guadalajara.</p><p>A diferencia del graffiti estático de pared, el graffiti ferroviario adquiere una dimensión dinámica y transnacional al desplazarse miles de kilómetros por las redes ferroviarias de México, Estados Unidos y Canadá. El artículo estudia cómo la movilidad de los vagones configura un circuito de comunicación descentralizado que redefine la visibilidad, la territorialidad subcultural y la naturaleza efímera del arte urbano.</p>",
-      "displayDate": "",
+      "displayDate": "2022",
       "citation": "Ramírez Abundis, Á. J. (2022). Y sin embargo se mueve: Aproximación al concepto de graffiti en tránsito desde el graffiti en trenes de mercancía en la ciudad de Guadalajara. <em>Ñawi: arte diseño comunicación</em>, 6(2), 193-212. Ecuador."
     },
     "en": {
-      "title": "Y sin embargo se mueve: Aproximación al concepto de graffiti en tránsito desde el graffiti en trenes de mercancía en la ciudad de Guadalajara",
+      "title": "And Yet It Moves: An Approach to the Concept of 'Graffiti in Transit' from Freight Train Graffiti in Guadalajara",
       "abstract": "Approach to the concept of 'graffiti in transit' analyzing railway mobility as a transnational semiotic medium.",
       "content": "<p>Article published in <em>Ñawi: arte diseño comunicación</em> (Ecuador). Proposes and develops the sociosemiotic concept of 'graffiti in transit' to analyze pieces painted on cargo trains in Guadalajara.</p><p>Unlike static wall graffiti, railway graffiti acquires a dynamic, transnational dimension by moving thousands of miles across Mexico, the US, and Canada. The article studies how train mobility configurations construct a decentralized communication circuit that redefines visibility, subcultural territoriality, and the ephemeral nature of urban art.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J. (2022). Y sin embargo se mueve: Aproximación al concepto de graffiti en tránsito desde el graffiti en trenes de mercancía en la ciudad de Guadalajara. <em>Ñawi: arte diseño comunicación</em>, 6(2), 193-212. Ecuador."
+      "displayDate": "2022",
+      "citation": "Ramírez Abundis, A. J. (2022). And Yet It Moves: An Approach to the Concept of 'Graffiti in Transit' from Freight Train Graffiti in Guadalajara. <em>Ñawi: arte diseño comunicación</em>, 6(2), 193-212. Ecuador."
     },
     "project_url": "",
     "github_repo": "",
@@ -257,6 +334,12 @@ export const cvPosts = [
   },
   {
     "id": 73,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "investigador",
+      "metodo": ["etnografia"],
+      "contexto": ["internacional"]
+    },
     "type": "articles",
     "related_posts": [
       105,
@@ -274,15 +357,15 @@ export const cvPosts = [
       "title": "El freight graffiti, un circuito de circulación simbólica transnacional oculto en el margen de las vías del tren",
       "abstract": "Análisis del freight graffiti como un circuito transnacional de circulación simbólica invisible a los márgenes de las vías ferroviarias.",
       "content": "<p>Capítulo del libro <em>Jóvenes, significaciones y escenarios de riesgo: experiencias y narrativas diversas</em> (UATx). Explora las dinámicas subculturales de los escritores que acceden clandestinamente a patios de maniobras ferroviarias en México para estampar sus obras en vagones de carga.</p><p>El texto detalla la infraestructura ferroviaria como un canal físico de comunicación transnacional oculto a la vista cotidiana de la ciudad. Analiza las redes de afinidad y las tácticas de sigilo desarrolladas por los escritores locales para vincularse con la escena de graffiti norteamericana, desafiando las nociones geopolíticas tradicionales de frontera y espacio público.</p>",
-      "displayDate": "",
+      "displayDate": "2022",
       "citation": "Ramírez Abundis, Á. J., & López, C. (2022). El freight graffiti, un circuito de circulación simbólica transnacional oculto en el margen de las vías del tren. En Cuevas, A., Arellano, A. C., & Cortés, E. (Eds.), <em>Jóvenes, significaciones y escenarios de riesgo: experiencias y narrativas diversas</em> (pp. 117-134). Universidad Autónoma de Tlaxcala, México."
     },
     "en": {
-      "title": "El freight graffiti, un circuito de circulación simbólica transnacional oculto en el margen de las vías del tren",
+      "title": "Freight Graffiti: A Transnational Symbolic Circulation Circuit Hidden at the Margins of Railway Tracks",
       "abstract": "Analysis of freight graffiti as a transnational symbolic circulation circuit hidden along the margins of railway tracks.",
       "content": "<p>Book chapter published in <em>Jóvenes, significaciones y escenarios de riesgo: experiencias y narrativas diversas</em> (UATx). Explores the subcultural dynamics of writers who clandestinely enter railway yards in Mexico to stamp their works on cargo train cars.</p><p>The text details the railway infrastructure as a physical channel for transnational communication hidden from the everyday view of the city. It analyzes affinity networks and stealth tactics developed by local writers to connect with the North American graffiti scene, challenging traditional geopolitical ideas of borders and public space.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J., & Lopez, C. (2022). El freight graffiti, un circuito de circulación simbólica transnacional oculto en el margen de las vías del tren. In Cuevas, A., Arellano, A. C., & Cortés, E. (Eds.), <em>Jóvenes, significaciones y escenarios de riesgo: experiencias y narrativas diversas</em> (pp. 117-134). Universidad Autónoma de Tlaxcala, Mexico."
+      "displayDate": "2022",
+      "citation": "Ramírez Abundis, A. J., & Lopez, C. (2022). Freight Graffiti: A Transnational Symbolic Circulation Circuit Hidden at the Margins of Railway Tracks. In Cuevas, A., Arellano, A. C., & Cortés, E. (Eds.), <em>Jóvenes, significaciones y escenarios de riesgo: experiencias y narrativas diversas</em> (pp. 117-134). Universidad Autónoma de Tlaxcala, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -293,6 +376,12 @@ export const cvPosts = [
   },
   {
     "id": 46,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "ponente",
+      "metodo": ["js-react-web"],
+      "contexto": ["internacional"]
+    },
     "type": "talks",
     "related_posts": [
       36,
@@ -307,17 +396,17 @@ export const cvPosts = [
       "en": "conference"
     },
     "es": {
-      "title": "Node Reduction through Artificial Intelligence Inferences using Graphology and SigmaJS: A Case Study on Hypertextual Conversations in Freight Train Graffiti in the North American Region",
+      "title": "Reducción de nodos mediante inferencias de inteligencia artificial usando Graphology y SigmaJS: Un caso de estudio sobre conversaciones hipertextuales en el graffiti de trenes de carga en Norteamérica",
       "abstract": "Propuesta técnica en FOSDEM 2024 para simplificar grafos relacionales hipertextuales utilizando Graphology y SigmaJS.",
       "content": "<p>Ponencia presentada en la conferencia internacional FOSDEM 2024 (Bruselas, Bélgica). Expone una solución técnica en desarrollo web front-end para solventar el 'hairball problem' (sobrecarga y aglomeración visual de nodos) en grafos relacionales densos.</p><p>Tomando como caso de estudio las redes de interacciones de hashtags de Instagram, la presentación demuestra cómo implementar algoritmos de agrupamiento espacial interactivos en el navegador. La lógica, programada en JavaScript con Graphology y renderizada sobre WebGL con SigmaJS, permite reducir dinámicamente nodos periféricos basándose en pesos de centralidad estructural, facilitando el análisis visual en tiempo real para dispositivos de consumo estándar.</p>",
-      "displayDate": "",
+      "displayDate": "FOSDEM 2024 (3 de febrero de 2024)",
       "citation": "Ramírez Abundis, Á. J. (2024, 3 de febrero). <em>Node Reduction through Artificial Intelligence Inferences using Graphology and SigmaJS</em> [Ponencia]. FOSDEM 2024, Bruselas, Bélgica."
     },
     "en": {
       "title": "Node Reduction through Artificial Intelligence Inferences using Graphology and SigmaJS: A Case Study on Hypertextual Conversations in Freight Train Graffiti in the North American Region",
       "abstract": "Technical proposal at FOSDEM 2024 to simplify relational hypertextual graphs using Graphology and SigmaJS.",
       "content": "<p>Lecture presented at the international conference FOSDEM 2024 (Brussels, Belgium). Presents a technical front-end web development solution to solve the 'hairball problem' (visual clutter and node overcrowding) in dense relational graphs.</p><p>Using Instagram hashtag networks as a case study, the presentation demonstrates how to implement interactive spatial clustering algorithms in the browser. The logic, written in JavaScript with Graphology and rendered on WebGL with SigmaJS, dynamically reduces peripheral nodes based on structural centrality weights, facilitating real-time visual analysis on standard consumer devices.</p>",
-      "displayDate": "",
+      "displayDate": "FOSDEM 2024 (February 3, 2024)",
       "citation": "Ramírez Abundis, A. J. (2024, February 3). <em>Node Reduction through Artificial Intelligence Inferences using Graphology and SigmaJS</em> [Conference session]. FOSDEM 2024, Brussels, Belgium."
     },
     "project_url": "",
@@ -329,6 +418,12 @@ export const cvPosts = [
   },
   {
     "id": 48,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "ponente",
+      "metodo": ["ml-vision", "nlp"],
+      "contexto": ["internacional"]
+    },
     "type": "talks",
     "related_posts": [
       34,
@@ -343,17 +438,17 @@ export const cvPosts = [
       "en": "conference"
     },
     "es": {
-      "title": "Use of Machine Learning Classification Models, both Image and Text, in the Network Graphing. Case Study: Community of Practice Among Graffiti Writers on Freight Trains",
+      "title": "Uso de modelos de clasificación de aprendizaje automático, tanto de imagen como de texto, en la graficación de redes. Caso de estudio: Comunidad de práctica entre escritores de graffiti en trenes de carga",
       "abstract": "Metodología híbrida de aprendizaje automático (CNN + spaCy NLP) presentada en DH Budapest 2022 para enriquecer redes relacionales en humanidades digitales.",
       "content": "<p>Ponencia presentada en la 3ª Conferencia Internacional de Humanidades Digitales (DH_BUDAPEST_2022) en Budapest, Hungría. Describe una arquitectura técnica que combina visión artificial y procesamiento de lenguaje natural para estructurar bases de datos relacionales orientadas a grafos.</p><p>La metodología propone el uso de modelos convolucionales CNN entrenados en Roboflow para segmentar y categorizar estilos de graffiti, y pipelines de spaCy NLP para analizar el vocabulario identitario de las descripciones textuales. El resultado se grafica como una red hipertextual compleja que permite correlacionar la estética visual del graffiti con los patrones semánticos y de afinidad subcultural de los escritores.</p>",
-      "displayDate": "",
+      "displayDate": "DH_BUDAPEST_2022 (23 de noviembre de 2022)",
       "citation": "Ramírez Abundis, Á. J. (2022, 23 de noviembre). <em>Use of Machine Learning Classification Models, both Image and Text, in the Network Graphing</em> [Ponencia]. 3ª Conferencia Internacional de Humanidades Digitales (DH_BUDAPEST_2022), Budapest, Hungría."
     },
     "en": {
       "title": "Use of Machine Learning Classification Models, both Image and Text, in the Network Graphing. Case Study: Community of Practice Among Graffiti Writers on Freight Trains",
       "abstract": "Hybrid machine learning methodology (CNN + spaCy NLP) presented at DH Budapest 2022 to enrich relational networks in digital humanities.",
       "content": "<p>Lecture presented at the 3rd International Digital Humanities Conference (DH_BUDAPEST_2022) in Budapest, Hungary. Describes a technical architecture combining computer vision and natural language processing to structure graph-oriented relational databases.</p><p>The methodology proposes using CNN convolutional models trained in Roboflow to segment and categorize graffiti styles, and spaCy NLP pipelines to analyze the identity vocabulary of textual descriptions. The result is plotted as a complex hypertextual network that correlates the visual aesthetics of graffiti with the semantic patterns and subcultural affinity of writers.</p>",
-      "displayDate": "",
+      "displayDate": "DH_BUDAPEST_2022 (November 23, 2022)",
       "citation": "Ramírez Abundis, A. J. (2022, November 23). <em>Use of Machine Learning Classification Models, both Image and Text, in the Network Graphing</em> [Conference session]. 3rd International Digital Humanities Conference (DH_BUDAPEST_2022), Budapest, Hungary."
     },
     "project_url": "",
@@ -365,6 +460,12 @@ export const cvPosts = [
   },
   {
     "id": 50,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "ponente",
+      "metodo": ["etnografia", "python-data"],
+      "contexto": ["internacional"]
+    },
     "type": "talks",
     "related_posts": [
       96
@@ -378,17 +479,17 @@ export const cvPosts = [
       "en": "conference"
     },
     "es": {
-      "title": "Implications of the Computational Social Science Perspective in the Analysis of Hypertextual Conversations on Instagram around Freight Train Graffiti",
+      "title": "Implicaciones de la perspectiva de las ciencias sociales computacionales en el análisis de conversaciones hipertextuales en Instagram sobre graffiti en trenes de carga",
       "abstract": "Reflexión metodológica en Lisboa 2023 sobre las ciencias sociales computacionales y su aplicación al estudio del graffiti ferroviario transnacional.",
       "content": "<p>Ponencia en la Urban Creativity Conference 2023 (Lisboa, Portugal). Aborda las oportunidades y desafíos que surgen al integrar herramientas de raspado automatizado y minería de datos con etnografía cualitativa y trabajo de campo.</p><p>La presentación reflexiona sobre los límites éticos y técnicos del scraping de perfiles públicos en Instagram, detallando cómo la combinación de datos relacionales en grafos de redes y relatos de vida cualitativos recopilados en campo permite obtener una perspectiva sociológica profunda de los flujos culturales que no dependa puramente de algoritmos de caja negra.</p>",
-      "displayDate": "",
+      "displayDate": "Urban Creativity Lisbon 2023 (6 de julio de 2023)",
       "citation": "Ramírez Abundis, Á. J. (2023, 6 de julio). <em>Implications of the Computational Social Science Perspective in the Analysis of Hypertextual Conversations on Instagram around Freight Train Graffiti</em> [Ponencia]. Urban Creativity Conference 2023, Lisboa, Portugal."
     },
     "en": {
       "title": "Implications of the Computational Social Science Perspective in the Analysis of Hypertextual Conversations on Instagram around Freight Train Graffiti",
       "abstract": "Methodological reflection in Lisbon 2023 on computational social science and its application to the study of transnational railway graffiti.",
       "content": "<p>Lecture at the Urban Creativity Conference 2023 (Lisbon, Portugal). Addresses the opportunities and challenges of integrating automated scraping and data mining tools with qualitative ethnography and fieldwork.</p><p>The presentation reflects on the ethical and technical limits of scraping public Instagram profiles, detailing how combining relational graph data and qualitative life stories collected in the field provides a deep sociological perspective of cultural flows that does not rely purely on black-box algorithms.</p>",
-      "displayDate": "",
+      "displayDate": "Urban Creativity Lisbon 2023 (July 6, 2023)",
       "citation": "Ramírez Abundis, A. J. (2023, July 6). <em>Implications of the Computational Social Science Perspective in the Analysis of Hypertextual Conversations on Instagram around Freight Train Graffiti</em> [Conference session]. Urban Creativity Conference 2023, Lisbon, Portugal."
     },
     "project_url": "",
@@ -400,13 +501,19 @@ export const cvPosts = [
   },
   {
     "id": 52,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "ponente",
+      "metodo": ["etnografia"],
+      "contexto": ["udg"]
+    },
     "type": "talks",
     "related_posts": [
       32,
       91
     ],
     "slugs": {
-      "en": "la-ciudad-un-palimpsesto-comunicacional-el-graffiti-neoyorquino-su-capacidad-de-crear-circuito-masivo-de-comunicacion",
+      "en": "the-city-a-communicational-palimpsest-new-york-graffiti-and-its-capacity-to-create-a-mass-communication-circuit",
       "es": "la-ciudad-un-palimpsesto-comunicacional-el-graffiti-neoyorquino-su-capacidad-de-crear-circuito-masivo-de-comunicacion"
     },
     "categories": {
@@ -417,15 +524,15 @@ export const cvPosts = [
       "title": "La ciudad, un palimpsesto comunicacional: El graffiti neoyorquino, su capacidad de crear circuito masivo de comunicación",
       "abstract": "Análisis presentado en la UNAM sobre la capacidad semiótica del graffiti neoyorquino para estructurar circuitos de comunicación masiva autónomos.",
       "content": "<p>Ponencia dictada en el I Encuentro Internacional de Hip Hop en la UNAM. Analiza el graffiti de firma en vagones de metro e infraestructura de tránsito desde una perspectiva sociocomunicativa.</p><p>La presentación explora cómo las piezas se desplazan físicamente por la ciudad para crear un canal de interacción masivo e independiente que esquiva los controles tradicionales de los medios de comunicación y el estado. Propone formular políticas de inclusión y expresión artística juvenil que superen el simple enfoque criminalizante del borrado de muros.</p>",
-      "displayDate": "",
+      "displayDate": "UNAM (4 de febrero de 2022)",
       "citation": "Ramírez Abundis, Á. J. (2022, 4 de febrero). <em>La ciudad, un palimpsesto comunicacional: El graffiti neoyorquino, su capacidad de crear circuito masivo de comunicación</em> [Ponencia]. I Encuentro Internacional de Hip Hop, UNAM, En línea, México."
     },
     "en": {
-      "title": "La ciudad, un palimpsesto comunicacional: El graffiti neoyorquino, su capacidad de crear circuito masivo de comunicación",
+      "title": "The City, a Communicational Palimpsest: New York Graffiti and its Capacity to Create a Mass Communication Circuit",
       "abstract": "Analysis presented at UNAM on the semiotic capacity of New York-style graffiti to structure autonomous mass communication circuits.",
-      "content": "<p>Lecture delivered at the I Encuentro Internacional de Hip Hop at UNAM. Analyzes signature graffiti on subway cars and transit infrastructure from a sociocommunicative perspective.</p><p>The presentation explores how pieces physically move through the city to create a massive, independent channel of interaction that bypasses traditional media and state controls. It proposes formulating policies for youth expression and art that overcome the purely criminalizing wall-buffing approach.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J. (2022, February 4). <em>La ciudad, un palimpsesto comunicacional: El graffiti neoyorquino, su capacidad de crear circuito masivo de comunicación</em> [Conference session]. I Encuentro International of Hip Hop, UNAM, Online, Mexico."
+      "content": "<p>Lecture delivered at the 1st International Hip Hop Encounter at UNAM. Analyzes signature graffiti on subway cars and transit infrastructure from a sociocommunicative perspective.</p><p>The presentation explores how pieces physically move through the city to create a massive, independent channel of interaction that bypasses traditional media and state controls. It proposes formulating policies for youth expression and art that overcome the purely criminalizing wall-buffing approach.</p>",
+      "displayDate": "UNAM (February 4, 2022)",
+      "citation": "Ramírez Abundis, A. J. (2022, February 4). <em>The City, a Communicational Palimpsest: New York Graffiti and its Capacity to Create a Mass Communication Circuit</em> [Conference session]. 1st International Hip Hop Encounter, UNAM, Online, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -436,12 +543,18 @@ export const cvPosts = [
   },
   {
     "id": 54,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "ponente",
+      "metodo": ["etnografia"],
+      "contexto": ["internacional"]
+    },
     "type": "talks",
     "related_posts": [
       105
     ],
     "slugs": {
-      "en": "el-freight-graffiti-una-comunidad-imaginada-transnacional-oculta-en-el-margen-de-las-vias-del-tren",
+      "en": "freight-graffiti-a-transnational-imagined-community-hidden-at-the-margins-of-railway-tracks",
       "es": "el-freight-graffiti-una-comunidad-imaginada-transnacional-oculta-en-el-margen-de-las-vias-del-tren"
     },
     "categories": {
@@ -452,15 +565,15 @@ export const cvPosts = [
       "title": "El freight graffiti, una comunidad imaginada transnacional oculta en el margen de las vías del tren",
       "abstract": "Ponencia en Cataluña sobre la escena del freight graffiti concebida como una comunidad imaginada transnacional articulada por los flujos ferroviarios.",
       "content": "<p>Ponencia presentada en el IV Congreso Internacional de la Societat Catalana de Comunicació (España). Aplica el marco teórico de las comunidades imaginadas al graffiti de carga.</p><p>El estudio demuestra cómo los escritores de México, Estados Unidos y Canadá, sin conocerse físicamente, forman una red de reconocimiento e identidad compartida. Los vagones ferroviarios actúan como agentes físicos que transportan las firmas de patio a patio, de país a país, estructurando un circuito transnacional de circulación simbólica invisible al público masivo.</p>",
-      "displayDate": "",
+      "displayDate": "IV Congreso Internacional SCC (2 de julio de 2021)",
       "citation": "Ramírez Abundis, Á. J. (2021, 2 de julio). <em>El freight graffiti, una comunidad imaginada transnacional oculta en el margen de las vías del tren</em> [Ponencia]. IV Congreso Internacional de la Societat Catalana de Comunicació, En línea, España."
     },
     "en": {
-      "title": "El freight graffiti, una comunidad imaginada transnacional oculta en el margen de las vías del tren",
+      "title": "Freight Graffiti: A Transnational Imagined Community Hidden at the Margins of Railway Tracks",
       "abstract": "Lecture in Catalonia on the freight graffiti scene conceived as a transnational imagined community articulated by railway flows.",
-      "content": "<p>Lecture presented at the IV Congreso Internacional de la Societat Catalana de Comunicació (Spain). Applies Benedict Anderson's imagined communities framework to freight graffiti.</p><p>The study demonstrates how writers from Mexico, the US, and Canada, without physical contact, form a network of recognition and shared identity. Railway cars act as physical agents transporting signatures from yard to yard, country to country, structuring a transnational circuit of symbolic circulation invisible to the general public.</p>",
-      "displayDate": "",
-      "citation": "Ramírez Abundis, A. J. (2021, July 2). <em>El freight graffiti, una comunidad imaginada transnacional oculta en el margen de las vías del tren</em> [Conference session]. IV Congreso Internacional of the Societat Catalana de Comunicació, Online, Spain."
+      "content": "<p>Lecture presented at the IV International Congress of the Societat Catalana de Comunicació (Spain). Applies Benedict Anderson's imagined communities framework to freight graffiti.</p><p>The study demonstrates how writers from Mexico, the US, and Canada, without physical contact, form a network of recognition and shared identity. Railway cars act as physical agents transporting signatures from yard to yard, country to country, structuring a transnational circuit of symbolic circulation invisible to the general public.</p>",
+      "displayDate": "IV International Congress SCC (July 2, 2021)",
+      "citation": "Ramírez Abundis, A. J. (2021, July 2). <em>Freight Graffiti: A Transnational Imagined Community Hidden at the Margins of Railway Tracks</em> [Conference session]. IV International Congress of the Societat Catalana de Comunicació, Online, Spain."
     },
     "project_url": "",
     "github_repo": "",
@@ -471,6 +584,12 @@ export const cvPosts = [
   },
   {
     "id": 40,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "desarrollador",
+      "metodo": ["nlp", "python-data"],
+      "contexto": ["udg"]
+    },
     "type": "codeProject",
     "related_posts": [
       96,
@@ -486,17 +605,17 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Hashtag Graffiti Named Entity Recognition Model",
-      "abstract": "Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad NLP is used to analyze the texts and hashtags of posts to identify patterns that express the \"I am, I exist, I was here\" identity triad. Using the spaCy library, textual analysis helps identify terms and phrases through specialized dictionaries that classify relevant vocabulary (In-Dictionary and Out-of-Vocabulary), highlighting the language graffiti writers use to assert their presence in both urban and digital spaces.",
-      "content": "Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad NLP is used to analyze the texts and hashtags of posts to identify patterns that express the \"I am, I exist, I was here\" identity triad. Using the spaCy library, textual analysis helps identify terms and phrases through specialized dictionaries that classify relevant vocabulary (In-Dictionary and Out-of-Vocabulary), highlighting the language graffiti writers use to assert their presence in both urban and digital spaces.",
-      "displayDate": "",
+      "title": "Modelo de Reconocimiento de Entidades Nombradas en Hashtags de Graffiti",
+      "abstract": "Procesamiento de Lenguaje Natural (NLP) con spaCy: Análisis de la Tríada de Identidad. Se analiza texto y hashtags para identificar patrones de autoafirmación ('Yo soy, yo existo, yo estuve aquí'). Mediante spaCy y diccionarios especializados, se clasifica el vocabulario del graffiti en entornos urbanos y digitales.",
+      "content": "<p><strong>Procesamiento de Lenguaje Natural (NLP) con spaCy: Análisis de la Tríada de Identidad</strong></p><p>Pipeline de NLP desarrollado para analizar el texto y los hashtags de publicaciones de Instagram con el objetivo de identificar patrones discursivos que expresan la tríada identitaria <em>\"Yo soy, yo existo, yo estuve aquí\"</em>.</p><p>Utilizando la librería spaCy y diccionarios léxicos personalizados (In-Dictionary / Out-of-Vocabulary), el modelo segmenta y clasifica el lenguaje identitario que los escritores emplean para reafirmar su presencia territorial y digital.</p>",
+      "displayDate": "2023",
       "citation": "Ramírez Abundis, Á. J. (2023). <em>Spacy-Hashtag-Geolocator: NER model to split and locate hashtags</em> [Software]. GitHub. https://github.com/abundis-rmn2/Spacy-Hashtag-Geolocator"
     },
     "en": {
       "title": "Hashtag Graffiti Named Entity Recognition Model",
-      "abstract": "Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad NLP is used to analyze the texts and hashtags of posts to identify patterns that express the \"I am, I exist, I was here\" identity triad. Using the spaCy library, textual analysis helps identify terms and phrases through specialized dictionaries that classify relevant vocabulary (In-Dictionary and Out-of-Vocabulary), highlighting the language graffiti writers use to assert their presence in both urban and digital spaces.",
-      "content": "Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad NLP is used to analyze the texts and hashtags of posts to identify patterns that express the \"I am, I exist, I was here\" identity triad. Using the spaCy library, textual analysis helps identify terms and phrases through specialized dictionaries that classify relevant vocabulary (In-Dictionary and Out-of-Vocabulary), highlighting the language graffiti writers use to assert their presence in both urban and digital spaces.",
-      "displayDate": "",
+      "abstract": "Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad. NLP is used to analyze texts and hashtags to identify patterns expressing the 'I am, I exist, I was here' triad. Using spaCy, specialized dictionaries classify graffiti vocabulary across urban and digital spaces.",
+      "content": "<p><strong>Natural Language Processing (NLP) with spaCy: Analysis of the Identity Triad</strong></p><p>NLP pipeline developed to analyze post texts and hashtags to identify discursive patterns that express the identity triad <em>'I am, I exist, I was here'</em>.</p><p>Using the spaCy library and custom dictionaries (In-Dictionary / Out-of-Vocabulary), the model segments and classifies the specialized vocabulary graffiti writers use to assert their presence across urban and digital platforms.</p>",
+      "displayDate": "2023",
       "citation": "Ramírez Abundis, A. J. (2023). <em>Spacy-Hashtag-Geolocator: NER model to split and locate hashtags</em> [Software]. GitHub. https://github.com/abundis-rmn2/Spacy-Hashtag-Geolocator"
     },
     "project_url": "",
@@ -508,6 +627,12 @@ export const cvPosts = [
   },
   {
     "id": 38,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "desarrollador",
+      "metodo": ["ml-vision", "python-data"],
+      "contexto": ["udg"]
+    },
     "type": "codeProject",
     "related_posts": [
       36,
@@ -524,17 +649,17 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Graffiti Detection Model",
-      "abstract": "A TensorFlow-based tool for identifying graffiti styles and objects. It integrates SQL databases and FTP for streamlined image processing and result storage.",
-      "content": "A TensorFlow-based tool for identifying graffiti styles and objects. It integrates SQL databases and FTP for streamlined image processing and result storage.",
-      "displayDate": "",
+      "title": "Modelo de Detección de Estilos de Graffiti",
+      "abstract": "Herramienta basada en TensorFlow para identificar estilos y objetos de graffiti. Integra bases de datos SQL y protocolos FTP para el procesamiento fluido de imágenes y almacenamiento de inferencias.",
+      "content": "<p>Herramienta basada en TensorFlow y arquitecturas convolucionales (CNN) para identificar y clasificar tipologías de graffiti (monikers, tags, throw-ups y piezas). Integra bases de datos SQL y almacenamiento automatizado vía FTP para el procesamiento por lotes de imágenes y registro de predicciones.</p>",
+      "displayDate": "2023",
       "citation": "Ramírez Abundis, Á. J. (2023). <em>Graffiti styles - Object detection CNN Model</em> [Software]. Roboflow. https://universe.roboflow.com/angel-abundis/graffiti-styles"
     },
     "en": {
       "title": "Graffiti Detection Model",
-      "abstract": "A TensorFlow-based tool for identifying graffiti styles and objects. It integrates SQL databases and FTP for streamlined image processing and result storage.",
-      "content": "A TensorFlow-based tool for identifying graffiti styles and objects. It integrates SQL databases and FTP for streamlined image processing and result storage.",
-      "displayDate": "",
+      "abstract": "A TensorFlow-based tool for identifying graffiti styles and objects. Integrates SQL databases and FTP protocols for streamlined image processing and inference storage.",
+      "content": "<p>A TensorFlow-based computer vision tool using convolutional neural networks (CNN) to detect and classify graffiti styles (monikers, tags, throw-ups, and pieces). Integrates SQL databases and automated FTP pipelines for batch image processing and prediction storage.</p>",
+      "displayDate": "2023",
       "citation": "Ramírez Abundis, A. J. (2023). <em>Graffiti styles - Object detection CNN Model</em> [Software]. Roboflow. https://universe.roboflow.com/angel-abundis/graffiti-styles"
     },
     "project_url": "",
@@ -546,6 +671,12 @@ export const cvPosts = [
   },
   {
     "id": 36,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "desarrollador",
+      "metodo": ["python-data"],
+      "contexto": ["udg"]
+    },
     "type": "codeProject",
     "related_posts": [
       96
@@ -559,17 +690,17 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Instagram Mining Data Bot (idmb)",
-      "abstract": "IDMB automates the collection and backup of data from Instagram, focusing on posts tagged with specific graffiti-related hashtags. This bot was programmed in Python, an interpreted language, and uses the open-source library Instagrapi, which enables automated interaction with Instagram. The bot accesses profiles and posts, storing this data in a structured format in an SQL database.",
-      "content": "IDMB automates the collection and backup of data from Instagram, focusing on posts tagged with specific graffiti-related hashtags. This bot was programmed in Python, an interpreted language, and uses the open-source library Instagrapi, which enables automated interaction with Instagram. The bot accesses profiles and posts, storing this data in a structured format in an SQL database.",
-      "displayDate": "",
+      "title": "Bot de Minería de Datos en Instagram (idmb)",
+      "abstract": "IDMB automatiza la recolección y respaldo de datos de Instagram enfocándose en publicaciones con hashtags de graffiti ferroviario. Desarrollado en Python con la librería Instagrapi, extrae perfiles y publicaciones para almacenarlos estructuradamente en bases de datos SQL.",
+      "content": "<p>IDMB automatiza la recolección y respaldo de publicaciones públicas de Instagram enfocándose en publicaciones etiquetadas con hashtags de graffiti en trenes de carga. Programado en Python utilizando la librería open-source <em>Instagrapi</em>, el bot accede a perfiles y publicaciones para registrar metadatos de interacción, enlaces cruzados e imágenes en una base de datos SQL relacional.</p>",
+      "displayDate": "2021",
       "citation": "Ramírez Abundis, Á. J. (2021). <em>Instagram Data Mining Bot (idmb)</em> [Software]. GitHub. https://github.com/abundis-rmn2/idmb"
     },
     "en": {
       "title": "Instagram Mining Data Bot (idmb)",
-      "abstract": "IDMB automates the collection and backup of data from Instagram, focusing on posts tagged with specific graffiti-related hashtags. This bot was programmed in Python, an interpreted language, and uses the open-source library Instagrapi, which enables automated interaction with Instagram. The bot accesses profiles and posts, storing this data in a structured format in an SQL database.",
-      "content": "IDMB automates the collection and backup of data from Instagram, focusing on posts tagged with specific graffiti-related hashtags. This bot was programmed in Python, an interpreted language, and uses the open-source library Instagrapi, which enables automated interaction with Instagram. The bot accesses profiles and posts, storing this data in a structured format in an SQL database.",
-      "displayDate": "",
+      "abstract": "IDMB automates the collection and backup of Instagram data, focusing on posts tagged with specific freight graffiti hashtags. Built in Python using Instagrapi to store structured records in SQL databases.",
+      "content": "<p>IDMB automates the collection and backup of public Instagram data, focusing on posts tagged with specific freight train graffiti hashtags. Built in Python using the open-source library <em>Instagrapi</em>, the bot extracts profiles, post metadata, cross-interactions, and images into a structured relational SQL database.</p>",
+      "displayDate": "2021",
       "citation": "Ramírez Abundis, A. J. (2021). <em>Instagram Data Mining Bot (idmb)</em> [Software]. GitHub. https://github.com/abundis-rmn2/idmb"
     },
     "project_url": "https://data.abundis.com.mx/vista/",
@@ -581,6 +712,12 @@ export const cvPosts = [
   },
   {
     "id": 34,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "desarrollador",
+      "metodo": ["js-react-web"],
+      "contexto": ["udg"]
+    },
     "type": "codeProject",
     "related_posts": [
       96
@@ -594,17 +731,17 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Data Visualization Interface (DVI)",
-      "abstract": "DVI is designed for the interactive visualization of data collected by IDMB. This interface was developed using PHP and JavaScript, allowing for querying the shared SQL database through SQL queries to quickly access the stored information. Using tools like Graphology, DVI generates network visualizations that represent the interactions within the community, making it easier to identify behavioral patterns and relationships of influence. Additional Features In addition to its visual function, DVI includes an administration panel where pending activities are managed, such as monitoring hypertextual conversations. This feature facilitates the continuous extraction and analysis of data.",
-      "content": "DVI is designed for the interactive visualization of data collected by IDMB. This interface was developed using PHP and JavaScript, allowing for querying the shared SQL database through SQL queries to quickly access the stored information. Using tools like Graphology, DVI generates network visualizations that represent the interactions within the community, making it easier to identify behavioral patterns and relationships of influence. Additional Features In addition to its visual function, DVI includes an administration panel where pending activities are managed, such as monitoring hypertextual conversations. This feature facilitates the continuous extraction and analysis of data.",
-      "displayDate": "",
+      "title": "Interfaz de Visualización de Datos (DVI)",
+      "abstract": "DVI está diseñada para la visualización interactiva de datos recolectados por IDMB. Desarrollada en PHP y JavaScript con Graphology, genera grafos de redes para representar interacciones subculturales y patrones de influencia en un panel administrativo.",
+      "content": "<p>DVI está diseñada para la visualización interactiva de redes relacionales recopiladas por IDMB. Desarrollada con PHP, JavaScript y Graphology, permite consultar bases de datos SQL y renderizar grafos complejos interactivos para representar las interacciones dentro de la comunidad de escritores. Incluye un panel administrativo para gestionar flujos de extracción y monitoreo continuo de conversaciones hipertextuales.</p>",
+      "displayDate": "2022",
       "citation": "Ramírez Abundis, Á. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://data.abundis.com.mx/vista/"
     },
     "en": {
       "title": "Data Visualization Interface (DVI)",
-      "abstract": "DVI is designed for the interactive visualization of data collected by IDMB. This interface was developed using PHP and JavaScript, allowing for querying the shared SQL database through SQL queries to quickly access the stored information. Using tools like Graphology, DVI generates network visualizations that represent the interactions within the community, making it easier to identify behavioral patterns and relationships of influence. Additional Features In addition to its visual function, DVI includes an administration panel where pending activities are managed, such as monitoring hypertextual conversations. This feature facilitates the continuous extraction and analysis of data.",
-      "content": "DVI is designed for the interactive visualization of data collected by IDMB. This interface was developed using PHP and JavaScript, allowing for querying the shared SQL database through SQL queries to quickly access the stored information. Using tools like Graphology, DVI generates network visualizations that represent the interactions within the community, making it easier to identify behavioral patterns and relationships of influence. Additional Features In addition to its visual function, DVI includes an administration panel where pending activities are managed, such as monitoring hypertextual conversations. This feature facilitates the continuous extraction and analysis of data.",
-      "displayDate": "",
+      "abstract": "DVI is designed for the interactive visualization of data collected by IDMB. Built using PHP and JavaScript with Graphology, it generates complex network graphs to reveal subcultural interactions and influence patterns.",
+      "content": "<p>DVI is designed for the interactive visualization of relational networks collected by IDMB. Developed using PHP, JavaScript, and Graphology, it queries SQL databases to render complex interactive network graphs representing community interactions. It includes an administration panel to manage data extraction tasks and monitor hypertextual conversations.</p>",
+      "displayDate": "2022",
       "citation": "Ramírez Abundis, A. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://data.abundis.com.mx/vista/"
     },
     "project_url": "https://data.abundis.com.mx/vista/hashtags_ai_data_live.php?id=67",
@@ -616,6 +753,12 @@ export const cvPosts = [
   },
   {
     "id": 32,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "desarrollador",
+      "metodo": ["js-react-web", "analisis-documental"],
+      "contexto": ["udg"]
+    },
     "type": "codeProject",
     "related_posts": [
       91,
@@ -630,17 +773,17 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Amoxeh – WordPress plugin",
-      "abstract": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
-      "content": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
-      "displayDate": "",
+      "title": "Amoxeh – Plugin de WordPress",
+      "abstract": "Plugin desarrollado sobre WordPress para la gestión y análisis de notas periodísticas. Permite etiquetar metadatos, navegación hipertextual y visualizaciones avanzadas: línea del tiempo interactiva, mapa cartográfico e integración con Voyant Tools.",
+      "content": "<p>Amoxeh es un software desarrollado sobre WordPress que facilita la gestión y el análisis de corpus periodísticos. Permite etiquetar cada nota para organizar y recuperar información mediante consultas de metadatos cruzados. Ofrece tres modos de visualización: una línea de tiempo interactiva sobre la evolución mediática, una representación cartográfica geográfica y una integración con la plataforma Voyant Tools para análisis lingüístico.</p>",
+      "displayDate": "2016",
       "citation": "Ramírez Abundis, Á. J. (2016). <em>Amoxeh - WordPress plugin</em> [Software]. https://rmn2.com/graffiti-gdl/notas_periodico/"
     },
     "en": {
-      "title": "Amoxeh – WordPress plugin",
-      "abstract": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
-      "content": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
-      "displayDate": "",
+      "title": "Amoxeh – WordPress Plugin",
+      "abstract": "WordPress plugin developed to manage and analyze newspaper article corpora. Offers metadata tagging, structured hypertext navigation, and three visualization modes: interactive timeline, cartographic mapping, and Voyant Tools integration.",
+      "content": "<p>Amoxeh is a software tool developed on WordPress that facilitates the management and analysis of journalistic article corpora. It allows structured tagging and cross-referenced metadata queries. It provides three visualization modes: an interactive timeline tracking media trends over time, a cartographic map showing geographic coverage, and direct integration with Voyant Tools for lexical text analysis.</p>",
+      "displayDate": "2016",
       "citation": "Ramírez Abundis, A. J. (2016). <em>Amoxeh - WordPress plugin</em> [Software]. https://rmn2.com/graffiti-gdl/notas_periodico/"
     },
     "project_url": "https://rmn2.com/graffiti-gdl/notas_periodico/",
@@ -652,6 +795,12 @@ export const cvPosts = [
   },
   {
     "id": 56,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "director-creativo",
+      "metodo": ["ar-interactivo", "js-react-web"],
+      "contexto": ["udg"]
+    },
     "type": "multimedia",
     "related_posts": [
       91,
@@ -666,18 +815,18 @@ export const cvPosts = [
       "en": "multimediaProject"
     },
     "es": {
-      "title": "Recorriendo el tRAzo – Interactive History of the Graffiti in Guadalajara City",
-      "abstract": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
-      "content": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
-      "displayDate": "",
-      "citation": ""
+      "title": "Recorriendo el tRAzo – Historia interactiva del graffiti en Guadalajara",
+      "abstract": "Adaptación web interactiva de la investigación 'El graffiti ha muerto: Aproximación sociohistórica de la aparición y evolución del fenómeno del graffiti en la ciudad de Guadalajara'.",
+      "content": "<p>Adaptación interactiva y multimedia de la investigación monográfica sobre la historia del graffiti en Guadalajara, combinando mapas narrativos, fotografías de archivo y entrevistas con pioneros de la escena urbana.</p>",
+      "displayDate": "2019",
+      "citation": "Ramírez Abundis, Á. J. (2019). <em>Recorriendo el tRAzo – Historia interactiva del graffiti en Guadalajara</em> [Proyecto multimedia]. https://rmn2.com/graffiti-gdl/recorriendo-el-trazo/"
     },
     "en": {
-      "title": "Recorriendo el tRAzo – Interactive History of the Graffiti in Guadalajara City",
-      "abstract": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
-      "content": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
-      "displayDate": "",
-      "citation": ""
+      "title": "Recorriendo el tRAzo – Interactive History of Graffiti in Guadalajara",
+      "abstract": "Interactive web adaptation of 'Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in Guadalajara'.",
+      "content": "<p>Interactive multimedia adaptation of the monographic research on the history of graffiti in Guadalajara, featuring narrative maps, archive photographs, and interviews with local scene pioneers.</p>",
+      "displayDate": "2019",
+      "citation": "Ramírez Abundis, A. J. (2019). <em>Recorriendo el tRAzo – Interactive History of Graffiti in Guadalajara</em> [Multimedia project]. https://rmn2.com/graffiti-gdl/recorriendo-el-trazo/"
     },
     "project_url": "",
     "github_repo": "",
@@ -688,6 +837,12 @@ export const cvPosts = [
   },
   {
     "id": 58,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "director-creativo",
+      "metodo": ["audiovisual"],
+      "contexto": ["autonomo"]
+    },
     "type": "multimedia",
     "related_posts": [
       77
@@ -702,17 +857,17 @@ export const cvPosts = [
     },
     "es": {
       "title": "Visiones de Paz – Graciela Pérez Rodríguez, defensora de derechos humanos",
-      "abstract": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
-      "content": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
-      "displayDate": "",
-      "citation": ""
+      "abstract": "Cortometraje documental donde Graciela Pérez comparte su trayectoria como defensora de derechos humanos y el proceso de búsqueda de sus familiares desaparecidos.",
+      "content": "<p>Cortometraje documental en el que Graciela Pérez comparte su testimonio como activista y defensora de derechos humanos, narrando la experiencia colectiva y las exigencias de búsqueda de sus seres queridos desaparecidos en México.</p>",
+      "displayDate": "2018",
+      "citation": "Ramírez Abundis, Á. J. (2018). <em>Visiones de Paz – Graciela Pérez Rodríguez, defensora de derechos humanos</em> [Cortometraje documental]."
     },
     "en": {
-      "title": "Visiones de Paz – Graciela Pérez Rodríguez, defensora de derechos humanos",
-      "abstract": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
-      "content": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
-      "displayDate": "",
-      "citation": ""
+      "title": "Visions of Peace – Graciela Pérez Rodríguez, Human Rights Defender",
+      "abstract": "Short documentary film where Graciela Pérez shares her story as a human rights activist and the experience of searching for her missing loved ones.",
+      "content": "<p>Short documentary film where Graciela Pérez shares her testimony as an activist and human rights defender, narrating the collective struggle and demands in the search for missing loved ones in Mexico.</p>",
+      "displayDate": "2018",
+      "citation": "Ramírez Abundis, A. J. (2018). <em>Visions of Peace – Graciela Pérez Rodríguez, Human Rights Defender</em> [Short documentary]."
     },
     "project_url": "",
     "github_repo": "",
@@ -723,6 +878,12 @@ export const cvPosts = [
   },
   {
     "id": 60,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "director-creativo",
+      "metodo": ["audiovisual"],
+      "contexto": ["udg"]
+    },
     "type": "multimedia",
     "related_posts": [
       91
@@ -736,18 +897,18 @@ export const cvPosts = [
       "en": "multimediaProject"
     },
     "es": {
-      "title": "El graffiti ha muerto (Graffiti is Dead)",
-      "abstract": "Author - “Graffiti is Dead”. Documentary about hip-hop graffiti history in Guadalajara, 2019 -",
-      "content": "Author - “Graffiti is Dead”. Documentary about hip-hop graffiti history in Guadalajara, 2019 -",
-      "displayDate": "",
-      "citation": ""
+      "title": "El graffiti ha muerto",
+      "abstract": "Director / Autor - 'El graffiti ha muerto'. Documental sobre la historia y evolución del graffiti hip-hop en Guadalajara.",
+      "content": "<p>Director y realizador del documental <em>El graffiti ha muerto</em>. Registro audiovisual que aborda la historia, códigos y testimonios de las primeras generaciones de escritores de graffiti en Guadalajara desde la década de 1990.</p>",
+      "displayDate": "2017 – 2019",
+      "citation": "Ramírez Abundis, Á. J. (Director). (2017). <em>El graffiti ha muerto</em> [Documental]. Guadalajara, México."
     },
     "en": {
-      "title": "El graffiti ha muerto (Graffiti is Dead)",
-      "abstract": "Author - “Graffiti is Dead”. Documentary about hip-hop graffiti history in Guadalajara, 2019 -",
-      "content": "Author - “Graffiti is Dead”. Documentary about hip-hop graffiti history in Guadalajara, 2019 -",
-      "displayDate": "",
-      "citation": ""
+      "title": "Graffiti is Dead (El graffiti ha muerto)",
+      "abstract": "Director / Author - 'Graffiti is Dead'. Documentary covering the history and evolution of hip-hop graffiti in Guadalajara.",
+      "content": "<p>Director and creator of the documentary <em>Graffiti is Dead</em>. Audiovisual record documenting the history, codes, and oral testimonies of the pioneer generations of graffiti writers in Guadalajara since the 1990s.</p>",
+      "displayDate": "2017 – 2019",
+      "citation": "Ramírez Abundis, A. J. (Director). (2017). <em>Graffiti is Dead</em> [Documentary]. Guadalajara, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -758,6 +919,12 @@ export const cvPosts = [
   },
   {
     "id": 62,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "director-creativo",
+      "metodo": ["audiovisual"],
+      "contexto": ["autonomo"]
+    },
     "type": "multimedia",
     "related_posts": [
       60
@@ -771,18 +938,18 @@ export const cvPosts = [
       "en": "multimediaProject"
     },
     "es": {
-      "title": "Florencia 13 Lomas del Paraiso",
-      "abstract": "Co-author - “Doculoco, Florencia 13 Lomas del Paraiso”. Documentary following the journey of Gasper, a young teenager involved with the transnational gang Florencia 13, 2017 - .",
-      "content": "Co-author - “Doculoco, Florencia 13 Lomas del Paraiso”. Documentary following the journey of Gasper, a young teenager involved with the transnational gang Florencia 13, 2017 - .",
-      "displayDate": "",
-      "citation": ""
+      "title": "Florencia 13 Lomas del Paraíso",
+      "abstract": "Co-autor - 'Doculoco, Florencia 13 Lomas del Paraíso'. Serie documental sobre las vivencias de jóvenes vinculados a pandillas transnacionales en Guadalajara.",
+      "content": "<p>Co-autor de la serie documental <em>Doculoco, Florencia 13 Lomas del Paraíso</em>. Sigue la vida cotidiana de adolescentes en barrios marginales y su relación con dinámicas de pandillas transnacionales, identidades barriales y exclusión social.</p>",
+      "displayDate": "2017",
+      "citation": "Ramírez Abundis, Á. J. (2017). <em>Doculoco, Florencia 13 Lomas del Paraíso</em> [Serie documental]. Guadalajara, México."
     },
     "en": {
-      "title": "Florencia 13 Lomas del Paraiso",
-      "abstract": "Co-author - “Doculoco, Florencia 13 Lomas del Paraiso”. Documentary following the journey of Gasper, a young teenager involved with the transnational gang Florencia 13, 2017 - .",
-      "content": "Co-author - “Doculoco, Florencia 13 Lomas del Paraiso”. Documentary following the journey of Gasper, a young teenager involved with the transnational gang Florencia 13, 2017 - .",
-      "displayDate": "",
-      "citation": ""
+      "title": "Florencia 13 Lomas del Paraíso",
+      "abstract": "Co-author - 'Doculoco, Florencia 13 Lomas del Paraíso'. Documentary following youth narratives and transnational gang connections in Guadalajara.",
+      "content": "<p>Co-author of the documentary project <em>Doculoco, Florencia 13 Lomas del Paraíso</em>. Follows the daily realities of youth in marginalized neighborhoods and their ties to transnational gang networks, local identity, and urban exclusion.</p>",
+      "displayDate": "2017",
+      "citation": "Ramírez Abundis, A. J. (2017). <em>Doculoco, Florencia 13 Lomas del Paraíso</em> [Documentary series]. Guadalajara, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -793,6 +960,12 @@ export const cvPosts = [
   },
   {
     "id": 105,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["udg"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       91
@@ -806,17 +979,17 @@ export const cvPosts = [
       "en": "mediaAppearance"
     },
     "es": {
-      "title": "“Aquí estoy”, la hazaña del graffiti tapatío («Here I Am»: The Odyssey of Guadalajara Graffiti)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "“Aquí estoy”, la hazaña del graffiti tapatío",
+      "abstract": "Reportaje de prensa en Gaceta UDG sobre la investigación sociohistórica del graffiti en Guadalajara y su impacto cultural.",
+      "content": "<p>Artículo en Gaceta UDG destacando la reconstrucción histórica del graffiti local y la recopilación de testimonios orales de sus precursores.</p>",
+      "displayDate": "9 de septiembre de 2022",
       "citation": "Montiel, A. (2022, 9 de septiembre). “Aquí estoy”, la hazaña del graffiti tapatío. <em>Gaceta U de G</em>."
     },
     "en": {
-      "title": "“Aquí estoy”, la hazaña del graffiti tapatío («Here I Am»: The Odyssey of Guadalajara Graffiti)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "“Here I Am”: The Odyssey of Guadalajara Graffiti",
+      "abstract": "Press coverage in Gaceta UDG discussing the sociohistorical research on Guadalajara graffiti and its cultural legacy.",
+      "content": "<p>Article published in Gaceta UDG highlighting the historical reconstruction of local graffiti and the curation of oral testimonies from early pioneers.</p>",
+      "displayDate": "September 9, 2022",
       "citation": "Montiel, A. (2022, September 9). “Aquí estoy”, la hazaña del graffiti tapatío. <em>Gaceta U de G</em>."
     },
     "project_url": "",
@@ -828,6 +1001,12 @@ export const cvPosts = [
   },
   {
     "id": 102,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["udg"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       91
@@ -841,17 +1020,17 @@ export const cvPosts = [
       "en": "mediaAppearance"
     },
     "es": {
-      "title": "Cuenta una de las historias del grafiti tapatío (Shares One of the Stories of Guadalajara Graffiti)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "Cuenta una de las historias del grafiti tapatío",
+      "abstract": "Entrevista periodística en El Diario NTR sobre el rescate de la memoria del movimiento de graffiti en Jalisco.",
+      "content": "<p>Entrevista y reseña sobre el proyecto de investigación y documental <em>El graffiti ha muerto</em> en El Diario NTR.</p>",
+      "displayDate": "31 de octubre de 2019",
       "citation": "Carrillo, A. (2019, 31 de octubre). Cuenta una de las historias del grafiti tapatío. <em>El Diario NTR</em>."
     },
     "en": {
-      "title": "Cuenta una de las historias del grafiti tapatío (Shares One of the Stories of Guadalajara Graffiti)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "Shares One of the Stories of Guadalajara Graffiti",
+      "abstract": "Press interview in El Diario NTR about preserving the history and oral memory of the graffiti movement in Jalisco.",
+      "content": "<p>Interview and review regarding the research monograph and documentary <em>Graffiti is Dead</em> published in El Diario NTR.</p>",
+      "displayDate": "October 31, 2019",
       "citation": "Carrillo, A. (2019, October 31). Cuenta una de las historias del grafiti tapatío. <em>El Diario NTR</em>."
     },
     "project_url": "",
@@ -863,6 +1042,12 @@ export const cvPosts = [
   },
   {
     "id": 100,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["udg"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       60
@@ -876,17 +1061,17 @@ export const cvPosts = [
       "en": "mediaAppearance"
     },
     "es": {
-      "title": "Presentaron El graffiti ha muerto (Graffiti is Dead was Presented)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "Presentaron 'El graffiti ha muerto'",
+      "abstract": "Nota de prensa en Grupo Milenio sobre la proyección y presentación del mediometraje documental sobre la cultura del graffiti.",
+      "content": "<p>Cobertura de la presentación pública del documental <em>El graffiti ha muerto</em> en espacios culturales de Guadalajara.</p>",
+      "displayDate": "17 de diciembre de 2017",
       "citation": "Editorial Milenio. (2017, 17 de diciembre). Presentaron El graffiti ha muerto. <em>Milenio</em>."
     },
     "en": {
-      "title": "Presentaron El graffiti ha muerto (Graffiti is Dead was Presented)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "'Graffiti is Dead' Was Presented",
+      "abstract": "Press article in Grupo Milenio regarding the premiere and screening of the documentary film on graffiti culture.",
+      "content": "<p>Coverage of the public premiere of the documentary <em>Graffiti is Dead</em> across cultural venues in Guadalajara.</p>",
+      "displayDate": "December 17, 2017",
       "citation": "Editorial Milenio. (2017, December 17). Presentaron El graffiti ha muerto. <em>Milenio</em>."
     },
     "project_url": "",
@@ -898,6 +1083,12 @@ export const cvPosts = [
   },
   {
     "id": 98,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["internacional"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       48
@@ -911,17 +1102,17 @@ export const cvPosts = [
       "en": "mediaAppearance"
     },
     "es": {
-      "title": "Graffitik a digitális bölcsészetben / DH_BUDAPEST konferencia (Graffiti in the digital humanities / DH_BUDAPEST conference)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "Graffitik a digitális bölcsészetben / DH_BUDAPEST konferencia (Graffiti en las humanidades digitales)",
+      "abstract": "Cobertura en prensa cultural húngara (PRAE.HU) sobre las aplicaciones de inteligencia artificial y grafos para el estudio del graffiti en la conferencia DH_BUDAPEST 2022.",
+      "content": "<p>Reseña en el medio cultural húngaro <em>PRAE.HU</em> sobre las ponencias destacadas en la conferencia DH_BUDAPEST 2022, resaltando el uso de modelos de visión por computadora y análisis de redes para el estudio del graffiti.</p>",
+      "displayDate": "8 de noviembre de 2022",
       "citation": "Dotti, S. (2022, 8 de noviembre). Graffitik a digitális bölcsészetben / DH_BUDAPEST dekonferencia. <em>PRAE.HU</em>."
     },
     "en": {
-      "title": "Graffitik a digitális bölcsészetben / DH_BUDAPEST konferencia (Graffiti in the digital humanities / DH_BUDAPEST conference)",
-      "abstract": "",
-      "content": "",
-      "displayDate": "",
+      "title": "Graffitik a digitális bölcsészetben / DH_BUDAPEST Conference (Graffiti in Digital Humanities)",
+      "abstract": "Coverage in Hungarian cultural press (PRAE.HU) on AI applications and graph analysis for graffiti research at the DH_BUDAPEST 2022 conference.",
+      "content": "<p>Review in Hungarian cultural media <em>PRAE.HU</em> discussing featured presentations at the DH_BUDAPEST 2022 conference, emphasizing the use of computer vision models and network analysis to study graffiti.</p>",
+      "displayDate": "November 8, 2022",
       "citation": "Dotti, S. (2022, November 8). Graffitik a digitális bölcsészetben / DH_BUDAPEST dekonferencia. <em>PRAE.HU</em>."
     },
     "project_url": "",
@@ -933,30 +1124,36 @@ export const cvPosts = [
   },
   {
     "id": 12,
+    "tags": {
+      "dominio": [],
+      "rol": "blog",
+      "metodo": [],
+      "contexto": ["autonomo"]
+    },
     "type": "blog",
     "related_posts": [
       1,
       32
     ],
     "slugs": {
-      "en": "blog-post-entry",
-      "es": "entrada-de-blog"
+      "en": "sample-blog-entry",
+      "es": "entrada-de-blog-prueba"
     },
     "categories": {
       "es": "blog",
       "en": "blog"
     },
     "es": {
-      "title": "Entrada de Blog",
-      "abstract": "",
-      "content": "\n<p>aprueba pruyeba</p>\n",
+      "title": "Entrada de prueba",
+      "abstract": "Entrada de prueba del blog.",
+      "content": "<p>Entrada de prueba de publicación.</p>",
       "displayDate": "",
       "citation": ""
     },
     "en": {
-      "title": "Entrada de Blog",
-      "abstract": "",
-      "content": "\n<p>aprueba pruyeba</p>\n",
+      "title": "Sample Blog Entry",
+      "abstract": "Sample blog post entry.",
+      "content": "<p>Sample blog post test.</p>",
       "displayDate": "",
       "citation": ""
     },
@@ -969,6 +1166,12 @@ export const cvPosts = [
   },
   {
     "id": 1,
+    "tags": {
+      "dominio": [],
+      "rol": "blog",
+      "metodo": [],
+      "contexto": ["autonomo"]
+    },
     "type": "blog",
     "related_posts": [
       12,
@@ -983,16 +1186,16 @@ export const cvPosts = [
       "en": "blog"
     },
     "es": {
-      "title": "Hello world!",
-      "abstract": "",
-      "content": "\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+      "title": "¡Hola mundo!",
+      "abstract": "Bienvenido a WordPress. Esta es tu primera entrada.",
+      "content": "<p>Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡y comienza a escribir!</p>",
       "displayDate": "",
       "citation": ""
     },
     "en": {
       "title": "Hello world!",
-      "abstract": "",
-      "content": "\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+      "abstract": "Welcome to WordPress. This is your first post.",
+      "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>",
       "displayDate": "",
       "citation": ""
     },
@@ -1005,6 +1208,12 @@ export const cvPosts = [
   },
   {
     "id": 200,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["js-react-web"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       201,
@@ -1029,16 +1238,16 @@ export const cvPosts = [
     "es": {
       "title": "Tejer.RED — Repositorio y Plataforma de Software Libre para la Búsqueda de Desaparecidos",
       "abstract": "Repositorio y plataforma de herramientas de código abierto dedicadas a fortalecer la lucha contra la desaparición de personas en México. Funciona como un tejido colaborativo para diseñar y publicar soluciones tecnológicas adaptadas a necesidades reales de campo.",
-      "content": "<p><strong>Fundador y Desarrollador Principal | oct. 2021 – Presente</strong></p><p>Repositorio de herramientas de código abierto dedicadas a fortalecer la lucha contra la desaparición de personas en México. Funciona como un tejido colaborativo entre colectivos de búsqueda, personas voluntarias, organizaciones civiles e instituciones para diseñar y publicar soluciones tecnológicas adaptadas a necesidades reales de campo. Apuesta por la soberanía tecnológica, infraestructuras descentralizadas y el código abierto bajo la premisa de <em>\"usar la tecnología como puente para la verdad y el código como camino para que nadie busque en soledad\"</em>.</p><p>Sitio web: <a href=\"https://tejer.red\" target=\"_blank\">tejer.red</a></p>",
-      "displayDate": "oct. 2021 – Presente",
+      "content": "<p><strong>Fundador y Desarrollador Principal | Oct. 2021 – Presente</strong></p><p>Repositorio de herramientas de código abierto dedicadas a fortalecer la lucha contra la desaparición de personas en México. Funciona como un tejido colaborativo entre colectivos de búsqueda, personas voluntarias, organizaciones civiles e instituciones para diseñar y publicar soluciones tecnológicas adaptadas a necesidades reales de campo. Apuesta por la soberanía tecnológica, infraestructuras descentralizadas y el código abierto bajo la premisa de <em>\"usar la tecnología como puente para la verdad y el código como camino para que nadie busque en soledad\"</em>.</p><p>Sitio web: <a href=\"https://tejer.red\" target=\"_blank\">tejer.red</a></p>",
+      "displayDate": "Oct. 2021 – Presente",
       "citation": "Ramírez Abundis, Á. J. (2021). <em>Tejer.RED: Repositorio y plataforma de software libre para la búsqueda de desaparecidos en México</em> (Versión 1.0) [Software]. https://tejer.red"
     },
     "en": {
-      "title": "Tejer.RED — Repositorio y Plataforma de Software Libre para la Búsqueda de Desaparecidos",
+      "title": "Tejer.RED — Open Source Platform and Repository for Missing Persons Searches",
       "abstract": "A repository of open-source tools dedicated to strengthening the search for missing persons in Mexico. Works as a collaborative network between search collectives, volunteers, civil organizations, and institutions to design and publish technological solutions adapted to real field needs.",
       "content": "<p><strong>Founder and Lead Developer | Oct. 2021 – Present</strong></p><p>A repository of open-source tools dedicated to strengthening the search for missing persons in Mexico. Works as a collaborative network between search collectives, volunteers, civil organizations, and institutions to design and publish technological solutions adapted to real field needs. Committed to technological sovereignty, decentralized infrastructure, and open source under the premise of <em>'using technology as a bridge for truth and code as a path so that no one searches in solitude'</em>.</p><p>Website: <a href='https://tejer.red' target='_blank'>tejer.red</a></p>",
-      "displayDate": "oct. 2021 – Presente",
-      "citation": "Ramírez Abundis, A. J. (2021). <em>Tejer.RED: Repositorio y plataforma de software libre para la búsqueda de desaparecidos en México</em> (Version 1.0) [Software]. https://tejer.red"
+      "displayDate": "Oct. 2021 – Present",
+      "citation": "Ramírez Abundis, A. J. (2021). <em>Tejer.RED: Open source repository and platform for missing persons searches in Mexico</em> (Version 1.0) [Software]. https://tejer.red"
     },
     "project_url": "https://tejer.red/",
     "github_repo": "",
@@ -1049,6 +1258,12 @@ export const cvPosts = [
   },
   {
     "id": 201,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["js-react-web", "python-data"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       200,
@@ -1065,17 +1280,17 @@ export const cvPosts = [
     },
     "es": {
       "title": "Catálogo de Indicios - Rancho Izaguirre (Teuchitlán, Jalisco)",
-      "abstract": "Desarrollado en marzo de 2025 para agilizar la identificación de prendas encontradas en un presunto centro de adiestramiento de un cartel. Descargó y estructuró las imágenes y datos oficiales en una base de datos interactiva.",
+      "abstract": "Desarrollado en marzo de 2025 para agilizar la identificación de prendas encontradas en un presunto centro de adiestramiento de un cartel. Descargó y estructuró las imágenes y datos oficiales en una base de datos interactiva filtrada por tipo, color, marca y talla.",
       "content": "<p>Desarrollado en marzo de 2025 para agilizar la identificación de prendas encontradas en un presunto centro de adiestramiento de un cartel. Descargó y estructuró las imágenes y datos oficiales en una base de datos interactiva filtrada por tipo, color, marca y talla. Cubrió de forma autogestiva el 100% de los costos operativos.</p><p>Sitio web: <a href=\"https://rancho-izaguirre.abundis.com.mx\" target=\"_blank\">rancho-izaguirre.abundis.com.mx</a></p>",
       "displayDate": "Marzo 2025",
       "citation": "Ramírez Abundis, Á. J. (2025). <em>Catálogo de Indicios - Rancho Izaguirre</em> [Software]. https://rancho-izaguirre.abundis.com.mx"
     },
     "en": {
-      "title": "Catálogo de Indicios - Rancho Izaguirre (Teuchitlán, Jalisco)",
+      "title": "Indicia Catalog - Rancho Izaguirre (Teuchitlán, Jalisco)",
       "abstract": "Developed in March 2025 to accelerate the identification of clothing items found in a suspected cartel training camp. Downloaded and structured official data into an interactive database filtered by type, brand, color, and size.",
       "content": "<p>Developed in March 2025 to accelerate the identification of clothing items found in a suspected cartel training camp. Downloaded and structured official images and data into an interactive database filtered by type, brand, color, and size. Fully self-funded 100% of operational costs.</p><p>Website: <a href='https://rancho-izaguirre.abundis.com.mx' target='_blank'>rancho-izaguirre.abundis.com.mx</a></p>",
-      "displayDate": "Marzo 2025",
-      "citation": "Ramírez Abundis, A. J. (2025). <em>Catálogo de Indicios - Rancho Izaguirre</em> [Software]. https://rancho-izaguirre.abundis.com.mx"
+      "displayDate": "March 2025",
+      "citation": "Ramírez Abundis, A. J. (2025). <em>Indicia Catalog - Rancho Izaguirre</em> [Software]. https://rancho-izaguirre.abundis.com.mx"
     },
     "project_url": "https://rancho-izaguirre.abundis.com.mx/",
     "github_repo": "",
@@ -1086,6 +1301,12 @@ export const cvPosts = [
   },
   {
     "id": 202,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["js-react-web"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       200,
@@ -1104,17 +1325,17 @@ export const cvPosts = [
     },
     "es": {
       "title": "Las Prendas Hablan",
-      "abstract": "Proyecto de periodismo colaborativo y crowdsourcing desarrollado junto con Animal Político, A dónde van los desaparecidos y ZonaDocs. Permite a familias identificar coincidencias entre prendas de vestir halladas en Rancho Izaguirre y personas desaparecidas.",
+      "abstract": "Proyecto de periodismo colaborativo y crowdsourcing desarrollado junto con Animal Político, A dónde van los desaparecidos y ZonaDocs. Permite a familias identificar coincidencias entre prendas halladas en Rancho Izaguirre y personas desaparecidas.",
       "content": "<p>Proyecto de periodismo colaborativo y crowdsourcing desarrollado junto con Animal Político, A dónde van los desaparecidos y ZonaDocs. Permite a familias identificar coincidencias entre prendas de vestir halladas en Rancho Izaguirre y las vestidas por personas reportadas como desaparecidas para reconstruir las trayectorias de reclutamiento forzado.</p><p>Sitio web: <a href=\"https://lasprendashablan.tejer.red\" target=\"_blank\">lasprendashablan.tejer.red</a></p>",
       "displayDate": "2025",
       "citation": "Ramírez Abundis, Á. J. (2025). <em>Las Prendas Hablan: Plataforma colaborativa de crowdsourcing</em> [Software]. https://lasprendashablan.tejer.red"
     },
     "en": {
-      "title": "Las Prendas Hablan",
-      "abstract": "A collaborative journalism and crowdsourcing project developed alongside Animal Político, A dónde van los disappeared, and ZonaDocs. Enables families to match discarded clothing items with descriptions of missing relatives.",
+      "title": "The Garments Speak (Las Prendas Hablan)",
+      "abstract": "A collaborative journalism and crowdsourcing project developed alongside Animal Político, A dónde van los desaparecidos, and ZonaDocs. Enables families to match discarded clothing items with descriptions of missing relatives.",
       "content": "<p>A collaborative journalism and crowdsourcing project developed alongside Animal Político, A dónde van los desaparecidos, and ZonaDocs. Enables families to match discarded clothing items with descriptions of missing relatives to reconstruct forced recruitment patterns of cartels.</p><p>Website: <a href='https://lasprendashablan.tejer.red' target='_blank'>lasprendashablan.tejer.red</a></p>",
       "displayDate": "2025",
-      "citation": "Ramírez Abundis, A. J. (2025). <em>Las Prendas Hablan: Plataforma colaborativa de crowdsourcing</em> [Software]. https://lasprendashablan.tejer.red"
+      "citation": "Ramírez Abundis, A. J. (2025). <em>The Garments Speak: Collaborative Crowdsourcing Platform</em> [Software]. https://lasprendashablan.tejer.red"
     },
     "project_url": "https://lasprendashablan.tejer.red/",
     "github_repo": "",
@@ -1125,6 +1346,12 @@ export const cvPosts = [
   },
   {
     "id": 203,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["gis-espacial", "js-react-web", "python-data"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       200,
@@ -1147,11 +1374,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2025). <em>Cartografía Semántica de Desapariciones en Jalisco</em> [Software]. https://cartografia.tejer.red"
     },
     "en": {
-      "title": "Cartografía Semántica de Desapariciones",
+      "title": "Semantic Cartography of Disappearances",
       "abstract": "React-based geospatial platform mapping forced disappearances in Jalisco at a neighborhood level. Uses spatial clustering (DBSCAN) and density analysis to highlight hotspots in 500m and 700m radius.",
       "content": "<p>React-based geospatial platform mapping forced disappearances in Jalisco at a neighborhood level (over 3,000 records). Uses spatial clustering (DBSCAN) and density analysis to highlight hotspots in 500m and 700m radius.</p><p>Website: <a href='https://cartografia.tejer.red' target='_blank'>cartografia.tejer.red</a></p>",
       "displayDate": "2025",
-      "citation": "Ramírez Abundis, A. J. (2025). <em>Cartografía Semántica de Desapariciones en Jalisco</em> [Software]. https://cartografia.tejer.red"
+      "citation": "Ramírez Abundis, A. J. (2025). <em>Semantic Cartography of Disappearances in Jalisco</em> [Software]. https://cartografia.tejer.red"
     },
     "project_url": "https://cartografia.tejer.red/",
     "github_repo": "",
@@ -1162,6 +1389,12 @@ export const cvPosts = [
   },
   {
     "id": 204,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["nlp", "python-data"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       200
@@ -1182,11 +1415,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2025). <em>Sistema de Correlación de Tatuajes (PFSI – REPD)</em> [Software]. https://tatuajes.tejer.red"
     },
     "en": {
-      "title": "Sistema de Correlación de Tatuajes (PFSI – REPD)",
+      "title": "Tattoo Correlation System (PFSI – REPD)",
       "abstract": "Semantic similarity crossing tool linking forensic registry records (PFSI) with missing persons descriptions (REPD) using TF-IDF vectorization and embeddings, matching over 250 cases.",
       "content": "<p>Semantic similarity crossing tool linking forensic registry records (PFSI) with missing persons descriptions (REPD) using TF-IDF vectorization and embeddings. Bridged technical jargon from forensic scientists with everyday descriptions, discovering over 250 potential matches.</p><p>Website: <a href='https://tatuajes.tejer.red' target='_blank'>tatuajes.tejer.red</a></p>",
       "displayDate": "2025",
-      "citation": "Ramírez Abundis, A. J. (2025). <em>Sistema de Correlación de Tatuajes (PFSI – REPD)</em> [Software]. https://tatuajes.tejer.red"
+      "citation": "Ramírez Abundis, A. J. (2025). <em>Tattoo Correlation System (PFSI – REPD)</em> [Software]. https://tatuajes.tejer.red"
     },
     "project_url": "https://tatuajes.tejer.red/",
     "github_repo": "",
@@ -1197,6 +1430,12 @@ export const cvPosts = [
   },
   {
     "id": 205,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "activista-tecnico",
+      "metodo": ["js-react-web"],
+      "contexto": ["tejer-red"]
+    },
     "type": "codeProject",
     "related_posts": [
       200,
@@ -1218,11 +1457,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2025). <em>Bitácora de Búsqueda: WordPress Plugin</em> [Software]. GitHub. https://github.com/tejer-red/BitacoraBusqueda_WP"
     },
     "en": {
-      "title": "Bitácora de Búsqueda (WordPress Plugin)",
+      "title": "Search Logbook (WordPress Plugin)",
       "abstract": "Tool built for search collectives to register daily field search activities, zones, coordinates, findings, and write journal entries directly inside a private WordPress instance.",
       "content": "<p>Tool built for search collectives to register daily field search activities, zones, coordinates, findings, and write journal entries directly inside a private WordPress instance.</p><p>GitHub Repository: <a href='https://github.com/tejer-red/BitacoraBusqueda_WP' target='_blank'>github.com/tejer-red/BitacoraBusqueda_WP</a></p>",
       "displayDate": "2025",
-      "citation": "Ramírez Abundis, A. J. (2025). <em>Bitácora de Búsqueda: WordPress Plugin</em> [Software]. GitHub. https://github.com/tejer-red/BitacoraBusqueda_WP"
+      "citation": "Ramírez Abundis, A. J. (2025). <em>Search Logbook: WordPress Plugin</em> [Software]. GitHub. https://github.com/tejer-red/BitacoraBusqueda_WP"
     },
     "project_url": "",
     "github_repo": "https://github.com/tejer-red/BitacoraBusqueda_WP",
@@ -1233,6 +1472,12 @@ export const cvPosts = [
   },
   {
     "id": 210,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "investigador",
+      "metodo": ["gis-espacial", "python-data"],
+      "contexto": ["autonomo"]
+    },
     "type": "articles",
     "related_posts": [
       200,
@@ -1249,15 +1494,15 @@ export const cvPosts = [
     },
     "es": {
       "title": "Mapping the Humanitarian Crisis of Forced Disappearances in Jalisco: Patterns, Technology, and Collective Action",
-      "abstract": "Mapping the Humanitarian Crisis of Forced Disappearances in Jalisco: Patterns, Technology, and Collective Action. Working Paper y mapa interactivo de análisis de datos de desapariciones forzadas en Jalisco.",
+      "abstract": "Documento de trabajo (Working Paper) y mapa interactivo que analiza datos de desapariciones forzadas en Jalisco a escala barrial infiriendo patrones geoespaciales mediante herramientas de software libre.",
       "content": "<p><strong>Working Paper (2024)</strong></p><p>Mapa interactivo en datades.abundis.com.mx. Documento de trabajo disponible en <a href=\"https://datades.abundis.com.mx/workingpaper.pdf\" target=\"_blank\">datades.abundis.com.mx/workingpaper.pdf</a>. Presenta el análisis de datos de desapariciones forzadas e infiere patrones geoespaciales mediante herramientas de software libre.</p>",
       "displayDate": "2024",
       "citation": "Ramírez Abundis, Á. J. (2024). <em>Mapping the Humanitarian Crisis of Forced Disappearances in Jalisco: Patterns, Technology, and Collective Action</em> (Working Paper). Guadalajara, México."
     },
     "en": {
       "title": "Mapping the Humanitarian Crisis of Forced Disappearances in Jalisco: Patterns, Technology, and Collective Action",
-      "abstract": "Working paper and interactive map analyzing neighborhood-level patterns of forced disappearances in Jalisco.",
-      "content": "<p><strong>Working Paper (2024)</strong></p><p>Interactive map at datades.abundis.com.mx. Document available at <a href='https://datades.abundis.com.mx/workingpaper.pdf' target='_blank'>datades.abundis.com.mx/workingpaper.pdf</a>.</p>",
+      "abstract": "Working paper and interactive map analyzing neighborhood-level patterns of forced disappearances in Jalisco using open-source geospatial tools.",
+      "content": "<p><strong>Working Paper (2024)</strong></p><p>Interactive map at datades.abundis.com.mx. Document available at <a href='https://datades.abundis.com.mx/workingpaper.pdf' target='_blank'>datades.abundis.com.mx/workingpaper.pdf</a>. Analyzes data on forced disappearances and infers geospatial patterns using open-source tools.</p>",
       "displayDate": "2024",
       "citation": "Ramírez Abundis, A. J. (2024). <em>Mapping the Humanitarian Crisis of Forced Disappearances in Jalisco: Patterns, Technology, and Collective Action</em> (Working Paper). Guadalajara, Mexico."
     },
@@ -1270,6 +1515,12 @@ export const cvPosts = [
   },
   {
     "id": 211,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "investigador",
+      "metodo": ["analisis-documental"],
+      "contexto": ["udg"]
+    },
     "type": "articles",
     "related_posts": [
       91,
@@ -1291,11 +1542,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2021). Los vecinos, los escritores de graffiti, los políticos y los reporteros inmersos en una malla de mediaciones que modeló el paisaje de la ciudad de Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 11(21). México."
     },
     "en": {
-      "title": "Los vecinos, los escritores de graffiti, los políticos y los reporteros inmersos en una malla de mediaciones que modeló el paisaje de la ciudad de Guadalajara",
+      "title": "The Neighbors, the Graffiti Writers, the Politicians, and the Reporters Immersed in a Mesh of Mediations that Shaped the Landscape of Guadalajara",
       "abstract": "Analysis of the network of urban mediations (neighbors, writers, politicians, and the press) that shape the aesthetic landscape and public space in Guadalajara.",
       "content": "<p>Scientific article published in <em>Ixaya</em>. Uses the theoretical approach of mediation theory to study the tensions and relational dynamics surrounding the appropriation of walls and the aesthetic regulation of the city of Guadalajara.</p><p>The study maps the symbolic and material dispute among four key actors: neighbors demanding local order; graffiti writers with wall-appropriation tactics; local politicians promoting anti-graffiti laws and wall-buffing campaigns; and reporters constructing public opinion on urban safety. It concludes that the neighborhood aesthetic landscape is the dynamic, negotiated result of this relational web of mediations.</p>",
       "displayDate": "2021",
-      "citation": "Ramírez Abundis, A. J. (2021). Los vecinos, los escritores de graffiti, los políticos and the reporters immersed in a mesh of mediations that shaped the landscape of the city of Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 11(21). Mexico."
+      "citation": "Ramírez Abundis, A. J. (2021). The Neighbors, the Graffiti Writers, the Politicians, and the Reporters Immersed in a Mesh of Mediations that Shaped the Landscape of Guadalajara. <em>Ixaya. Revista Universitaria de Desarrollo Social</em>, 11(21). Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -1306,6 +1557,12 @@ export const cvPosts = [
   },
   {
     "id": 220,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "ponente",
+      "metodo": ["gis-espacial", "nlp", "python-data"],
+      "contexto": ["tejer-red", "internacional"]
+    },
     "type": "talks",
     "related_posts": [
       200,
@@ -1321,17 +1578,17 @@ export const cvPosts = [
       "en": "conference"
     },
     "es": {
-      "title": "Cartography of the Missing: Mapping Forced Disappearances in Jalisco",
+      "title": "Cartografía de los Desaparecidos: Mapeo de Desapariciones Forzadas en Jalisco",
       "abstract": "Presentación metodológica sobre el mapeo de desapariciones forzadas en Jalisco a escala vecinal, uso de procesamiento de lenguaje natural (NER) para extracción de direcciones, y DBSCAN. Presentado en ORDEM 2025.",
       "content": "<p><strong>Ponencia y Presentación - ORDEM 2025 / Open Research Devroom (12 de marzo de 2025)</strong></p><p>Presentación metodológica sobre el mapeo de desapariciones forzadas en Jalisco a escala vecinal, uso de procesamiento de lenguaje natural (NER) para extracción de direcciones, y agrupamiento espacial DBSCAN para delimitar clusters criminales de riesgo en radios de 500-700 metros. Indexado en Zenodo: <a href=\"https://doi.org/10.5281/zenodo.15013120\" target=\"_blank\">DOI: 10.5281/zenodo.15013120</a>.</p>",
-      "displayDate": "ORDEM 2025",
+      "displayDate": "ORDEM 2025 (12 de marzo de 2025)",
       "citation": "Ramírez Abundis, Á. J. (2025, 12 de marzo). <em>Cartography of the Missing: Mapping Forced Disappearances in Jalisco</em> [Ponencia]. ORDEM 2025 / Open Research Devroom, En línea. Zenodo. https://doi.org/10.5281/zenodo.15013120"
     },
     "en": {
       "title": "Cartography of the Missing: Mapping Forced Disappearances in Jalisco",
-      "abstract": "Methodological presentation at ORDEM 2025 regarding the geospatial mapping of missing persons using Python NER and DBSCAN. Indexed in Zenodo.",
-      "content": "<p><strong>Lecture - ORDEM 2025 / Open Research Devroom (March 12, 2025)</strong></p><p>Methodological presentation at ORDEM 2025 regarding the geospatial mapping of missing persons using Python NER and DBSCAN. Indexed in Zenodo: <a href='https://doi.org/10.5281/zenodo.15013120' target='_blank'>DOI: 10.5281/zenodo.15013120</a>.</p>",
-      "displayDate": "ORDEM 2025",
+      "abstract": "Methodological presentation at ORDEM 2025 regarding the geospatial mapping of missing persons using Python NER and DBSCAN spatial clustering. Indexed in Zenodo.",
+      "content": "<p><strong>Lecture - ORDEM 2025 / Open Research Devroom (March 12, 2025)</strong></p><p>Methodological presentation at ORDEM 2025 regarding the geospatial mapping of missing persons using Python NER for address parsing and DBSCAN spatial clustering to delineate 500-700m risk hotspots. Indexed in Zenodo: <a href='https://doi.org/10.5281/zenodo.15013120' target='_blank'>DOI: 10.5281/zenodo.15013120</a>.</p>",
+      "displayDate": "ORDEM 2025 (March 12, 2025)",
       "citation": "Ramírez Abundis, A. J. (2025, March 12). <em>Cartography of the Missing: Mapping Forced Disappearances in Jalisco</em> [Conference session]. ORDEM 2025 / Open Research Devroom, Online. Zenodo. https://doi.org/10.5281/zenodo.15013120"
     },
     "project_url": "",
@@ -1343,6 +1600,12 @@ export const cvPosts = [
   },
   {
     "id": 221,
+    "tags": {
+      "dominio": ["graffiti"],
+      "rol": "ponente",
+      "metodo": ["js-react-web", "analisis-documental"],
+      "contexto": ["udg"]
+    },
     "type": "talks",
     "related_posts": [
       91,
@@ -1360,15 +1623,15 @@ export const cvPosts = [
       "title": "Demo de la herramienta Amoxeh en el Quinto Encuentro de Humanidades Digitales 2021",
       "abstract": "Mesa redonda en el Encuentro HD 2021 detallando el diseño de Amoxeh para la curaduría y análisis léxico de prensa escrita.",
       "content": "<p>Presentación técnica en el V Encuentro de Humanidades Digitales 2021 de la Red de Humanidades Digitales. Expone el diseño funcional del plugin <em>Amoxeh</em> en WordPress como entorno digital para el análisis de prensa escrita.</p><p>La ponencia detalla la base de datos MySQL estructurada para clasificar metadatos informativos (ubicación, fecha, diario, autor, encuadre temático) y exportar bloques lingüísticos en formatos pre-procesados compatibles con plataformas de análisis textual como Voyant Tools. Se demostró en vivo la visualización de líneas temporales de cobertura del graffiti en Guadalajara.</p>",
-      "displayDate": "Encuentro HD 2021",
+      "displayDate": "Encuentro HD 2021 (10 de noviembre de 2021)",
       "citation": "Ramírez Abundis, Á. J. (2021, 10 de noviembre). <em>Demo de la herramienta Amoxeh</em> [Mesa Redonda]. Quinto Encuentro de Humanidades Digitales 2021, Red de Humanidades Digitales, En línea, México."
     },
     "en": {
-      "title": "Demo de la herramienta Amoxeh en el Quinto Encuentro de Humanidades Digitales 2021",
+      "title": "Demo of the Amoxeh Tool at the 5th Digital Humanities Encounter 2021",
       "abstract": "Roundtable at Encuentro HD 2021 detailing the design of Amoxeh for the curation and lexical analysis of print media.",
-      "content": "<p>Technical presentation at the V Encounter of Human Humanities Digital 2021 by the Red de Humanidades Digitales. Explains the functional design of the <em>Amoxeh</em> plugin in WordPress as a digital environment for print media analysis.</p><p>The lecture details the MySQL database structured to classify metadata (location, date, newspaper, author, thematic framing) and export linguistic blocks in pre-processed formats compatible with text analysis platforms like Voyant Tools. A live demonstration showed timelines of graffiti coverage in Guadalajara.</p>",
-      "displayDate": "Encuentro HD 2021",
-      "citation": "Ramírez Abundis, A. J. (2021, November 10). <em>Demo de la herramienta Amoxeh</em> [Roundtable]. Quinto Encuentro de Humanidades Digitales 2021, Red de Humanidades Digitales, Online, Mexico."
+      "content": "<p>Technical presentation at the 5th Digital Humanities Encounter 2021 organized by Red de Humanidades Digitales. Explains the functional design of the <em>Amoxeh</em> WordPress plugin as a digital environment for print media analysis.</p><p>The lecture details the MySQL database structured to classify metadata (location, date, newspaper, author, thematic framing) and export linguistic blocks in pre-processed formats compatible with text analysis platforms like Voyant Tools. A live demonstration showed timelines of graffiti coverage in Guadalajara.</p>",
+      "displayDate": "Encuentro HD 2021 (November 10, 2021)",
+      "citation": "Ramírez Abundis, A. J. (2021, November 10). <em>Demo of the Amoxeh Tool</em> [Roundtable]. 5th Digital Humanities Encounter 2021, Red de Humanidades Digitales, Online, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -1379,6 +1642,12 @@ export const cvPosts = [
   },
   {
     "id": 230,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["tejer-red", "internacional"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       200,
@@ -1401,9 +1670,9 @@ export const cvPosts = [
     },
     "en": {
       "title": "LatAm Journalism Review - Knight Center (UT Austin)",
-      "abstract": "Lopez Linares, C. 'From hats to pants, clothing discarded at a cartel camp becomes clues to the disappeared'. Coverage of Ángel Abundis's open-source app and crowdsourcing impact.",
+      "abstract": "Investigative report on 'The Garments Speak' app, Ángel Abundis's open-source development, and the impact of journalistic crowdsourcing to clarify forced recruitment cases in Jalisco.",
       "content": "<p><strong>March 19, 2026</strong></p><p>Lopez Linares, C. <em>“From hats to pants, clothing discarded at a cartel camp becomes clues to the disappeared”</em>. Deep investigative journalism report about the 'Las Prendas Hablan' app, Ángel Abundis's development work, and crowdsourcing for cartels' recruitment camps. <a href='https://latamjournalismreview.org/articles/from-hats-to-pants-clothing-discarded-at-a-cartel-camp-becomes-clues-to-the-disappeared/' target='_blank'>Read article</a></p>",
-      "displayDate": "Marzo 2026",
+      "displayDate": "March 2026",
       "citation": "López Linares, C. (2026, March 19). From hats to pants, clothing discarded at a cartel camp becomes clues to the disappeared. <em>LatAm Journalism Review - Knight Center (UT Austin)</em>."
     },
     "project_url": "",
@@ -1415,6 +1684,12 @@ export const cvPosts = [
   },
   {
     "id": 231,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["tejer-red"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       200,
@@ -1437,9 +1712,9 @@ export const cvPosts = [
     },
     "en": {
       "title": "WIRED en Español",
-      "abstract": "González, F. 'Activista crea un sitio web para identificar las prendas halladas en el Rancho Izaguirre, de Teuchitlán'. Cobertura of the Indicia Catalog created in 4 hours.",
-      "content": "<p><strong>March 20, 2025</strong></p><p>González, F. <em>“Activista crea un sitio web para identificar las prendas halladas en el Rancho Izaguirre, de Teuchitlán”</em>. Special coverage of Ángel Abundis's quick 4-hour catalog development to overcome the bad usability and opacity of official state links. <a href='https://es.wired.com/articulos/activista-crea-un-sitio-web-para-identificar-las-prendas-halladas-en-el-rancho-izaguirre-de-teuchitlan' target='_blank'>Read article</a></p>",
-      "displayDate": "Marzo 2025",
+      "abstract": "Special coverage on Ángel Abundis's development of the 'Indicia Catalog' in just 4 hours to address the opacity of official State Prosecutor links.",
+      "content": "<p><strong>March 20, 2025</strong></p><p>González, F. <em>“Activista crea un sitio web para identificar las prendas halladas en el Rancho Izaguirre, de Teuchitlán”</em>. Special coverage of Ángel Abundis's rapid 4-hour catalog development to overcome the usability barriers and opacity of official state links. <a href='https://es.wired.com/articulos/activista-crea-un-sitio-web-para-identificar-las-prendas-halladas-en-el-rancho-izaguirre-de-teuchitlan' target='_blank'>Read article</a></p>",
+      "displayDate": "March 2025",
       "citation": "González, F. (2025, March 20). Activista crea un sitio web para identificar las prendas halladas en el Rancho Izaguirre, de Teuchitlán. <em>WIRED en Español</em>."
     },
     "project_url": "",
@@ -1451,6 +1726,12 @@ export const cvPosts = [
   },
   {
     "id": 232,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["tejer-red"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       200,
@@ -1473,8 +1754,8 @@ export const cvPosts = [
     },
     "en": {
       "title": "Noticias Telemundo",
-      "abstract": "National TV report on the crowdsourced clothing database for extermination camps and the technical and humanitarian labor of Ángel Abundis.",
-      "content": "<p><strong>2025</strong></p><p>National TV report on the crowdsourced clothing database for extermination camps and the technical and humanitarian labor of Ángel Abundis. <a href='https://www.youtube.com/watch?v=rlkqFc810iU' target='_blank'>Watch on YouTube</a></p>",
+      "abstract": "National and international TV report on the clothing database for extermination camps and the technical and humanitarian labor of Ángel Abundis in Jalisco.",
+      "content": "<p><strong>2025</strong></p><p>National and international TV report on the crowdsourced clothing database for extermination camps and the technical and humanitarian labor of Ángel Abundis. <a href='https://www.youtube.com/watch?v=rlkqFc810iU' target='_blank'>Watch on YouTube</a></p>",
       "displayDate": "2025",
       "citation": "Noticias Telemundo. (2025). <em>Crean base de datos con prendas halladas en un campo de exterminio en Jalisco</em> [Television news report]."
     },
@@ -1487,6 +1768,12 @@ export const cvPosts = [
   },
   {
     "id": 233,
+    "tags": {
+      "dominio": ["desapariciones-mx"],
+      "rol": "difusion-externa",
+      "metodo": [],
+      "contexto": ["tejer-red"]
+    },
     "type": "mediaAppearance",
     "related_posts": [
       200,
@@ -1509,8 +1796,8 @@ export const cvPosts = [
     },
     "en": {
       "title": "France 24 en Español",
-      "abstract": "TV report showing the 'Las Prendas Hablan' app hosted by Tejer.Red in collaboration with news media.",
-      "content": "<p><strong>2025</strong></p><p>TV report showing the 'Las Prendas Hablan' app hosted by Tejer.Red in collaboration with news media. <a href='https://www.youtube.com/watch?v=Qa8pDW169a0' target='_blank'>Watch on YouTube</a></p>",
+      "abstract": "Audiovisual report on the application hosted by Tejer.Red in collaboration with journalists to support searching families.",
+      "content": "<p><strong>2025</strong></p><p>Audiovisual report covering 'The Garments Speak' app hosted by Tejer.Red in collaboration with news outlets to support searching families in Mexico. <a href='https://www.youtube.com/watch?v=Qa8pDW169a0' target='_blank'>Watch on YouTube</a></p>",
       "displayDate": "2025",
       "citation": "France 24 en Español. (2025). <em>'Las Prendas Hablan', la app creada para ayudar a las familias buscadoras en México</em> [Television news report]."
     },
@@ -1523,6 +1810,12 @@ export const cvPosts = [
   },
   {
     "id": 240,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "director-creativo",
+      "metodo": ["audiovisual"],
+      "contexto": ["autonomo"]
+    },
     "type": "multimedia",
     "related_posts": [
       91
@@ -1543,9 +1836,9 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2013). <em>Niño Remiendos — Entre Calles y Callejones</em> [Producción audiovisual]. Niño Remiendos, Guadalajara, México."
     },
     "en": {
-      "title": "Niño Remiendos — Entre Calles y Callejones",
-      "abstract": "Co-founder of the Niño Remiendos audiovisual space, creating web TV programs and radio broadcasts on subcultures and urban youth.",
-      "content": "<p><strong>Co-founder and Creative Director (2013-2015)</strong></p><p>Audiovisual space creating web TV programs and radio broadcasts on subcultures and urban youth, documenting bands and marginalized neighborhoods. <a href='https://www.youtube.com/watch?v=cELXbqrNvs0&list=PLU9IvBDWoAYcu7LQ43kPfoF_TMU7s%20bzm9&index=1' target='_blank'>Watch on YouTube</a></p>",
+      "title": "Niño Remiendos — Between Streets and Alleys",
+      "abstract": "Co-founder of the Niño Remiendos collective, directing the creation and distribution of grassroots and countercultural web TV and radio programs.",
+      "content": "<p><strong>Co-founder and Creative Director (2013-2015)</strong></p><p>Self-managed space for creating and distributing audiovisual material (web TV programs and internet radio broadcasts) on urban youth subcultures and marginalized communities, such as <em>Between Streets and Alleys</em>. <a href='https://www.youtube.com/watch?v=cELXbqrNvs0&list=PLU9IvBDWoAYcu7LQ43kPfoF_TMU7s%20bzm9&index=1' target='_blank'>Watch on YouTube</a></p>",
       "displayDate": "2013 – 2015",
       "citation": "Ramírez Abundis, A. J. (2013). <em>Niño Remiendos — Between Streets and Alleys</em> [Audiovisual work]. Niño Remiendos, Guadalajara, Mexico."
     },
@@ -1558,6 +1851,12 @@ export const cvPosts = [
   },
   {
     "id": 241,
+    "tags": {
+      "dominio": ["ciudad-espacio-publico"],
+      "rol": "director-creativo",
+      "metodo": ["audiovisual"],
+      "contexto": ["autonomo"]
+    },
     "type": "multimedia",
     "related_posts": [
       60,
@@ -1580,11 +1879,11 @@ export const cvPosts = [
       "citation": "Ramírez Abundis, Á. J. (2012). <em>Eróstrato</em> [Video minuto de ficción]. Guadalajara, México."
     },
     "en": {
-      "title": "Eróstrato",
-      "abstract": "One-minute fiction film inspired by the ending of the short story of the same name by Jean-Paul Sartre.",
-      "content": "<p>One-minute fiction film inspired by the ending of the short story of the same name by Jean-Paul Sartre. <a href='https://vimeo.com/51637200' target='_blank'>Watch on Vimeo</a></p>",
+      "title": "Herostratus (Eróstrato)",
+      "abstract": "One-minute fiction film inspired by the short story of the same name by Jean-Paul Sartre.",
+      "content": "<p><strong>One-Minute Fiction Film (2012)</strong></p><p>Inspired by the final scene of the short story of the same name by Jean-Paul Sartre. <a href='https://vimeo.com/51637200' target='_blank'>Watch on Vimeo</a></p>",
       "displayDate": "2012",
-      "citation": "Ramírez Abundis, A. J. (2012). <em>Eróstrato</em> [One-minute fiction film]. Guadalajara, Mexico."
+      "citation": "Ramírez Abundis, A. J. (2012). <em>Herostratus</em> [One-minute fiction film]. Guadalajara, Mexico."
     },
     "project_url": "",
     "github_repo": "",
@@ -1601,7 +1900,8 @@ export const experienceData = {
       {
         "role": "Desarrollador Web",
         "company": "Balam Studio Creative Media",
-        "period": "oct. 2021 – oct. 2024",
+        "period": "Oct. 2021 – Oct. 2024",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Desarrollo de soluciones personalizadas utilizando PHP y JS, con enfoque en el manejo de React y perfeccionamiento en front-end REST API.",
           "Consultoría técnica para la implementación de servidores físicos y virtuales, haciendo uso de herramientas de código abierto como GNU/Linux y Apache.",
@@ -1611,17 +1911,19 @@ export const experienceData = {
       {
         "role": "Desarrollador de Sitios Web",
         "company": "Uzu Digital (Nauka)",
-        "period": "oct. 2017 – nov. 2020",
+        "period": "Oct. 2017 – Nov. 2020",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Programación de soluciones a la medida en PHP y JS utilizando bases de datos relacionales MySQL.",
-          "Asesoría técnica para la instalación de servidores utilizando herramientas de código abierto como GNU/Linux o Apache.",
+          "Asesoría técnica para la instalación de servidores utilizando herramientas de código abierto como GNU/Linux y Apache.",
           "Diseño y mantenimiento continuo de portales institucionales y corporativos."
         ]
       },
       {
-        "role": "Internship de Analista de Datos",
+        "role": "Pasante de Analista de Datos",
         "company": "MONDO MARKETING (名古屋 - Nagoya, Japón)",
-        "period": "ago. 2018 – dic. 2018",
+        "period": "Ago. 2018 – Dic. 2018",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": [], "contexto": ["empleo-formal","internacional"] },
         "details": [
           "Prácticas profesionales en análisis de datos de campañas digitales, métricas de redes sociales e informes de comunicación digital internacional."
         ]
@@ -1629,7 +1931,8 @@ export const experienceData = {
       {
         "role": "Desarrollador de Contenidos & Web",
         "company": "Nuvi Global",
-        "period": "feb. 2017 – oct. 2017",
+        "period": "Feb. 2017 – Oct. 2017",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["audiovisual","js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Desarrollo de estrategias digitales y streaming de video interactivo para posicionamiento de marca.",
           "Programación y maquetación de su nuevo sitio web institucional corporativo."
@@ -1638,7 +1941,8 @@ export const experienceData = {
       {
         "role": "Desarrollador de Contenidos",
         "company": "Atama Estrategia Creativa",
-        "period": "oct. 2015 – oct. 2016",
+        "period": "Oct. 2015 – Oct. 2016",
+        "tags": { "dominio": "comunicacion-politica", "rol": "colaborador-laboral", "metodo": ["audiovisual"], "contexto": ["empleo-formal"] },
         "details": [
           "Gestión de agenda diaria, registro fotográfico y video para dependencias y figuras de la función pública de Jalisco (Regidores de Zapopan).",
           "Creación de la línea de comunicación de #GobiernoAbiertoJal para el primer esfuerzo gubernamental de datos abiertos de OGP en México.",
@@ -1648,7 +1952,8 @@ export const experienceData = {
       {
         "role": "Diseñador de Páginas Web",
         "company": "Web-Gdl",
-        "period": "jun. 2013 – oct. 2015",
+        "period": "Jun. 2013 – Oct. 2015",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Diseño y desarrollo de sitios web corporativos en PHP + MySQL, CSS y JS, optimizando velocidad y compatibilidad cross-browser.",
           "Desarrollo de estrategias de posicionamiento orgánico en buscadores (SEO) y producción de videos promocionales."
@@ -1660,6 +1965,7 @@ export const experienceData = {
         "role": "Asistente de Investigación de Campo",
         "company": "Universidad de Guadalajara",
         "period": "2012",
+        "tags": { "dominio": "ciudad-espacio-publico", "rol": "investigador", "metodo": ["etnografia"], "contexto": ["udg"] },
         "details": [
           "Colaboración en el proyecto de intervención social 'La construcción social de la violencia escolar en las escuelas secundarias de la ciudad de Guadalajara'."
         ]
@@ -1668,6 +1974,7 @@ export const experienceData = {
         "role": "Facilitador de Talleres Comunitarios",
         "company": "Programa Federal 'México nos mueve la Paz'",
         "period": "2012",
+        "tags": { "dominio": "ciudad-espacio-publico", "rol": "colaborador-laboral", "metodo": ["audiovisual"], "contexto": ["udg"] },
         "details": [
           "Diseño y facilitación de talleres de reciclaje y expresión artística para niños y jóvenes en la colonia marginada 'Lomas del Paraíso', Guadalajara, enfocados en la prevención de la violencia y adicciones."
         ]
@@ -1680,6 +1987,7 @@ export const experienceData = {
         "role": "Web Developer",
         "company": "Balam Studio Creative Media",
         "period": "Oct. 2021 – Oct. 2024",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Developed custom solutions using PHP and JS, focusing on React and REST API front-end implementation.",
           "Provided technical consulting for physical and virtual server deployments using open-source tools (GNU/Linux, Apache).",
@@ -1690,6 +1998,7 @@ export const experienceData = {
         "role": "Website Developer",
         "company": "Uzu Digital (Nauka)",
         "period": "Oct. 2017 – Nov. 2020",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Programmed bespoke solutions in PHP and JS using MySQL relational databases.",
           "Advised on server installation and maintenance using open-source software (GNU/Linux, Apache).",
@@ -1700,6 +2009,7 @@ export const experienceData = {
         "role": "Data Analyst Intern",
         "company": "MONDO MARKETING (問答マーケティング - Nagoya, Japan)",
         "period": "Aug. 2018 – Dec. 2018",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": [], "contexto": ["empleo-formal","internacional"] },
         "details": [
           "Analyzed digital marketing campaign data, social media metrics, and prepared digital communication reports."
         ]
@@ -1708,6 +2018,7 @@ export const experienceData = {
         "role": "Content & Web Developer",
         "company": "Nuvi Global",
         "period": "Feb. 2017 – Oct. 2017",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["audiovisual","js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Created digital strategies and live streaming video events for brand positioning.",
           "Programmed and structured their new corporate institutional website."
@@ -1717,6 +2028,7 @@ export const experienceData = {
         "role": "Content Developer",
         "company": "Atama Estrategia Creativa",
         "period": "Oct. 2015 – Oct. 2016",
+        "tags": { "dominio": "comunicacion-politica", "rol": "colaborador-laboral", "metodo": ["audiovisual"], "contexto": ["empleo-formal"] },
         "details": [
           "Managed photographic and video registry for government offices in Jalisco (Zapopan councilors).",
           "Created visual identity and branding for #GobiernoAbiertoJal, the first open data effort by OGP in Mexico.",
@@ -1727,6 +2039,7 @@ export const experienceData = {
         "role": "Web Designer",
         "company": "Web-Gdl",
         "period": "Jun. 2013 – Oct. 2015",
+        "tags": { "dominio": "desarrollo-web-comercial", "rol": "colaborador-laboral", "metodo": ["js-react-web"], "contexto": ["empleo-formal"] },
         "details": [
           "Designed and developed corporate websites in PHP + MySQL, CSS, and JS, optimizing speed and cross-browser compatibility.",
           "Managed organic SEO positioning and produced promotional marketing videos."
@@ -1738,18 +2051,26 @@ export const experienceData = {
         "role": "Field Research Assistant",
         "company": "Universidad de Guadalajara",
         "period": "2012",
+        "tags": { "dominio": "ciudad-espacio-publico", "rol": "investigador", "metodo": ["etnografia"], "contexto": ["udg"] },
         "details": [
-          "Collaborated in the social intervention research project 'La construcción social de la violence escolar en las escuelas secundarias de la ciudad de Guadalajara'."
+          "Collaborated in the social intervention research project 'The Social Construction of School Violence in Middle Schools of Guadalajara'."
         ]
       },
       {
         "role": "Community Workshop Facilitator",
         "company": "Federal Program 'México nos mueve la Paz'",
         "period": "2012",
+        "tags": { "dominio": "ciudad-espacio-publico", "rol": "colaborador-laboral", "metodo": ["audiovisual"], "contexto": ["udg"] },
         "details": [
-          "Designed and facilitated recycling and artistic workshops for children and youth in vulnerable neighborhoods ('Lomas del Paraíso') to prevent violence and drug abuse."
+          "Designed and facilitated recycling and artistic workshops for children and youth in vulnerable neighborhoods ('Lomas del Paraíso', Guadalajara) to prevent violence and substance abuse."
         ]
       }
     ]
   }
+  // NOTE: perfil de construccion/manufactura existe en CV_Master_Completo.md
+  // pero se excluye del sitio intencionalmente. Datos preservados aquí como referencia:
+  // Centura Building Systems (Vancouver, Canadá) Jun–Nov 2024 — metodo:[], contexto:[empleo-formal,internacional]
+  // Dadicas Granite Countertops (Spring Valley, CA) Feb–Jun 2022 — metodo:[], contexto:[empleo-formal,internacional]
+  // Asistente General Particular (San Diego, CA) Feb–Jun 2023 — metodo:[], contexto:[empleo-formal,internacional]
+  // Asistente General Particular (GDL, MX) Ene–Jul 2020 — metodo:[], contexto:[empleo-formal]
 };

@@ -12,7 +12,7 @@ import {
   ProjectsSection,
   AcademySection,
   MediaAppearancesList
-} from './SectionList';
+} from './sections';
 
 export default function LangHomePageClient({ lang }) {
   const [activeSection, setActiveSection] = useState("inicio");
