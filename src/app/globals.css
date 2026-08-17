@@ -46,6 +46,29 @@ h1, h2, h3, h4 {
   background: rgba(255, 255, 255, 0.85);
 }
 
+.menu-icon {
+  display: none;
+}
+
+.anchor-nav .menu-brand {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-secundario);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+  text-align: left;
+  padding-left: 0.4rem;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.anchor-nav .menu-brand:hover {
+  color: var(--color-principal);
+}
+
 .anchor-nav a.dot {
   text-decoration: none;
   color: #555;
@@ -75,10 +98,12 @@ h1, h2, h3, h4 {
 .anchor-nav .socials {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
   padding-top: 1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
   border-top: 1px solid rgba(200, 200, 200, 0.2);
 }
 
@@ -236,6 +261,45 @@ h1, h2, h3, h4 {
   display: none !important;
 }
 
+/* Tarjetas de Proyectos / Publicaciones Similares */
+.similar-card-item {
+  display: block;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  position: relative;
+}
+
+.similar-card-item::after {
+  display: none !important;
+}
+
+.similar-card-item:hover {
+  border-color: var(--color-principal) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 102, 102, 0.15) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.similar-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.similar-card-item:hover .similar-card-title {
+  color: var(--color-principal) !important;
+}
+
 .card-item-link:hover {
   color: inherit !important;
 }
@@ -296,10 +360,6 @@ section.list-Template {
   box-sizing: border-box;
 }
 
-section.list-Template * {
-  background: transparent;
-}
-
 /* Grafo de red en 3D interactivo */
 .networkGraph {
   width: 100vw;
@@ -308,7 +368,7 @@ section.list-Template * {
   z-index: 1;
   left: 0;
   top: 0;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .global-background {
@@ -318,7 +378,7 @@ section.list-Template * {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* Responsive & Menú Mobile */

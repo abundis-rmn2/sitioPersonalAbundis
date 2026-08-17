@@ -25,6 +25,8 @@ const METODO_COLORS = {
   'nlp':          { bg: '#00808014', border: '#008080', text: '#004d4d' },
 };
 
+import Link from 'next/link';
+
 const chipBase = (c, size = 'md') => ({
   display: 'inline-block',
   fontSize: size === 'sm' ? '0.62rem' : '0.68rem',
@@ -41,7 +43,7 @@ const chipBase = (c, size = 'md') => ({
   whiteSpace: 'nowrap',
 });
 
-const ExpTagBadges = ({ exp }) => {
+const ExpTagBadges = ({ exp, lang = 'es' }) => {
   const tags = exp?.tags;
   if (!tags) return null;
   const { dominio, rol, metodo = [], contexto = [] } = tags;
@@ -51,16 +53,35 @@ const ExpTagBadges = ({ exp }) => {
   const hasContent = dc || rc || metodo.length > 0;
   if (!hasContent) return null;
 
+  const interactiveChipStyle = (c, size) => ({
+    ...chipBase(c, size),
+    textDecoration: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
+  });
+
   return (
-    <div style={{ marginTop: '6px', display: 'flex', flexWrap: 'wrap' }}>
-      {dc && <span style={chipBase(dc)}>{dominio.replace(/-/g, ' ')}</span>}
-      {rc && <span style={chipBase(rc)}>{rol.replace(/-/g, ' ')}</span>}
+    <div style={{ marginTop: '6px', display: 'flex', flexWrap: 'wrap' }} className="tag-badges-container">
+      {dc && (
+        <Link href={`/${lang}/tag/${dominio}`} className="tag-badge-link" style={interactiveChipStyle(dc)}>
+          {dominio.replace(/-/g, ' ')}
+        </Link>
+      )}
+      {rc && (
+        <Link href={`/${lang}/tag/${rol}`} className="tag-badge-link" style={interactiveChipStyle(rc)}>
+          {rol.replace(/-/g, ' ')}
+        </Link>
+      )}
       {metodo.map(m => {
         const c = METODO_COLORS[m];
-        return c ? <span key={m} style={chipBase(c, 'sm')}>{m.replace(/-/g, ' ')}</span> : null;
+        return c ? (
+          <Link key={m} href={`/${lang}/tag/${m}`} className="tag-badge-link" style={interactiveChipStyle(c, 'sm')}>
+            {m.replace(/-/g, ' ')}
+          </Link>
+        ) : null;
       })}
       {isIntl && (
-        <span style={chipBase({ bg: '#00000010', border: '#aaaaaa', text: '#555555' }, 'sm')}>🌐 intl</span>
+        <span style={chipBase({ bg: '#00000010', border: '#aaaaaa', text: '#555555' }, 'sm')}>🌐 intl</span>
       )}
     </div>
   );
@@ -144,7 +165,7 @@ const ExperienceList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 300 }) =>
             <h4 style={{ margin: '0 0 0.5rem 0', fontSize: '0.98rem', color: '#666', fontWeight: 600 }}>
               {exp.company}
             </h4>
-            <ExpTagBadges exp={exp} />
+            <ExpTagBadges exp={exp} lang={lang} />
             <ul style={{ 
               listStyle: 'disc', 
               paddingLeft: '1.2rem', 

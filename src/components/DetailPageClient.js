@@ -5,11 +5,85 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import GlobalList from './GlobalList';
 import DetailMenu from './DetailMenu';
+import { TagBadges } from './sections/tagColors';
+
+import { cvPosts } from '../data/cvData';
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
   animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
   exit: { opacity: 0, x: 100, transition: { duration: 0.6 } }
+};
+
+/**
+ * Calcula los 2 proyectos / publicaciones más similares según enlazado explícito (related_posts)
+ * y coincidencia de tecnología (metodo / dominio).
+ */
+const getSimilarPosts = (currentPost, allPosts, limit = 2) => {
+  if (!currentPost || !allPosts) return [];
+
+  const candidateScores = new Map();
+
+  const curMetodo = new Set(
+    Array.isArray(currentPost.tags?.metodo)
+      ? currentPost.tags.metodo
+      : (currentPost.tags?.metodo ? [currentPost.tags.metodo] : [])
+  );
+  const curDominio = new Set(
+    Array.isArray(currentPost.tags?.dominio)
+      ? currentPost.tags.dominio
+      : (currentPost.tags?.dominio ? [currentPost.tags.dominio] : [])
+  );
+  const relatedSet = new Set(
+    (currentPost.related_posts || []).map(r => typeof r === 'string' ? parseInt(r, 10) : r)
+  );
+
+  allPosts.forEach(otherPost => {
+    if (otherPost.id === currentPost.id) return;
+
+    let score = 0;
+
+    // Enlazado explícito directo (related_posts)
+    if (relatedSet.has(otherPost.id)) {
+      score += 100;
+    }
+
+    // Coincidencia de tecnologías (metodo)
+    const otherMetodo = Array.isArray(otherPost.tags?.metodo)
+      ? otherPost.tags.metodo
+      : (otherPost.tags?.metodo ? [otherPost.tags.metodo] : []);
+    otherMetodo.forEach(m => {
+      if (curMetodo.has(m)) score += 10;
+    });
+
+    // Coincidencia de dominio
+    const otherDominio = Array.isArray(otherPost.tags?.dominio)
+      ? otherPost.tags.dominio
+      : (otherPost.tags?.dominio ? [otherPost.tags.dominio] : []);
+    otherDominio.forEach(d => {
+      if (curDominio.has(d)) score += 8;
+    });
+
+    // Mismo tipo/categoría
+    if (otherPost.type === currentPost.type) {
+      score += 2;
+    }
+
+    if (score > 0) {
+      candidateScores.set(otherPost, score);
+    }
+  });
+
+  const sorted = Array.from(candidateScores.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(entry => entry[0]);
+
+  if (sorted.length < limit) {
+    const fallback = allPosts.filter(p => p.id !== currentPost.id && !sorted.includes(p));
+    return [...sorted, ...fallback].slice(0, limit);
+  }
+
+  return sorted.slice(0, limit);
 };
 
 const DetailPageClient = ({ post, lang = 'es' }) => {
@@ -37,6 +111,7 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
   }, [post]);
 
   const tData = post[lang] || post['es'];
+  const similarPosts = getSimilarPosts(post, cvPosts, 2);
 
   return (
     <motion.div initial="initial" animate="animate" exit="exit" variants={pageVariants}>
@@ -56,10 +131,14 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
           </h1>
           
           {tData.displayDate && (
-            <p style={{ display: 'block', color: '#666', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+            <p style={{ display: 'block', color: '#666', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
               {tData.displayDate}
             </p>
           )}
+
+          <div style={{ marginBottom: '1.2rem' }}>
+            <TagBadges item={post} lang={lang} />
+          </div>
 
           {tData.citation && (
             <div 
@@ -106,6 +185,54 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
               </a>
             )}
           </div>
+
+          {/* Sección de Proyectos / Publicaciones Similares (por enlace o tecnología) */}
+          {similarPosts.length > 0 && (
+            <div style={{
+              marginTop: '3rem',
+              paddingTop: '2rem',
+              borderTop: '1px solid rgba(200, 200, 200, 0.4)'
+            }}>
+              <h3 style={{
+                fontSize: '1.25rem',
+                fontWeight: '700',
+                marginBottom: '1.2rem',
+                color: 'var(--color-secundario)'
+              }}>
+                {lang === 'es' ? 'Proyectos y Publicaciones Similares' : 'Similar Projects & Publications'}
+              </h3>
+              
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '1.2rem'
+              }}>
+                {similarPosts.map((simPost) => {
+                  const simData = simPost[lang] || simPost['es'];
+                  const simCat = simPost.categories[lang] || simPost.categories['es'];
+                  const simSlug = simPost.slugs[lang] || simPost.slugs['es'];
+
+                  return (
+                    <Link
+                      key={simPost.id}
+                      href={`/${lang}/${simCat}/${simSlug}`}
+                      className="similar-card-item"
+                    >
+                      <span style={{ fontSize: '0.8rem', color: '#888', display: 'block', marginBottom: '0.3rem' }}>
+                        {simData.displayDate || (simCat ? simCat.toUpperCase() : '')}
+                      </span>
+                      <h4 className="similar-card-title">
+                        {simData.title}
+                      </h4>
+                      <div style={{ marginTop: '0.5rem' }}>
+                        <TagBadges item={simPost} lang={lang} />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </motion.div>

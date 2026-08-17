@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle, useState } from 'react';
 import { experienceData } from '../data/cvData';
+import { getSectionConfig } from '../utils/sectionConfig';
 
 const NetworkGraphComponent = forwardRef(({ 
   posts, 
@@ -268,47 +269,52 @@ const NetworkGraphComponent = forwardRef(({
     const hubNodes = [
       {
         id: 'hub-inicio',
-        name: '★ Javi Abundis',
+        name: 'Javi Abundis',
         group: 'hub',
         type: 'hub',
         sectionId: 'inicio',
-        color: '#FF0000',
+        svgPath: getSectionConfig('inicio')?.svgPath,
+        color: getSectionConfig('inicio')?.color || '#FF0000',
         val: 16
       },
       {
         id: 'hub-experiencia',
-        name: lang === 'es' ? '★ Experiencia' : '★ Experience',
+        name: lang === 'es' ? 'Experiencia' : 'Experience',
         group: 'hub',
         type: 'hub',
         sectionId: 'experiencia',
-        color: '#111111',
+        svgPath: getSectionConfig('experiencia')?.svgPath,
+        color: getSectionConfig('experiencia')?.color || '#111111',
         val: 14
       },
       {
         id: 'hub-proyectos',
-        name: lang === 'es' ? '★ Proyectos' : '★ Projects',
+        name: lang === 'es' ? 'Proyectos' : 'Projects',
         group: 'hub',
         type: 'hub',
         sectionId: 'proyectos',
-        color: '#E60000',
+        svgPath: getSectionConfig('proyectos')?.svgPath,
+        color: getSectionConfig('proyectos')?.color || '#E60000',
         val: 14
       },
       {
         id: 'hub-academia',
-        name: lang === 'es' ? '★ Academia' : '★ Academy',
+        name: lang === 'es' ? 'Academia' : 'Academy',
         group: 'hub',
         type: 'hub',
         sectionId: 'academia',
-        color: '#222222',
+        svgPath: getSectionConfig('academia')?.svgPath,
+        color: getSectionConfig('academia')?.color || '#222222',
         val: 14
       },
       {
         id: 'hub-prensa',
-        name: lang === 'es' ? '★ Prensa' : '★ Media',
+        name: lang === 'es' ? 'Prensa' : 'Media',
         group: 'hub',
         type: 'hub',
         sectionId: 'prensa',
-        color: '#FF3333',
+        svgPath: getSectionConfig('prensa')?.svgPath,
+        color: getSectionConfig('prensa')?.color || '#FF3333',
         val: 12
       }
     ];
@@ -427,7 +433,7 @@ const NetworkGraphComponent = forwardRef(({
 
       const createTextSprite = (text, color = '#000000', font = 'bold 24px Arial', 
         backgroundColor = 'rgba(255, 255, 255, 0.95)', 
-        opacity = 1.0, renderOrder = 100) => {
+        opacity = 1.0, renderOrder = 100, svgPath = null, borderColor = '#333333') => {
         
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
@@ -436,32 +442,56 @@ const NetworkGraphComponent = forwardRef(({
         context.font = font;
         const fontSize = parseInt(font.match(/\d+/)[0], 10);
 
-        let maxWidth = 0;
+        let maxLineWidth = 0;
         textLines.forEach(line => {
           const lineWidth = context.measureText(line).width;
-          if (lineWidth > maxWidth) maxWidth = lineWidth;
+          if (lineWidth > maxLineWidth) maxLineWidth = lineWidth;
         });
 
         const padding = 12;
+        const iconSize = svgPath ? fontSize * 0.9 : 0;
+        const iconGap = svgPath ? 10 : 0;
+        const contentWidth = maxLineWidth + iconSize + iconGap;
+
         const lineHeight = fontSize * 1.3;
-        canvas.width = maxWidth + padding * 2;
+        canvas.width = contentWidth + padding * 2;
         canvas.height = (textLines.length * lineHeight) + padding * 2;
 
         context.font = font;
         context.fillStyle = backgroundColor;
         context.fillRect(0, 0, canvas.width, canvas.height);
 
-        context.strokeStyle = '#333333';
-        context.lineWidth = 2;
+        context.strokeStyle = borderColor;
+        context.lineWidth = borderColor !== '#333333' ? 3 : 2;
         context.strokeRect(0, 0, canvas.width, canvas.height);
 
+        // Dibujar icono vectorial plano (Path2D) si existe
+        if (svgPath && typeof Path2D !== 'undefined') {
+          try {
+            const path2d = new Path2D(svgPath);
+            const scale = iconSize / 512;
+            const startX = padding;
+            const startY = padding + (lineHeight - iconSize) / 2;
+
+            context.save();
+            context.translate(startX, startY);
+            context.scale(scale, scale);
+            context.fillStyle = color;
+            context.fill(path2d);
+            context.restore();
+          } catch (e) {
+            console.error('Error rendering SVG icon path on node canvas', e);
+          }
+        }
+
         context.fillStyle = color;
-        context.textAlign = 'center';
+        context.textAlign = svgPath ? 'left' : 'center';
         context.textBaseline = 'middle';
 
         textLines.forEach((line, i) => {
+          const x = svgPath ? (padding + iconSize + iconGap) : (canvas.width / 2);
           const y = padding + (i * lineHeight) + lineHeight / 2;
-          context.fillText(line, canvas.width / 2, y);
+          context.fillText(line, x, y);
         });
 
         const texture = new THREE.CanvasTexture(canvas);
@@ -545,15 +575,23 @@ const NetworkGraphComponent = forwardRef(({
           group.add(line);
           
           const initialSpriteOpacity = (isHub || isHighlighted) ? 1.0 : 0.0;
+          const labelBg = isHub
+            ? 'rgba(17, 17, 17, 0.96)'
+            : (isHighlighted ? 'rgba(204, 0, 0, 0.95)' : 'rgba(36, 35, 35, 0.9)');
+
+          const labelBorderColor = (isHub && isHighlighted)
+            ? '#FF0000'
+            : '#333333';
+
           const nameLabel = createTextSprite(
             node.name, 
             '#FFFFFF', 
             isHub ? 'bold 26px Poppins, Arial' : 'bold 20px Poppins, Arial', 
-            isDirectHover 
-              ? 'rgba(17, 17, 17, 0.96)' 
-              : (isHighlighted ? 'rgba(204, 0, 0, 0.95)' : (isHub ? 'rgba(20, 20, 20, 0.92)' : 'rgba(36, 35, 35, 0.9)')), 
+            labelBg, 
             initialSpriteOpacity, 
-            100
+            100,
+            node.svgPath,
+            labelBorderColor
           );
           nameLabel.position.set(0, sphereSize + (isHub ? 18 : 12), 0);
           nameLabel.visible = initialSpriteOpacity > 0.01;

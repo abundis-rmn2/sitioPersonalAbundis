@@ -47,27 +47,50 @@ export const chipBase = (c, size = 'md') => ({
   whiteSpace: 'nowrap',
 });
 
-export const TagBadges = ({ item }) => {
+import Link from 'next/link';
+
+export const TagBadges = ({ item, lang = 'es' }) => {
   const tags = item?.tags;
   if (!tags) return null;
   const { dominio = [], rol, metodo = [], contexto = [] } = tags;
-  const hasContent = dominio.length > 0 || rol || metodo.length > 0;
+  const dominioArray = Array.isArray(dominio) ? dominio : (dominio ? [dominio] : []);
+  const metodoArray = Array.isArray(metodo) ? metodo : (metodo ? [metodo] : []);
+  const contextoArray = Array.isArray(contexto) ? contexto : (contexto ? [contexto] : []);
+
+  const hasContent = dominioArray.length > 0 || rol || metodoArray.length > 0;
   if (!hasContent || rol === 'blog') return null;
 
-  const isIntl = contexto.includes('internacional');
+  const isIntl = contextoArray.includes('internacional');
+
+  const interactiveChipStyle = (c, size) => ({
+    ...chipBase(c, size),
+    textDecoration: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
+  });
 
   return (
-    <div style={{ marginTop: '6px', display: 'flex', flexWrap: 'wrap' }}>
-      {dominio.map(d => {
+    <div style={{ marginTop: '6px', display: 'flex', flexWrap: 'wrap' }} className="tag-badges-container">
+      {dominioArray.map(d => {
         const c = DOMINIO_COLORS[d];
-        return c ? <span key={d} style={chipBase(c)}>{d.replace(/-/g, ' ')}</span> : null;
+        return c ? (
+          <Link key={d} href={`/${lang}/tag/${d}`} style={interactiveChipStyle(c, 'md')} className="tag-badge-link">
+            {d.replace(/-/g, ' ')}
+          </Link>
+        ) : null;
       })}
       {rol && ROL_COLORS[rol] && (
-        <span style={chipBase(ROL_COLORS[rol])}>{rol.replace(/-/g, ' ')}</span>
+        <Link href={`/${lang}/tag/${rol}`} style={interactiveChipStyle(ROL_COLORS[rol], 'md')} className="tag-badge-link">
+          {rol.replace(/-/g, ' ')}
+        </Link>
       )}
-      {metodo.map(m => {
+      {metodoArray.map(m => {
         const c = METODO_COLORS[m];
-        return c ? <span key={m} style={chipBase(c, 'sm')}>{m.replace(/-/g, ' ')}</span> : null;
+        return c ? (
+          <Link key={m} href={`/${lang}/tag/${m}`} style={interactiveChipStyle(c, 'sm')} className="tag-badge-link">
+            {m.replace(/-/g, ' ')}
+          </Link>
+        ) : null;
       })}
       {isIntl && (
         <span style={chipBase({ bg: '#00000010', border: '#aaaaaa', text: '#555555' }, 'sm')}>🌐 intl</span>

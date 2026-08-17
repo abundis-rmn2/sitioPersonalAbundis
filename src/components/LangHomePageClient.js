@@ -10,6 +10,7 @@ import AnchorMenu from './AnchorMenu';
 import GlobalList from './GlobalList';
 import ExperienceList from './ExperienceList';
 import { cvPosts } from '../data/cvData';
+import { SECTIONS_CONFIG } from '../utils/sectionConfig';
 import {
   ProjectsSection,
   AcademySection,
@@ -22,14 +23,10 @@ export default function LangHomePageClient({ lang }) {
   const router = useRouter();
   const networkGraphRef = useRef(null);
 
-  const sections = [
-    { id: "grafo", label: lang === 'es' ? "Inicio" : "Home" },
-    { id: "inicio", label: lang === 'es' ? "Biografía" : "Biography" },
-    { id: "experiencia", label: lang === 'es' ? "Experiencia" : "Experience" },
-    { id: "proyectos", label: lang === 'es' ? "Proyectos" : "Projects" },
-    { id: "academia", label: lang === 'es' ? "Academia" : "Academy" },
-    { id: "prensa", label: lang === 'es' ? "Prensa" : "Media" },
-  ];
+  const sections = SECTIONS_CONFIG.map((s) => ({
+    id: s.id,
+    label: s.labels[lang] || s.labels['es']
+  }));
 
   const handleNodeNavigate = (sectionId, nodeId) => {
     // Si es un nodo de item individual (post), navegar a la página de detalle interior
