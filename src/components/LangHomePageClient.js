@@ -110,10 +110,10 @@ export default function LangHomePageClient({ lang }) {
             <div className="wrapper" key={id} id={id}>
               <div>
                 {id === "inicio" && <Bio lang={lang} />}
-                {id === "experiencia" && <ExperienceList lang={lang} />}
-                {id === "proyectos" && <ProjectsSection lang={lang} />}
-                {id === "academia" && <AcademySection lang={lang} />}
-                {id === "prensa" && <MediaAppearancesList lang={lang} />}
+                {id === "experiencia" && <ExperienceList lang={lang} networkGraphRef={networkGraphRef} />}
+                {id === "proyectos" && <ProjectsSection lang={lang} networkGraphRef={networkGraphRef} />}
+                {id === "academia" && <AcademySection lang={lang} networkGraphRef={networkGraphRef} />}
+                {id === "prensa" && <MediaAppearancesList lang={lang} networkGraphRef={networkGraphRef} />}
               </div>
             </div>
           ))}

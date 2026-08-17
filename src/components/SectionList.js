@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { cvPosts } from '../data/cvData';
 
 // --- SECTION: PROJECTS (CODE & MULTIMEDIA) ---
-export const ProjectsSection = ({ lang = 'es' }) => {
+export const ProjectsSection = ({ lang = 'es', networkGraphRef }) => {
   const [activeTab, setActiveTab] = useState('code'); // 'code' o 'multimedia'
   const codeProjects = cvPosts.filter(p => p.type === 'codeProject');
   const multimedia = cvPosts.filter(p => p.type === 'multimedia');
@@ -14,6 +14,12 @@ export const ProjectsSection = ({ lang = 'es' }) => {
   ];
 
   const currentList = activeTab === 'code' ? codeProjects : multimedia;
+
+  const handleMouseEnter = (id) => {
+    if (networkGraphRef?.current && id) {
+      networkGraphRef.current.zoomToID(id);
+    }
+  };
 
   return (
     <div style={{ width: '100%' }}>
@@ -55,7 +61,11 @@ export const ProjectsSection = ({ lang = 'es' }) => {
           const cat = item.categories[lang];
           const slug = item.slugs[lang];
           return (
-            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+            <li 
+              key={item.id} 
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem', transition: 'border-color 0.3s' }}
+            >
               <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
                 {t.displayDate}
               </span>
@@ -77,7 +87,7 @@ export const ProjectsSection = ({ lang = 'es' }) => {
 };
 
 // --- SECTION: ACADEMY (EDUCATION, PAPERS, TALKS) ---
-export const AcademySection = ({ lang = 'es' }) => {
+export const AcademySection = ({ lang = 'es', networkGraphRef }) => {
   const [activeTab, setActiveTab] = useState('education'); // 'education', 'articles', 'talks'
   const education = cvPosts.filter(p => p.type === 'thesis');
   const articles = cvPosts.filter(p => p.type === 'articles');
@@ -96,6 +106,12 @@ export const AcademySection = ({ lang = 'es' }) => {
   };
 
   const currentList = getList();
+
+  const handleMouseEnter = (id) => {
+    if (networkGraphRef?.current && id) {
+      networkGraphRef.current.zoomToID(id);
+    }
+  };
 
   return (
     <div style={{ width: '100%' }}>
@@ -137,7 +153,11 @@ export const AcademySection = ({ lang = 'es' }) => {
           const cat = item.categories[lang];
           const slug = item.slugs[lang];
           return (
-            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+            <li 
+              key={item.id} 
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem', transition: 'border-color 0.3s' }}
+            >
               <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
                 {t.displayDate}
               </span>
@@ -159,8 +179,14 @@ export const AcademySection = ({ lang = 'es' }) => {
 };
 
 // --- SECTION: MEDIA APPEARANCES ---
-export const MediaAppearancesList = ({ lang = 'es' }) => {
+export const MediaAppearancesList = ({ lang = 'es', networkGraphRef }) => {
   const media = cvPosts.filter(p => p.type === 'mediaAppearance');
+
+  const handleMouseEnter = (id) => {
+    if (networkGraphRef?.current && id) {
+      networkGraphRef.current.zoomToID(id);
+    }
+  };
 
   return (
     <div style={{ width: '100%' }}>
@@ -171,7 +197,11 @@ export const MediaAppearancesList = ({ lang = 'es' }) => {
           const cat = item.categories[lang];
           const slug = item.slugs[lang];
           return (
-            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+            <li 
+              key={item.id} 
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem', transition: 'border-color 0.3s' }}
+            >
               <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
                 {t.displayDate}
               </span>

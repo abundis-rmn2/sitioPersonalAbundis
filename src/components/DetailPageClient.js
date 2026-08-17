@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import GlobalList from './GlobalList';
+import DetailMenu from './DetailMenu';
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
@@ -15,26 +16,33 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
   const networkGraphRef = useRef(null);
 
   useEffect(() => {
-    if (!post?.id || !networkGraphRef.current) return;
+    if (!post?.id) return;
         
-    networkGraphRef.current.highlightIDCall(post.id);
-    const timeout = setTimeout(() => {
-      networkGraphRef.current.zoomToID(post.id);
-    }, 800);
+    let intervalId;
+    let attempts = 0;
+    
+    const tryFocusNode = () => {
+      attempts++;
+      if (networkGraphRef.current) {
+        networkGraphRef.current.highlightIDCall(post.id);
+        networkGraphRef.current.zoomToID(post.id);
+        clearInterval(intervalId);
+      } else if (attempts > 20) {
+        clearInterval(intervalId);
+      }
+    };
 
-    return () => clearTimeout(timeout);
+    intervalId = setInterval(tryFocusNode, 300);
+    return () => clearInterval(intervalId);
   }, [post]);
 
   const tData = post[lang] || post['es'];
 
-  // Calcular URL de idioma alternativo
-  const altLang = lang === 'es' ? 'en' : 'es';
-  const altCategory = post.categories[altLang];
-  const altSlug = post.slugs[altLang];
-  const altPath = `/${altLang}/${altCategory}/${altSlug}`;
-
   return (
     <motion.div initial="initial" animate="animate" exit="exit" variants={pageVariants}>
+      {/* Menú Flotante Lateral Izquierdo (Inicio - Categoría - Otros Enlaces) */}
+      <DetailMenu post={post} lang={lang} />
+
       {/* Grafo de fondo fijo */}
       <div className="global-background">
         <GlobalList ref={networkGraphRef} lang={lang} />
@@ -43,16 +51,6 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
       {/* Plantilla de contenido */}
       <section className="list-Template" style={{ position: 'relative', zIndex: 10 }}>
         <div className="detail-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', background: 'transparent', width: '100%' }}>
-            <Link href={`/${lang}`} className="btn-red" style={{ display: 'inline-block', textDecoration: 'none' }}>
-              {lang === 'es' ? '← Volver al Inicio' : '← Back to Home'}
-            </Link>
-            
-            <Link href={altPath} className="btn-red" style={{ display: 'inline-block', textDecoration: 'none', marginLeft: 'auto', fontWeight: 'bold' }}>
-              {lang === 'es' ? 'English Version 🇺🇸' : 'Versión en Español 🇲🇽'}
-            </Link>
-          </div>
-          
           <h1 style={{ display: 'block', fontSize: '2.2rem', marginBottom: '0.5rem', color: 'var(--color-secundario)' }}>
             {tData.title}
           </h1>

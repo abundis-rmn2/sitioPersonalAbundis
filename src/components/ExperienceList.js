@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { experienceData } from '../data/cvData';
 
-const ExperienceList = ({ lang = 'es' }) => {
+const ExperienceList = ({ lang = 'es', networkGraphRef }) => {
   const [activeTab, setActiveTab] = useState('tech'); // 'tech' o 'social'
   const data = experienceData[lang] || experienceData['es'];
 
@@ -9,6 +9,12 @@ const ExperienceList = ({ lang = 'es' }) => {
     { id: 'tech', label: lang === 'es' ? 'Tecnología & Datos' : 'Technology & Data' },
     { id: 'social', label: lang === 'es' ? 'Investigación Social' : 'Social Research' }
   ];
+
+  const handleMouseEnter = () => {
+    if (networkGraphRef?.current) {
+      networkGraphRef.current.zoomToID(200);
+    }
+  };
 
   return (
     <div style={{ width: '100%' }}>
@@ -51,12 +57,14 @@ const ExperienceList = ({ lang = 'es' }) => {
         {data[activeTab] && data[activeTab].map((exp, index) => (
           <div 
             key={index}
+            onMouseEnter={handleMouseEnter}
             style={{ 
               borderLeft: '3px solid var(--color-principal)', 
               paddingLeft: '1.2rem',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start'
+              alignItems: 'flex-start',
+              transition: 'border-color 0.3s'
             }}
           >
             <span style={{ fontSize: '0.85rem', color: '#888', fontWeight: 500 }}>
