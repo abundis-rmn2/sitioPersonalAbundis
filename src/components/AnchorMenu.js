@@ -10,13 +10,11 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
 
   // Mapear nombres de sección a IDs clave de nodos en el grafo
   const sectionToNodeMap = {
-    "bio": 91,         // Tesis de Licenciatura
-    "education": 96,   // Tesis de Maestría
-    "articles": 75,    // Artículo de Graffiti
-    "talks": 46,       // Ponencia FOSDEM 2024
-    "code": 200,       // Proyecto Tejer.RED
-    "multimedia": 56,  // Recorriendo el tRAzo
-    "media": 230       // Nota en LatAm Journalism Review 2026
+    "inicio": 91,       // Tesis de Licenciatura -> Inicio
+    "experiencia": 200, // Proyecto Tejer.RED -> Experiencia
+    "proyectos": 201,   // Catálogo Indicios -> Proyectos
+    "academia": 75,     // Artículo de Graffiti -> Academia
+    "prensa": 230       // Nota en LatAm Journalism Review -> Prensa
   };
 
   const handleAnchorClick = async (e, id) => {

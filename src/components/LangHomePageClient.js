@@ -7,28 +7,24 @@ import { motion } from 'framer-motion';
 import Bio from './Bio';
 import AnchorMenu from './AnchorMenu';
 import GlobalList from './GlobalList';
+import ExperienceList from './ExperienceList';
 import {
-  ThesisList,
-  ArticleList,
-  TalkList,
-  CodeProjectsList,
-  MultimediaList,
+  ProjectsSection,
+  AcademySection,
   MediaAppearancesList
 } from './SectionList';
 
 export default function LangHomePageClient({ lang }) {
-  const [activeSection, setActiveSection] = useState("bio");
+  const [activeSection, setActiveSection] = useState("inicio");
   const lenis = useLenis();
   const networkGraphRef = useRef(null);
 
   const sections = [
-    { id: "bio", label: lang === 'es' ? "Inicio" : "Home" },
-    { id: "education", label: lang === 'es' ? "Educación" : "Education" },
-    { id: "articles", label: lang === 'es' ? "Artículos" : "Articles" },
-    { id: "talks", label: lang === 'es' ? "Ponencias" : "Talks" },
-    { id: "code", label: lang === 'es' ? "Código" : "Code" },
-    { id: "multimedia", label: "Multimedia" },
-    { id: "media", label: lang === 'es' ? "Prensa" : "Media" },
+    { id: "inicio", label: lang === 'es' ? "Inicio" : "Home" },
+    { id: "experiencia", label: lang === 'es' ? "Experiencia" : "Experience" },
+    { id: "proyectos", label: lang === 'es' ? "Proyectos" : "Projects" },
+    { id: "academia", label: lang === 'es' ? "Academia" : "Academy" },
+    { id: "prensa", label: lang === 'es' ? "Prensa" : "Media" },
   ];
 
   const pageVariants = {
@@ -113,13 +109,11 @@ export default function LangHomePageClient({ lang }) {
           {sections.map(({ id }) => (
             <div className="wrapper" key={id} id={id}>
               <div>
-                {id === "bio" && <Bio lang={lang} />}
-                {id === "education" && <ThesisList lang={lang} />}
-                {id === "articles" && <ArticleList lang={lang} />}
-                {id === "talks" && <TalkList lang={lang} />}
-                {id === "code" && <CodeProjectsList lang={lang} />}
-                {id === "multimedia" && <MultimediaList lang={lang} />}
-                {id === "media" && <MediaAppearancesList lang={lang} />}
+                {id === "inicio" && <Bio lang={lang} />}
+                {id === "experiencia" && <ExperienceList lang={lang} />}
+                {id === "proyectos" && <ProjectsSection lang={lang} />}
+                {id === "academia" && <AcademySection lang={lang} />}
+                {id === "prensa" && <MediaAppearancesList lang={lang} />}
               </div>
             </div>
           ))}

@@ -344,6 +344,8 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
 
       const Graph = ForceGraph3D();
       GraphInstance = Graph(containerRef.current)
+        .width(window.innerWidth)
+        .height(window.innerHeight)
         .graphData(graphData)
         .nodeLabel((node) => `${node.name}`)
         .nodeColor((node) => highlightNodes.has(node) ? '#FFFF00' : nodeTypeColors[node.type] || nodeTypeColors.default)
@@ -421,7 +423,15 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
 
     initGraph();
     
+    const handleResize = () => {
+      if (graphRef.current) {
+        graphRef.current.width(window.innerWidth).height(window.innerHeight);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (GraphInstance) {
         GraphInstance._destructor();
       }

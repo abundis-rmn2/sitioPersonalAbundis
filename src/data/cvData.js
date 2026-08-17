@@ -642,14 +642,14 @@ export const cvPosts = [
       "en": "codeProject"
     },
     "es": {
-      "title": "Amoxeh &#8211; WordPress plugin",
+      "title": "Amoxeh – WordPress plugin",
       "abstract": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
       "content": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
       "displayDate": "",
       "citation": "Ramírez Abundis, Á. J. (2016). <em>Amoxeh - WordPress plugin</em> [Software]. https://rmn2.com/graffiti-gdl/notas_periodico/"
     },
     "en": {
-      "title": "Amoxeh &#8211; WordPress plugin",
+      "title": "Amoxeh – WordPress plugin",
       "abstract": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
       "content": "Amoxeh is software developed on WordPress that facilitates the management and analysis of journalistic note corpora. It allows efficient tagging of each note to organize and retrieve information through individual and cross-referenced metadata queries. Additionally, it offers hypertextual and segmented navigation to explore the corpus in a structured manner. A standout feature of Amoxeh is its ability to visualize data in a dynamic and understandable way. It provides three visualization modes: an interactive timeline to track the evolution of topics over time, a cartographic representation that shows the geographic distribution of topics in the corpus, and an integration with the Voyant tool, which simplifies the analysis of the segmented text within the corpus. These advanced visual tools streamline information management and enhance the analysis of trends and patterns within the journalistic corpus.",
       "displayDate": "",
@@ -678,14 +678,14 @@ export const cvPosts = [
       "en": "multimediaProject"
     },
     "es": {
-      "title": "Recorriendo el tRAzo &#8211; Interactive History of the Graffiti in Guadalajara City",
+      "title": "Recorriendo el tRAzo – Interactive History of the Graffiti in Guadalajara City",
       "abstract": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
       "content": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
       "displayDate": "",
       "citation": ""
     },
     "en": {
-      "title": "Recorriendo el tRAzo &#8211; Interactive History of the Graffiti in Guadalajara City",
+      "title": "Recorriendo el tRAzo – Interactive History of the Graffiti in Guadalajara City",
       "abstract": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
       "content": "Web adaptation of “Graffiti is Dead - Sociohistorical Approach to the Emergence and Evolution of the Graffiti Phenomenon in the City of Guadalajara”",
       "displayDate": "",
@@ -713,14 +713,14 @@ export const cvPosts = [
       "en": "multimediaProject"
     },
     "es": {
-      "title": "Visiones de Paz &#8211; Graciela Pérez Rodríguez, defensora de derechos humanos",
+      "title": "Visiones de Paz – Graciela Pérez Rodríguez, defensora de derechos humanos",
       "abstract": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
       "content": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
       "displayDate": "",
       "citation": ""
     },
     "en": {
-      "title": "Visiones de Paz &#8211; Graciela Pérez Rodríguez, defensora de derechos humanos",
+      "title": "Visiones de Paz – Graciela Pérez Rodríguez, defensora de derechos humanos",
       "abstract": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
       "content": "In this short film, Graciela Pérez shares her story as a human rights activist and the experience of looking at her missing loved ones.",
       "displayDate": "",

@@ -1,159 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { cvPosts } from '../data/cvData';
 
-// --- EDUCATION / THESIS LIST ---
-export const ThesisList = ({ lang = 'es' }) => {
-  const theses = cvPosts.filter(p => p.type === 'thesis');
-
-  return (
-    <div>
-      <h1>{lang === 'es' ? 'Educación' : 'Education'}</h1>
-      <p style={{ display: 'inline', background: 'white' }}>
-        {lang === 'es' 
-          ? 'Integro el desarrollo de software con las ciencias sociales construyendo herramientas que potencian el análisis y visualización de datos. Desarrollé Amoxeh, un plugin para WordPress que aprovecha Voyant Tools para el análisis de textos periodísticos, permitiendo una comprensión más profunda de las narrativas mediáticas. Mi trabajo también aplica aprendizaje automático para analizar Instagram, mapeando redes de interacciones de hashtags y flujos de contenido.'
-          : 'I integrate software development with social science by building tools that enhance data analysis and visualization. Using WordPress as boilerplate, I developed Amoxeh, a WordPress plugin that leverages Voyant Tools for newspaper text analysis, enabling a deeper understanding of media narratives. My work also applies machine learning to analyze Instagram, mapping hashtag networks interactions, and content flows.'
-        }
-      </p>
-      <hr style={{ background: 'transparent', border: 'none', height: '1rem' }} />
-      <ul className="thesis-list">
-        {theses.map((thesis) => {
-          const t = thesis[lang] || thesis['es'];
-          const cat = thesis.categories[lang];
-          const slug = thesis.slugs[lang];
-          return (
-            <li key={thesis.id} style={{ marginBottom: '1.8rem', textAlign: 'right' }}>
-              <span className="displayDate">{t.displayDate}</span>
-              <Link className="title" href={`/${lang}/${cat}/${slug}`} style={{ fontWeight: 'bold', fontSize: '1.15rem', display: 'block', marginBottom: '0.2rem' }}>
-                {t.title}
-              </Link>
-              {t.citation && (
-                <div 
-                  style={{ fontSize: '0.88rem', color: '#555', marginTop: '0.3rem', lineHeight: '1.4' }}
-                  dangerouslySetInnerHTML={{ __html: t.citation }} 
-                />
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
-// --- ARTICLES LIST ---
-export const ArticleList = ({ lang = 'es' }) => {
-  const articles = cvPosts.filter(p => p.type === 'articles');
-
-  return (
-    <div>
-      <h1>{lang === 'es' ? 'Artículos' : 'Articles'}</h1>
-      <ul className="list">
-        {articles.map((article) => {
-          const t = article[lang] || article['es'];
-          const cat = article.categories[lang];
-          const slug = article.slugs[lang];
-          return (
-            <li key={article.id} style={{ marginBottom: '1.8rem' }}>
-              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>
-                {t.title}
-              </Link>
-              {t.citation && (
-                <div 
-                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4' }}
-                  dangerouslySetInnerHTML={{ __html: t.citation }} 
-                />
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
-// --- TALKS / CONFERENCES LIST ---
-export const TalkList = ({ lang = 'es' }) => {
-  const talks = cvPosts.filter(p => p.type === 'talks');
-
-  return (
-    <div>
-      <h1>{lang === 'es' ? 'Ponencias & Conferencias' : 'Talks & Conferences'}</h1>
-      <ul className="list">
-        {talks.map((talk) => {
-          const t = talk[lang] || talk['es'];
-          const cat = talk.categories[lang];
-          const slug = talk.slugs[lang];
-          return (
-            <li key={talk.id} style={{ marginBottom: '1.8rem' }}>
-              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>
-                {t.title}
-              </Link>
-              {t.citation && (
-                <div 
-                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4' }}
-                  dangerouslySetInnerHTML={{ __html: t.citation }} 
-                />
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
-// --- CODE PROJECTS LIST ---
-export const CodeProjectsList = ({ lang = 'es' }) => {
+// --- SECTION: PROJECTS (CODE & MULTIMEDIA) ---
+export const ProjectsSection = ({ lang = 'es' }) => {
+  const [activeTab, setActiveTab] = useState('code'); // 'code' o 'multimedia'
   const codeProjects = cvPosts.filter(p => p.type === 'codeProject');
-
-  return (
-    <div>
-      <h1>{lang === 'es' ? 'Proyectos de Código' : 'Code Projects'}</h1>
-      <ul className="list">
-        {codeProjects.map((project) => {
-          const t = project[lang] || project['es'];
-          const cat = project.categories[lang];
-          const slug = project.slugs[lang];
-          return (
-            <li key={project.id} style={{ marginBottom: '1.8rem' }}>
-              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>
-                {t.title}
-              </Link>
-              {t.citation && (
-                <div 
-                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4' }}
-                  dangerouslySetInnerHTML={{ __html: t.citation }} 
-                />
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
-// --- MULTIMEDIA LIST ---
-export const MultimediaList = ({ lang = 'es' }) => {
   const multimedia = cvPosts.filter(p => p.type === 'multimedia');
 
+  const tabs = [
+    { id: 'code', label: lang === 'es' ? 'Proyectos de Código' : 'Code Projects' },
+    { id: 'multimedia', label: lang === 'es' ? 'Proyectos Multimedia' : 'Multimedia Projects' }
+  ];
+
+  const currentList = activeTab === 'code' ? codeProjects : multimedia;
+
   return (
-    <div>
-      <h1>{lang === 'es' ? 'Proyectos Multimedia' : 'Multimedia Projects'}</h1>
-      <ul className="list">
-        {multimedia.map((item) => {
+    <div style={{ width: '100%' }}>
+      <h1>{lang === 'es' ? 'Proyectos' : 'Projects'}</h1>
+      
+      {/* Selector de pestañas */}
+      <div style={{ 
+        display: 'flex', 
+        gap: '12px', 
+        marginBottom: '2rem', 
+        borderBottom: '1px solid #eee', 
+        paddingBottom: '8px' 
+      }}>
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              fontSize: '0.95rem',
+              fontWeight: activeTab === tab.id ? 'bold' : 'normal',
+              color: activeTab === tab.id ? 'var(--color-principal)' : '#888',
+              cursor: 'pointer',
+              padding: '6px 12px',
+              borderBottom: activeTab === tab.id ? '2px solid var(--color-principal)' : '2px solid transparent',
+              transition: 'all 0.3s ease',
+              outline: 'none'
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <ul className="list" style={{ listStyle: 'none', padding: 0, margin: 0, textAlign: 'left' }}>
+        {currentList.map((item) => {
           const t = item[lang] || item['es'];
           const cat = item.categories[lang];
           const slug = item.slugs[lang];
           return (
-            <li key={item.id} style={{ marginBottom: '1.8rem' }}>
-              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>
+            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+              <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
+                {t.displayDate}
+              </span>
+              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem', color: 'var(--color-secundario)', textDecoration: 'none' }}>
                 {t.title}
               </Link>
               {t.citation && (
                 <div 
-                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4' }}
+                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4', marginTop: '0.3rem' }}
                   dangerouslySetInnerHTML={{ __html: t.citation }} 
                 />
               )}
@@ -165,26 +76,111 @@ export const MultimediaList = ({ lang = 'es' }) => {
   );
 };
 
-// --- MEDIA APPEARANCES LIST ---
+// --- SECTION: ACADEMY (EDUCATION, PAPERS, TALKS) ---
+export const AcademySection = ({ lang = 'es' }) => {
+  const [activeTab, setActiveTab] = useState('education'); // 'education', 'articles', 'talks'
+  const education = cvPosts.filter(p => p.type === 'thesis');
+  const articles = cvPosts.filter(p => p.type === 'articles');
+  const talks = cvPosts.filter(p => p.type === 'talks');
+
+  const tabs = [
+    { id: 'education', label: lang === 'es' ? 'Educación & Tesis' : 'Education & Thesis' },
+    { id: 'articles', label: lang === 'es' ? 'Artículos Científicos' : 'Papers' },
+    { id: 'talks', label: lang === 'es' ? 'Ponencias & Conferencias' : 'Talks' }
+  ];
+
+  const getList = () => {
+    if (activeTab === 'education') return education;
+    if (activeTab === 'articles') return articles;
+    return talks;
+  };
+
+  const currentList = getList();
+
+  return (
+    <div style={{ width: '100%' }}>
+      <h1>{lang === 'es' ? 'Academia e Investigación' : 'Academy & Research'}</h1>
+
+      {/* Selector de pestañas */}
+      <div style={{ 
+        display: 'flex', 
+        gap: '12px', 
+        marginBottom: '2rem', 
+        borderBottom: '1px solid #eee', 
+        paddingBottom: '8px' 
+      }}>
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              fontSize: '0.95rem',
+              fontWeight: activeTab === tab.id ? 'bold' : 'normal',
+              color: activeTab === tab.id ? 'var(--color-principal)' : '#888',
+              cursor: 'pointer',
+              padding: '6px 12px',
+              borderBottom: activeTab === tab.id ? '2px solid var(--color-principal)' : '2px solid transparent',
+              transition: 'all 0.3s ease',
+              outline: 'none'
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <ul className="list" style={{ listStyle: 'none', padding: 0, margin: 0, textAlign: 'left' }}>
+        {currentList.map((item) => {
+          const t = item[lang] || item['es'];
+          const cat = item.categories[lang];
+          const slug = item.slugs[lang];
+          return (
+            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+              <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
+                {t.displayDate}
+              </span>
+              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem', color: 'var(--color-secundario)', textDecoration: 'none' }}>
+                {t.title}
+              </Link>
+              {t.citation && (
+                <div 
+                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4', marginTop: '0.3rem' }}
+                  dangerouslySetInnerHTML={{ __html: t.citation }} 
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+// --- SECTION: MEDIA APPEARANCES ---
 export const MediaAppearancesList = ({ lang = 'es' }) => {
   const media = cvPosts.filter(p => p.type === 'mediaAppearance');
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <h1>{lang === 'es' ? 'Prensa & Apariciones en Medios' : 'Media Appearances'}</h1>
-      <ul className="list">
+      <ul className="list" style={{ listStyle: 'none', padding: 0, margin: 0, textAlign: 'left' }}>
         {media.map((item) => {
           const t = item[lang] || item['es'];
           const cat = item.categories[lang];
           const slug = item.slugs[lang];
           return (
-            <li key={item.id} style={{ marginBottom: '1.8rem' }}>
-              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>
+            <li key={item.id} style={{ marginBottom: '1.8rem', borderLeft: '3px solid #eee', paddingLeft: '1rem' }}>
+              <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
+                {t.displayDate}
+              </span>
+              <Link href={`/${lang}/${cat}/${slug}`} style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem', color: 'var(--color-secundario)', textDecoration: 'none' }}>
                 {t.title}
               </Link>
               {t.citation && (
                 <div 
-                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4' }}
+                  style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4', marginTop: '0.3rem' }}
                   dangerouslySetInnerHTML={{ __html: t.citation }} 
                 />
               )}
