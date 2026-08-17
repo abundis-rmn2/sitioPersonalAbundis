@@ -151,7 +151,6 @@ export const cvPosts = [
     "id": 77,
     "type": "articles",
     "related_posts": [
-      0,
       91
     ],
     "slugs": {
@@ -187,7 +186,6 @@ export const cvPosts = [
     "id": 80,
     "type": "articles",
     "related_posts": [
-      0,
       36,
       34
     ],
@@ -224,7 +222,6 @@ export const cvPosts = [
     "id": 82,
     "type": "articles",
     "related_posts": [
-      0,
       96,
       73,
       54
@@ -262,9 +259,8 @@ export const cvPosts = [
     "id": 73,
     "type": "articles",
     "related_posts": [
-      0,
-      73,
-      105
+      105,
+      96
     ],
     "slugs": {
       "en": "freight-graffiti-a-transnational-symbolic-circulation-circuit-hidden-at-the-margins-of-railway-tracks",
@@ -299,7 +295,6 @@ export const cvPosts = [
     "id": 46,
     "type": "talks",
     "related_posts": [
-      0,
       36,
       34
     ],
@@ -336,7 +331,6 @@ export const cvPosts = [
     "id": 48,
     "type": "talks",
     "related_posts": [
-      0,
       34,
       36
     ],
@@ -373,7 +367,6 @@ export const cvPosts = [
     "id": 50,
     "type": "talks",
     "related_posts": [
-      0,
       96
     ],
     "slugs": {
@@ -409,7 +402,6 @@ export const cvPosts = [
     "id": 52,
     "type": "talks",
     "related_posts": [
-      0,
       32,
       91
     ],
@@ -446,7 +438,6 @@ export const cvPosts = [
     "id": 54,
     "type": "talks",
     "related_posts": [
-      0,
       105
     ],
     "slugs": {
@@ -519,7 +510,6 @@ export const cvPosts = [
     "id": 38,
     "type": "codeProject",
     "related_posts": [
-      0,
       36,
       96,
       34,
@@ -593,7 +583,6 @@ export const cvPosts = [
     "id": 34,
     "type": "codeProject",
     "related_posts": [
-      0,
       96
     ],
     "slugs": {
@@ -629,7 +618,6 @@ export const cvPosts = [
     "id": 32,
     "type": "codeProject",
     "related_posts": [
-      0,
       91,
       56
     ],
@@ -772,7 +760,6 @@ export const cvPosts = [
     "id": 62,
     "type": "multimedia",
     "related_posts": [
-      0,
       60
     ],
     "slugs": {
@@ -808,7 +795,6 @@ export const cvPosts = [
     "id": 105,
     "type": "mediaAppearance",
     "related_posts": [
-      0,
       91
     ],
     "slugs": {
@@ -844,7 +830,6 @@ export const cvPosts = [
     "id": 102,
     "type": "mediaAppearance",
     "related_posts": [
-      0,
       91
     ],
     "slugs": {
@@ -950,7 +935,8 @@ export const cvPosts = [
     "id": 12,
     "type": "blog",
     "related_posts": [
-      0
+      1,
+      32
     ],
     "slugs": {
       "en": "blog-post-entry",
@@ -985,7 +971,8 @@ export const cvPosts = [
     "id": 1,
     "type": "blog",
     "related_posts": [
-      0
+      12,
+      32
     ],
     "slugs": {
       "en": "hello-world",
@@ -1572,7 +1559,11 @@ export const cvPosts = [
   {
     "id": 241,
     "type": "multimedia",
-    "related_posts": [],
+    "related_posts": [
+      60,
+      56,
+      62
+    ],
     "slugs": {
       "en": "erostrato-one-minute-fiction-film",
       "es": "erostrato-video-minuto"
