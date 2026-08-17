@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaEnvelope, FaBars } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaProjectDiagram } from "react-icons/fa";
 import { useLenis } from "lenis/react";
 
 const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) => {
@@ -10,11 +10,12 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
 
   // Mapear nombres de sección a IDs clave de nodos en el grafo
   const sectionToNodeMap = {
-    "inicio": 91,       // Tesis de Licenciatura -> Inicio
-    "experiencia": 200, // Proyecto Tejer.RED -> Experiencia
-    "proyectos": 201,   // Catálogo Indicios -> Proyectos
-    "academia": 75,     // Artículo de Graffiti -> Academia
-    "prensa": 230       // Nota en LatAm Journalism Review -> Prensa
+    "grafo": "hub-inicio",
+    "inicio": "hub-inicio",
+    "experiencia": "hub-experiencia",
+    "proyectos": "hub-proyectos",
+    "academia": "hub-academia",
+    "prensa": "hub-prensa"
   };
 
   const handleAnchorClick = async (e, id) => {
@@ -108,6 +109,24 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
           </a>
           <a href="mailto:abundiscomunicacion@gmail.com" target="_blank" rel="noreferrer">
             <FaEnvelope size={24} />
+          </a>
+          <a 
+            href={`/${lang}#grafo`} 
+            title={lang === 'es' ? "Ver Grafo 3D / Inicio" : "View 3D Graph / Home"} 
+            style={{ color: activeSection === 'grafo' ? 'var(--color-principal)' : 'inherit' }}
+            onClick={(e) => {
+              e.preventDefault();
+              lenis?.scrollTo('#grafo');
+              if (networkGraphRef?.current) {
+                networkGraphRef.current.setCameraPosition(0, 0, 350);
+                networkGraphRef.current.highlightIDCall(99999999);
+              }
+              if (window.innerWidth <= 768) {
+                setIsMenuOpen(false);
+              }
+            }}
+          >
+            <FaProjectDiagram size={24} />
           </a>
         </div>
       </div>

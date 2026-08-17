@@ -12,7 +12,7 @@ import { TagBadges } from './tagColors';
  *  - listMode    : boolean — aplica estilos de lista (borde lateral) vs grid (sin borde)
  *  - onMouseEnter: función callback
  */
-const CardItem = ({ item, lang, showImage = false, listMode = false, onMouseEnter }) => {
+const CardItem = ({ item, lang, showImage = false, listMode = false, onMouseEnter, onMouseLeave }) => {
   const t = item[lang] || item['es'];
   const cat = item.categories[lang];
   const slug = item.slugs[lang];
@@ -25,6 +25,7 @@ const CardItem = ({ item, lang, showImage = false, listMode = false, onMouseEnte
     <li
       key={item.id}
       onMouseEnter={() => onMouseEnter?.(item.id)}
+      onMouseLeave={() => onMouseLeave?.(item.id)}
       style={liStyle}
     >
       {/* Imagen placeholder 1:1 */}

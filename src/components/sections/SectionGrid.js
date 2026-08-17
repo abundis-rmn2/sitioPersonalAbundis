@@ -21,6 +21,7 @@ const SectionGrid = ({
   showImage = false,
   className = '',
   onMouseEnter,
+  onMouseLeave,
 }) => {
   const gridColumns = columns === 'auto'
     ? 'repeat(auto-fill, minmax(220px, 1fr))'
@@ -48,6 +49,7 @@ const SectionGrid = ({
           showImage={showImage}
           listMode={listMode}
           onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         />
       ))}
     </ul>

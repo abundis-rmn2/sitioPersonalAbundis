@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { experienceData } from '../data/cvData';
+import { useDebouncedHover } from '../utils/useDebouncedHover';
 
 // ─── TAG COLORS v2 (same palette as NetworkGraphComponent.js nodeTypeColors) ───
 const DOMINIO_COLORS = {
@@ -67,7 +68,7 @@ const ExpTagBadges = ({ exp }) => {
 
 // ─────────────────────────────────────────────────────────────────────────────────
 
-const ExperienceList = ({ lang = 'es', networkGraphRef }) => {
+const ExperienceList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
   const [activeTab, setActiveTab] = useState('tech'); // 'tech' o 'social'
   const data = experienceData[lang] || experienceData['es'];
 
@@ -76,11 +77,11 @@ const ExperienceList = ({ lang = 'es', networkGraphRef }) => {
     { id: 'social', label: lang === 'es' ? 'Investigación Social' : 'Social Research' }
   ];
 
-  const handleMouseEnter = () => {
+  const { handleMouseEnter, handleMouseLeave } = useDebouncedHover(() => {
     if (networkGraphRef?.current) {
       networkGraphRef.current.zoomToID(200);
     }
-  };
+  }, hoverDelayMs);
 
   return (
     <div style={{ width: '100%' }}>
@@ -124,6 +125,7 @@ const ExperienceList = ({ lang = 'es', networkGraphRef }) => {
           <div 
             key={index}
             onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{ 
               borderLeft: '3px solid var(--color-principal)', 
               paddingLeft: '1.2rem',

@@ -15,17 +15,28 @@ import {
 } from './sections';
 
 export default function LangHomePageClient({ lang }) {
-  const [activeSection, setActiveSection] = useState("inicio");
+  const [activeSection, setActiveSection] = useState("grafo");
   const lenis = useLenis();
   const networkGraphRef = useRef(null);
 
   const sections = [
-    { id: "inicio", label: lang === 'es' ? "Inicio" : "Home" },
+    { id: "grafo", label: lang === 'es' ? "Inicio" : "Home" },
+    { id: "inicio", label: lang === 'es' ? "Biografía" : "Biography" },
     { id: "experiencia", label: lang === 'es' ? "Experiencia" : "Experience" },
     { id: "proyectos", label: lang === 'es' ? "Proyectos" : "Projects" },
     { id: "academia", label: lang === 'es' ? "Academia" : "Academy" },
     { id: "prensa", label: lang === 'es' ? "Prensa" : "Media" },
   ];
+
+  const handleNodeNavigate = (sectionId, nodeId) => {
+    const targetSection = sectionId || "inicio";
+    if (lenis) {
+      lenis.scrollTo(`#${targetSection}`);
+    }
+    if (nodeId && networkGraphRef.current) {
+      networkGraphRef.current.highlightIDCall(nodeId);
+    }
+  };
 
   const pageVariants = {
     initial: { opacity: 0, x: -100 },
@@ -60,7 +71,7 @@ export default function LangHomePageClient({ lang }) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection, lenis]);
+  }, [activeSection, lenis, sections]);
 
   useLenis(() => {
     let currentSection = "";
@@ -91,12 +102,12 @@ export default function LangHomePageClient({ lang }) {
         exit="exit"
         variants={pageVariants}
       >
-        {/* Fondo 3D */}
+        {/* Fondo 3D interactivo */}
         <div className="global-background">
-          <GlobalList ref={networkGraphRef} lang={lang} />
+          <GlobalList ref={networkGraphRef} lang={lang} onNodeNavigate={handleNodeNavigate} />
         </div>
 
-        {/* Menú de navegación flotante con idioma activo */}
+        {/* Menú de navegación flotante */}
         <AnchorMenu 
           sections={sections} 
           activeSection={activeSection} 
@@ -107,14 +118,23 @@ export default function LangHomePageClient({ lang }) {
         {/* Contenedor del portafolio */}
         <div className="content">
           {sections.map(({ id }) => (
-            <div className="wrapper" key={id} id={id}>
-              <div>
-                {id === "inicio" && <Bio lang={lang} />}
-                {id === "experiencia" && <ExperienceList lang={lang} networkGraphRef={networkGraphRef} />}
-                {id === "proyectos" && <ProjectsSection lang={lang} networkGraphRef={networkGraphRef} />}
-                {id === "academia" && <AcademySection lang={lang} networkGraphRef={networkGraphRef} />}
-                {id === "prensa" && <MediaAppearancesList lang={lang} networkGraphRef={networkGraphRef} />}
-              </div>
+            <div className={`wrapper ${id === 'grafo' ? 'hero-graph-wrapper' : ''}`} key={id} id={id}>
+              {id === "grafo" ? (
+                <div className="hero-graph-banner">
+                  <div className="hero-graph-badge">
+                    <span>{lang === 'es' ? '★ Inicio' : '★ Home'}</span>
+                    <p>{lang === 'es' ? 'Haz clic en cualquier nodo para explorar las secciones' : 'Click on any node to jump to sections'}</p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  {id === "inicio" && <Bio lang={lang} />}
+                  {id === "experiencia" && <ExperienceList lang={lang} networkGraphRef={networkGraphRef} />}
+                  {id === "proyectos" && <ProjectsSection lang={lang} networkGraphRef={networkGraphRef} />}
+                  {id === "academia" && <AcademySection lang={lang} networkGraphRef={networkGraphRef} />}
+                  {id === "prensa" && <MediaAppearancesList lang={lang} networkGraphRef={networkGraphRef} />}
+                </div>
+              )}
             </div>
           ))}
         </div>

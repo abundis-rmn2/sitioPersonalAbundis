@@ -1,22 +1,26 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle, useState } from 'react';
 
-const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
+const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }, ref) => {
   const containerRef = useRef(null);
   const graphRef = useRef(null);
 
   const [highlightNodes] = useState(new Set());
   const [highlightLinks] = useState(new Set());
+  const [hoverNodes] = useState(new Set());
+  const [hoverLinks] = useState(new Set());
+  const currentHoverRef = useRef(null);
 
-  // Color mapping for node types
+  // Color mapping for node types (Paleta Blanco, Negro y Rojo)
   const nodeTypeColors = {
-    blog: '#663399',          // Púrpura para posts
-    conference: '#FFA500',    // Naranja para charlas
-    codeProject: '#008080',   // Cerceta para proyectos de código
-    paper: '#1E90FF',         // Azul para artículos
-    multimediaProject: '#FF1493', // Rosa para multimedia
-    mediaAppearance: '#32CD32',   // Verde lima para prensa
-    thesis: '#FF0000',        // Rojo para tesis
-    default: '#808080',       // Gris por defecto
+    hub: '#FF0000',            // Rojo para nodos hub
+    blog: '#222222',           // Negro grafito
+    conference: '#CC0000',     // Rojo oscuro
+    codeProject: '#111111',    // Negro puro
+    paper: '#E60000',          // Rojo carmesí
+    multimediaProject: '#FF3333', // Rojo vibrante
+    mediaAppearance: '#333333',   // Gris carbón
+    thesis: '#FF0000',         // Rojo vivo
+    default: '#555555',        // Gris medio
   };
 
   const wrapText = (text, maxCharsPerLine = 20) => {
@@ -84,10 +88,10 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
       if (graphRef.current) {
         graphRef.current
           .nodeColor(node => {
-            return node.type === 'thesis' ? '#FF5733' : nodeTypeColors[node.type] || nodeTypeColors.default;
+            return node.type === 'thesis' ? '#FF0000' : nodeTypeColors[node.type] || nodeTypeColors.default;
           })
           .linkWidth(link => {
-            return link.color === '#4285F4' ? 4 : 1;
+            return link.color === '#FF0000' ? 4 : 1;
           });
       }
     },
@@ -185,6 +189,9 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
       if (id === 99999999) {
         highlightNodes.clear();
         highlightLinks.clear();
+        hoverNodes.clear();
+        hoverLinks.clear();
+        currentHoverRef.current = null;
         graphRef.current.zoomToFit(1000, 50);
       } else {
         if (!graphRef.current) return;
@@ -215,7 +222,56 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
       }
     });
 
-    const nodes = postsList.map((post) => {
+    // Nodos Hub principales para cada sección (Paleta Blanco, Negro y Rojo)
+    const hubNodes = [
+      {
+        id: 'hub-inicio',
+        name: lang === 'es' ? '★ Biografía / Inicio' : '★ Biography / Home',
+        group: 'hub',
+        type: 'hub',
+        sectionId: 'inicio',
+        color: '#FF0000',
+        val: 16
+      },
+      {
+        id: 'hub-experiencia',
+        name: lang === 'es' ? '★ Experiencia' : '★ Experience',
+        group: 'hub',
+        type: 'hub',
+        sectionId: 'experiencia',
+        color: '#111111',
+        val: 14
+      },
+      {
+        id: 'hub-proyectos',
+        name: lang === 'es' ? '★ Proyectos' : '★ Projects',
+        group: 'hub',
+        type: 'hub',
+        sectionId: 'proyectos',
+        color: '#E60000',
+        val: 14
+      },
+      {
+        id: 'hub-academia',
+        name: lang === 'es' ? '★ Academia' : '★ Academy',
+        group: 'hub',
+        type: 'hub',
+        sectionId: 'academia',
+        color: '#222222',
+        val: 14
+      },
+      {
+        id: 'hub-prensa',
+        name: lang === 'es' ? '★ Prensa' : '★ Media',
+        group: 'hub',
+        type: 'hub',
+        sectionId: 'prensa',
+        color: '#FF3333',
+        val: 12
+      }
+    ];
+
+    const postNodes = postsList.map((post) => {
       const tData = post[lang] || post['es'] || {};
       return {
         id: post.id,
@@ -225,6 +281,8 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
         type: post.type || 'default',
       };
     });
+
+    const nodes = [...hubNodes, ...postNodes];
 
     const links = postsList.flatMap((post) => {
       if (!post.related_posts || !Array.isArray(post.related_posts)) return [];
@@ -243,6 +301,30 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
             value: 3,
           };
         });
+    });
+
+    // Enlazar nodos Hub centrales entre sí y con los posts de su categoría
+    hubNodes.forEach(hub => {
+      if (hub.id !== 'hub-inicio') {
+        links.push({ source: 'hub-inicio', target: hub.id, color: '#FF0000', value: 5 });
+      }
+    });
+
+    postsList.forEach(post => {
+      let targetHub = null;
+      if (post.type === 'work' || post.type === 'experience') {
+        targetHub = 'hub-experiencia';
+      } else if (post.type === 'codeProject' || post.type === 'multimediaProject') {
+        targetHub = 'hub-proyectos';
+      } else if (post.type === 'thesis' || post.type === 'paper' || post.type === 'conference') {
+        targetHub = 'hub-academia';
+      } else if (post.type === 'mediaAppearance') {
+        targetHub = 'hub-prensa';
+      }
+
+      if (targetHub) {
+        links.push({ source: targetHub, target: post.id, color: '#FF3333', value: 2 });
+      }
     });
 
     links.forEach((link) => {
@@ -348,21 +430,31 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
         .height(window.innerHeight)
         .graphData(graphData)
         .nodeLabel((node) => `${node.name}`)
-        .nodeColor((node) => highlightNodes.has(node) ? '#FFFF00' : nodeTypeColors[node.type] || nodeTypeColors.default)
-        .linkWidth((link) => (highlightLinks.has(link) ? 1.5 : 0.5))
-        .linkDirectionalParticles((link) => (highlightLinks.has(link) ? 2 : 0))
-        .linkDirectionalParticleSpeed(0.008)
-        .linkDirectionalParticleWidth(1.2)
-        .linkDirectionalParticleColor(() => '#FF6666')
-        .linkColor((link) => (highlightLinks.has(link) ? '#888888' : '#D3D3D3'))
+        .nodeColor((node) => {
+          if (currentHoverRef.current === node.id) return '#111111';
+          if (hoverNodes.has(node) || highlightNodes.has(node)) return '#FF0000';
+          return node.color || nodeTypeColors[node.type] || nodeTypeColors.default;
+        })
+        .linkWidth((link) => (hoverLinks.has(link) || highlightLinks.has(link) ? 2.5 : 0.6))
+        .linkDirectionalParticles((link) => (hoverLinks.has(link) || highlightLinks.has(link) ? 4 : 0))
+        .linkDirectionalParticleSpeed(0.012)
+        .linkDirectionalParticleWidth(1.8)
+        .linkDirectionalParticleColor(() => '#FF0000')
+        .linkColor((link) => (hoverLinks.has(link) || highlightLinks.has(link) ? '#FF0000' : '#CCCCCC'))
         .backgroundColor('#FFFFFF')
         .cameraPosition({ x: 0, y: 0, z: 350 })
         .nodeThreeObject((node) => {
           const group = new THREE.Group();
-          const sphereSize = Math.sqrt(node.val) * 2.5 + 2;
+          const isHub = node.type === 'hub';
+          const isDirectHover = currentHoverRef.current === node.id;
+          const isNeighborHover = hoverNodes.has(node);
+          const isHighlighted = isNeighborHover || highlightNodes.has(node);
+          const sphereSize = Math.sqrt(node.val) * (isHub ? 3.5 : (isHighlighted ? 3.2 : 2.5)) + 2;
           let geometry;
           
-          if (highlightNodes.has(node)) {
+          if (isHub) {
+            geometry = new THREE.IcosahedronGeometry(sphereSize, 1);
+          } else if (isHighlighted) {
             geometry = new THREE.SphereGeometry(sphereSize, 12, 12);
           } else {
             geometry = new THREE.BoxGeometry(sphereSize * 2, sphereSize * 2, sphereSize * 2);
@@ -372,38 +464,69 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
           const line = new THREE.LineSegments(wireframe);
           
           line.material.depthTest = true;
-          line.material.opacity = highlightNodes.has(node) ? 0.9 : 0.5;
+          line.material.opacity = isHub ? 0.95 : (isHighlighted ? 0.95 : 0.45);
           line.material.transparent = true;
           line.material.color = new THREE.Color(
-            highlightNodes.has(node) 
-              ? '#FF6666' 
-              : nodeTypeColors[node.type] || nodeTypeColors.default
+            isDirectHover
+              ? '#111111'
+              : (isHighlighted 
+                ? '#FF0000' 
+                : (isHub ? (node.color || '#FF0000') : nodeTypeColors[node.type] || nodeTypeColors.default))
           );
           
           group.add(line);
           
-          if (highlightNodes.has(node)) {
+          if (isHub || isHighlighted) {
             const nameLabel = createTextSprite(
               node.name, 
               '#FFFFFF', 
-              'bold 22px Poppins, Arial', 
-              'rgba(36, 35, 35, 0.9)', 
+              isHub ? 'bold 26px Poppins, Arial' : 'bold 20px Poppins, Arial', 
+              isDirectHover 
+                ? 'rgba(17, 17, 17, 0.96)' 
+                : (isHighlighted ? 'rgba(204, 0, 0, 0.95)' : (isHub ? 'rgba(20, 20, 20, 0.92)' : 'rgba(36, 35, 35, 0.9)')), 
               1, 
               100
             );
-            nameLabel.position.set(0, sphereSize + 15, 0);
+            nameLabel.position.set(0, sphereSize + (isHub ? 18 : 12), 0);
             group.add(nameLabel);
           }
           
           return group;
         })
+        .onNodeHover(node => {
+          hoverNodes.clear();
+          hoverLinks.clear();
+          currentHoverRef.current = node ? node.id : null;
+
+          if (node) {
+            hoverNodes.add(node);
+            if (node.neighbors) {
+              node.neighbors.forEach((neighbor) => hoverNodes.add(neighbor));
+            }
+            if (node.links) {
+              node.links.forEach((link) => hoverLinks.add(link));
+            }
+          }
+
+          updateHighlight();
+        })
         .onNodeClick(node => {
-          if (highlightNodes.has(node)) {
-            highlightNodes.clear();
-            highlightLinks.clear();
-            updateHighlight();
-          } else {
-            highlightID(node.id);
+          highlightID(node.id);
+
+          if (onNodeNavigate) {
+            if (node.type === 'hub' && node.sectionId) {
+              onNodeNavigate(node.sectionId);
+            } else if (node.type === 'work' || node.type === 'experience') {
+              onNodeNavigate('experiencia', node.id);
+            } else if (node.type === 'codeProject' || node.type === 'multimediaProject') {
+              onNodeNavigate('proyectos', node.id);
+            } else if (node.type === 'thesis' || node.type === 'paper' || node.type === 'conference') {
+              onNodeNavigate('academia', node.id);
+            } else if (node.type === 'mediaAppearance') {
+              onNodeNavigate('prensa', node.id);
+            } else {
+              onNodeNavigate('inicio', node.id);
+            }
           }
         })
         .enableNodeDrag(false)
@@ -436,7 +559,7 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es' }, ref) => {
         GraphInstance._destructor();
       }
     };
-  }, [posts]);
+  }, [posts, lang, onNodeNavigate]);
   
   return (
     <div

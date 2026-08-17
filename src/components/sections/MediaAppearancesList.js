@@ -2,13 +2,16 @@
 import React from 'react';
 import { cvPosts } from '../../data/cvData';
 import SectionGrid from './SectionGrid';
+import { useDebouncedHover } from '../../utils/useDebouncedHover';
 
-export const MediaAppearancesList = ({ lang = 'es', networkGraphRef }) => {
+export const MediaAppearancesList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
   const media = cvPosts.filter(p => p.type === 'mediaAppearance');
 
-  const handleMouseEnter = (id) => {
-    if (networkGraphRef?.current && id) networkGraphRef.current.zoomToID(id);
-  };
+  const { handleMouseEnter, handleMouseLeave } = useDebouncedHover((id) => {
+    if (networkGraphRef?.current && id) {
+      networkGraphRef.current.zoomToID(id);
+    }
+  }, hoverDelayMs);
 
   return (
     <div style={{ width: '100%' }}>
@@ -20,6 +23,7 @@ export const MediaAppearancesList = ({ lang = 'es', networkGraphRef }) => {
         columns="auto"
         className="media-grid"
         onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       />
     </div>
   );
