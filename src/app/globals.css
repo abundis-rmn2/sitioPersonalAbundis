@@ -220,6 +220,39 @@ h1, h2, h3, h4 {
   color: var(--color-principal);
 }
 
+/* Tarjeta Item Link - Hover target & manita en toda la card */
+.card-item-link {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer !important;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card-item-link::after {
+  display: none !important;
+}
+
+.card-item-link:hover {
+  color: inherit !important;
+}
+
+.card-item-link:hover .card-title {
+  color: var(--color-principal) !important;
+}
+
+.card-item-link:hover .card-image-wrapper {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .list {
   display: flex;
   flex-direction: column;

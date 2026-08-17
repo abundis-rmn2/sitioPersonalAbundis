@@ -9,11 +9,11 @@ import { useRef, useCallback } from 'react';
  * - Idiomatic: Utiliza `useRef` y `useCallback` de React de forma nativa.
  *
  * @param {Function} onHoverCallback - Callback invocado tras cumplir el tiempo de retardo.
- * @param {number} [delayMs=999]   - Milisegundos de espera antes de activar el callback (por defecto 999ms).
+ * @param {number} [delayMs=300]   - Milisegundos de espera antes de activar el callback (por defecto 300ms).
  * @param {Function} [onLeaveCallback] - Callback opcional ejecutado al salir del hover.
  * @returns {{ handleMouseEnter: Function, handleMouseLeave: Function, cancelHover: Function }}
  */
-export function useDebouncedHover(onHoverCallback, delayMs = 999, onLeaveCallback = null) {
+export function useDebouncedHover(onHoverCallback, delayMs = 300, onLeaveCallback = null) {
   const timerRef = useRef(null);
 
   const cancelHover = useCallback(() => {

@@ -68,7 +68,7 @@ const ExpTagBadges = ({ exp }) => {
 
 // ─────────────────────────────────────────────────────────────────────────────────
 
-const ExperienceList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
+const ExperienceList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 300 }) => {
   const [activeTab, setActiveTab] = useState('tech'); // 'tech' o 'social'
   const data = experienceData[lang] || experienceData['es'];
 

@@ -4,7 +4,7 @@ import { cvPosts } from '../../data/cvData';
 import SectionGrid from './SectionGrid';
 import { useDebouncedHover } from '../../utils/useDebouncedHover';
 
-export const MediaAppearancesList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
+export const MediaAppearancesList = ({ lang = 'es', networkGraphRef, hoverDelayMs = 300 }) => {
   const media = cvPosts.filter(p => p.type === 'mediaAppearance');
 
   const { handleMouseEnter, handleMouseLeave } = useDebouncedHover((id) => {

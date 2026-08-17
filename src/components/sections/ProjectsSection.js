@@ -10,7 +10,7 @@ const TABS = (lang) => [
   { id: 'multimedia', label: lang === 'es' ? 'Proyectos Multimedia'  : 'Multimedia Projects' },
 ];
 
-export const ProjectsSection = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
+export const ProjectsSection = ({ lang = 'es', networkGraphRef, hoverDelayMs = 300 }) => {
   const [activeTab, setActiveTab] = useState('code');
 
   const lists = {

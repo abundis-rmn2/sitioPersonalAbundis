@@ -11,7 +11,7 @@ const TABS = (lang) => [
   { id: 'talks',     label: lang === 'es' ? 'Ponencias & Conferencias'    : 'Talks' },
 ];
 
-export const AcademySection = ({ lang = 'es', networkGraphRef, hoverDelayMs = 999 }) => {
+export const AcademySection = ({ lang = 'es', networkGraphRef, hoverDelayMs = 300 }) => {
   const [activeTab, setActiveTab] = useState('education');
 
   const lists = {

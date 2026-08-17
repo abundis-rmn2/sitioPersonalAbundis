@@ -27,45 +27,63 @@ const CardItem = ({ item, lang, showImage = false, listMode = false, onMouseEnte
       onMouseEnter={() => onMouseEnter?.(item.id)}
       onMouseLeave={() => onMouseLeave?.(item.id)}
       style={liStyle}
+      className="card-item-container"
     >
-      {/* Imagen placeholder 1:1 */}
-      <div style={{
-        display: showImage ? 'block' : 'none',
-        aspectRatio: '1/1',
-        width: '100%',
-        backgroundColor: '#eee',
-        marginBottom: '1rem',
-        borderRadius: '8px',
-        overflow: 'hidden',
-      }}>
-        <img
-          src="https://via.placeholder.com/400"
-          alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        />
-      </div>
-
-      <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
-        {t.displayDate}
-      </span>
-
       <Link
         href={`/${lang}/${cat}/${slug}`}
-        style={{ fontSize: '1.15rem', fontWeight: 'bold', display: 'block', marginBottom: '0.2rem', color: 'var(--color-secundario)', textDecoration: 'none', lineHeight: '1.2' }}
+        className="card-item-link"
       >
-        {t.title}
-      </Link>
-
-      {t.citation && (
+        {/* Imagen placeholder 1:1 */}
         <div
-          style={{ fontSize: '0.88rem', color: '#555', lineHeight: '1.4', marginTop: '0.5rem' }}
-          dangerouslySetInnerHTML={{ __html: t.citation }}
-        />
-      )}
+          className="card-image-wrapper"
+          style={{
+            display: showImage ? 'block' : 'none',
+            aspectRatio: '1/1',
+            width: '100%',
+            backgroundColor: '#eee',
+            marginBottom: '1rem',
+            borderRadius: '8px',
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src="https://via.placeholder.com/400"
+            alt=""
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
 
-      <div style={{ marginTop: '0.5rem' }}>
-        <TagBadges item={item} />
-      </div>
+        <span className="displayDate" style={{ fontSize: '0.82rem', color: '#888', display: 'block', marginBottom: '0.2rem' }}>
+          {t.displayDate}
+        </span>
+
+        <span
+          className="card-title"
+          style={{
+            fontSize: '1.15rem',
+            fontWeight: 'bold',
+            display: 'block',
+            marginBottom: '0.2rem',
+            color: 'var(--color-secundario)',
+            lineHeight: '1.2',
+            transition: 'color 0.3s ease'
+          }}
+        >
+          {t.title}
+        </span>
+
+        {t.citation && (
+          <div
+            className="card-citation"
+            style={{ fontSize: '77%', color: '#555', lineHeight: '1.4', marginTop: '0.5rem' }}
+            dangerouslySetInnerHTML={{ __html: t.citation }}
+          />
+        )}
+
+        <div style={{ marginTop: '0.5rem' }}>
+          <TagBadges item={item} />
+        </div>
+      </Link>
     </li>
   );
 };
