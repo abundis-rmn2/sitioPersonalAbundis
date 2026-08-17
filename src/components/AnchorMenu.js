@@ -18,11 +18,23 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
     "prensa": "hub-prensa"
   };
 
+  const handleAnchorHover = (id) => {
+    if (id === 'grafo') return;
+    if (networkGraphRef?.current && sectionToNodeMap[id]) {
+      networkGraphRef.current.highlightIDCall(sectionToNodeMap[id]);
+      networkGraphRef.current.zoomToID(sectionToNodeMap[id]);
+    }
+  };
+
   const handleAnchorClick = async (e, id) => {
     e.preventDefault();
     lenis?.scrollTo(`#${id}`);
 
-    if (networkGraphRef?.current && sectionToNodeMap[id]) {
+    if (id === 'grafo') {
+      if (networkGraphRef?.current) {
+        networkGraphRef.current.resetToHomeView();
+      }
+    } else if (networkGraphRef?.current && sectionToNodeMap[id]) {
       networkGraphRef.current.zoomToID(sectionToNodeMap[id]);
       networkGraphRef.current.highlightIDCall(sectionToNodeMap[id]);
     }
@@ -96,6 +108,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
             className={`dot ${activeSection === id ? "active" : ""}`}
             title={label}
             onClick={(e) => handleAnchorClick(e, id)}
+            onMouseEnter={() => handleAnchorHover(id)}
           >
             {label}
           </Link>
@@ -118,8 +131,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
               e.preventDefault();
               lenis?.scrollTo('#grafo');
               if (networkGraphRef?.current) {
-                networkGraphRef.current.setCameraPosition(0, 0, 350);
-                networkGraphRef.current.highlightIDCall(99999999);
+                networkGraphRef.current.resetToHomeView();
               }
               if (window.innerWidth <= 768) {
                 setIsMenuOpen(false);

@@ -31,8 +31,15 @@ En `NetworkGraphComponent.js`, la función `generateGraphData` toma la lista de 
 3. **`hub-proyectos`** (`★ Proyectos`): Ancla de proyectos de software y multimedia en **Rojo Carmesí (#E60000)**.
 4. **`hub-academia`** (`★ Academia`): Ancla de tesis, artículos y ponencias en **Negro Grafito (#222222)**.
 5. **`hub-prensa`** (`★ Prensa`): Ancla de apariciones en medios en **Rojo Intenso (#FF3333)**.
+6. **`hub-experiencia`** (`★ Experiencia`): Ancla de trayectoria profesional en **Negro Puro (#111111)**. Se conecta dinámicamente con los nodos de la experiencia laboral (Balam Studio, Uzu Digital, Mondo Marketing - Japón, Nuvi Global, Atama, Web-Gdl, Asistente UDG, Facilitador México nos Mueve la Paz).
 
-Cada publicación individual en `cvData.js` se enlaza automáticamente a su nodo Hub correspondiente según su tipo (`work`, `codeProject`, `multimediaProject`, `thesis`, `paper`, `conference`, `mediaAppearance`).
+Cada publicación individual en `cvData.js` y cada puesto de `experienceData` se enlaza automáticamente a su nodo Hub correspondiente según su categoría.
+
+### 2.1. Arquitectura de Instancia Única Viva (`Singleton Pattern`)
+
+Para optimizar el uso de memoria WebGL y evitar destrucciones/recreaciones innecesarias del motor 3D:
+- **`isInitializedRef`**: Garantiza que `initGraph()` sólo se ejecute una vez al montar el componente.
+- **Sin Destrucción Recurrente**: Se omitió la llamada a `_destructor()` en el ciclo de vida del `useEffect`, manteniendo una única instancia del lienzo WebGL viva y activa en memoria durante toda la sesión.
 
 ---
 
@@ -40,16 +47,19 @@ Cada publicación individual en `cvData.js` se enlaza automáticamente a su nodo
 
 ### 3.1. Estado Hover (`onNodeHover`)
 
-Cuando el usuario coloca el cursor sobre un nodo del grafo, el motor de renderizado desencadena una respuesta visual diferenciada de alto contraste:
+Cuando el usuario coloca el cursor sobre un nodo del grafo, el motor de renderizado desencadena una respuesta visual y de cámara en tiempo real:
 
-- **Nodo con Hover Directo (Cursor encima)**:
-  - Adquiere **Fondo Negro (`rgba(17, 17, 17, 0.96)`)** en su etiqueta distintiva.
-  - La estructura wireframe del nodo y su contorno cambian a **Negro Puro (#111111)**.
-- **Nodos Enlazados / Vecinos**:
-  - Se "prenden" e iluminan en **Fondo Rojo (`rgba(204, 0, 0, 0.95)`)** con texto blanco en sus tarjetas informativas de título.
-  - Las aristas de conexión aumentan su grosor a `2.5px` y activan partículas rojas animadas en dirección al nodo.
-- **Nodos Fuera de Selección**:
-  - Mantienen una opacidad atenuada (`0.45`) para mantener la atención enfocada en el clúster activo.
+- **Nodo Hub Central (`★ Javi Abundis`)**: El nodo principal central de la red se renombró a **`★ Javi Abundis`** (`hub-inicio`).
+- **Comportamiento del Botón `Inicio`**:
+  - Al pulsar **Inicio** (menú o icono de grafo `FaProjectDiagram`), ejecuta `resetToHomeView()`: limpia todas las selecciones de nodos, restablece la cámara a la vista general (`z = 350`) y activa la auto- **Transiciones Progresivas Fade-In / Fade-Out (`THREE.MathUtils.lerp`)**:
+  - En cada cuadro del renderizador (60fps), se calcula la interpolación lineal (`lerp`) a un factor de `0.08` para cambiar progresivamente la opacidad de los materiales de los nodos (`wireframe.material.opacity`) y de los distintivos de texto (`sprite.material.opacity`).
+  - Al cambiar de nodo enfocado o salir del highlight, los distintivos y conexiones aparecen y desaparecen mediante un elegante fundido suave en lugar de cambios bruscos o instantáneos.
+
+### 3.2. Clic y Navegación (`onNodeClick`)
+
+Al hacer clic en cualquier nodo:
+1. **Nodos Hub de Categoría**: Desplazan suavemente la página (*smooth scroll* mediante Lenis) a la sección correspondiente (`#inicio`, `#experiencia`, `#proyectos`, `#academia`, `#prensa`).
+2. **Nodos Individuales de Item (Posts/Proyectos)**: Redirigen inmediatamente a la **página de detalle interior (`/[lang]/[category]/[slug]`)** utilizando Next.js Router (`router.push`).
 
 ### 3.3. Retardo Parametrizable en Listados (`useDebouncedHover`)
 

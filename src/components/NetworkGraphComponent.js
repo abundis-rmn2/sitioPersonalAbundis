@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle, useState } from 'react';
+import { experienceData } from '../data/cvData';
 
-const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }, ref) => {
+const NetworkGraphComponent = forwardRef(({ 
+  posts, 
+  lang = 'es', 
+  onNodeNavigate,
+  cameraDurationMs = 1600,
+  hoverDelayMs = 350,
+  zoomFactor = 0.07
+}, ref) => {
   const containerRef = useRef(null);
   const graphRef = useRef(null);
 
@@ -9,6 +17,21 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
   const [hoverNodes] = useState(new Set());
   const [hoverLinks] = useState(new Set());
   const currentHoverRef = useRef(null);
+  const lastHoveredIdRef = useRef(null);
+  const isAnimatingRef = useRef(false);
+  const hoverDelayTimerRef = useRef(null);
+  const isInitializedRef = useRef(false);
+  const onNodeNavigateRef = useRef(onNodeNavigate);
+  const cameraDurationRef = useRef(cameraDurationMs);
+  const hoverDelayRef = useRef(hoverDelayMs);
+  const zoomFactorRef = useRef(zoomFactor);
+
+  useEffect(() => {
+    onNodeNavigateRef.current = onNodeNavigate;
+    cameraDurationRef.current = cameraDurationMs;
+    hoverDelayRef.current = hoverDelayMs;
+    zoomFactorRef.current = zoomFactor;
+  }, [onNodeNavigate, cameraDurationMs, hoverDelayMs, zoomFactor]);
 
   // Color mapping for node types (Paleta Blanco, Negro y Rojo)
   const nodeTypeColors = {
@@ -110,6 +133,25 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
     resizeGraph: (width, height) => {
       if (graphRef.current) {
         graphRef.current.width(width).height(height);
+      }
+    },
+    resetToHomeView: () => {
+      if (graphRef.current) {
+        currentHoverRef.current = null;
+        lastHoveredIdRef.current = null;
+        hoverNodes.clear();
+        hoverLinks.clear();
+        highlightNodes.clear();
+        highlightLinks.clear();
+        updateHighlight();
+
+        graphRef.current.cameraPosition({ x: 0, y: 0, z: 350 }, { x: 0, y: 0, z: 0 }, 1000);
+
+        const controls = graphRef.current.controls();
+        if (controls) {
+          controls.autoRotate = true;
+          controls.autoRotateSpeed = 1.2;
+        }
       }
     },
     zoomToFit: () => {
@@ -226,7 +268,7 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
     const hubNodes = [
       {
         id: 'hub-inicio',
-        name: lang === 'es' ? '★ Biografía / Inicio' : '★ Biography / Home',
+        name: '★ Javi Abundis',
         group: 'hub',
         type: 'hub',
         sectionId: 'inicio',
@@ -282,7 +324,26 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
       };
     });
 
-    const nodes = [...hubNodes, ...postNodes];
+    // Extraer y sintetizar nodos de Experiencia Profesional desde experienceData
+    const expDataObj = experienceData[lang] || experienceData['es'] || { tech: [], social: [] };
+    const allExpItems = [
+      ...(expDataObj.tech || []).map((exp, idx) => ({ ...exp, catType: 'tech', idx })),
+      ...(expDataObj.social || []).map((exp, idx) => ({ ...exp, catType: 'social', idx }))
+    ];
+
+    const expNodes = allExpItems.map((exp) => {
+      const expId = `exp-${exp.catType}-${exp.idx}`;
+      return {
+        id: expId,
+        name: `${exp.role} @ ${exp.company}`,
+        group: 'experience',
+        type: 'experience',
+        val: 4,
+        period: exp.period
+      };
+    });
+
+    const nodes = [...hubNodes, ...postNodes, ...expNodes];
 
     const links = postsList.flatMap((post) => {
       if (!post.related_posts || !Array.isArray(post.related_posts)) return [];
@@ -308,6 +369,11 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
       if (hub.id !== 'hub-inicio') {
         links.push({ source: 'hub-inicio', target: hub.id, color: '#FF0000', value: 5 });
       }
+    });
+
+    // Enlazar cada nodo de experiencia con hub-experiencia
+    expNodes.forEach(expNode => {
+      links.push({ source: 'hub-experiencia', target: expNode.id, color: '#111111', value: 3 });
     });
 
     postsList.forEach(post => {
@@ -348,7 +414,9 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
 
   useEffect(() => {
     if (!containerRef.current || !posts || posts.length === 0) return;
+    if (isInitializedRef.current || graphRef.current) return;
 
+    isInitializedRef.current = true;
     let GraphInstance;
 
     const initGraph = async () => {
@@ -476,62 +544,165 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
           
           group.add(line);
           
-          if (isHub || isHighlighted) {
-            const nameLabel = createTextSprite(
-              node.name, 
-              '#FFFFFF', 
-              isHub ? 'bold 26px Poppins, Arial' : 'bold 20px Poppins, Arial', 
-              isDirectHover 
-                ? 'rgba(17, 17, 17, 0.96)' 
-                : (isHighlighted ? 'rgba(204, 0, 0, 0.95)' : (isHub ? 'rgba(20, 20, 20, 0.92)' : 'rgba(36, 35, 35, 0.9)')), 
-              1, 
-              100
-            );
-            nameLabel.position.set(0, sphereSize + (isHub ? 18 : 12), 0);
-            group.add(nameLabel);
-          }
+          const initialSpriteOpacity = (isHub || isHighlighted) ? 1.0 : 0.0;
+          const nameLabel = createTextSprite(
+            node.name, 
+            '#FFFFFF', 
+            isHub ? 'bold 26px Poppins, Arial' : 'bold 20px Poppins, Arial', 
+            isDirectHover 
+              ? 'rgba(17, 17, 17, 0.96)' 
+              : (isHighlighted ? 'rgba(204, 0, 0, 0.95)' : (isHub ? 'rgba(20, 20, 20, 0.92)' : 'rgba(36, 35, 35, 0.9)')), 
+            initialSpriteOpacity, 
+            100
+          );
+          nameLabel.position.set(0, sphereSize + (isHub ? 18 : 12), 0);
+          nameLabel.visible = initialSpriteOpacity > 0.01;
+          group.add(nameLabel);
           
           return group;
         })
         .onNodeHover(node => {
-          hoverNodes.clear();
-          hoverLinks.clear();
-          currentHoverRef.current = node ? node.id : null;
+          if (isAnimatingRef.current) return;
 
-          if (node) {
-            hoverNodes.add(node);
-            if (node.neighbors) {
-              node.neighbors.forEach((neighbor) => hoverNodes.add(neighbor));
+          if (!node) {
+            if (hoverDelayTimerRef.current) {
+              clearTimeout(hoverDelayTimerRef.current);
+              hoverDelayTimerRef.current = null;
             }
-            if (node.links) {
-              node.links.forEach((link) => hoverLinks.add(link));
-            }
+            return;
           }
 
+          const nodeId = node.id;
+          currentHoverRef.current = nodeId;
+
+          // 1. Respuesta visual de iluminación instantánea en tarjetas/nodos
+          hoverNodes.clear();
+          hoverLinks.clear();
+          hoverNodes.add(node);
+          if (node.neighbors) {
+            node.neighbors.forEach((neighbor) => hoverNodes.add(neighbor));
+          }
+          if (node.links) {
+            node.links.forEach((link) => hoverLinks.add(link));
+          }
           updateHighlight();
+
+          // 2. Acercamiento suave de cámara parametrizado con retardo fluido
+          if (nodeId !== lastHoveredIdRef.current) {
+            if (hoverDelayTimerRef.current) {
+              clearTimeout(hoverDelayTimerRef.current);
+            }
+
+            hoverDelayTimerRef.current = setTimeout(() => {
+              if (!graphRef.current) return;
+              lastHoveredIdRef.current = nodeId;
+
+              const cam = graphRef.current.camera();
+              if (cam) {
+                const currentPos = cam.position;
+                const dx = node.x - currentPos.x;
+                const dy = node.y - currentPos.y;
+                const dz = node.z - currentPos.z;
+                const dist = Math.hypot(dx, dy, dz);
+
+                if (dist > 80) {
+                  const factor = zoomFactorRef.current;
+                  const targetX = currentPos.x + dx * factor;
+                  const targetY = currentPos.y + dy * factor;
+                  const targetZ = currentPos.z + dz * factor;
+
+                  graphRef.current.cameraPosition(
+                    { x: targetX, y: targetY, z: targetZ },
+                    { x: node.x, y: node.y, z: node.z },
+                    cameraDurationRef.current
+                  );
+                }
+              }
+            }, hoverDelayRef.current);
+          }
         })
         .onNodeClick(node => {
           highlightID(node.id);
 
-          if (onNodeNavigate) {
+          const navigate = onNodeNavigateRef.current;
+          if (navigate) {
             if (node.type === 'hub' && node.sectionId) {
-              onNodeNavigate(node.sectionId);
+              navigate(node.sectionId, null);
             } else if (node.type === 'work' || node.type === 'experience') {
-              onNodeNavigate('experiencia', node.id);
+              navigate('experiencia', node.id);
             } else if (node.type === 'codeProject' || node.type === 'multimediaProject') {
-              onNodeNavigate('proyectos', node.id);
+              navigate('proyectos', node.id);
             } else if (node.type === 'thesis' || node.type === 'paper' || node.type === 'conference') {
-              onNodeNavigate('academia', node.id);
+              navigate('academia', node.id);
             } else if (node.type === 'mediaAppearance') {
-              onNodeNavigate('prensa', node.id);
+              navigate('prensa', node.id);
             } else {
-              onNodeNavigate('inicio', node.id);
+              navigate('inicio', node.id);
             }
           }
         })
         .enableNodeDrag(false)
-        .enableNavigationControls(true)
+        .enableNavigationControls(false)
         .enablePointerInteraction(true);
+
+      let autoRotateFrameId = null;
+
+      const controls = Graph.controls();
+      if (controls) {
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 2.0;
+
+        const animateRotation = () => {
+          if (controls) {
+            if (controls.autoRotate) {
+              controls.update();
+            }
+
+            // Interpolación de fundido progresivo (Fade-In / Fade-Out) en cada frame
+            const gData = Graph.graphData();
+            if (gData && gData.nodes) {
+              gData.nodes.forEach((n) => {
+                const obj = n.__threeObj;
+                if (obj && obj.children && obj.children.length > 0) {
+                  const isHub = n.type === 'hub';
+                  const isDirectHover = currentHoverRef.current === n.id;
+                  const isNeighborHover = hoverNodes.has(n);
+                  const isHighlighted = isNeighborHover || highlightNodes.has(n);
+
+                  const targetLineOp = isHub ? 0.95 : (isHighlighted ? 0.95 : 0.35);
+                  const targetSpriteOp = (isHub || isHighlighted) ? 1.0 : 0.0;
+
+                  const line = obj.children[0];
+                  const sprite = obj.children[1];
+
+                  if (line && line.material) {
+                    line.material.opacity = THREE.MathUtils.lerp(
+                      line.material.opacity,
+                      targetLineOp,
+                      0.08
+                    );
+                  }
+
+                  if (sprite && sprite.material) {
+                    sprite.material.opacity = THREE.MathUtils.lerp(
+                      sprite.material.opacity,
+                      targetSpriteOp,
+                      0.08
+                    );
+                    sprite.visible = sprite.material.opacity > 0.01;
+                  }
+                }
+              });
+            }
+
+            if (Graph.resumeAnimation) {
+              Graph.resumeAnimation();
+            }
+            autoRotateFrameId = requestAnimationFrame(animateRotation);
+          }
+        };
+        animateRotation();
+      }
         
       Graph.onEngineTick(() => {
         if (!Graph.scene()) return;
@@ -555,11 +726,8 @@ const NetworkGraphComponent = forwardRef(({ posts, lang = 'es', onNodeNavigate }
     
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (GraphInstance) {
-        GraphInstance._destructor();
-      }
     };
-  }, [posts, lang, onNodeNavigate]);
+  }, []);
   
   return (
     <div

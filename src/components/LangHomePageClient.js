@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { ReactLenis, useLenis } from 'lenis/react';
 import { motion } from 'framer-motion';
 
@@ -8,6 +9,7 @@ import Bio from './Bio';
 import AnchorMenu from './AnchorMenu';
 import GlobalList from './GlobalList';
 import ExperienceList from './ExperienceList';
+import { cvPosts } from '../data/cvData';
 import {
   ProjectsSection,
   AcademySection,
@@ -17,6 +19,7 @@ import {
 export default function LangHomePageClient({ lang }) {
   const [activeSection, setActiveSection] = useState("grafo");
   const lenis = useLenis();
+  const router = useRouter();
   const networkGraphRef = useRef(null);
 
   const sections = [
@@ -29,12 +32,23 @@ export default function LangHomePageClient({ lang }) {
   ];
 
   const handleNodeNavigate = (sectionId, nodeId) => {
+    // Si es un nodo de item individual (post), navegar a la página de detalle interior
+    if (nodeId) {
+      const post = cvPosts.find((p) => p.id === nodeId);
+      if (post && post.categories && post.slugs) {
+        const cat = post.categories[lang] || post.categories['es'];
+        const slug = post.slugs[lang] || post.slugs['es'];
+        if (cat && slug) {
+          router.push(`/${lang}/${cat}/${slug}`);
+          return;
+        }
+      }
+    }
+
+    // Si es un nodo de categoría Hub, desplazar suavemente a la sección
     const targetSection = sectionId || "inicio";
     if (lenis) {
       lenis.scrollTo(`#${targetSection}`);
-    }
-    if (nodeId && networkGraphRef.current) {
-      networkGraphRef.current.highlightIDCall(nodeId);
     }
   };
 
@@ -89,7 +103,18 @@ export default function LangHomePageClient({ lang }) {
     if (currentSection && currentSection !== activeSection) {
       setActiveSection(currentSection);
       if (networkGraphRef.current) {
-        networkGraphRef.current.applyEffect();
+        const sectionToNodeMap = {
+          "grafo": "hub-inicio",
+          "inicio": "hub-inicio",
+          "experiencia": "hub-experiencia",
+          "proyectos": "hub-proyectos",
+          "academia": "hub-academia",
+          "prensa": "hub-prensa"
+        };
+        const targetNodeId = sectionToNodeMap[currentSection];
+        if (targetNodeId) {
+          networkGraphRef.current.highlightIDCall(targetNodeId);
+        }
       }
     }
   });
