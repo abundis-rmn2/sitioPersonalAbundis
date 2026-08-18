@@ -401,6 +401,18 @@ section.list-Template {
   pointer-events: none;
 }
 
+.global-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* Tab Selector Styles (Desktop Default) */
 .tab-selector-container {
   display: flex;
