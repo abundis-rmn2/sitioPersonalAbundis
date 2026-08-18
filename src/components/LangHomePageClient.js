@@ -17,10 +17,13 @@ import {
   MediaAppearancesList
 } from './sections';
 
+import HeroCircularMenu from './HeroCircularMenu';
+
 import useIsMobile from '../utils/useIsMobile';
 
 export default function LangHomePageClient({ lang, initialSection }) {
   const [activeSection, setActiveSection] = useState(initialSection || "grafo");
+  const [hoveredSection, setHoveredSection] = useState(null);
   const lenis = useLenis();
   const router = useRouter();
   const networkGraphRef = useRef(null);
@@ -155,6 +158,8 @@ export default function LangHomePageClient({ lang, initialSection }) {
         <AnchorMenu 
           sections={sections} 
           activeSection={activeSection} 
+          hoveredSection={hoveredSection}
+          onHoverSection={setHoveredSection}
           networkGraphRef={networkGraphRef}
           lang={lang}
         />
@@ -164,14 +169,13 @@ export default function LangHomePageClient({ lang, initialSection }) {
           {sections.map(({ id }) => (
             <div className={`wrapper ${id === 'grafo' ? 'hero-graph-wrapper' : ''}`} key={id} id={id}>
               {id === "grafo" ? (
-                !isMobile && (
-                  <div className="hero-graph-banner">
-                    <div className="hero-graph-badge">
-                      <span>{lang === 'es' ? '★ Inicio' : '★ Home'}</span>
-                      <p>{lang === 'es' ? 'Haz clic en cualquier nodo para explorar las secciones' : 'Click on any node to jump to sections'}</p>
-                    </div>
-                  </div>
-                )
+                <HeroCircularMenu 
+                  lang={lang} 
+                  networkGraphRef={networkGraphRef} 
+                  activeSection={activeSection}
+                  hoveredSection={hoveredSection}
+                  onHoverSection={setHoveredSection}
+                />
               ) : (
                 <div>
                   {id === "inicio" && <Bio lang={lang} />}

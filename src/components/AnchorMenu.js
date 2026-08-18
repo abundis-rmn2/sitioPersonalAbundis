@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getSectionConfig } from "../utils/sectionConfig";
 import useIsMobile from "../utils/useIsMobile";
 
-const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) => {
+const AnchorMenu = ({ sections, activeSection, hoveredSection, onHoverSection, networkGraphRef, lang = 'es' }) => {
   const lenis = useLenis();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasOpenedOnce, setHasOpenedOnce] = useState(false);
@@ -32,11 +32,16 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
   };
 
   const handleAnchorHover = (id) => {
+    if (onHoverSection) onHoverSection(id);
     if (id === 'grafo') return;
     if (networkGraphRef?.current && sectionToNodeMap[id]) {
       networkGraphRef.current.highlightIDCall(sectionToNodeMap[id]);
       networkGraphRef.current.zoomToID(sectionToNodeMap[id]);
     }
+  };
+
+  const handleAnchorLeave = () => {
+    if (onHoverSection) onHoverSection(null);
   };
 
   const handleAnchorClick = (e, id) => {
@@ -236,15 +241,17 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
             {sections.map(({ id, label }) => {
               const config = getSectionConfig(id);
               const IconComponent = config?.icon;
+              const isSelected = hoveredSection ? hoveredSection === id : activeSection === id;
 
               return (
                 <Link
                   key={id}
                   href={id === 'inicio' ? `/${lang}` : `/${lang}/${id}`}
-                  className={`dot ${activeSection === id ? "active" : ""}`}
+                  className={`dot ${isSelected ? "active" : ""}`}
                   title={label}
                   onClick={(e) => handleAnchorClick(e, id)}
                   onMouseEnter={() => handleAnchorHover(id)}
+                  onMouseLeave={handleAnchorLeave}
                 >
                   {IconComponent && <IconComponent size={14} style={{ flexShrink: 0 }} />}
                   <span>{label}</span>
