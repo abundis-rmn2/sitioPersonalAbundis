@@ -16,8 +16,11 @@ const AnchorMenu = ({ sections, activeSection, hoveredSection, onHoverSection, n
   // Auto-expandir el menú solo la primera vez que se carga en móvil
   useEffect(() => {
     if (isMobile && !hasOpenedOnce) {
-      setIsMenuOpen(true);
-      setHasOpenedOnce(true);
+      const timer = setTimeout(() => {
+        setIsMenuOpen(true);
+        setHasOpenedOnce(true);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [isMobile, hasOpenedOnce]);
 

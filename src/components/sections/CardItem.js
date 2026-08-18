@@ -54,24 +54,23 @@ const CardItem = ({ item, lang, showImage = false, listMode = false, onMouseEnte
           {t.title}
         </span>
 
-        {/* Imagen placeholder 1:1 */}
+        {/* Imagen en relación de aspecto natural */}
         <div
           className="card-image-wrapper"
           style={{
-            display: showImage ? 'block' : 'none',
-            aspectRatio: '1/1',
+            display: (showImage && item.image) ? 'block' : 'none',
             width: '100%',
             backgroundColor: '#eee',
-            marginBottom: '0.2rem',
+            marginBottom: '0.6rem',
             borderRadius: '8px',
             overflow: 'hidden',
             order: 3
           }}
         >
           <img
-            src="https://via.placeholder.com/400"
-            alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            src={item.image || "https://via.placeholder.com/400"}
+            alt={t.title || ""}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
 

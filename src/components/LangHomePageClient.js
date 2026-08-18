@@ -65,19 +65,12 @@ export default function LangHomePageClient({ lang, initialSection }) {
   };
 
   useEffect(() => {
-    if (lenis) {
-      lenis.options.duration = isMobile ? 1.2 : 2;
-      lenis.options.easing = (t) => 1 - Math.pow(1 - t, 3);
-      lenis.options.smooth = !isMobile;
-      lenis.options.smoothTouch = false;
-
-      if (initialSection && !hasScrolledInitial.current && initialSection !== 'grafo') {
-        hasScrolledInitial.current = true;
-        // Scroll sin animación al inicio para SEO routing
-        lenis.scrollTo(`#${initialSection}`, { immediate: true });
-      }
+    if (lenis && initialSection && !hasScrolledInitial.current && initialSection !== 'grafo') {
+      hasScrolledInitial.current = true;
+      // Scroll sin animación al inicio para SEO routing
+      lenis.scrollTo(`#${initialSection}`, { immediate: true });
     }
-  }, [lenis, isMobile, initialSection]);
+  }, [lenis, initialSection]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -142,7 +135,7 @@ export default function LangHomePageClient({ lang, initialSection }) {
   });
 
   return (
-    <ReactLenis root>
+    <ReactLenis root options={{ duration: isMobile ? 1.2 : 2, easing: (t) => 1 - Math.pow(1 - t, 3), smoothWheel: !isMobile }}>
       <motion.div
         initial="initial"
         animate="animate"

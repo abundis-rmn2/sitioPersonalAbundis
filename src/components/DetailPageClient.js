@@ -140,6 +140,20 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
             <TagBadges item={post} lang={lang} />
           </div>
 
+          {post.image && (
+            <div style={{
+              width: '100%',
+              maxWidth: '650px',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              marginBottom: '1.5rem',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+              border: '1px solid rgba(0,0,0,0.06)'
+            }}>
+              <img src={post.image} alt={tData.title || ""} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </div>
+          )}
+
           {tData.citation && (
             <div 
               style={{ display: 'block', padding: '1rem', borderLeft: '3px solid var(--color-principal)', background: 'rgba(255, 102, 102, 0.03)', marginBottom: '1.5rem', fontSize: '0.95rem', lineHeight: '1.5', color: '#555' }}
