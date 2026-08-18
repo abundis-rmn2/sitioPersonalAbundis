@@ -86,14 +86,29 @@ export default function CVPageClient({ lang = 'es' }) {
         </div>
 
         {/* Header del CV */}
-        <section className="cv-header">
-          <div className="cv-header-title">
+        <section className="cv-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap-reverse', gap: '1.5rem' }}>
+          <div className="cv-header-title" style={{ flex: '1 1 260px' }}>
             <h1>{bio.name}</h1>
             <h2 className="cv-subtitle">
               {isEs 
                 ? 'Sociólogo • Investigador Computacional • Desarrollador Full-Stack' 
                 : 'Sociologist • Computational Researcher • Full-Stack Developer'}
             </h2>
+          </div>
+          <div className="cv-portrait-wrapper" style={{ flexShrink: 0 }}>
+            <img 
+              src="/javier-abundis.png" 
+              alt={bio.name}
+              style={{
+                width: '110px',
+                height: '110px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '3px solid var(--color-principal)',
+                boxShadow: '0 6px 20px rgba(230, 0, 0, 0.15)',
+                display: 'block'
+              }}
+            />
           </div>
 
           <div className="cv-contact-grid">

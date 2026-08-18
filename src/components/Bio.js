@@ -9,28 +9,52 @@ const Bio = ({ lang = 'es' }) => {
 
   return (
     <div className="intro" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}>
-      <h1 style={{ color: 'var(--color-secundario)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 800, margin: '0 0 1rem 0', lineHeight: 1.2 }}>
+      {/* Título Principal */}
+      <h1 style={{ color: 'var(--color-secundario)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 800, margin: '0 0 1.2rem 0', lineHeight: 1.2 }}>
         {data.name}
       </h1>
-      
 
-
-
-      {/* Tarjeta de Perfil Profesional Único */}
-      <div className="profile-card" style={{ 
-        background: 'rgba(255, 102, 102, 0.03)', 
-        borderLeft: '4px solid var(--color-principal)', 
-        padding: '1.5rem', 
-        borderRadius: '4px',
-
+      {/* Bloque Tarjeta de Perfil Profesional con Fotografía del LADO IZQUIERDO */}
+      <div className="bio-card-with-portrait" style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '1.8rem', 
+        width: '100%', 
         marginBottom: '2rem',
+        flexWrap: 'wrap'
       }}>
-        <h3 style={{ margin: '0 0 0.8rem 0', color: 'var(--color-principal)', fontSize: '1.15rem' }}>
-          {lang === 'es' ? 'Ciencias Sociales Computacionales & Desarrollo de Software' : 'Computational Social Science & Software Development'}
-        </h3>
-        <p style={{ margin: 0, fontSize: '0.98rem', lineHeight: '1.6', color: '#333', textAlign: 'left' }}>
-          {data.profile}
-        </p>
+        {/* Imagen de Perfil Circular (Lado Izquierdo) */}
+        <div className="bio-portrait-wrapper" style={{ flexShrink: 0 }}>
+          <img 
+            src="/javier-abundis.png" 
+            alt={data.name}
+            style={{
+              width: '140px',
+              height: '140px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '3.5px solid var(--color-principal)',
+              boxShadow: '0 8px 24px rgba(230, 0, 0, 0.18)',
+              display: 'block'
+            }}
+          />
+        </div>
+
+        {/* Tarjeta de Perfil Profesional (A la Derecha de la Foto) */}
+        <div className="profile-card" style={{ 
+          flex: '1 1 320px',
+          background: 'rgba(255, 102, 102, 0.03)', 
+          borderLeft: '4px solid var(--color-principal)', 
+          padding: '1.5rem', 
+          borderRadius: '4px'
+        }}>
+          <h3 style={{ margin: '0 0 0.8rem 0', color: 'var(--color-principal)', fontSize: '1.15rem' }}>
+            {lang === 'es' ? 'Ciencias Sociales Computacionales & Desarrollo de Software' : 'Computational Social Science & Software Development'}
+          </h3>
+          <p style={{ margin: 0, fontSize: '0.98rem', lineHeight: '1.6', color: '#333', textAlign: 'left' }}>
+            {data.profile}
+          </p>
+        </div>
       </div>
 
       {/* Bloque de Contacto y Redes Académicas */}

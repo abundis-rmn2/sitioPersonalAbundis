@@ -234,9 +234,22 @@ const AnchorMenu = ({ sections, activeSection, hoveredSection, onHoverSection, n
             <Link
               href={`/${lang}`}
               className="menu-brand"
+              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
               onClick={(e) => handleAnchorClick(e, 'grafo')}
             >
-              Javier Abundis
+              <img 
+                src="/javier-abundis.png" 
+                alt="Javier Abundis"
+                style={{
+                  width: '34px',
+                  height: '34px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '1.5px solid var(--color-principal)',
+                  flexShrink: 0
+                }}
+              />
+              <span>Javier Abundis</span>
             </Link>
             {sections.map(({ id, label }) => {
               const config = getSectionConfig(id);

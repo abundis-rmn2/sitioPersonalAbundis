@@ -90,22 +90,47 @@ export default function HeroCircularMenu({
           />
         </svg>
 
-        {/* Leyenda Central Dinámica (Solo en Hover: Recuadro Negro con Texto Blanco en Negritas, Bordes Rectos) */}
+        {/* Leyenda Central / Imagen Toggle (Muestra foto en default, y recuadro negro en hover) */}
         <div className="hero-circular-center-container">
           <AnimatePresence mode="wait">
-            {isHeroActive && displayedTitle && (
-              <motion.div
-                key={displayedTitle}
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.85 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-                className="hero-circular-sharp-box"
-              >
-                <span className="hero-sharp-box-title">
-                  {displayedTitle}
-                </span>
-              </motion.div>
+            {isHeroActive && (
+              displayedTitle ? (
+                <motion.div
+                  key={displayedTitle}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.85 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="hero-circular-sharp-box"
+                >
+                  <span className="hero-sharp-box-title">
+                    {displayedTitle}
+                  </span>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="center-avatar"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.85 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="hero-circular-center-avatar-wrapper"
+                >
+                  <img 
+                    src="/javier-abundis.png" 
+                    alt="Javier Abundis"
+                    style={{
+                      width: '118px',
+                      height: '118px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      border: '3px solid var(--color-principal)',
+                      boxShadow: '0 8px 28px rgba(230, 0, 0, 0.28)',
+                      display: 'block'
+                    }}
+                  />
+                </motion.div>
+              )
             )}
           </AnimatePresence>
         </div>
