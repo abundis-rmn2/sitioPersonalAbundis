@@ -26,7 +26,7 @@ const Bio = ({ lang = 'es' }) => {
         {/* Imagen de Perfil Circular (Lado Izquierdo) */}
         <div className="bio-portrait-wrapper" style={{ flexShrink: 0 }}>
           <img 
-            src="/javier-abundis.png" 
+            src="/javier-abundis.webp" 
             alt={data.name}
             style={{
               width: '140px',

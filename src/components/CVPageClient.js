@@ -121,7 +121,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
           <div className="cv-header-main-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '1.8rem', flexWrap: 'wrap', width: '100%', marginBottom: '1.5rem' }}>
             <div className="cv-portrait-wrapper" style={{ flexShrink: 0 }}>
               <img 
-                src="/javier-abundis.png" 
+                src="/javier-abundis.webp" 
                 alt={bio.name}
                 style={{
                   width: '115px',

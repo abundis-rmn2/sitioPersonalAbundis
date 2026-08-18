@@ -117,7 +117,7 @@ export default function HeroCircularMenu({
                   className="hero-circular-center-avatar-wrapper"
                 >
                   <img 
-                    src="/javier-abundis.png" 
+                    src="/javier-abundis.webp" 
                     alt="Javier Abundis"
                     style={{
                       width: '118px',

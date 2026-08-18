@@ -241,7 +241,7 @@ const AnchorMenu = ({ sections, activeSection, hoveredSection, onHoverSection, n
               onClick={(e) => handleAnchorClick(e, 'grafo')}
             >
               <img 
-                src="/javier-abundis.png" 
+                src="/javier-abundis.webp" 
                 alt="Javier Abundis"
                 style={{
                   width: '34px',

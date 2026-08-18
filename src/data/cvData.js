@@ -176,7 +176,7 @@ export const cvPosts = [
     "paper_url": "https://rmn2.com/graffiti-gdl/aproximacion-sociohistorica-de-la-aparicion-y-evolucion-del-fenomeno-del-graffiti-en-la-ciudad-de-guadalajara-desde-1990-a-la-actualidad/",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_91.png"
+    "image": "/screenshots/post_91.webp"
   },
   {
     "id": 75,
@@ -227,7 +227,7 @@ export const cvPosts = [
     "paper_url": "https://doi.org/10.48619/gsa.v2i1.837",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_75.png"
+    "image": "/screenshots/post_75.webp"
   },
   {
     "id": 77,
@@ -275,7 +275,7 @@ export const cvPosts = [
     "paper_url": "https://revistaixaya.cucsh.udg.mx/index.php/ixa/article/view/7813",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_77.png"
+    "image": "/screenshots/post_77.webp"
   },
   {
     "id": 80,
@@ -326,7 +326,7 @@ export const cvPosts = [
     "paper_url": "https://doi.org/10.48619/uxuc.v5i2.838",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_80.png"
+    "image": "/screenshots/post_80.webp"
   },
   {
     "id": 82,
@@ -376,7 +376,7 @@ export const cvPosts = [
     "paper_url": "https://doi.org/10.37785/nw.v6n2.a11",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_82.png"
+    "image": "/screenshots/post_82.webp"
   },
   {
     "id": 73,
@@ -425,7 +425,7 @@ export const cvPosts = [
     "paper_url": "https://www.academia.edu/97885459/El_freight_graffiti_un_circuito_de_circulacin_simblica_transnacional_oculto_en_el_margen_de_las_vas_del_tren",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_73.png"
+    "image": "/screenshots/post_73.webp"
   },
   {
     "id": 46,
@@ -474,7 +474,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_46.png"
+    "image": "/screenshots/post_46.webp"
   },
   {
     "id": 48,
@@ -524,7 +524,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_48.png"
+    "image": "/screenshots/post_48.webp"
   },
   {
     "id": 50,
@@ -718,7 +718,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_40.png"
+    "image": "/screenshots/post_40.webp"
   },
   {
     "id": 38,
@@ -770,7 +770,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_38.png"
+    "image": "/screenshots/post_38.webp"
   },
   {
     "id": 36,
@@ -818,7 +818,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_36.png"
+    "image": "/screenshots/post_36.webp"
   },
   {
     "id": 34,
@@ -866,7 +866,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_34.png"
+    "image": "/screenshots/post_34.webp"
   },
   {
     "id": 32,
@@ -916,7 +916,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_32.png"
+    "image": "/screenshots/post_32.webp"
   },
   {
     "id": 56,
@@ -966,7 +966,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://rmn2.com/graffiti-gdl/recorriendo-el-trazo/",
     "media_url": "",
-    "image": "/screenshots/post_56.png"
+    "image": "/screenshots/post_56.webp"
   },
   {
     "id": 58,
@@ -1014,7 +1014,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=Zje9hnP2Xes",
     "media_url": "",
-    "image": "/screenshots/post_58.png"
+    "image": "/screenshots/post_58.webp"
   },
   {
     "id": 60,
@@ -1062,7 +1062,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=-mQZ9zvq_vc",
     "media_url": "",
-    "image": "/screenshots/post_60.png"
+    "image": "/screenshots/post_60.webp"
   },
   {
     "id": 62,
@@ -1110,7 +1110,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=SGeKOKAIaiY",
     "media_url": "",
-    "image": "/screenshots/post_62.png"
+    "image": "/screenshots/post_62.webp"
   },
   {
     "id": 105,
@@ -1156,7 +1156,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://www.gaceta.udg.mx/aqui-estoy-la-hazana-del-graffiti-tapatio/",
-    "image": "/screenshots/post_105.png"
+    "image": "/screenshots/post_105.webp"
   },
   {
     "id": 102,
@@ -1202,7 +1202,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://www.ntrguadalajara.com/post.php?id_nota=137626",
-    "image": "/screenshots/post_102.png"
+    "image": "/screenshots/post_102.webp"
   },
   {
     "id": 100,
@@ -1248,7 +1248,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://www.milenio.com/cultura/presentaron-el-graffiti-ha-muerto",
-    "image": "/screenshots/post_100.png"
+    "image": "/screenshots/post_100.webp"
   },
   {
     "id": 98,
@@ -1294,7 +1294,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_98.png"
+    "image": "/screenshots/post_98.webp"
   },
   {
     "id": 12,
@@ -1439,7 +1439,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_200.png"
+    "image": "/screenshots/post_200.webp"
   },
   {
     "id": 201,
@@ -1490,7 +1490,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_201.png"
+    "image": "/screenshots/post_201.webp"
   },
   {
     "id": 202,
@@ -1542,7 +1542,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_202.png"
+    "image": "/screenshots/post_202.webp"
   },
   {
     "id": 203,
@@ -1594,7 +1594,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_203.png"
+    "image": "/screenshots/post_203.webp"
   },
   {
     "id": 204,
@@ -1643,7 +1643,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_204.png"
+    "image": "/screenshots/post_204.webp"
   },
   {
     "id": 205,
@@ -1692,7 +1692,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_205.png"
+    "image": "/screenshots/post_205.webp"
   },
   {
     "id": 210,
@@ -1743,7 +1743,7 @@ export const cvPosts = [
     "paper_url": "https://datades.abundis.com.mx/workingpaper.pdf",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_210.png"
+    "image": "/screenshots/post_210.webp"
   },
   {
     "id": 211,
@@ -1792,7 +1792,7 @@ export const cvPosts = [
     "paper_url": "https://revistaixaya.cucsh.udg.mx/index.php/ixa/article/view/7653",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_211.png"
+    "image": "/screenshots/post_211.webp"
   },
   {
     "id": 220,
@@ -1845,7 +1845,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "",
-    "image": "/screenshots/post_220.png"
+    "image": "/screenshots/post_220.webp"
   },
   {
     "id": 221,
@@ -1942,7 +1942,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://latamjournalismreview.org/articles/from-hats-to-pants-clothing-discarded-at-a-cartel-camp-becomes-clues-to-the-disappeared/",
-    "image": "/screenshots/post_230.png"
+    "image": "/screenshots/post_230.webp"
   },
   {
     "id": 231,
@@ -1989,7 +1989,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://es.wired.com/articulos/activista-crea-un-sitio-web-para-identificar-las-prendas-halladas-en-el-rancho-izaguirre-de-teuchitlan",
-    "image": "/screenshots/post_231.png"
+    "image": "/screenshots/post_231.webp"
   },
   {
     "id": 232,
@@ -2036,7 +2036,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://www.youtube.com/watch?v=rlkqFc810iU",
-    "image": "/screenshots/post_232.png"
+    "image": "/screenshots/post_232.webp"
   },
   {
     "id": 233,
@@ -2083,7 +2083,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "",
     "media_url": "https://www.youtube.com/watch?v=Qa8pDW169a0",
-    "image": "/screenshots/post_233.png"
+    "image": "/screenshots/post_233.webp"
   },
   {
     "id": 240,
