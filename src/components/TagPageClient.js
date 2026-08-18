@@ -8,9 +8,9 @@ import DetailMenu from './DetailMenu';
 import { TagBadges } from './sections/tagColors';
 
 const pageVariants = {
-  initial: { opacity: 0, x: -100 },
-  animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  exit: { opacity: 0, x: 100, transition: { duration: 0.6 } }
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.6 } },
+  exit: { opacity: 0, transition: { duration: 0.6 } }
 };
 
 const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp = [] }) => {
@@ -39,7 +39,7 @@ const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp =
       {/* Plantilla de contenido */}
       <section className="list-Template" style={{ position: 'relative', zIndex: 10 }}>
         <div className="detail-card">
-          <h1 style={{ display: 'block', fontSize: '2.2rem', marginBottom: '0.5rem', color: 'var(--color-secundario)', textTransform: 'capitalize' }}>
+          <h1 style={{ display: 'block', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', marginBottom: '0.5rem', color: 'var(--color-secundario)', textTransform: 'capitalize', lineHeight: 1.25 }}>
             # {displayTagName}
           </h1>
           

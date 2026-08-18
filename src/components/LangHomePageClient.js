@@ -17,11 +17,14 @@ import {
   MediaAppearancesList
 } from './sections';
 
+import useIsMobile from '../utils/useIsMobile';
+
 export default function LangHomePageClient({ lang }) {
   const [activeSection, setActiveSection] = useState("grafo");
   const lenis = useLenis();
   const router = useRouter();
   const networkGraphRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const sections = SECTIONS_CONFIG.map((s) => ({
     id: s.id,
@@ -50,19 +53,19 @@ export default function LangHomePageClient({ lang }) {
   };
 
   const pageVariants = {
-    initial: { opacity: 0, x: -100 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-    exit: { opacity: 0, x: 100, transition: { duration: 0.6 } }
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.6 } },
+    exit: { opacity: 0, transition: { duration: 0.6 } }
   };
 
   useEffect(() => {
     if (lenis) {
-      lenis.options.duration = 2;
+      lenis.options.duration = isMobile ? 1.2 : 2;
       lenis.options.easing = (t) => 1 - Math.pow(1 - t, 3);
-      lenis.options.smooth = true;
-      lenis.options.smoothTouch = true;
+      lenis.options.smooth = !isMobile;
+      lenis.options.smoothTouch = false;
     }
-  }, [lenis]);
+  }, [lenis, isMobile]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -142,12 +145,14 @@ export default function LangHomePageClient({ lang }) {
           {sections.map(({ id }) => (
             <div className={`wrapper ${id === 'grafo' ? 'hero-graph-wrapper' : ''}`} key={id} id={id}>
               {id === "grafo" ? (
-                <div className="hero-graph-banner">
-                  <div className="hero-graph-badge">
-                    <span>{lang === 'es' ? '★ Inicio' : '★ Home'}</span>
-                    <p>{lang === 'es' ? 'Haz clic en cualquier nodo para explorar las secciones' : 'Click on any node to jump to sections'}</p>
+                !isMobile && (
+                  <div className="hero-graph-banner">
+                    <div className="hero-graph-badge">
+                      <span>{lang === 'es' ? '★ Inicio' : '★ Home'}</span>
+                      <p>{lang === 'es' ? 'Haz clic en cualquier nodo para explorar las secciones' : 'Click on any node to jump to sections'}</p>
+                    </div>
                   </div>
-                </div>
+                )
               ) : (
                 <div>
                   {id === "inicio" && <Bio lang={lang} />}

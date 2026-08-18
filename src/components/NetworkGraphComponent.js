@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle, useState } from 'react';
 import { experienceData } from '../data/cvData';
 import { getSectionConfig } from '../utils/sectionConfig';
+import useIsMobile from '../utils/useIsMobile';
 
 const NetworkGraphComponent = forwardRef(({ 
   posts, 
@@ -12,6 +13,7 @@ const NetworkGraphComponent = forwardRef(({
 }, ref) => {
   const containerRef = useRef(null);
   const graphRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const [highlightNodes] = useState(new Set());
   const [highlightLinks] = useState(new Set());
@@ -269,7 +271,7 @@ const NetworkGraphComponent = forwardRef(({
     const hubNodes = [
       {
         id: 'hub-inicio',
-        name: 'Javi Abundis',
+        name: 'Javier Abundis',
         group: 'hub',
         type: 'hub',
         sectionId: 'inicio',
@@ -680,15 +682,25 @@ const NetworkGraphComponent = forwardRef(({
           }
         })
         .enableNodeDrag(false)
-        .enableNavigationControls(false)
-        .enablePointerInteraction(true);
+        .enableNavigationControls(false);
+
+      const isMobileViewport = window.innerWidth < 768;
+      Graph.enablePointerInteraction(!isMobileViewport);
+      if (isMobileViewport) {
+        Graph.cooldownTicks(30);
+      }
 
       let autoRotateFrameId = null;
 
       const controls = Graph.controls();
       if (controls) {
         controls.autoRotate = true;
-        controls.autoRotateSpeed = 2.0;
+        controls.autoRotateSpeed = isMobileViewport ? 1.0 : 2.0;
+        if (isMobileViewport) {
+          controls.enableZoom = false;
+          controls.enableRotate = false;
+          controls.enablePan = false;
+        }
 
         const animateRotation = () => {
           if (controls) {
@@ -757,7 +769,15 @@ const NetworkGraphComponent = forwardRef(({
     
     const handleResize = () => {
       if (graphRef.current) {
+        const isMob = window.innerWidth < 768;
         graphRef.current.width(window.innerWidth).height(window.innerHeight);
+        graphRef.current.enablePointerInteraction(!isMob);
+        const ctrls = graphRef.current.controls();
+        if (ctrls) {
+          ctrls.enableZoom = !isMob;
+          ctrls.enableRotate = !isMob;
+          ctrls.enablePan = !isMob;
+        }
       }
     };
     window.addEventListener('resize', handleResize);
@@ -771,7 +791,12 @@ const NetworkGraphComponent = forwardRef(({
     <div
       className="networkGraph"
       ref={containerRef}
-      style={{ width: '100%', height: '100%' }}
+      style={{ 
+        width: '100%', 
+        height: '100%',
+        pointerEvents: isMobile ? 'none' : 'auto',
+        touchAction: isMobile ? 'none' : 'auto'
+      }}
     />
   );
 });

@@ -29,7 +29,8 @@ export function generateStaticParams() {
   return paramsList;
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { lang, category, slug } = params;
   
   const post = cvPosts.find(
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }) {
   }
 
   const data = post[lang] || post['es'];
-  const title = `${data.title} | Javi Abundis`;
+  const title = `${data.title} | Javier Abundis`;
   
   // Create a clean description by stripping HTML tags and truncating
   const cleanAbstract = data.abstract ? data.abstract.replace(/<[^>]+>/g, '').trim() : '';

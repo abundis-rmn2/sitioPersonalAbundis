@@ -10,9 +10,9 @@ import { TagBadges } from './sections/tagColors';
 import { cvPosts } from '../data/cvData';
 
 const pageVariants = {
-  initial: { opacity: 0, x: -100 },
-  animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  exit: { opacity: 0, x: 100, transition: { duration: 0.6 } }
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.6 } },
+  exit: { opacity: 0, transition: { duration: 0.6 } }
 };
 
 /**
@@ -126,7 +126,7 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
       {/* Plantilla de contenido */}
       <section className="list-Template" style={{ position: 'relative', zIndex: 10 }}>
         <div className="detail-card">
-          <h1 style={{ display: 'block', fontSize: '2.2rem', marginBottom: '0.5rem', color: 'var(--color-secundario)' }}>
+          <h1 style={{ display: 'block', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', marginBottom: '0.5rem', color: 'var(--color-secundario)', lineHeight: 1.25 }}>
             {tData.title}
           </h1>
           
@@ -213,21 +213,23 @@ const DetailPageClient = ({ post, lang = 'es' }) => {
                   const simSlug = simPost.slugs[lang] || simPost.slugs['es'];
 
                   return (
-                    <Link
-                      key={simPost.id}
-                      href={`/${lang}/${simCat}/${simSlug}`}
-                      className="similar-card-item"
-                    >
-                      <span style={{ fontSize: '0.8rem', color: '#888', display: 'block', marginBottom: '0.3rem' }}>
-                        {simData.displayDate || (simCat ? simCat.toUpperCase() : '')}
-                      </span>
-                      <h4 className="similar-card-title">
-                        {simData.title}
-                      </h4>
+                    <div key={simPost.id} className="similar-card-item-container" style={{ display: 'flex', flexDirection: 'column' }}>
+                      <Link
+                        href={`/${lang}/${simCat}/${simSlug}`}
+                        className="similar-card-item"
+                        style={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}
+                      >
+                        <span style={{ fontSize: '0.8rem', color: '#888', display: 'block', marginBottom: '0.3rem' }}>
+                          {simData.displayDate || (simCat ? simCat.toUpperCase() : '')}
+                        </span>
+                        <h4 className="similar-card-title">
+                          {simData.title}
+                        </h4>
+                      </Link>
                       <div style={{ marginTop: '0.5rem' }}>
                         <TagBadges item={simPost} lang={lang} />
                       </div>
-                    </Link>
+                    </div>
                   );
                 })}
               </div>

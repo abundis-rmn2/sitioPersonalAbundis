@@ -34,10 +34,10 @@ export async function generateMetadata(props) {
   const displayTagName = tagSlug.replace(/-/g, ' ').toUpperCase();
   
   const siteName = 'Ángel Javier Ramírez Abundis — Portafolio & Grafo 3D';
-  const title = `Proyectos en ${displayTagName} | Javi Abundis`;
+  const title = `Proyectos en ${displayTagName} | Javier Abundis`;
   const description = lang === 'es' 
-    ? `Explora el portafolio, investigaciones y experiencia profesional de Javi Abundis relacionados con ${displayTagName}.`
-    : `Explore Javi Abundis's portfolio, research, and professional experience related to ${displayTagName}.`;
+    ? `Explora el portafolio, investigaciones y experiencia profesional de Javier Abundis relacionados con ${displayTagName}.`
+    : `Explore Javier Abundis's portfolio, research, and professional experience related to ${displayTagName}.`;
   
   const url = `https://javierabundis.com/${lang}/tag/${tagSlug}`;
 

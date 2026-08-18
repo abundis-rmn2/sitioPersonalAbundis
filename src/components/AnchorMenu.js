@@ -1,13 +1,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaEnvelope, FaBars } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
 import { useLenis } from "lenis/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { getSectionConfig } from "../utils/sectionConfig";
+import useIsMobile from "../utils/useIsMobile";
 
 const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) => {
   const lenis = useLenis();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasOpenedOnce, setHasOpenedOnce] = useState(false);
   const menuRef = useRef(null);
+  const isMobile = useIsMobile();
+
+  // Auto-expandir el menú solo la primera vez que se carga en móvil
+  useEffect(() => {
+    if (isMobile && !hasOpenedOnce) {
+      setIsMenuOpen(true);
+      setHasOpenedOnce(true);
+    }
+  }, [isMobile, hasOpenedOnce]);
 
   // Mapear nombres de sección a IDs clave de nodos en el grafo
   const sectionToNodeMap = {
@@ -40,108 +52,220 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
       networkGraphRef.current.highlightIDCall(sectionToNodeMap[id]);
     }
 
-    if (window.innerWidth <= 768) {
+    if (isMobile) {
       setIsMenuOpen(false);
     }
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(prev => !prev);
   };
 
-  // Cierra el menú al hacer clic fuera en dispositivos móviles
+  // Cierra el menú al hacer clic fuera o presionar Esc
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (window.innerWidth <= 768 && menuRef.current && !menuRef.current.contains(event.target)) {
+      if (isMobile && menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
     };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
 
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [isMobile]);
+
+  // Secciones filtradas para móvil (incluye Biografía 'inicio', omite solo la vista del 'grafo')
+  const mobileSections = sections.filter(({ id }) => id !== 'grafo');
+
+  // Variantes de Framer Motion para animación escalonada (Stagger)
+  const overlayVariants = {
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+        when: "afterChildren"
+      }
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.25,
+        ease: "easeOut",
+        staggerChildren: 0.06,
+        delayChildren: 0.04
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, y: 15 },
+    open: { opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" } }
+  };
 
   return (
-    <div className={`anchor-nav ${isMenuOpen ? "mobile-open" : "mobile-closed"}`} ref={menuRef}>
-      <div className="menu-icon" onClick={toggleMenu}>
-        <FaBars size={32} />
-      </div>
-      <div className="menu-content">
-        <Link
-          href={`/${lang}#grafo`}
-          className="menu-brand"
-          onClick={(e) => handleAnchorClick(e, 'grafo')}
-        >
-          Javi Abundis
-        </Link>
-        {sections.map(({ id, label }) => {
-          const config = getSectionConfig(id);
-          const IconComponent = config?.icon;
-
-          return (
-            <Link
-              key={id}
-              href={`/${lang}#${id}`}
-              className={`dot ${activeSection === id ? "active" : ""}`}
-              title={label}
-              onClick={(e) => handleAnchorClick(e, id)}
-              onMouseEnter={() => handleAnchorHover(id)}
-              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+    <div ref={menuRef}>
+      {/* Encabezado Fijo para Móvil (< 768px): "Javier Abundis" + Botón Hamburguesa */}
+      {isMobile && (
+        <header className="mobile-header-bar">
+          <Link
+            href={`/${lang}#grafo`}
+            className="mobile-header-brand"
+            onClick={(e) => handleAnchorClick(e, 'grafo')}
+          >
+            Javier Abundis
+          </Link>
+          <button
+            type="button"
+            className="mobile-header-toggle"
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            <motion.div
+              key={isMenuOpen ? "close" : "open"}
+              initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+              animate={{ rotate: 0, opacity: 1, scale: 1 }}
+              exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              {IconComponent && <IconComponent size={14} style={{ flexShrink: 0 }} />}
-              <span>{label}</span>
-            </Link>
-          );
-        })}
-        <div className="socials">
-          <a href="https://github.com/abundis-rmn2" target="_blank" rel="noreferrer">
-            <FaGithub size={24} />
-          </a>
-          <a href="https://www.linkedin.com/in/abundis-sociologia/" target="_blank" rel="noreferrer">
-            <FaLinkedin size={24} />
-          </a>
-          <a href="mailto:abundiscomunicacion@gmail.com" target="_blank" rel="noreferrer">
-            <FaEnvelope size={24} />
-          </a>
-        </div>
+              {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </motion.div>
+          </button>
+        </header>
+      )}
 
-        {/* Selector de idioma debajo de los iconos */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center',
-          gap: '8px', 
-          fontSize: '0.85rem', 
-          fontWeight: 'bold', 
-          marginTop: '0.8rem',
-          paddingTop: '0.6rem',
-          borderTop: '1px solid rgba(200, 200, 200, 0.2)',
-          background: 'transparent'
-        }}>
-          <Link 
-            href="/es" 
-            style={{ 
-              color: lang === 'es' ? 'var(--color-principal)' : '#888', 
-              textDecoration: 'none', 
-              transition: 'color 0.3s'
-            }}
-          >
-            ES
-          </Link>
-          <span style={{ color: '#ccc' }}>|</span>
-          <Link 
-            href="/en" 
-            style={{ 
-              color: lang === 'en' ? 'var(--color-principal)' : '#888', 
-              textDecoration: 'none', 
-              transition: 'color 0.3s'
-            }}
-          >
-            EN
-          </Link>
-        </div>
-      </div>
+      {/* Menú Overlay o Escritorio con Framer Motion */}
+      {isMobile ? (
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              className="anchor-nav-overlay"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={overlayVariants}
+            >
+              <div className="menu-content-mobile">
+                {mobileSections.map(({ id, label }) => {
+                  const config = getSectionConfig(id);
+                  const IconComponent = config?.icon;
+
+                  return (
+                    <motion.div key={id} variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                      <Link
+                        href={`/${lang}#${id}`}
+                        className={`dot ${activeSection === id ? "active" : ""}`}
+                        title={label}
+                        onClick={(e) => handleAnchorClick(e, id)}
+                      >
+                        {IconComponent && <IconComponent size={18} style={{ flexShrink: 0 }} />}
+                        <span>{label}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+
+                <motion.div className="socials" variants={itemVariants}>
+                  <a href="https://github.com/abundis-rmn2" target="_blank" rel="noreferrer" aria-label="GitHub">
+                    <FaGithub size={24} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/abundis-sociologia/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                    <FaLinkedin size={24} />
+                  </a>
+                  <a href="mailto:abundiscomunicacion@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
+                    <FaEnvelope size={24} />
+                  </a>
+                </motion.div>
+
+                <motion.div className="lang-selector" variants={itemVariants}>
+                  <Link 
+                    href="/es" 
+                    className={lang === 'es' ? 'active-lang' : ''}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    ES
+                  </Link>
+                  <span className="lang-divider">|</span>
+                  <Link 
+                    href="/en" 
+                    className={lang === 'en' ? 'active-lang' : ''}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    EN
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      ) : (
+        /* Menú Desktop Lateral */
+        <nav className="anchor-nav">
+          <div className="menu-content">
+            <Link
+              href={`/${lang}#grafo`}
+              className="menu-brand"
+              onClick={(e) => handleAnchorClick(e, 'grafo')}
+            >
+              Javier Abundis
+            </Link>
+            {sections.map(({ id, label }) => {
+              const config = getSectionConfig(id);
+              const IconComponent = config?.icon;
+
+              return (
+                <Link
+                  key={id}
+                  href={`/${lang}#${id}`}
+                  className={`dot ${activeSection === id ? "active" : ""}`}
+                  title={label}
+                  onClick={(e) => handleAnchorClick(e, id)}
+                  onMouseEnter={() => handleAnchorHover(id)}
+                >
+                  {IconComponent && <IconComponent size={14} style={{ flexShrink: 0 }} />}
+                  <span>{label}</span>
+                </Link>
+              );
+            })}
+            <div className="socials">
+              <a href="https://github.com/abundis-rmn2" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <FaGithub size={22} />
+              </a>
+              <a href="https://www.linkedin.com/in/abundis-sociologia/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <FaLinkedin size={22} />
+              </a>
+              <a href="mailto:abundiscomunicacion@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
+                <FaEnvelope size={22} />
+              </a>
+            </div>
+
+            <div className="lang-selector">
+              <Link 
+                href="/es" 
+                className={lang === 'es' ? 'active-lang' : ''}
+              >
+                ES
+              </Link>
+              <span className="lang-divider">|</span>
+              <Link 
+                href="/en" 
+                className={lang === 'en' ? 'active-lang' : ''}
+              >
+                EN
+              </Link>
+            </div>
+          </div>
+        </nav>
+      )}
     </div>
   );
 };

@@ -7,12 +7,12 @@ const Bio = ({ lang = 'es' }) => {
 
   return (
     <div className="intro" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}>
-      <h1 style={{ color: 'var(--color-secundario)', fontSize: '2.8rem', fontWeight: 800, margin: '0 0 1rem 0' }}>
+      <h1 style={{ color: 'var(--color-secundario)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 800, margin: '0 0 1rem 0', lineHeight: 1.2 }}>
         {data.name}
       </h1>
       
 
-        <p style={{ fontStyle: 'italic', color: '#666', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: '1.6' }}>{data.introText}</p>
+
 
       {/* Tarjeta de Perfil Profesional Único */}
       <div className="profile-card" style={{ 
@@ -26,7 +26,7 @@ const Bio = ({ lang = 'es' }) => {
         <h3 style={{ margin: '0 0 0.8rem 0', color: 'var(--color-principal)', fontSize: '1.15rem' }}>
           {lang === 'es' ? 'Ciencias Sociales Computacionales & Desarrollo de Software' : 'Computational Social Science & Software Development'}
         </h3>
-        <p style={{ margin: 0, fontSize: '0.98rem', lineHeight: '1.6', color: '#333', textAlign: 'justify' }}>
+        <p style={{ margin: 0, fontSize: '0.98rem', lineHeight: '1.6', color: '#333', textAlign: 'left' }}>
           {data.profile}
         </p>
       </div>
