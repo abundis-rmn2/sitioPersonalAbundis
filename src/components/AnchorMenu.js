@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaTimes, FaFilePdf } from "react-icons/fa";
 import { useLenis } from "lenis/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSectionConfig } from "../utils/sectionConfig";
@@ -177,6 +177,18 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
                   );
                 })}
 
+                <motion.div variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <Link
+                    href={`/${lang}/cv`}
+                    className={`dot cv-pdf-link ${activeSection === 'cv' ? 'active' : ''}`}
+                    title={lang === 'es' ? 'Curriculum' : 'Resume'}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaFilePdf size={18} style={{ flexShrink: 0, color: '#e60000' }} />
+                    <span>{lang === 'es' ? 'Curriculum' : 'Resume'}</span>
+                  </Link>
+                </motion.div>
+
                 <motion.div className="socials" variants={itemVariants}>
                   <a href="https://github.com/abundis-rmn2" target="_blank" rel="noreferrer" aria-label="GitHub">
                     <FaGithub size={24} />
@@ -239,6 +251,16 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
                 </Link>
               );
             })}
+
+            <Link
+              href={`/${lang}/cv`}
+              className={`dot cv-pdf-link ${activeSection === 'cv' ? 'active' : ''}`}
+              title={lang === 'es' ? 'Curriculum' : 'Resume'}
+            >
+              <FaFilePdf size={14} style={{ flexShrink: 0, color: '#e60000' }} />
+              <span>{lang === 'es' ? 'Curriculum' : 'Resume'}</span>
+            </Link>
+
             <div className="socials">
               <a href="https://github.com/abundis-rmn2" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <FaGithub size={22} />

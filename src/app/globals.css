@@ -797,3 +797,503 @@ h1, h2, h3, h4, .card-title, .similar-card-title {
     color: #ccc;
   }
 }
+
+/* ==========================================================================
+   ESTILOS PARA PÁGINA DE CV - PDF (FONDO BLANCO, TEXTO NEGRO, ACENTOS EN ROJO)
+   ========================================================================== */
+
+.cv-page-wrapper {
+  min-height: 100vh;
+  background-color: #f4f4f7;
+  color: #111111;
+  font-family: var(--font-poppins), sans-serif;
+  padding-bottom: 4rem;
+}
+
+.cv-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.cv-toolbar-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cv-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.cv-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.cv-lang-switch a {
+  color: #64748b;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.cv-lang-switch a.active-lang {
+  color: #e60000;
+  background: rgba(230, 0, 0, 0.08);
+  font-weight: 800;
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.cv-btn-primary {
+  background: #e60000;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(230, 0, 0, 0.3);
+}
+
+.cv-btn-primary:hover {
+  background: #cc0000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(230, 0, 0, 0.4);
+}
+
+.cv-btn-secondary {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+
+.cv-btn-secondary:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* Documento Limpio */
+.cv-document {
+  max-width: 960px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  padding: 3.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+}
+
+.cv-graph-mesh-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 380px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Encabezado */
+.cv-header {
+  position: relative;
+  z-index: 1;
+  border-bottom: 2px solid #eef0f3;
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.cv-header-title h1 {
+  font-family: var(--font-prata), serif;
+  font-size: 2.5rem;
+  color: #111111;
+  margin: 0 0 0.4rem 0;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.cv-subtitle {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #e60000;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cv-contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.3rem;
+  background: #fafafc;
+  border-radius: 12px;
+  border: 1px solid #f0f0f5;
+}
+
+.cv-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cv-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.86rem;
+  color: #333333;
+}
+
+.cv-icon-red {
+  color: #e60000;
+  flex-shrink: 0;
+  font-size: 1.05rem;
+}
+
+.cv-contact-item a {
+  color: #111111;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cv-contact-item a:hover {
+  color: #e60000;
+  text-decoration: underline;
+}
+
+/* Secciones */
+.cv-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2.8rem;
+}
+
+.cv-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid #111111;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-section-icon {
+  color: #e60000;
+  font-size: 1.3rem;
+}
+
+.cv-section-header h3 {
+  font-family: var(--font-prata), serif;
+  font-size: 1.5rem;
+  color: #111111;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.cv-profile-text {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #222222;
+  margin-bottom: 1rem;
+}
+
+.cv-intro-text {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: #444444;
+  font-style: italic;
+  background: #fbfbfc;
+  border-left: 3.5px solid #e60000;
+  padding: 1rem 1.3rem;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Tarjetas de Contenido */
+.cv-item-card {
+  margin-bottom: 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.cv-item-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.cv-item-header h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  flex: 1;
+  min-width: 260px;
+  line-height: 1.35;
+}
+
+.cv-date-badge {
+  display: inline-block;
+  background: #fff1f1;
+  color: #e60000;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid rgba(230, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.cv-item-abstract {
+  font-size: 0.92rem;
+  color: #333333;
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+}
+
+.cv-item-html-content {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+}
+
+.cv-item-html-content p {
+  margin-bottom: 0.5rem;
+}
+
+.cv-citation {
+  font-size: 0.84rem;
+  color: #475569;
+  background: #f8fafc;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-top: 0.6rem;
+}
+
+.cv-link-group {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cv-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e60000;
+  text-decoration: none;
+  background: #fff5f5;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(230, 0, 0, 0.18);
+  transition: all 0.2s ease;
+}
+
+.cv-inline-link:hover {
+  background: #e60000;
+  color: #ffffff;
+}
+
+/* Habilidades y Tags */
+.cv-skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.cv-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cv-skill-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.cv-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cv-tag {
+  font-size: 0.8rem;
+  background: #111111;
+  color: #ffffff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cv-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eef0f3;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.cv-footer a {
+  color: #e60000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Estilos de Enlace Menú CV - PDF */
+.cv-pdf-link span {
+  font-weight: 700;
+}
+
+/* Adaptatividad Móvil (< 768px) */
+@media (max-width: 768px) {
+  .cv-document {
+    padding: 2rem 1.25rem !important;
+    margin: 1rem 0.5rem !important;
+    border-radius: 12px !important;
+  }
+
+  .cv-header-title h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .cv-subtitle {
+    font-size: 0.88rem !important;
+  }
+
+  .cv-contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+    padding: 0.9rem 1rem !important;
+  }
+
+  .cv-toolbar {
+    padding: 0.6rem 1rem !important;
+  }
+
+  .cv-btn {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* Reglas de Impresión Impecables para PDF / Papel A4-Carta */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .print-hide, 
+  .cv-toolbar,
+  .mobile-header-bar,
+  .anchor-nav,
+  .anchor-nav-overlay {
+    display: none !important;
+  }
+
+  .cv-page-wrapper {
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .cv-document {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .cv-item-card {
+    page-break-inside: avoid;
+  }
+
+  .cv-section {
+    page-break-inside: avoid;
+  }
+
+  .cv-graph-mesh-bg {
+    opacity: 0.15 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: #000000 !important;
+  }
+
+  .cv-subtitle, 
+  .cv-section-icon, 
+  .cv-icon-red {
+    color: #cc0000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-date-badge {
+    border: 1px solid #cc0000 !important;
+    color: #cc0000 !important;
+    background: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-tag {
+    background: #222222 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

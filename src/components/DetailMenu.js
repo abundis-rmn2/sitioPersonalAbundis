@@ -13,7 +13,8 @@ import {
   FaBookReader, 
   FaVideo, 
   FaNewspaper, 
-  FaChalkboardTeacher 
+  FaChalkboardTeacher,
+  FaFilePdf
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import useIsMobile from '../utils/useIsMobile';
@@ -266,6 +267,18 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
                   </motion.div>
                 )}
 
+                <motion.div variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <Link
+                    href={`/${lang}/cv`}
+                    className="dot cv-pdf-link"
+                    title={lang === 'es' ? 'Curriculum' : 'Resume'}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaFilePdf size={18} style={{ color: '#e60000' }} />
+                    <span>{lang === 'es' ? 'Curriculum' : 'Resume'}</span>
+                  </Link>
+                </motion.div>
+
                 {renderPostLinks() && (
                   <motion.div variants={itemVariants} style={{ width: '100%' }}>
                     {renderPostLinks()}
@@ -318,6 +331,15 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
                 {categoryLabels[lang][categoryAnchor]}
               </Link>
             )}
+
+            <Link
+              href={`/${lang}/cv`}
+              className="dot cv-pdf-link"
+              title={lang === 'es' ? 'Curriculum' : 'Resume'}
+            >
+              <FaFilePdf size={14} style={{ color: '#e60000' }} />
+              <span>{lang === 'es' ? 'Curriculum' : 'Resume'}</span>
+            </Link>
 
             {renderPostLinks()}
 

@@ -34,39 +34,65 @@ const Bio = ({ lang = 'es' }) => {
       </div>
 
       {/* Bloque de Contacto y Redes Académicas */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-        gap: '1.2rem', 
+      <div className="bio-contact-block" style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '0.9rem', 
         width: '100%', 
-
-        marginTop: '1rem',
+        marginTop: '0.5rem',
         fontSize: '0.9rem',
         color: '#444'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaMapMarkerAlt color="var(--color-principal)" />
-          <span>{data.address}</span>
+        {/* Fila 1 (Arriba): Redes y Perfiles Académicos */}
+        <div className="bio-social-row" style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          alignItems: 'center', 
+          gap: '1.5rem' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaGraduationCap color="var(--color-principal)" />
+            <a href={data.scholar} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>
+              Google Scholar
+            </a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaLinkedin color="var(--color-principal)" />
+            <a href={data.linkedin} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>
+              LinkedIn
+            </a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaGithub color="var(--color-principal)" />
+            <a href={data.github} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>
+              GitHub
+            </a>
+          </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaPhone color="var(--color-principal)" />
-          <span>{data.phone}</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaEnvelope color="var(--color-principal)" />
-          <a href={`mailto:${data.email}`} style={{ color: '#111', textDecoration: 'none' }}>{data.email}</a>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaGraduationCap color="var(--color-principal)" />
-          <a href={data.scholar} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>Google Scholar</a>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaLinkedin color="var(--color-principal)" />
-          <a href={data.linkedin} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>LinkedIn</a>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '8px' }}>
-          <FaGithub color="var(--color-principal)" />
-          <a href={data.github} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>GitHub</a>
+
+        {/* Fila 2 (Salto de línea / Abajo): Domicilio, Teléfono y Correo */}
+        <div className="bio-info-row" style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          alignItems: 'center', 
+          gap: '1.5rem' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaMapMarkerAlt color="var(--color-principal)" />
+            <span>{data.address}</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaPhone color="var(--color-principal)" />
+            <a href={`tel:${data.phone}`} style={{ color: '#111', textDecoration: 'none' }}>
+              {data.phone}
+            </a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaEnvelope color="var(--color-principal)" />
+            <a href={`mailto:${data.email}`} style={{ color: '#111', textDecoration: 'none' }}>
+              {data.email}
+            </a>
+          </div>
         </div>
       </div>
     </div>
