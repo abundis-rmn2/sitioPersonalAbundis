@@ -85,50 +85,40 @@ export default function CVPageClient({ lang = 'es' }) {
           </svg>
         </div>
 
-        {/* Header del CV */}
-        <section className="cv-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap-reverse', gap: '1.5rem' }}>
-          <div className="cv-header-title" style={{ flex: '1 1 260px' }}>
-            <h1>{bio.name}</h1>
-            <h2 className="cv-subtitle">
-              {isEs 
-                ? 'Sociólogo • Investigador Computacional • Desarrollador Full-Stack' 
-                : 'Sociologist • Computational Researcher • Full-Stack Developer'}
-            </h2>
-          </div>
-          <div className="cv-portrait-wrapper" style={{ flexShrink: 0 }}>
-            <img 
-              src="/javier-abundis.png" 
-              alt={bio.name}
-              style={{
-                width: '110px',
-                height: '110px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                border: '3px solid var(--color-principal)',
-                boxShadow: '0 6px 20px rgba(230, 0, 0, 0.15)',
-                display: 'block'
-              }}
-            />
-          </div>
-
-          <div className="cv-contact-grid">
-            {/* Fila 1: Redes y Perfiles Académicos */}
-            <div className="cv-contact-row">
-              <div className="cv-contact-item">
-                <FaGraduationCap className="cv-icon-red" />
-                <a href={bio.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
-              </div>
-              <div className="cv-contact-item">
-                <FaLinkedin className="cv-icon-red" />
-                <a href={bio.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </div>
-              <div className="cv-contact-item">
-                <FaGithub className="cv-icon-red" />
-                <a href={bio.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
+        {/* Header del CV: 1. Primero Imagen, después Nombre + Subtítulo */}
+        <section className="cv-header">
+          <div className="cv-header-main-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '1.8rem', flexWrap: 'wrap', width: '100%', marginBottom: '1.5rem' }}>
+            {/* 1. Imagen de Perfil Primero */}
+            <div className="cv-portrait-wrapper" style={{ flexShrink: 0 }}>
+              <img 
+                src="/javier-abundis.png" 
+                alt={bio.name}
+                style={{
+                  width: '115px',
+                  height: '115px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '3px solid var(--color-principal)',
+                  boxShadow: '0 6px 20px rgba(230, 0, 0, 0.15)',
+                  display: 'block'
+                }}
+              />
             </div>
 
-            {/* Fila 2: Datos de Contacto */}
+            {/* 2. Nombre y Subtítulo Después */}
+            <div className="cv-header-title" style={{ flex: '1 1 260px' }}>
+              <h1 style={{ margin: 0 }}>{bio.name}</h1>
+              <h2 className="cv-subtitle">
+                {isEs 
+                  ? 'Sociólogo • Investigador Computacional • Desarrollador Full-Stack' 
+                  : 'Sociologist • Computational Researcher • Full-Stack Developer'}
+              </h2>
+            </div>
+          </div>
+
+          {/* 2. Después Generales y Datos de Contacto */}
+          <div className="cv-contact-grid" style={{ width: '100%' }}>
+            {/* Fila 1: Datos Generales (Domicilio, Teléfono, Correo) */}
             <div className="cv-contact-row">
               <div className="cv-contact-item">
                 <FaMapMarkerAlt className="cv-icon-red" />
@@ -141,6 +131,22 @@ export default function CVPageClient({ lang = 'es' }) {
               <div className="cv-contact-item">
                 <FaEnvelope className="cv-icon-red" />
                 <a href={`mailto:${bio.email}`}>{bio.email}</a>
+              </div>
+            </div>
+
+            {/* Fila 2: Redes y Perfiles Académicos */}
+            <div className="cv-contact-row">
+              <div className="cv-contact-item">
+                <FaGraduationCap className="cv-icon-red" />
+                <a href={bio.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              </div>
+              <div className="cv-contact-item">
+                <FaLinkedin className="cv-icon-red" />
+                <a href={bio.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+              <div className="cv-contact-item">
+                <FaGithub className="cv-icon-red" />
+                <a href={bio.github} target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </div>

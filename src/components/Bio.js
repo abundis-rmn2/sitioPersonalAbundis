@@ -67,7 +67,32 @@ const Bio = ({ lang = 'es' }) => {
         fontSize: '0.9rem',
         color: '#444'
       }}>
-        {/* Fila 1 (Arriba): Redes y Perfiles Académicos */}
+        {/* Fila 1 (Arriba): Datos Generales (Domicilio, Teléfono y Correo) */}
+        <div className="bio-info-row" style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          alignItems: 'center', 
+          gap: '1.5rem' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaMapMarkerAlt color="var(--color-principal)" />
+            <span>{data.address}</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaPhone color="var(--color-principal)" />
+            <a href={`tel:${data.phone}`} style={{ color: '#111', textDecoration: 'none' }}>
+              {data.phone}
+            </a>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaEnvelope color="var(--color-principal)" />
+            <a href={`mailto:${data.email}`} style={{ color: '#111', textDecoration: 'none' }}>
+              {data.email}
+            </a>
+          </div>
+        </div>
+
+        {/* Fila 2 (Salto de línea / Abajo): Redes y Perfiles Académicos */}
         <div className="bio-social-row" style={{ 
           display: 'flex', 
           flexWrap: 'wrap', 
@@ -90,31 +115,6 @@ const Bio = ({ lang = 'es' }) => {
             <FaGithub color="var(--color-principal)" />
             <a href={data.github} target="_blank" rel="noreferrer" style={{ color: '#111', textDecoration: 'none', fontWeight: 'bold' }}>
               GitHub
-            </a>
-          </div>
-        </div>
-
-        {/* Fila 2 (Salto de línea / Abajo): Domicilio, Teléfono y Correo */}
-        <div className="bio-info-row" style={{ 
-          display: 'flex', 
-          flexWrap: 'wrap', 
-          alignItems: 'center', 
-          gap: '1.5rem' 
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaMapMarkerAlt color="var(--color-principal)" />
-            <span>{data.address}</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaPhone color="var(--color-principal)" />
-            <a href={`tel:${data.phone}`} style={{ color: '#111', textDecoration: 'none' }}>
-              {data.phone}
-            </a>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaEnvelope color="var(--color-principal)" />
-            <a href={`mailto:${data.email}`} style={{ color: '#111', textDecoration: 'none' }}>
-              {data.email}
             </a>
           </div>
         </div>
