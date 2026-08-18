@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { bioData } from '../data/cvData';
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt, FaPhone, FaGraduationCap } from 'react-icons/fa';

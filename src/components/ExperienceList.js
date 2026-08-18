@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { experienceData } from '../data/cvData';
 import { useDebouncedHover } from '../utils/useDebouncedHover';

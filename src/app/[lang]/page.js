@@ -17,5 +17,5 @@ export default async function LangPage(props) {
     notFound();
   }
 
-  return <LangHomePageClient lang={lang} />;
+  return <LangHomePageClient lang={lang} initialSection="grafo" />;
 }

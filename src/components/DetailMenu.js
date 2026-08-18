@@ -242,7 +242,7 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
               <div className="menu-content-mobile">
                 <motion.div variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                   <Link
-                    href={`/${lang}#inicio`}
+                    href={`/${lang}`}
                     className="dot"
                     title={lang === 'es' ? 'Biografía' : 'Biography'}
                     onClick={() => setIsMenuOpen(false)}
@@ -255,7 +255,7 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
                 {post.type && (
                   <motion.div variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <Link
-                      href={`/${lang}#${categoryAnchor}`}
+                      href={`/${lang}/${categoryAnchor}`}
                       className="dot"
                       title={categoryLabels[lang][categoryAnchor]}
                       onClick={() => setIsMenuOpen(false)}
@@ -300,7 +300,7 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
             </Link>
 
             <Link
-              href={`/${lang}#inicio`}
+              href={`/${lang}`}
               className="dot"
               title={lang === 'es' ? 'Biografía' : 'Biography'}
             >
@@ -310,7 +310,7 @@ const DetailMenu = ({ post = {}, lang = 'es', tagSlug }) => {
 
             {post.type && (
               <Link
-                href={`/${lang}#${categoryAnchor}`}
+                href={`/${lang}/${categoryAnchor}`}
                 className="dot"
                 title={categoryLabels[lang][categoryAnchor]}
               >

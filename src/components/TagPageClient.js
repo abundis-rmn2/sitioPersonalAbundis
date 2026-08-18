@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import GlobalList from './GlobalList';
 import DetailMenu from './DetailMenu';
 import { TagBadges } from './sections/tagColors';
@@ -15,6 +16,7 @@ const pageVariants = {
 
 const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp = [] }) => {
   const networkGraphRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     // Cuando el componente carga, tratar de hacer un highlight general
@@ -73,10 +75,11 @@ const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp =
                   const slug = post.slugs[lang] || post.slugs['es'];
 
                   return (
-                    <Link
+                    <div
                       key={post.id}
-                      href={`/${lang}/${cat}/${slug}`}
+                      onClick={() => router.push(`/${lang}/${cat}/${slug}`)}
                       className="similar-card-item"
+                      style={{ cursor: 'pointer' }}
                     >
                       <span style={{ fontSize: '0.8rem', color: '#888', display: 'block', marginBottom: '0.3rem' }}>
                         {data.displayDate || (cat ? cat.toUpperCase() : '')}
@@ -84,10 +87,10 @@ const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp =
                       <h4 className="similar-card-title">
                         {data.title}
                       </h4>
-                      <div style={{ marginTop: '0.5rem' }}>
+                      <div style={{ marginTop: '0.5rem' }} onClick={(e) => e.stopPropagation()}>
                         <TagBadges item={post} lang={lang} />
                       </div>
-                    </Link>
+                    </div>
                   );
                 })}
               </div>

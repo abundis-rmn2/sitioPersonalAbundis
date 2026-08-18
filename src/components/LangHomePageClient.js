@@ -19,12 +19,13 @@ import {
 
 import useIsMobile from '../utils/useIsMobile';
 
-export default function LangHomePageClient({ lang }) {
-  const [activeSection, setActiveSection] = useState("grafo");
+export default function LangHomePageClient({ lang, initialSection }) {
+  const [activeSection, setActiveSection] = useState(initialSection || "grafo");
   const lenis = useLenis();
   const router = useRouter();
   const networkGraphRef = useRef(null);
   const isMobile = useIsMobile();
+  const hasScrolledInitial = useRef(false);
 
   const sections = SECTIONS_CONFIG.map((s) => ({
     id: s.id,
@@ -49,6 +50,8 @@ export default function LangHomePageClient({ lang }) {
     const targetSection = sectionId || "inicio";
     if (lenis) {
       lenis.scrollTo(`#${targetSection}`);
+      const newPath = targetSection === "inicio" || targetSection === "grafo" ? `/${lang}` : `/${lang}/${targetSection}`;
+      window.history.pushState(null, '', newPath);
     }
   };
 
@@ -64,8 +67,14 @@ export default function LangHomePageClient({ lang }) {
       lenis.options.easing = (t) => 1 - Math.pow(1 - t, 3);
       lenis.options.smooth = !isMobile;
       lenis.options.smoothTouch = false;
+
+      if (initialSection && !hasScrolledInitial.current && initialSection !== 'grafo') {
+        hasScrolledInitial.current = true;
+        // Scroll sin animación al inicio para SEO routing
+        lenis.scrollTo(`#${initialSection}`, { immediate: true });
+      }
     }
-  }, [lenis, isMobile]);
+  }, [lenis, isMobile, initialSection]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -80,12 +89,15 @@ export default function LangHomePageClient({ lang }) {
 
       if (nextIndex !== currentIndex) {
         lenis?.scrollTo(`#${sections[nextIndex].id}`);
+        const nextId = sections[nextIndex].id;
+        const newPath = nextId === "inicio" || nextId === "grafo" ? `/${lang}` : `/${lang}/${nextId}`;
+        window.history.pushState(null, '', newPath);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection, lenis, sections]);
+  }, [activeSection, lenis, sections, lang]);
 
   useLenis(() => {
     let currentSection = "";
@@ -102,6 +114,13 @@ export default function LangHomePageClient({ lang }) {
 
     if (currentSection && currentSection !== activeSection) {
       setActiveSection(currentSection);
+      
+      // Actualizar URL dinámicamente sin recargar la página
+      const newPath = currentSection === "inicio" || currentSection === "grafo" ? `/${lang}` : `/${lang}/${currentSection}`;
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState(null, '', newPath);
+      }
+
       if (networkGraphRef.current) {
         const sectionToNodeMap = {
           "grafo": "hub-inicio",

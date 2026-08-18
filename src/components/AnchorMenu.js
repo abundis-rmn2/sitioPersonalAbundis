@@ -39,9 +39,12 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
     }
   };
 
-  const handleAnchorClick = async (e, id) => {
+  const handleAnchorClick = (e, id) => {
     e.preventDefault();
     lenis?.scrollTo(`#${id}`);
+
+    const newPath = id === "inicio" || id === "grafo" ? `/${lang}` : `/${lang}/${id}`;
+    window.history.pushState(null, '', newPath);
 
     if (id === 'grafo') {
       if (networkGraphRef?.current) {
@@ -117,7 +120,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
       {isMobile && (
         <header className="mobile-header-bar">
           <Link
-            href={`/${lang}#grafo`}
+            href={`/${lang}`}
             className="mobile-header-brand"
             onClick={(e) => handleAnchorClick(e, 'grafo')}
           >
@@ -162,7 +165,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
                   return (
                     <motion.div key={id} variants={itemVariants} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                       <Link
-                        href={`/${lang}#${id}`}
+                        href={id === 'inicio' ? `/${lang}` : `/${lang}/${id}`}
                         className={`dot ${activeSection === id ? "active" : ""}`}
                         title={label}
                         onClick={(e) => handleAnchorClick(e, id)}
@@ -212,7 +215,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
         <nav className="anchor-nav">
           <div className="menu-content">
             <Link
-              href={`/${lang}#grafo`}
+              href={`/${lang}`}
               className="menu-brand"
               onClick={(e) => handleAnchorClick(e, 'grafo')}
             >
@@ -225,7 +228,7 @@ const AnchorMenu = ({ sections, activeSection, networkGraphRef, lang = 'es' }) =
               return (
                 <Link
                   key={id}
-                  href={`/${lang}#${id}`}
+                  href={id === 'inicio' ? `/${lang}` : `/${lang}/${id}`}
                   className={`dot ${activeSection === id ? "active" : ""}`}
                   title={label}
                   onClick={(e) => handleAnchorClick(e, id)}
