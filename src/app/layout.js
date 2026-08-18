@@ -1,5 +1,6 @@
 import { Poppins, Prata } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "../components/CustomCursor";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -22,7 +23,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${poppins.variable} ${prata.variable}`}>
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
