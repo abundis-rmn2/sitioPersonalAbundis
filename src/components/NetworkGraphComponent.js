@@ -794,8 +794,8 @@ const NetworkGraphComponent = forwardRef(({
       style={{ 
         width: '100%', 
         height: '100%',
-        pointerEvents: isMobile ? 'none' : 'auto',
-        touchAction: isMobile ? 'none' : 'auto'
+        pointerEvents: 'none',
+        touchAction: 'none'
       }}
     />
   );
