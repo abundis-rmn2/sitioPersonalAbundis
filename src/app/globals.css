@@ -74,7 +74,9 @@ h1, h2, h3, h4 {
   color: #555;
   transition: all 0.3s ease;
   padding: 0.6rem 0.8rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 0.95rem;
   font-weight: 500;
   border-radius: 8px;
