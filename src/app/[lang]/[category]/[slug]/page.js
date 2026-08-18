@@ -50,7 +50,7 @@ export async function generateMetadata(props) {
     ? cleanAbstract.substring(0, 155) + '...' 
     : cleanAbstract || title;
 
-  const url = `https://javierabundis.com/${lang}/${category}/${slug}`;
+  const url = `https://abundis.com.mx/${lang}/${category}/${slug}`;
   const siteName = 'Ángel Javier Ramírez Abundis — Portafolio & Grafo 3D';
 
   return {

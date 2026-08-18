@@ -39,7 +39,7 @@ export async function generateMetadata(props) {
     ? `Explora el portafolio, investigaciones y experiencia profesional de Javier Abundis relacionados con ${displayTagName}.`
     : `Explore Javier Abundis's portfolio, research, and professional experience related to ${displayTagName}.`;
   
-  const url = `https://javierabundis.com/${lang}/tag/${tagSlug}`;
+  const url = `https://abundis.com.mx/${lang}/tag/${tagSlug}`;
 
   return {
     title,

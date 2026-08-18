@@ -1,7 +1,7 @@
 import { cvPosts, TAG_SCHEMA } from '@/data/cvData';
 
 export default function sitemap() {
-  const baseUrl = 'https://javierabundis.com';
+  const baseUrl = 'https://abundis.com.mx';
   const lastModified = new Date();
   
   // Rutas principales Home
@@ -17,6 +17,18 @@ export default function sitemap() {
       lastModified,
       changeFrequency: 'monthly',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/es/cv`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/cv`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     }
   ];
 
