@@ -1014,7 +1014,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=Zje9hnP2Xes",
     "media_url": "",
-    "image": "/screenshots/post_58.webp"
+    "image": "/screenshots/post_58.png"
   },
   {
     "id": 60,
@@ -1062,7 +1062,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=-mQZ9zvq_vc",
     "media_url": "",
-    "image": "/screenshots/post_60.webp"
+    "image": "/screenshots/post_60.png"
   },
   {
     "id": 62,
@@ -1110,7 +1110,7 @@ export const cvPosts = [
     "paper_url": "",
     "multimedia_url": "https://www.youtube.com/watch?v=SGeKOKAIaiY",
     "media_url": "",
-    "image": "/screenshots/post_62.webp"
+    "image": "/screenshots/post_62.png"
   },
   {
     "id": 105,
@@ -2130,7 +2130,8 @@ export const cvPosts = [
     "talk_url": "",
     "paper_url": "",
     "multimedia_url": "",
-    "media_url": ""
+    "media_url": "",
+    "image": "/screenshots/post_240.png"
   },
   {
     "id": 241,
@@ -2179,7 +2180,8 @@ export const cvPosts = [
     "talk_url": "",
     "paper_url": "",
     "multimedia_url": "",
-    "media_url": ""
+    "media_url": "",
+    "image": "/screenshots/post_241.png"
   }
 ];
 
