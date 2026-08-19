@@ -38,15 +38,19 @@ const NetworkGraphComponent = forwardRef(({
 
   // Color mapping for node types (Paleta Blanco, Negro y Rojo)
   const nodeTypeColors = {
-    hub: '#FF0000',            // Rojo para nodos hub
-    blog: '#222222',           // Negro grafito
-    conference: '#CC0000',     // Rojo oscuro
-    codeProject: '#111111',    // Negro puro
-    paper: '#E60000',          // Rojo carmesí
+    hub: '#FF0000',               // Rojo para nodos hub
+    blog: '#222222',              // Negro grafito
+    conference: '#CC0000',        // Rojo oscuro
+    talks: '#CC0000',             // Rojo oscuro
+    codeProject: '#111111',       // Negro puro
+    paper: '#E60000',             // Rojo carmesí
+    articles: '#E60000',          // Rojo carmesí
     multimediaProject: '#FF3333', // Rojo vibrante
+    multimedia: '#FF3333',        // Rojo vibrante
     mediaAppearance: '#333333',   // Gris carbón
-    thesis: '#FF0000',         // Rojo vivo
-    default: '#555555',        // Gris medio
+    thesis: '#FF0000',            // Rojo vivo
+    experience: '#111111',        // Negro puro
+    default: '#555555',           // Gris medio
   };
 
   const wrapText = (text, maxCharsPerLine = 20) => {
@@ -77,24 +81,25 @@ const NetworkGraphComponent = forwardRef(({
   const highlightID = (id) => {
     if (graphRef.current) {
       const graphData = graphRef.current.graphData();
-      const node = graphData.nodes.find((n) => n.id === id);
+      if (!graphData || !graphData.nodes) return;
+
+      const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+      const node = graphData.nodes.find((n) => n.id === id || n.id === numericId || String(n.id) === String(id));
 
       if (node) {
         highlightNodes.clear();
         highlightLinks.clear();
 
         highlightNodes.add(node);
-        if (node.neighbors) {
+        if (node.neighbors && Array.isArray(node.neighbors)) {
           node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
         }
 
-        if (node.links) {
+        if (node.links && Array.isArray(node.links)) {
           node.links.forEach((link) => highlightLinks.add(link));
         }
 
         updateHighlight();
-      } else {
-        console.error(`Node with id ${id} not found.`);
       }
     }
   };
@@ -106,6 +111,13 @@ const NetworkGraphComponent = forwardRef(({
         .nodeColor(graphRef.current.nodeColor())
         .linkWidth(graphRef.current.linkWidth())
         .linkDirectionalParticles(graphRef.current.linkDirectionalParticles());
+    }
+  };
+
+  const stopOrbitAnimation = () => {
+    if (graphRef.current && graphRef.current.__orbitAnimationId) {
+      cancelAnimationFrame(graphRef.current.__orbitAnimationId);
+      graphRef.current.__orbitAnimationId = null;
     }
   };
 
@@ -122,6 +134,7 @@ const NetworkGraphComponent = forwardRef(({
       }
     },
     setCameraPosition: (x, y, z) => {
+      stopOrbitAnimation();
       if (graphRef.current) {
         graphRef.current.cameraPosition({ x, y, z }, { x: 0, y: 0, z: 0 }, 1000);
       }
@@ -139,6 +152,7 @@ const NetworkGraphComponent = forwardRef(({
       }
     },
     resetToHomeView: () => {
+      stopOrbitAnimation();
       if (graphRef.current) {
         currentHoverRef.current = null;
         lastHoveredIdRef.current = null;
@@ -158,79 +172,47 @@ const NetworkGraphComponent = forwardRef(({
       }
     },
     zoomToFit: () => {
+      stopOrbitAnimation();
       if (graphRef.current) {
         graphRef.current.zoomToFit(1000, 50);
       }
     },
     zoomToID: (id) => {
-      if (graphRef.current) {
-        const graphData = graphRef.current.graphData();
-        const node = graphData.nodes.find((n) => n.id === id);
+      stopOrbitAnimation();
+      if (!graphRef.current) return;
+
+      const graphData = graphRef.current.graphData();
+      if (!graphData || !graphData.nodes) return;
+
+      const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+      const node = graphData.nodes.find((n) => n.id === id || n.id === numericId || String(n.id) === String(id));
+      
+      if (node) {
+        highlightID(node.id);
         
-        if (node) {
-          highlightID(id);
-          
-          const distance = 120; // Aumentar distancia para visualización óptima
-          const distRatio = 1 + distance / Math.hypot(node.x || 1, node.y || 1, node.z || 1);
-    
-          const targetPosition = {
-            x: (node.x || 0) * distRatio,
-            y: (node.y || 0) * distRatio,
-            z: (node.z || 0) * distRatio
-          };
-    
-          let animationFrameId;
-          
-          graphRef.current.cameraPosition(
-            targetPosition,
-            node,
-            1000,
-            () => {
-              let angle = Math.atan2(
-                graphRef.current.camera().position.z - node.z, 
-                graphRef.current.camera().position.x - node.x
-              );
-              
-              const radius = Math.hypot(
-                graphRef.current.camera().position.x - node.x,
-                graphRef.current.camera().position.z - node.z
-              );
-              
-              const orbitY = graphRef.current.camera().position.y;
-              
-              const orbitAnimation = () => {
-                angle += 0.005; // Ajustar velocidad de órbita suave
-                
-                const newX = node.x + radius * Math.cos(angle);
-                const newZ = node.z + radius * Math.sin(angle);
-                const newY = orbitY + Math.sin(angle * 2) * 5; // Bobbing suave
-                
-                graphRef.current.cameraPosition(
-                  { x: newX, y: newY, z: newZ },
-                  node,
-                  0
-                );
-                
-                animationFrameId = requestAnimationFrame(orbitAnimation);
-              };
-              
-              animationFrameId = requestAnimationFrame(orbitAnimation);
-              graphRef.current.__orbitAnimationId = animationFrameId;
-            }
-          );
-          
-          return () => {
-            if (animationFrameId) {
-              cancelAnimationFrame(animationFrameId);
-            } 
-            if (graphRef.current?.__orbitAnimationId) {
-              cancelAnimationFrame(graphRef.current.__orbitAnimationId);
-            }
-          };
-        }
+        const distance = 120;
+        const nx = typeof node.x === 'number' && !isNaN(node.x) ? node.x : 0;
+        const ny = typeof node.y === 'number' && !isNaN(node.y) ? node.y : 0;
+        const nz = typeof node.z === 'number' && !isNaN(node.z) ? node.z : 0;
+
+        const safeHypot = Math.hypot(nx, ny, nz) || 50;
+        const distRatio = 1 + distance / safeHypot;
+
+        const targetPosition = {
+          x: nx * distRatio,
+          y: ny * distRatio,
+          z: nz * distRatio
+        };
+        
+        graphRef.current.cameraPosition(
+          targetPosition,
+          { x: nx, y: ny, z: nz },
+          1000
+        );
       }
     },
     highlightIDCall: (id) => {
+      stopOrbitAnimation();
       if (id === 99999999) {
         highlightNodes.clear();
         highlightLinks.clear();
@@ -241,7 +223,8 @@ const NetworkGraphComponent = forwardRef(({
       } else {
         if (!graphRef.current) return;
         const graphData = graphRef.current.graphData();
-        const node = graphData.nodes.find((n) => n.id === id);
+        const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+        const node = graphData.nodes.find((n) => n.id === numericId || n.id === id);
         if (node) {
           highlightNodes.clear();
           highlightLinks.clear();
@@ -388,12 +371,14 @@ const NetworkGraphComponent = forwardRef(({
       let targetHub = null;
       if (post.type === 'work' || post.type === 'experience') {
         targetHub = 'hub-experiencia';
-      } else if (post.type === 'codeProject' || post.type === 'multimediaProject') {
+      } else if (post.type === 'codeProject' || post.type === 'multimediaProject' || post.type === 'multimedia') {
         targetHub = 'hub-proyectos';
-      } else if (post.type === 'thesis' || post.type === 'paper' || post.type === 'conference') {
+      } else if (post.type === 'thesis' || post.type === 'paper' || post.type === 'conference' || post.type === 'articles' || post.type === 'talks') {
         targetHub = 'hub-academia';
       } else if (post.type === 'mediaAppearance') {
         targetHub = 'hub-prensa';
+      } else if (post.type === 'blog') {
+        targetHub = 'hub-inicio';
       }
 
       if (targetHub) {
