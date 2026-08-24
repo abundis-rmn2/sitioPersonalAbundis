@@ -55,6 +55,7 @@ export const TAG_SCHEMA = {
     "ml-vision",
     "nlp",
     "js-react-web",
+    "php-wordpress",
     "gis-espacial",
     "etnografia",
     "analisis-documental",
@@ -83,6 +84,7 @@ export const TAG_DISPLAY_NAMES = {
     'ml-vision': 'Computer Vision (CNN ResNet)',
     'nlp': 'NLP & Embeddings de Texto',
     'js-react-web': 'React, Next.js & JS Full-Stack',
+    'php-wordpress': 'WordPress, Custom PHP & MySQL',
     'gis-espacial': 'Cartografía GIS & DBSCAN',
     'etnografia': 'Etnografía & Historias de Vida',
     'analisis-documental': 'Análisis Documental de Prensa',
@@ -111,6 +113,7 @@ export const TAG_DISPLAY_NAMES = {
     'ml-vision': 'Computer Vision (CNN ResNet)',
     'nlp': 'NLP & Text Embeddings',
     'js-react-web': 'React, Next.js & JS Full-Stack',
+    'php-wordpress': 'WordPress, Custom PHP & MySQL',
     'gis-espacial': 'GIS Cartography & DBSCAN',
     'etnografia': 'Ethnography & Qualitative Methods',
     'analisis-documental': 'Document & Press Corpus Analysis',
@@ -931,13 +934,14 @@ export const cvPosts = [
   },
   {
     "id": 32,
+    "noTranslateTitle": true,
     "tags": {
       "dominio": [
-        "graffiti"
+        "desarrollo-web-comercial"
       ],
       "rol": "desarrollador",
       "metodo": [
-        "js-react-web",
+        "php-wordpress",
         "analisis-documental"
       ],
       "contexto": [
@@ -1572,6 +1576,7 @@ export const cvPosts = [
   },
   {
     "id": 203,
+    "noTranslateTitle": true,
     "tags": {
       "dominio": [
         "desapariciones-mx"
@@ -1580,7 +1585,8 @@ export const cvPosts = [
       "metodo": [
         "gis-espacial",
         "js-react-web",
-        "python-data"
+        "python-data",
+        "nlp"
       ],
       "contexto": [
         "tejer-red"
@@ -1679,7 +1685,7 @@ export const cvPosts = [
       ],
       "rol": "activista-tecnico",
       "metodo": [
-        "js-react-web"
+        "php-wordpress"
       ],
       "contexto": [
         "tejer-red"

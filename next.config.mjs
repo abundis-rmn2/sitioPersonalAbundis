@@ -4,6 +4,7 @@ const nextConfig = {
     return [
       { source: '/', destination: '/es', permanent: true },
       { source: '/cv', destination: '/es/cv', permanent: true },
+      { source: '/cv/:jobSlug', destination: '/es/cv/:jobSlug', permanent: true },
       { source: '/experiencia', destination: '/es/experiencia', permanent: true },
       { source: '/academia', destination: '/es/academia', permanent: true },
       { source: '/prensa', destination: '/es/prensa', permanent: true },

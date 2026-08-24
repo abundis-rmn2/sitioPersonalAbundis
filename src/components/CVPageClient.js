@@ -49,6 +49,23 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
   const talks = cvPosts.filter(p => p.type === 'talks' || p.type === 'conference');
   const media = cvPosts.filter(p => p.type === 'mediaAppearance');
 
+  // Filtrar proyectos y conferencias según los requerimientos específicos de la vacante adaptada
+  const getFeaturedProjects = () => {
+    if (tailoredData?.featuredProjectIds && tailoredData.featuredProjectIds.length > 0) {
+      const explicit = cvPosts.filter(p => tailoredData.featuredProjectIds.includes(p.id));
+      if (explicit.length > 0) return explicit;
+    }
+    return codeProjects.slice(0, 4);
+  };
+
+  const getFeaturedTalks = () => {
+    if (tailoredData?.featuredTalkIds && tailoredData.featuredTalkIds.length > 0) {
+      const explicit = cvPosts.filter(p => tailoredData.featuredTalkIds.includes(p.id));
+      if (explicit.length > 0) return explicit;
+    }
+    return talks;
+  };
+
   return (
     <div className="cv-page-wrapper">
       {/* Barra Superior Fija de Herramientas (Solo Pantalla) */}
@@ -158,24 +175,26 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
           <div className="cv-contact-grid" style={{ width: '100%' }}>
             <div className="cv-contact-row">
               <div className="cv-contact-item">
-                <FaMapMarkerAlt className="cv-icon-red" />
-                <span>{bio.address}</span>
+                <FaGlobe className="cv-icon-red" />
+                <a href={bio.website} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 700, color: 'var(--color-principal)', fontSize: '0.92rem' }}>
+                  abundis.com.mx
+                </a>
+              </div>
+              <div className="cv-contact-item">
+                <FaEnvelope className="cv-icon-red" />
+                <a href={`mailto:${bio.email}`}>{bio.email}</a>
               </div>
               <div className="cv-contact-item">
                 <FaPhone className="cv-icon-red" />
                 <a href={`tel:${bio.phone}`}>{bio.phone}</a>
               </div>
               <div className="cv-contact-item">
-                <FaEnvelope className="cv-icon-red" />
-                <a href={`mailto:${bio.email}`}>{bio.email}</a>
+                <FaMapMarkerAlt className="cv-icon-red" />
+                <span>{bio.address}</span>
               </div>
             </div>
 
             <div className="cv-contact-row">
-              <div className="cv-contact-item">
-                <FaGraduationCap className="cv-icon-red" />
-                <a href={bio.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
-              </div>
               <div className="cv-contact-item">
                 <FaLinkedin className="cv-icon-red" />
                 <a href={bio.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -183,6 +202,10 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
               <div className="cv-contact-item">
                 <FaGithub className="cv-icon-red" />
                 <a href={bio.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+              <div className="cv-contact-item">
+                <FaGraduationCap className="cv-icon-red" />
+                <a href={bio.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
               </div>
             </div>
           </div>
@@ -412,6 +435,137 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                   </p>
                 </div>
 
+              </div>
+            </section>
+            {/* Proyectos Tecnológicos y Software Libre Destacados */}
+            <section className="cv-section">
+              <div className="cv-section-header">
+                <FaCode className="cv-section-icon" />
+                <h3>{isEs ? 'Proyectos Tecnológicos y Software Libre Destacados' : 'Featured Tech & Open-Source Projects'}</h3>
+              </div>
+              <div className="cv-section-body">
+                {getFeaturedProjects().map(project => {
+                  const data = project[lang] || project.es;
+                  const primaryTitle = project.es?.title || data.title;
+                  const englishTranslation = project.en?.title;
+                  const hasTranslation = !project.noTranslateTitle && englishTranslation && englishTranslation !== primaryTitle;
+
+                  return (
+                    <div key={project.id} className="cv-item-card" style={{ paddingBottom: '0.9rem', marginBottom: '1rem' }}>
+                      <div className="cv-item-header" style={{ alignItems: 'flex-start' }}>
+                        <h4 style={{ fontSize: '1.02rem', lineHeight: 1.35 }}>
+                          {primaryTitle}
+                          {hasTranslation && (
+                            <span style={{ fontStyle: 'italic', fontWeight: 300, color: '#64748b', fontSize: '0.85rem', marginLeft: '6px', display: 'inline-block' }}>
+                              — ({englishTranslation})
+                            </span>
+                          )}
+                        </h4>
+                        <span className="cv-date-badge">{data.displayDate}</span>
+                      </div>
+                      <p className="cv-item-abstract" style={{ fontSize: '0.88rem', margin: '0.35rem 0 0.4rem 0' }}>{data.abstract}</p>
+
+                      {/* Badges de tecnologías y metodología de cada proyecto */}
+                      {project.tags && (
+                        <div className="cv-tag-list" style={{ marginTop: '0.3rem', marginBottom: '0.5rem' }}>
+                          {Array.isArray(project.tags.metodo) && project.tags.metodo.map(m => (
+                            <span key={m} className="cv-tag" style={{ fontSize: '0.73rem', padding: '0.15rem 0.55rem', background: '#f1f5f9', color: '#334155', borderRadius: '4px', fontWeight: 600 }}>
+                              💻 {TAG_DISPLAY_NAMES[lang]?.[m] || m}
+                            </span>
+                          ))}
+                          {Array.isArray(project.tags.dominio) && project.tags.dominio.map(d => (
+                            <span key={d} className="cv-tag" style={{ fontSize: '0.73rem', padding: '0.15rem 0.55rem', background: '#fff1f2', color: '#e60000', borderRadius: '4px', fontWeight: 600 }}>
+                              🎯 {TAG_DISPLAY_NAMES[lang]?.[d] || d}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="cv-link-group print-hide">
+                        {project.github_repo && (
+                          <a href={project.github_repo} target="_blank" rel="noopener noreferrer" className="cv-inline-link">
+                            <FaGithub size={12} /> GitHub Repo
+                          </a>
+                        )}
+                        {project.project_url && (
+                          <a href={project.project_url} target="_blank" rel="noopener noreferrer" className="cv-inline-link">
+                            <FaGlobe size={12} /> {isEs ? 'Ver Proyecto en Vivo' : 'Live Demo'}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Conferencias e Investigación Destacada */}
+            <section className="cv-section">
+              <div className="cv-section-header">
+                <FaChalkboardTeacher className="cv-section-icon" />
+                <h3>{isEs ? 'Conferencias Internacionales y Publicaciones Clave' : 'Key Conferences & Publications'}</h3>
+              </div>
+              <div className="cv-section-body">
+                {getFeaturedTalks().map(talk => {
+                  const data = talk[lang] || talk.es;
+                  const primaryTitle = talk.es?.title || data.title;
+                  const englishTranslation = talk.en?.title;
+                  const hasTranslation = englishTranslation && englishTranslation !== primaryTitle;
+
+                  return (
+                    <div key={talk.id} className="cv-item-card" style={{ paddingBottom: '0.9rem', marginBottom: '1rem' }}>
+                      <div className="cv-item-header" style={{ alignItems: 'flex-start' }}>
+                        <h4 style={{ fontSize: '1.02rem', lineHeight: 1.35 }}>
+                          🎤 {primaryTitle}
+                          {hasTranslation && (
+                            <span style={{ fontStyle: 'italic', fontWeight: 300, color: '#64748b', fontSize: '0.85rem', marginLeft: '6px', display: 'inline-block' }}>
+                              — ({englishTranslation})
+                            </span>
+                          )}
+                        </h4>
+                        <span className="cv-date-badge">{data.displayDate}</span>
+                      </div>
+                      <p className="cv-item-abstract" style={{ fontSize: '0.88rem', margin: '0.35rem 0 0.4rem 0' }}>{data.abstract}</p>
+                      {talk.talk_url && (
+                        <div className="cv-link-group print-hide">
+                          <a href={talk.talk_url} target="_blank" rel="noopener noreferrer" className="cv-inline-link">
+                            <FaExternalLinkAlt size={12} /> {isEs ? 'Enlace a Conferencia' : 'Talk Link'}
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                {academicPapers.slice(0, 2).map(paper => {
+                  const data = paper[lang] || paper.es;
+                  const primaryTitle = paper.es?.title || data.title;
+                  const englishTranslation = paper.en?.title;
+                  const hasTranslation = englishTranslation && englishTranslation !== primaryTitle;
+
+                  return (
+                    <div key={paper.id} className="cv-item-card" style={{ paddingBottom: '0.9rem', marginBottom: '1rem' }}>
+                      <div className="cv-item-header" style={{ alignItems: 'flex-start' }}>
+                        <h4 style={{ fontSize: '1.02rem', lineHeight: 1.35 }}>
+                          📄 {primaryTitle}
+                          {hasTranslation && (
+                            <span style={{ fontStyle: 'italic', fontWeight: 300, color: '#64748b', fontSize: '0.85rem', marginLeft: '6px', display: 'inline-block' }}>
+                              — ({englishTranslation})
+                            </span>
+                          )}
+                        </h4>
+                        <span className="cv-date-badge">{data.displayDate}</span>
+                      </div>
+                      <p className="cv-item-abstract" style={{ fontSize: '0.88rem', margin: '0.35rem 0 0.4rem 0' }}>{data.abstract}</p>
+                      {paper.paper_url && (
+                        <div className="cv-link-group print-hide">
+                          <a href={paper.paper_url} target="_blank" rel="noopener noreferrer" className="cv-inline-link">
+                            <FaExternalLinkAlt size={12} /> DOI / Paper Link
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
