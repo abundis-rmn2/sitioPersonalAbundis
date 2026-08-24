@@ -1,4 +1,4 @@
-import { cvPosts, experienceData, TAG_SCHEMA } from '@/data/cvData';
+import { cvPosts, experienceData, TAG_SCHEMA, TAG_DISPLAY_NAMES } from '@/data/cvData';
 import TagPageClient from '@/components/TagPageClient';
 
 export async function generateStaticParams() {
@@ -15,7 +15,6 @@ export async function generateStaticParams() {
 
   for (const lang of langs) {
     for (const tag of allTags) {
-      // Excluir la etiqueta "blog" para las rutas si así se desea, o permitirla.
       if (tag !== 'blog') {
         params.push({ lang, tagSlug: tag });
       }
@@ -31,7 +30,7 @@ export async function generateMetadata(props) {
   
   if (!tagSlug) return { title: 'Etiqueta' };
 
-  const displayTagName = tagSlug.replace(/-/g, ' ').toUpperCase();
+  const displayTagName = TAG_DISPLAY_NAMES[lang]?.[tagSlug] || tagSlug.replace(/-/g, ' ').toUpperCase();
   
   const siteName = 'Ángel Javier Ramírez Abundis — Portafolio & Grafo 3D';
   const title = `Proyectos en ${displayTagName} | Javier Abundis`;

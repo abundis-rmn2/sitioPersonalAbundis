@@ -32,7 +32,8 @@ export const bioData = {
 
 export const TAG_SCHEMA = {
   "dominio": [
-    "graffiti",
+    "freight-graffiti",
+    "graffiti-tapatio",
     "desapariciones-mx",
     "ciudad-espacio-publico",
     "desarrollo-web-comercial",
@@ -63,10 +64,69 @@ export const TAG_SCHEMA = {
   "contexto": [
     "udg",
     "tejer-red",
-    "autonomo",
-    "empleo-formal",
-    "internacional"
+    "internacional",
+    "medios",
+    "comercial"
   ]
+};
+
+export const TAG_DISPLAY_NAMES = {
+  es: {
+    'freight-graffiti': '🎨 Freight Graffiti (Trenes de Carga)',
+    'graffiti-tapatio': '🌆 Graffiti Tapatío (Historia GDL)',
+    'desapariciones-mx': '🕊️ Búsqueda & Soberanía de Datos MX',
+    'ciudad-espacio-publico': '🏙️ Espacio Público & Ciudad',
+    'desarrollo-web-comercial': '💼 Web Comercial & E-Commerce',
+    'comunicacion-politica': '📢 Comunicación Política',
+    'construccion-manufactura': '🏗️ Operaciones & Estructuras',
+    'python-data': '🐍 Python & Data Mining',
+    'ml-vision': '👁️ Computer Vision (CNN ResNet)',
+    'nlp': '🗣️ NLP & Embeddings de Texto',
+    'js-react-web': '⚛️ React, Next.js & JS Full-Stack',
+    'gis-espacial': '🗺️ Cartografía GIS & DBSCAN',
+    'etnografia': '📝 Etnografía & Historias de Vida',
+    'analisis-documental': '📚 Análisis Documental de Prensa',
+    'ar-interactivo': '🥽 Realidad Aumentada (AR)',
+    'audiovisual': '🎬 Producción Audiovisual',
+    'investigador': '🔬 Investigador',
+    'desarrollador': '💻 Desarrollador Web & IA',
+    'ponente': '🎤 Ponente Internacional',
+    'periodista': '📰 Periodista de Investigación',
+    'coordinador': '📋 Coordinador de Operaciones',
+    'udg': '🎓 Universidad de Guadalajara',
+    'tejer-red': '🕸️ Tejer.RED',
+    'internacional': '🌍 Cobertura Internacional',
+    'medios': '📺 Medios Periodísticos',
+    'comercial': '🏪 Proyectos Comerciales'
+  },
+  en: {
+    'freight-graffiti': '🎨 Freight Train Graffiti (North America)',
+    'graffiti-tapatio': '🌆 Graffiti Tapatío (Guadalajara History)',
+    'desapariciones-mx': '🕊️ Forensic Systems & Search MX',
+    'ciudad-espacio-publico': '🏙️ Public Space & Urban Culture',
+    'desarrollo-web-comercial': '💼 Commercial Web & E-Commerce',
+    'comunicacion-politica': '📢 Political Communication',
+    'construccion-manufactura': '🏗️ Operations & Structures',
+    'python-data': '🐍 Python & Data Mining',
+    'ml-vision': '👁️ Computer Vision (CNN ResNet)',
+    'nlp': '🗣️ NLP & Text Embeddings',
+    'js-react-web': '⚛️ React, Next.js & JS Full-Stack',
+    'gis-espacial': '🗺️ GIS Cartography & DBSCAN',
+    'etnografia': '📝 Ethnography & Qualitative Methods',
+    'analisis-documental': '📚 Document & Press Corpus Analysis',
+    'ar-interactivo': '🥽 Augmented Reality (AR)',
+    'audiovisual': '🎬 Audiovisual Production',
+    'investigador': '🔬 Researcher',
+    'desarrollador': '💻 Software & AI Developer',
+    'ponente': '🎤 International Speaker',
+    'periodista': '📰 Investigative Journalist',
+    'coordinador': '📋 Operations Coordinator',
+    'udg': '🎓 Universidad de Guadalajara',
+    'tejer-red': '🕸️ Tejer.RED',
+    'internacional': '🌍 International Coverage',
+    'medios': '📺 Media Outlets',
+    'comercial': '🏪 Commercial Projects'
+  }
 };
 
 export const cvPosts = [
@@ -74,7 +134,7 @@ export const cvPosts = [
     "id": 96,
     "tags": {
       "dominio": [
-        "graffiti"
+        "freight-graffiti"
       ],
       "rol": "investigador",
       "metodo": [
@@ -121,13 +181,14 @@ export const cvPosts = [
     "talk_url": "",
     "paper_url": "",
     "multimedia_url": "",
-    "media_url": ""
+    "media_url": "",
+    "image": "/screenshots/post_100.webp"
   },
   {
     "id": 91,
     "tags": {
       "dominio": [
-        "graffiti"
+        "graffiti-tapatio"
       ],
       "rol": "investigador",
       "metodo": [
@@ -1295,94 +1356,6 @@ export const cvPosts = [
     "multimedia_url": "",
     "media_url": "",
     "image": "/screenshots/post_98.webp"
-  },
-  {
-    "id": 12,
-    "tags": {
-      "dominio": [],
-      "rol": "blog",
-      "metodo": [],
-      "contexto": [
-        "autonomo"
-      ]
-    },
-    "type": "blog",
-    "related_posts": [
-      1,
-      32
-    ],
-    "slugs": {
-      "en": "sample-blog-entry",
-      "es": "entrada-de-blog-prueba"
-    },
-    "categories": {
-      "es": "blog",
-      "en": "blog"
-    },
-    "es": {
-      "title": "Entrada de prueba",
-      "abstract": "Entrada de prueba del blog.",
-      "content": "<p>Entrada de prueba de publicación.</p>",
-      "displayDate": "",
-      "citation": ""
-    },
-    "en": {
-      "title": "Sample Blog Entry",
-      "abstract": "Sample blog post entry.",
-      "content": "<p>Sample blog post test.</p>",
-      "displayDate": "",
-      "citation": ""
-    },
-    "project_url": "",
-    "github_repo": "",
-    "talk_url": "",
-    "paper_url": "",
-    "multimedia_url": "",
-    "media_url": ""
-  },
-  {
-    "id": 1,
-    "tags": {
-      "dominio": [],
-      "rol": "blog",
-      "metodo": [],
-      "contexto": [
-        "autonomo"
-      ]
-    },
-    "type": "blog",
-    "related_posts": [
-      12,
-      32
-    ],
-    "slugs": {
-      "en": "hello-world",
-      "es": "hola-mundo"
-    },
-    "categories": {
-      "es": "blog",
-      "en": "blog"
-    },
-    "es": {
-      "title": "¡Hola mundo!",
-      "abstract": "Bienvenido a WordPress. Esta es tu primera entrada.",
-      "content": "<p>Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡y comienza a escribir!</p>",
-      "displayDate": "",
-      "citation": ""
-    },
-    "en": {
-      "title": "Hello world!",
-      "abstract": "Welcome to WordPress. This is your first post.",
-      "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>",
-      "displayDate": "",
-      "citation": ""
-    },
-    "project_url": "",
-    "github_repo": "",
-    "talk_url": "",
-    "paper_url": "",
-    "multimedia_url": "",
-    "media_url": ""
   },
   {
     "id": 200,

@@ -8,6 +8,8 @@ import GlobalList from './GlobalList';
 import DetailMenu from './DetailMenu';
 import { TagBadges } from './sections/tagColors';
 
+import { TAG_DISPLAY_NAMES } from '../data/cvData';
+
 const pageVariants = {
   initial: { opacity: 0 },
   animate: { opacity: 1, transition: { duration: 0.6 } },
@@ -19,14 +21,12 @@ const TagPageClient = ({ tagSlug, lang = 'es', filteredPosts = [], filteredExp =
   const router = useRouter();
 
   useEffect(() => {
-    // Cuando el componente carga, tratar de hacer un highlight general
-    // o resetear el grafo a la vista general si no hay un nodo específico.
     if (networkGraphRef.current) {
       networkGraphRef.current.highlightIDCall(null);
     }
   }, [tagSlug]);
 
-  const displayTagName = tagSlug.replace(/-/g, ' ');
+  const displayTagName = TAG_DISPLAY_NAMES[lang]?.[tagSlug] || tagSlug.replace(/-/g, ' ');
 
   return (
     <motion.div initial="initial" animate="animate" exit="exit" variants={pageVariants}>

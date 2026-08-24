@@ -666,6 +666,23 @@ const NetworkGraphComponent = forwardRef(({
             }
           }
         })
+        .onBackgroundClick(() => {
+          currentHoverRef.current = null;
+          lastHoveredIdRef.current = null;
+          hoverNodes.clear();
+          hoverLinks.clear();
+          highlightNodes.clear();
+          highlightLinks.clear();
+          updateHighlight();
+
+          Graph.cameraPosition({ x: 0, y: 0, z: 350 }, { x: 0, y: 0, z: 0 }, 1000);
+
+          const controls = Graph.controls();
+          if (controls) {
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 1.2;
+          }
+        })
         .enableNodeDrag(false)
         .enableNavigationControls(false);
 

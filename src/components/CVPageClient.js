@@ -23,9 +23,10 @@ import {
   FaUserAlt,
   FaTrophy,
   FaFileAlt,
-  FaCheckCircle
+  FaCheckCircle,
+  FaProjectDiagram
 } from 'react-icons/fa';
-import { bioData, cvPosts, TAG_SCHEMA } from '../data/cvData';
+import { bioData, cvPosts, TAG_SCHEMA, TAG_DISPLAY_NAMES } from '../data/cvData';
 
 export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug = null }) {
   const [cvMode, setCvMode] = useState('summary'); // 'summary' (Resumido 3 logros) | 'full' (CV Completo)
@@ -59,7 +60,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
           </Link>
           
           <div className="cv-toolbar-actions">
-            {/* Selector de Modo: CV Resumido vs CV Completo */}
+            {/* Selector de Modo: CV Resumido vs CV Completo vs Grafo 3D */}
             <div className="cv-mode-selector">
               <button 
                 type="button"
@@ -79,6 +80,15 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                 <FaFileAlt style={{ marginRight: '6px' }} />
                 {isEs ? 'CV Completo' : 'Full Master CV'}
               </button>
+              <Link 
+                href={`/${lang}/grafo-cv`}
+                className="cv-mode-btn"
+                title={isEs ? 'Explorar CV como Grafo 3D Interactivo' : 'Explore CV as Interactive 3D Graph'}
+                style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+              >
+                <FaProjectDiagram style={{ marginRight: '6px', color: '#e60000' }} />
+                {isEs ? 'Grafo CV 3D' : '3D CV Graph'}
+              </Link>
             </div>
 
             <div className="cv-lang-switch">
@@ -695,7 +705,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                   <span className="cv-skill-label">{isEs ? 'Métodos & Tecnologías:' : 'Methods & Tech:'}</span>
                   <div className="cv-tag-list">
                     {TAG_SCHEMA.metodo.map(m => (
-                      <span key={m} className="cv-tag">{m}</span>
+                      <span key={m} className="cv-tag">{TAG_DISPLAY_NAMES[lang]?.[m] || m}</span>
                     ))}
                   </div>
                 </div>
@@ -704,7 +714,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                   <span className="cv-skill-label">{isEs ? 'Dominios de Investigación:' : 'Research Domains:'}</span>
                   <div className="cv-tag-list">
                     {TAG_SCHEMA.dominio.map(d => (
-                      <span key={d} className="cv-tag">{d}</span>
+                      <span key={d} className="cv-tag">{TAG_DISPLAY_NAMES[lang]?.[d] || d}</span>
                     ))}
                   </div>
                 </div>
@@ -713,7 +723,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                   <span className="cv-skill-label">{isEs ? 'Roles & Capacidades:' : 'Roles & Capabilities:'}</span>
                   <div className="cv-tag-list">
                     {TAG_SCHEMA.rol.map(r => (
-                      <span key={r} className="cv-tag">{r}</span>
+                      <span key={r} className="cv-tag">{TAG_DISPLAY_NAMES[lang]?.[r] || r}</span>
                     ))}
                   </div>
                 </div>
