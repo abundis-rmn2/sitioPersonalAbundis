@@ -1220,6 +1220,59 @@ export const cvPosts = [
     "image": "/screenshots/post_105.webp"
   },
   {
+    "id": 106,
+    "tags": {
+      "dominio": [
+        "graffiti-tapatio",
+        "ciudad-espacio-publico"
+      ],
+      "rol": "ponente",
+      "metodo": [
+        "etnografia",
+        "analisis-documental"
+      ],
+      "contexto": [
+        "udg",
+        "medios"
+      ]
+    },
+    "type": "mediaAppearance",
+    "related_posts": [
+      91,
+      98,
+      105
+    ],
+    "slugs": {
+      "en": "young-artists-dialogue-at-cucsh-on-art-and-politics-in-contexts-of-violence",
+      "es": "dialogan-jovenes-artistas-en-cucsh-sobre-la-relacion-entre-arte-y-politica-en-contextos-de-violencia"
+    },
+    "categories": {
+      "es": "aparicion-prensa",
+      "en": "mediaAppearance"
+    },
+    "es": {
+      "title": "Dialogan jóvenes artistas en CUCSH sobre la relación entre arte y política en contextos de violencia",
+      "abstract": "Cobertura periodística en Noticias CUCSH (UdeG) sobre el Coloquio 'Cultura participativa: la relación entre arte y política en tiempos de violencia social', con la participación de Ángel R. Abundis.",
+      "content": "<p>Cobertura del Coloquio <em>Cultura participativa: la relación entre arte y política en tiempos de violencia social</em>, organizado por el Departamento de Sociología del Centro Universitario de Ciencias Sociales y Humanidades (CUCSH) de la Universidad de Guadalajara.</p><p>En su intervención, <strong>Ángel R. Abundis</strong> analizó el dilema sobre el estatus artístico del graffiti y planteó conceptualizar a la ciudad como un 'libro abierto' y un escenario urbano en constante construcción simbólica, política y cultural. Destacó cómo los escritores de graffiti han constituido comunidades de práctica capaces de generar una semiósfera, un código compartido, un estilo de vida y una identidad que llena los huecos políticos en el espacio público urbano.</p>",
+      "displayDate": "CUCSH - Universidad de Guadalajara, 2021",
+      "citation": "Universidad de Guadalajara. (2021). <em>Dialogan jóvenes artistas en CUCSH sobre la relación entre arte y política en contextos de violencia</em>. Prensa y Noticias CUCSH UdeG."
+    },
+    "en": {
+      "title": "Young Artists Dialogue at CUCSH on the Relationship Between Art and Politics in Contexts of Violence",
+      "abstract": "Press coverage in CUCSH News (UdeG) highlighting the Colloquium 'Participatory Culture: Art and Politics in Times of Social Violence' featuring Ángel R. Abundis.",
+      "content": "<p>Coverage of the Colloquium <em>Participatory Culture: Art and Politics in Times of Social Violence</em>, organized by the Sociology Department at the Humanities and Social Sciences Campus (CUCSH) of Universidad de Guadalajara.</p><p>During his speech, <strong>Ángel R. Abundis</strong> examined the debate surrounding graffiti as art and proposed conceptualizing the city as an 'open book' and an urban stage undergoing constant symbolic, political, and cultural construction. He emphasized how local graffiti writers have formed communities of practice capable of engineering a semiosphere, a shared code, a lifestyle, and an identity that fills political voids within the urban public sphere.</p>",
+      "displayDate": "CUCSH - Universidad de Guadalajara, 2021",
+      "citation": "Universidad de Guadalajara. (2021). <em>Young Artists Dialogue at CUCSH on the Relationship Between Art and Politics in Contexts of Violence</em>. CUCSH UdeG Press & News."
+    },
+    "project_url": "",
+    "github_repo": "",
+    "talk_url": "",
+    "paper_url": "",
+    "multimedia_url": "",
+    "media_url": "https://www.cucsh.udg.mx/noticias/dialogan-jovenes-artistas-en-cucsh-sobre-la-relacion-entre-arte-y-politica-en-contextos-de",
+    "image": "/screenshots/post_cucsh_arte_politica.webp"
+  },
+  {
     "id": 102,
     "tags": {
       "dominio": [
