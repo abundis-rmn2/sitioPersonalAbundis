@@ -114,7 +114,8 @@ const GrafoCVNetwork = forwardRef(({
       if (node) {
         selectedNodeRef.current = node.id;
         
-        const distance = 110;
+        // Mantener una distancia de cámara de 280px para contemplar el contexto de los demás nodos vecinos
+        const distance = 280;
         const nx = typeof node.x === 'number' && !isNaN(node.x) ? node.x : 0;
         const ny = typeof node.y === 'number' && !isNaN(node.y) ? node.y : 0;
         const nz = typeof node.z === 'number' && !isNaN(node.z) ? node.z : 0;
@@ -228,8 +229,8 @@ const GrafoCVNetwork = forwardRef(({
     const hubNodes = [
       {
         id: 'hub-experiencia',
-        name: isEs ? '★ Experiencia Laboral' : '★ Work Experience',
-        title: isEs ? 'Experiencia Laboral' : 'Work Experience',
+        name: isEs ? 'Experiencia' : 'Experience',
+        title: isEs ? 'Experiencia' : 'Experience',
         group: 'hub',
         type: 'hub',
         color: '#111111',
@@ -244,8 +245,8 @@ const GrafoCVNetwork = forwardRef(({
       },
       {
         id: 'hub-proyectos',
-        name: isEs ? '★ Proyectos & IA' : '★ Software & AI Projects',
-        title: isEs ? 'Proyectos & IA' : 'Software & AI Projects',
+        name: isEs ? 'Proyectos' : 'Projects',
+        title: isEs ? 'Proyectos' : 'Projects',
         group: 'hub',
         type: 'hub',
         color: '#E60000',
@@ -260,8 +261,8 @@ const GrafoCVNetwork = forwardRef(({
       },
       {
         id: 'hub-academia',
-        name: isEs ? '★ Academia & Tesis' : '★ Academic & Thesis',
-        title: isEs ? 'Academia & Tesis' : 'Academic & Thesis',
+        name: isEs ? 'Academia' : 'Academy',
+        title: isEs ? 'Academia' : 'Academy',
         group: 'hub',
         type: 'hub',
         color: '#222222',
@@ -276,8 +277,8 @@ const GrafoCVNetwork = forwardRef(({
       },
       {
         id: 'hub-prensa',
-        name: isEs ? '★ Prensa & Medios' : '★ Press & Media',
-        title: isEs ? 'Prensa & Medios' : 'Press & Media',
+        name: isEs ? 'Prensa' : 'Media',
+        title: isEs ? 'Prensa' : 'Media',
         group: 'hub',
         type: 'hub',
         color: '#FF3333',
@@ -292,8 +293,8 @@ const GrafoCVNetwork = forwardRef(({
       },
       {
         id: 'hub-skills',
-        name: isEs ? '★ Stack & Habilidades' : '★ Stack & Skills',
-        title: isEs ? 'Stack & Habilidades' : 'Stack & Skills',
+        name: isEs ? 'Habilidades' : 'Skills',
+        title: isEs ? 'Habilidades' : 'Skills',
         group: 'hub',
         type: 'hub',
         color: '#D32F2F',
@@ -362,7 +363,7 @@ const GrafoCVNetwork = forwardRef(({
       ...TAG_SCHEMA.metodo.map(m => ({ 
         id: `skill-${m}`, 
         tagKey: m,
-        name: skillLabels[m] || `🛠️ ${m}`, 
+        name: skillLabels[m] || m, 
         title: skillLabels[m] || m, 
         group: 'skill', 
         type: 'skill', 
@@ -374,7 +375,7 @@ const GrafoCVNetwork = forwardRef(({
       ...TAG_SCHEMA.dominio.map(d => ({ 
         id: `skill-${d}`, 
         tagKey: d,
-        name: skillLabels[d] || `🌐 ${d}`, 
+        name: skillLabels[d] || d, 
         title: skillLabels[d] || d, 
         group: 'skill', 
         type: 'skill', 
@@ -700,8 +701,8 @@ const GrafoCVNetwork = forwardRef(({
           if (foundNode) {
             selectedNodeRef.current = foundNode.id;
 
-            // Recorrer el grafo con vuelo animado de cámara 3D
-            const distance = 110;
+            // Recorrer el grafo manteniendo una distancia panorámica de 280px para no perder de vista los vecinos
+            const distance = 280;
             const nx = typeof foundNode.x === 'number' && !isNaN(foundNode.x) ? foundNode.x : 0;
             const ny = typeof foundNode.y === 'number' && !isNaN(foundNode.y) ? foundNode.y : 0;
             const nz = typeof foundNode.z === 'number' && !isNaN(foundNode.z) ? foundNode.z : 0;

@@ -12,6 +12,7 @@ import {
   FaExpandAlt,
   FaCompressAlt,
   FaSlidersH,
+  FaUser,
   FaBriefcase,
   FaCode,
   FaGraduationCap,
@@ -223,59 +224,60 @@ export default function GrafoCVClient({ lang = 'es' }) {
 
         </div>
 
-        {/* Barra de Filtros por Categoría */}
+        {/* Barra de Navegación Directa a Secciones Principales */}
         <div className="grafo-cv-filter-bar">
           <div className="filter-label">
-            <FaFilter style={{ marginRight: '6px' }} />
-            <span>{isEs ? 'Filtrar Red:' : 'Filter Network:'}</span>
+            <FaProjectDiagram style={{ marginRight: '6px', color: '#e60000' }} />
+            <span>{isEs ? 'Ir a Sección:' : 'Go to Section:'}</span>
           </div>
 
           <div className="filter-pills">
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('all')}
+              className={`filter-pill ${selectedNode?.id === 'hub-inicio' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-inicio')}
             >
-              {isEs ? 'Todos los Nodos' : 'All Nodes'}
+              <FaUser style={{ marginRight: '6px' }} />
+              {isEs ? 'Biografía' : 'Biography'}
             </button>
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'experience' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('experience')}
+              className={`filter-pill ${selectedNode?.id === 'hub-experiencia' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-experiencia')}
             >
-              <FaBriefcase style={{ marginRight: '4px' }} />
+              <FaBriefcase style={{ marginRight: '6px' }} />
               {isEs ? 'Experiencia' : 'Experience'}
             </button>
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'projects' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('projects')}
+              className={`filter-pill ${selectedNode?.id === 'hub-proyectos' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-proyectos')}
             >
-              <FaCode style={{ marginRight: '4px' }} />
-              {isEs ? 'Proyectos & IA' : 'Projects & AI'}
+              <FaCode style={{ marginRight: '6px' }} />
+              {isEs ? 'Proyectos' : 'Projects'}
             </button>
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'academia' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('academia')}
+              className={`filter-pill ${selectedNode?.id === 'hub-academia' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-academia')}
             >
-              <FaGraduationCap style={{ marginRight: '4px' }} />
-              {isEs ? 'Academia & Tesis' : 'Academy'}
+              <FaGraduationCap style={{ marginRight: '6px' }} />
+              {isEs ? 'Academia' : 'Academy'}
             </button>
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'media' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('media')}
+              className={`filter-pill ${selectedNode?.id === 'hub-prensa' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-prensa')}
             >
-              <FaNewspaper style={{ marginRight: '4px' }} />
-              {isEs ? 'Prensa & Medios' : 'Press'}
+              <FaNewspaper style={{ marginRight: '6px' }} />
+              {isEs ? 'Prensa' : 'Media'}
             </button>
             <button 
               type="button" 
-              className={`filter-pill ${activeFilter === 'skills' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('skills')}
+              className={`filter-pill ${selectedNode?.id === 'hub-skills' ? 'active' : ''}`}
+              onClick={() => handleSelectNode('hub-skills')}
             >
-              <FaTags style={{ marginRight: '4px' }} />
+              <FaTags style={{ marginRight: '6px' }} />
               {isEs ? 'Habilidades' : 'Skills'}
             </button>
           </div>
@@ -286,11 +288,11 @@ export default function GrafoCVClient({ lang = 'es' }) {
       {showHelp && (
         <div className="grafo-cv-help-overlay" onClick={() => setShowHelp(false)}>
           <div className="grafo-cv-help-box" onClick={(e) => e.stopPropagation()}>
-            <h3>💡 {isEs ? '¿Cómo explorar el Grafo CV?' : 'How to explore the CV Graph?'}</h3>
+            <h3><FaInfoCircle style={{ marginRight: '8px', color: '#e60000' }} /> {isEs ? '¿Cómo explorar el Grafo CV?' : 'How to explore the CV Graph?'}</h3>
             <ul>
-              <li><strong>🎯 {isEs ? 'Clic en cualquier Nodo:' : 'Click any Node:'}</strong> {isEs ? 'La cámara vuela suavemente hacia el nodo y se despliega la ventana flotante con sus detalles completos.' : 'The 3D camera smoothly flies to the node and opens a detail modal window.'}</li>
-              <li><strong>🔗 {isEs ? 'Navegación por Conexiones:' : 'Connection Traversal:'}</strong> {isEs ? 'Dentro de la ventana modal puedes hacer clic en "Nodos Conectados" para saltar de un tema a otro recorriendo la red.' : 'Inside the modal, click any "Connected Node" to jump between related topics across the graph.'}</li>
-              <li><strong>🖱️ {isEs ? 'Controles 3D:' : '3D Controls:'}</strong> {isEs ? 'Arrastra con el ratón para rotar el grafo 3D. Usa la rueda para hacer zoom.' : 'Drag with your mouse to rotate the 3D graph. Scroll to zoom.'}</li>
+              <li><strong><FaCrosshairs style={{ marginRight: '6px', color: '#e60000' }} /> {isEs ? 'Clic en cualquier Nodo:' : 'Click any Node:'}</strong> {isEs ? 'La cámara vuela suavemente hacia el nodo y se despliega la ventana flotante con sus detalles completos.' : 'The 3D camera smoothly flies to the node and opens a detail modal window.'}</li>
+              <li><strong><FaProjectDiagram style={{ marginRight: '6px', color: '#e60000' }} /> {isEs ? 'Navegación por Conexiones:' : 'Connection Traversal:'}</strong> {isEs ? 'Dentro de la ventana modal puedes hacer clic en "Nodos Conectados" para saltar de un tema a otro recorriendo la red.' : 'Inside the modal, click any "Connected Node" to jump between related topics across the graph.'}</li>
+              <li><strong><FaSync style={{ marginRight: '6px', color: '#e60000' }} /> {isEs ? 'Controles 3D:' : '3D Controls:'}</strong> {isEs ? 'Arrastra con el ratón para rotar el grafo 3D. Usa la rueda para hacer zoom.' : 'Drag with your mouse to rotate the 3D graph. Scroll to zoom.'}</li>
             </ul>
             <button type="button" className="grafo-cv-btn primary" onClick={() => setShowHelp(false)}>
               {isEs ? 'Entendido, ¡Comenzar!' : 'Got it, let\'s explore!'}
