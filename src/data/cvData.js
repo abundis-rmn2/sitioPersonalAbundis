@@ -876,7 +876,7 @@ export const cvPosts = [
       "displayDate": "2021",
       "citation": "Ramírez Abundis, A. J. (2021). <em>Instagram Data Mining Bot (idmb)</em> [Software]. GitHub. https://github.com/abundis-rmn2/idmb"
     },
-    "project_url": "https://data.abundis.com.mx/vista/",
+    "project_url": "https://freight-graffiti.abundis.com.mx/hashtags",
     "github_repo": "https://github.com/abundis-rmn2/idmb",
     "talk_url": "",
     "paper_url": "",
@@ -915,16 +915,16 @@ export const cvPosts = [
       "abstract": "DVI está diseñada para la visualización interactiva de datos recolectados por IDMB. Desarrollada en PHP y JavaScript con Graphology, genera grafos de redes para representar interacciones subculturales y patrones de influencia en un panel administrativo.",
       "content": "<p>DVI está diseñada para la visualización interactiva de redes relacionales recopiladas por IDMB. Desarrollada con PHP, JavaScript y Graphology, permite consultar bases de datos SQL y renderizar grafos complejos interactivos para representar las interacciones dentro de la comunidad de escritores. Incluye un panel administrativo para gestionar flujos de extracción y monitoreo continuo de conversaciones hipertextuales.</p>",
       "displayDate": "2022",
-      "citation": "Ramírez Abundis, Á. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://data.abundis.com.mx/vista/"
+      "citation": "Ramírez Abundis, Á. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://freight-graffiti.abundis.com.mx/hashtags"
     },
     "en": {
       "title": "Data Visualization Interface (DVI)",
       "abstract": "DVI is designed for the interactive visualization of data collected by IDMB. Built using PHP and JavaScript with Graphology, it generates complex network graphs to reveal subcultural interactions and influence patterns.",
       "content": "<p>DVI is designed for the interactive visualization of relational networks collected by IDMB. Developed using PHP, JavaScript, and Graphology, it queries SQL databases to render complex interactive network graphs representing community interactions. It includes an administration panel to manage data extraction tasks and monitor hypertextual conversations.</p>",
       "displayDate": "2022",
-      "citation": "Ramírez Abundis, A. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://data.abundis.com.mx/vista/"
+      "citation": "Ramírez Abundis, A. J. (2022). <em>Data Visualization Interface (DVI)</em> [Software]. https://freight-graffiti.abundis.com.mx/hashtags"
     },
-    "project_url": "https://data.abundis.com.mx/vista/hashtags_ai_data_live.php?id=67",
+    "project_url": "https://freight-graffiti.abundis.com.mx/graph/67",
     "github_repo": "https://github.com/abundis-rmn2/dvi",
     "talk_url": "",
     "paper_url": "",

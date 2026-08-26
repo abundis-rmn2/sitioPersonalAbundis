@@ -85,7 +85,7 @@ Trabajador disciplinado con amplia capacidad física y experiencia práctica en 
 *   **Descripción:** Interfaz interactiva diseñada para la visualización y exploración de los datos recolectados por el bot *idmb*. Desarrollada sobre tecnologías PHP y JavaScript, la interfaz se conecta directamente a la base de datos SQL compartida mediante consultas SQL optimizadas para acceso rápido.
     *   *Visualizaciones de Red:* Utiliza las librerías *Graphology* y *SigmaJS* (con layouts interactivos ForceAtlas) para mapear interacciones y conversaciones hipertextuales en forma de grafos de red, permitiendo identificar patrones de comportamiento y relaciones de influencia.
     *   *Panel de Administración:* Incluye un panel administrativo para la gestión de actividades pendientes y el monitoreo continuo de flujos de extracción y análisis de conversaciones hipertextuales.
-*   [DVI en vista.abundis.com.mx](https://data.abundis.com.mx/vista/)
+*   [DVI en freight-graffiti.abundis.com.mx](https://freight-graffiti.abundis.com.mx/hashtags)
 *   **Aptitudes:** PHP, JavaScript, SigmaJS, Graphology, SQL, Resolución de problemas.
 
 ### 4.5 Recorriendo el tRAzo (Versión Interactiva y Realidad Aumentada)
