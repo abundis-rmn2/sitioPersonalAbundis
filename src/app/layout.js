@@ -23,6 +23,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${poppins.variable} ${prata.variable}`}>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B3KW2PJZ8" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8B3KW2PJZ8');
+            `,
+          }}
+        />
+      </head>
       <body>
         <CustomCursor />
         {children}
