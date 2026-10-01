@@ -66,12 +66,13 @@ export default function sitemap() {
   const usedTags = new Set();
   cvPosts.forEach(post => {
     if (post.tags) {
-      if (Array.isArray(post.tags.es)) {
-        post.tags.es.forEach(tag => usedTags.add(tag));
-      }
-      if (Array.isArray(post.tags.en)) {
-        post.tags.en.forEach(tag => usedTags.add(tag));
-      }
+      Object.values(post.tags).forEach(val => {
+        if (Array.isArray(val)) {
+          val.forEach(tag => usedTags.add(tag));
+        } else if (typeof val === 'string') {
+          usedTags.add(val);
+        }
+      });
     }
   });
 
