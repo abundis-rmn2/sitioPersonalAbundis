@@ -62,8 +62,21 @@ export default function sitemap() {
     ...TAG_SCHEMA.contexto
   ];
 
+  // Obtener tags únicos usados en los posts para evitar indexar tags vacíos (Soft 404)
+  const usedTags = new Set();
+  cvPosts.forEach(post => {
+    if (post.tags) {
+      if (Array.isArray(post.tags.es)) {
+        post.tags.es.forEach(tag => usedTags.add(tag));
+      }
+      if (Array.isArray(post.tags.en)) {
+        post.tags.en.forEach(tag => usedTags.add(tag));
+      }
+    }
+  });
+
   allTags.forEach(tag => {
-    if (tag !== 'blog') {
+    if (tag !== 'blog' && usedTags.has(tag)) {
       tagRoutes.push({
         url: `${baseUrl}/es/tag/${tag}`,
         lastModified,

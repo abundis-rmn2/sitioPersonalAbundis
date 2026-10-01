@@ -72,6 +72,17 @@ export default function LangHomePageClient({ lang, initialSection }) {
     }
   }, [lenis, initialSection]);
 
+  // Google Analytics Tracking para cambios de sección (Anchor)
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      const path = activeSection === "inicio" || activeSection === "grafo" ? `/${lang}` : `/${lang}/${activeSection}`;
+      window.gtag('config', 'G-8B3KW2PJZ8', {
+        page_path: path,
+        page_title: `Sección: ${activeSection}`
+      });
+    }
+  }, [activeSection, lang]);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       const currentIndex = sections.findIndex((s) => s.id === activeSection);

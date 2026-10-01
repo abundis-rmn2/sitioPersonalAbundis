@@ -16,8 +16,15 @@ const prata = Prata({
 });
 
 export const metadata = {
-  title: "Ángel Javier Ramírez Abundis - Portfolio",
+  metadataBase: new URL("https://abundis.com.mx"),
+  title: {
+    template: "%s | Ángel Javier Ramírez Abundis",
+    default: "Ángel Javier Ramírez Abundis - Portfolio",
+  },
   description: "Portafolio y Currículum de Ángel Javier Ramírez Abundis, Sociólogo e Investigador Computacional.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {

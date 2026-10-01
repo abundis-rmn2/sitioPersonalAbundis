@@ -92,5 +92,26 @@ export default async function DetailPage(props) {
     notFound();
   }
 
-  return <DetailPageClient post={post} lang={lang} />;
+  // Generar JSON-LD
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post[lang]?.title || post['es']?.title,
+    description: post[lang]?.abstract || post['es']?.abstract || '',
+    author: {
+      '@type': 'Person',
+      name: 'Ángel Javier Ramírez Abundis'
+    },
+    datePublished: post.date || undefined,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DetailPageClient post={post} lang={lang} />
+    </>
+  );
 }
