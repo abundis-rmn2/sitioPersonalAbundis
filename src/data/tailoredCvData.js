@@ -428,6 +428,188 @@ export const TAILORED_CVS = {
     get requirementsMatchList() { return TAILORED_CVS['canonical-web-frontend-engineer'].requirementsMatchList; },
     get needsAdaptationList() { return TAILORED_CVS['canonical-web-frontend-engineer'].needsAdaptationList; },
     get customProfileText() { return TAILORED_CVS['canonical-web-frontend-engineer'].customProfileText; }
+  },
+  'fullstack-react-python-data-viz': {
+    company: 'Full-Stack React + Python Data Viz',
+    companySubtitle: 'Remote Distributed Team • Real-Time Data Visualization & Python Pipelines',
+    targetRole: {
+      es: 'Full-Stack Software Developer (React, Python, Real-Time Data Visualization)',
+      en: 'Full-Stack Software Developer (React, Python, Real-Time Data Visualization)'
+    },
+    badgeLabel: {
+      es: 'Perfil Adaptado a la Medida para Full-Stack React & Python Data Developer',
+      en: 'Tailored Resume for Full-Stack React & Python Data Developer'
+    },
+    matchSummary: {
+      es: 'Desarrollador Full-Stack con más de 10 años de experiencia uniendo interfaces reactivas en React (JS/TS) para visualización de datos en tiempo real con pipelines y servicios backend en Python (FastAPI/Flask/PySpark), bases de datos SQL/NoSQL (MongoDB, PostgreSQL) y testing automatizado (Jest, pytest).',
+      en: 'Full-Stack Software Developer with 10+ years of experience bridging reactive React (JS/TS) interfaces for real-time data visualization with Python backend pipelines (FastAPI/Flask/PySpark), SQL/NoSQL databases (MongoDB, PostgreSQL), and automated CI/CD testing (Jest, pytest).'
+    },
+    
+    featuredProjectIds: [34, 203, 38, 40],
+    featuredTalkIds: [46, 220],
+    relevantTags: ['js-react-web', 'python-data', 'ml-vision', 'nlp', 'gis-espacial'],
+
+    keywordsList: [
+      'React (JavaScript / TypeScript)',
+      'Python Backend & Data Pipelines',
+      'Real-Time Data Visualization',
+      'REST Web APIs & Microservices',
+      'Relational / SQL Databases (PostgreSQL / MySQL)',
+      'NoSQL Databases (MongoDB)',
+      'CI/CD Pipelines & GitHub Actions',
+      'Unit Testing (pytest, Jest)',
+      'Graphology & SigmaJS / Canvas',
+      'DBSCAN & PySpark / Databricks',
+      'Linux, Docker & Azure',
+      'Advanced English Fluency'
+    ],
+
+    requirementsMatchList: [
+      {
+        requirement: { es: 'Construcción y mantenimiento de aplicaciones web con React (JS/TS)', en: 'Building and maintaining web apps using React with JS/TS' },
+        match: { es: '✔ Cumplido: Desarrollo de SPAs de alta densidad de datos en React/Next.js con TypeScript, Hooks personalizados y estado complejo.', en: '✔ Matched: Built data-dense SPAs in React/Next.js using TypeScript, custom hooks, and complex state management.' }
+      },
+      {
+        requirement: { es: 'Desarrollo de servicios backend y pipelines de procesamiento con Python', en: 'Developing backend services and processing pipelines using Python' },
+        match: { es: '✔ Cumplido: Creación de scripts y pipelines de datos en Python (FastAPI/Flask, Pandas, spaCy, Scikit-learn, PySpark, DBSCAN).', en: '✔ Matched: Created Python data processing pipelines and backend services (FastAPI/Flask, Pandas, spaCy, Scikit-learn, PySpark, DBSCAN).' }
+      },
+      {
+        requirement: { es: 'Manejo de bases de datos relacionales (SQL) y NoSQL (MongoDB)', en: 'Experience with relational/SQL databases and NoSQL databases (e.g. MongoDB)' },
+        match: { es: '✔ Cumplido: Modelado y consultas avanzadas en PostgreSQL, MySQL y MongoDB para almacenar corpora estructurados y telemetría.', en: '✔ Matched: Modeled and queried relational PostgreSQL/MySQL and MongoDB for structured text corpora, telemetry, and spatial layers.' }
+      },
+      {
+        requirement: { es: 'Implementación de CI/CD y pruebas unitarias (Jest, pytest)', en: 'Familiarity with CI/CD practices and unit testing (Jest, pytest)' },
+        match: { es: '✔ Cumplido: Flujos de CI/CD en GitHub Actions, automatización de pruebas unitarias/integración con pytest en Python y Jest/RTL en React.', en: '✔ Matched: Configured GitHub Actions CI/CD workflows, automated unit/integration testing with pytest in Python and Jest/RTL in React.' }
+      },
+      {
+        requirement: { es: 'Inglés avanzado y comunicación fluida en equipos distribuidos', en: 'Advanced English and effective communication across distributed teams' },
+        match: { es: '✔ Cumplido: Fluidez bilingüe profesional (inglés C1/avanzado), ponente en conferencias internacionales en Bélgica (FOSDEM) y experiencia remota global.', en: '✔ Matched: Full professional bilingual English fluency, international conference speaker in Europe (FOSDEM Belgium), and distributed team background.' }
+      }
+    ],
+
+    needsAdaptationList: [
+      {
+        title: { es: '1. Visualización de Datos en Tiempo Real y UI Reactiva', en: '1. Real-Time Data Visualization & Reactive UI' },
+        detail: { es: 'Especialista en convertir flujos de datos complejos (grafos de interacción, mapas geoespaciales y telemetría) en dashboards interactivos fluidos utilizando React, Canvas, Graphology/SigmaJS y librerías de renderizado en tiempo real.', en: 'Specialized in rendering complex data streams (graph networks, geospatial cartography, telemetry) into fluid interactive dashboards using React, Canvas, Graphology/SigmaJS, and real-time visualization libraries.' }
+      },
+      {
+        title: { es: '2. Pipelines de Datos en Python y APIs de Backend', en: '2. Python Data Pipelines & Backend APIs' },
+        detail: { es: 'Conexión transparente entre pipelines de ingesta/procesamiento en Python (NLP, clustering, algoritmos estadísticos) y servicios web exponiendo APIs REST/JSON eficientes respaldadas por PostgreSQL y MongoDB.', en: 'Seamlessly bridging Python data ingestion/processing pipelines (NLP, clustering, statistical models) with web microservices exposing clean REST/JSON APIs backed by PostgreSQL and MongoDB.' }
+      },
+      {
+        title: { es: '3. Calidad de Código, Pruebas Automatizadas y CI/CD', en: '3. Code Quality, Automated Testing & CI/CD' },
+        detail: { es: 'Compromiso riguroso con la mantenibilidad del código mediante pruebas unitarias en Jest y pytest, integración continua en GitHub Actions, documentación clara y despliegues seguros en contenedores Docker y plataformas cloud (Azure/Linux).', en: 'Rigorous commitment to code maintainability via unit testing in Jest and pytest, GitHub Actions CI/CD automation, clean documentation, and containerized cloud deployments (Docker, Azure/Linux).' }
+      }
+    ],
+
+    customProfileText: {
+      es: 'Desarrollador Full-Stack y Sociólogo Computacional con más de 10 años de experiencia construyendo aplicaciones web en React (JavaScript/TypeScript) orientadas a la visualización de datos en tiempo real, respaldadas por pipelines de procesamiento y servicios backend en Python. Combina una sólida preparación en ciencias de datos (algoritmos de aglomeración espacial DBSCAN, modelos convolucionales TensorFlow, procesamiento de lenguaje natural spaCy y PySpark) con la arquitectura de microservicios y bases de datos relacionales (PostgreSQL/MySQL) y NoSQL (MongoDB). Fundador de Tejer.RED y ponente internacional en FOSDEM (Bélgica) y ORDEM (2025), donde presentó avances en reducción de nodos para grafos complejos y cartografía geoespacial en tiempo real. Experto en implementación de CI/CD (GitHub Actions), pruebas unitarias automatizadas (Jest, pytest), entornos Linux/Docker y entornos cloud (Azure). Con fluidez total en inglés avanzado para colaborar eficientemente en equipos distribuidos globales, aporta un enfoque pragmático, enfocado en código mantenible y soluciones de alto impacto.',
+      en: 'Full-Stack Software Developer and Computational Sociologist with 10+ years of experience building React (JavaScript/TypeScript) web applications tailored for real-time data visualization, backed by Python data processing pipelines and backend services. Blends data science rigor (DBSCAN spatial clustering, TensorFlow CNNs, spaCy NLP, PySpark) with robust backend API design and hybrid database management (PostgreSQL/MySQL SQL and MongoDB NoSQL). Founder of Tejer.RED and international speaker at FOSDEM (Belgium) and ORDEM (2025), presenting breakthroughs in node reduction for complex network graphs and real-time geospatial cartography. Proficient in CI/CD pipeline automation (GitHub Actions), unit testing frameworks (Jest, pytest), Linux/Docker environments, and Azure cloud integration. Fully fluent in advanced English for seamless collaboration across distributed global teams, delivering high-performance, maintainable code with a strong problem-solving mindset.'
+    }
+  },
+  'fullstack-react-python': {
+    get company() { return TAILORED_CVS['fullstack-react-python-data-viz'].company; },
+    get companySubtitle() { return TAILORED_CVS['fullstack-react-python-data-viz'].companySubtitle; },
+    get targetRole() { return TAILORED_CVS['fullstack-react-python-data-viz'].targetRole; },
+    get badgeLabel() { return TAILORED_CVS['fullstack-react-python-data-viz'].badgeLabel; },
+    get matchSummary() { return TAILORED_CVS['fullstack-react-python-data-viz'].matchSummary; },
+    get featuredProjectIds() { return TAILORED_CVS['fullstack-react-python-data-viz'].featuredProjectIds; },
+    get featuredTalkIds() { return TAILORED_CVS['fullstack-react-python-data-viz'].featuredTalkIds; },
+    get relevantTags() { return TAILORED_CVS['fullstack-react-python-data-viz'].relevantTags; },
+    get keywordsList() { return TAILORED_CVS['fullstack-react-python-data-viz'].keywordsList; },
+    get requirementsMatchList() { return TAILORED_CVS['fullstack-react-python-data-viz'].requirementsMatchList; },
+    get needsAdaptationList() { return TAILORED_CVS['fullstack-react-python-data-viz'].needsAdaptationList; },
+    get customProfileText() { return TAILORED_CVS['fullstack-react-python-data-viz'].customProfileText; }
+  },
+  'frontend-semi-senior-nextjs': {
+    company: 'Plataformas Web & Productos Digitales',
+    companySubtitle: 'Desarrollo Frontend • Next.js, Integración de APIs & Performance',
+    targetRole: {
+      es: 'Desarrollador Front End Senior & Arquitecto Next.js',
+      en: 'Senior Front End Developer & Next.js Architect'
+    },
+    badgeLabel: {
+      es: 'Perfil Profesional: Desarrollo Frontend & Arquitectura Web Next.js',
+      en: 'Professional Profile: Frontend Engineering & Next.js Web Architecture'
+    },
+    matchSummary: {
+      es: 'Ingeniero de software y desarrollador frontend con más de 10 años de trayectoria construyendo productos web y 4+ años en Next.js/React. Especializado en arquitectura de interfaces en producción (App Router, Server/Client Components, TypeScript), integración sólida de servicios REST externos y optimización de rendimiento.',
+      en: 'Software engineer and frontend developer with 10+ years of experience building web products and 4+ years in Next.js/React. Specialized in production UI architecture (App Router, Server/Client Components, TypeScript), robust third-party REST service integration, and performance optimization.'
+    },
+    
+    featuredProjectIds: [203, 34, 201, 32],
+    featuredTalkIds: [46, 220],
+    relevantTags: ['js-react-web', 'desarrollo-web-comercial', 'python-data'],
+
+    keywordsList: [
+      'Next.js & App Router Architecture',
+      'React & TypeScript (Uso diario)',
+      'Integración de APIs REST & Swagger/OpenAPI',
+      'Resiliencia & Manejo de Errores en APIs',
+      'Seguridad Web & Protocolos OWASP',
+      'Core Web Vitals & Performance',
+      'Despliegues Cloud (AWS / Linux)',
+      'Consultas SQL & Git Workflows',
+      'Sistemas de Código Abierto (Tejer.RED)',
+      'Conferencista Internacional (FOSDEM / ORDEM)'
+    ],
+
+    requirementsMatchList: [
+      {
+        requirement: { es: 'Desarrollo de aplicaciones web modernas con React, Next.js y TypeScript en producción', en: 'Modern web app development with React, Next.js, and TypeScript in production' },
+        match: { es: '✔ Más de 4 años construyendo plataformas en Next.js (App Router, Server/Client Components) y +6 años con React/TypeScript.', en: '✔ 4+ years building platforms in Next.js (App Router, Server/Client Components) and 6+ years with React/TypeScript.' }
+      },
+      {
+        requirement: { es: 'Integración end-to-end de servicios REST y consumo de APIs de terceros', en: 'End-to-end REST service integration and third-party API consumption' },
+        match: { es: '✔ Experiencia integrando pasarelas de pago, servicios de mapas, microservicios de datos y autenticación con lógica de retries y manejo de fallas.', en: '✔ Experienced integrating payment gateways, map services, data microservices, and auth with retry logic and failure handling.' }
+      },
+      {
+        requirement: { es: 'Seguridad en aplicaciones web y protección de servicios (OWASP)', en: 'Web application security and service protection (OWASP)' },
+        match: { es: '✔ Aplicación de principios de seguridad server-side, cookies de sesión protegidas (HttpOnly/SameSite) y resguardo de variables de entorno.', en: '✔ Applied server-side security principles, protected session cookies (HttpOnly/SameSite), and env variable secret isolation.' }
+      },
+      {
+        requirement: { es: 'Optimización de rendimiento frontend y estándares Core Web Vitals', en: 'Frontend performance optimization and Core Web Vitals standards' },
+        match: { es: '✔ Historial demostrable de auditorías Lighthouse 90+, tiempos de carga sub-3s y arquitecturas optimizadas de assets.', en: '✔ Proven track record of 90+ Lighthouse audits, sub-3s load times, and optimized asset architectures.' }
+      },
+      {
+        requirement: { es: 'Flujos de trabajo colaborativos con Git (PRs), SQL y despliegue cloud', en: 'Collaborative Git workflows (PRs), SQL, and cloud deployments' },
+        match: { es: '✔ Control de versiones estricto con Pull Requests, consultas de base de datos SQL y gestión de infraestructuras en Linux/AWS.', en: '✔ Strict version control with Pull Requests, SQL database querying, and Linux/AWS infrastructure management.' }
+      }
+    ],
+
+    needsAdaptationList: [
+      {
+        title: { es: '1. Arquitectura Frontend Mantenible y Next.js Moderno', en: '1. Maintainable Frontend Architecture & Modern Next.js' },
+        detail: { es: 'Diseño de aplicaciones estructuradas combinando Server Components para renderizado eficiente con Client Components interactivos, reduciendo la carga de JavaScript y garantizando escalabilidad a largo plazo.', en: 'Designing structured applications combining Server Components for efficient rendering with interactive Client Components, reducing bundle payload and ensuring long-term scalability.' }
+      },
+      {
+        title: { es: '2. Consumo de Servicios REST y Tolerancia a Fallos', en: '2. REST Service Consumption & Fault Tolerance' },
+        detail: { es: 'Experiencia conectando sistemas heterogéneos mediante especificaciones OpenAPI/Swagger, implementando interceptores de red, reintentos automatizados y estados de carga o error elegantes frente a inestabilidad externa.', en: 'Connecting heterogeneous systems via OpenAPI/Swagger specs, implementing network interceptors, automated retries, and graceful fallback states against external instability.' }
+      },
+      {
+        title: { es: '3. Seguridad Server-Side y Rendimiento Sin Concesiones', en: '3. Server-Side Security & Uncompromising Performance' },
+        detail: { es: 'Desarrollo orientado a la seguridad desde la arquitectura (validación server-side, prevención XSS/CSRF) junto con un compromiso por métricas web excelentes (Core Web Vitals <3s).', en: 'Security-oriented architectural design (server-side validation, XSS/CSRF prevention) coupled with a commitment to top web metrics (sub-3s Core Web Vitals).' }
+      }
+    ],
+
+    customProfileText: {
+      es: 'Desarrollador Frontend Senior, Sociólogo Computacional y fundador de la iniciativa open-source Tejer.RED, con más de 10 años de experiencia en desarrollo web y más de 4 años especializados en la creación de aplicaciones escalables en producción utilizando React, Next.js (App Router, Server/Client Components) y TypeScript. Ha liderado y desarrollado plataformas web complejas, integrando de punta a punta servicios REST de terceros (especificaciones Swagger/OpenAPI, pasarelas de pagos, mapas interactivos y microservicios de datos en tiempo real) bajo arquitecturas tolerantes a fallas con manejo de reintentos y timeouts. Destaca por su rigor en seguridad web (buenas prácticas OWASP, autenticación server-side, cookies protegidas y aislamiento de secretos), optimización de rendimiento (Core Web Vitals <3s y Lighthouse 90+) y despliegues en infraestructura Linux/AWS. Ponente internacional en FOSDEM (Bélgica) y ORDEM (2025), combina fluidez de comunicación, trabajo en equipo respaldado por revisiones de código en Git (Pull Requests), consultas SQL y una visión estratégica para resolver problemas complejos de información.',
+      en: 'Senior Frontend Developer, Computational Sociologist, and founder of the open-source initiative Tejer.RED, with 10+ years of web engineering experience and over 4 years specialized in building scalable production web applications using React, Next.js (App Router, Server/Client Components), and TypeScript. Has led and built complex web platforms, integrating end-to-end third-party REST services (Swagger/OpenAPI specifications, payment gateways, interactive mapping, and real-time data microservices) with fault-tolerant architectures utilizing retry and timeout strategies. Known for rigorous web security standards (OWASP best practices, server-side auth, secure cookies, and environment secret isolation), extreme performance tuning (sub-3s Core Web Vitals, 90+ Lighthouse audits), and Linux/AWS cloud deployments. International speaker at FOSDEM (Belgium) and ORDEM (2025), blending strong technical leadership, collaborative Git code reviews (PRs), SQL database querying, and strategic problem-solving.'
+    }
+  },
+  'frontend-nextjs': {
+    get company() { return TAILORED_CVS['frontend-semi-senior-nextjs'].company; },
+    get companySubtitle() { return TAILORED_CVS['frontend-semi-senior-nextjs'].companySubtitle; },
+    get targetRole() { return TAILORED_CVS['frontend-semi-senior-nextjs'].targetRole; },
+    get badgeLabel() { return TAILORED_CVS['frontend-semi-senior-nextjs'].badgeLabel; },
+    get matchSummary() { return TAILORED_CVS['frontend-semi-senior-nextjs'].matchSummary; },
+    get featuredProjectIds() { return TAILORED_CVS['frontend-semi-senior-nextjs'].featuredProjectIds; },
+    get featuredTalkIds() { return TAILORED_CVS['frontend-semi-senior-nextjs'].featuredTalkIds; },
+    get relevantTags() { return TAILORED_CVS['frontend-semi-senior-nextjs'].relevantTags; },
+    get keywordsList() { return TAILORED_CVS['frontend-semi-senior-nextjs'].keywordsList; },
+    get requirementsMatchList() { return TAILORED_CVS['frontend-semi-senior-nextjs'].requirementsMatchList; },
+    get needsAdaptationList() { return TAILORED_CVS['frontend-semi-senior-nextjs'].needsAdaptationList; },
+    get customProfileText() { return TAILORED_CVS['frontend-semi-senior-nextjs'].customProfileText; }
   }
 };
 

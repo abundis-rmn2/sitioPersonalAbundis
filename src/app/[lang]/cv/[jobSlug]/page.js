@@ -20,7 +20,15 @@ export function generateStaticParams() {
     { lang: 'es', jobSlug: 'canonical' },
     { lang: 'en', jobSlug: 'canonical' },
     { lang: 'es', jobSlug: 'canonical-web-frontend-engineer' },
-    { lang: 'en', jobSlug: 'canonical-web-frontend-engineer' }
+    { lang: 'en', jobSlug: 'canonical-web-frontend-engineer' },
+    { lang: 'es', jobSlug: 'fullstack-react-python-data-viz' },
+    { lang: 'en', jobSlug: 'fullstack-react-python-data-viz' },
+    { lang: 'es', jobSlug: 'fullstack-react-python' },
+    { lang: 'en', jobSlug: 'fullstack-react-python' },
+    { lang: 'es', jobSlug: 'frontend-semi-senior-nextjs' },
+    { lang: 'en', jobSlug: 'frontend-semi-senior-nextjs' },
+    { lang: 'es', jobSlug: 'frontend-nextjs' },
+    { lang: 'en', jobSlug: 'frontend-nextjs' }
   ];
 }
 
