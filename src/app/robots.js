@@ -3,6 +3,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: '/_next/',
     },
     sitemap: 'https://abundis.com.mx/sitemap.xml',
   }

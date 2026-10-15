@@ -4,6 +4,9 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/', destination: '/es', permanent: true },
+      { source: '/grafo', destination: '/es', permanent: true },
+      { source: '/es/grafo', destination: '/es', permanent: true },
+      { source: '/en/grafo', destination: '/en', permanent: true },
       { source: '/cv', destination: '/es/cv', permanent: true },
       { source: '/cv/:jobSlug', destination: '/es/cv/:jobSlug', permanent: true },
       { source: '/experiencia', destination: '/es/experiencia', permanent: true },
