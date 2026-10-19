@@ -27,6 +27,7 @@ import {
   FaProjectDiagram
 } from 'react-icons/fa';
 import { bioData, cvPosts, TAG_SCHEMA, TAG_DISPLAY_NAMES } from '../data/cvData';
+import { cvMaster } from '../data/cv/cvMaster';
 
 export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug = null }) {
   const [cvMode, setCvMode] = useState('summary'); // 'summary' (Resumido 3 logros) | 'full' (CV Completo)
@@ -291,7 +292,7 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                       </div>
                     ) : (
                       <div>
-                        Pioneered computational social science research on transnational freight train graffiti across North America (CONACYT Master's Thesis):
+                        Pioneered computational social science research on transnational freight train graffiti across North America (CONACYT Master&apos;s Thesis):
                         <ul className="cv-bullet-list">
                           <li><strong>Data Mining & Computer Vision (ResNet):</strong> Engineered the automated Python/SQL bot <em>idmb</em> and developed a custom CNN model using open-source tools like the TensorFlow library for pictorial style identification.</li>
                           <li><strong>Natural Language Processing (spaCy):</strong> Built NLP text pipelines for subcultural identity discourse analysis.</li>
@@ -344,96 +345,28 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
               </div>
               <div className="cv-section-body">
                 
-                {/* Balam Studio */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Desarrollador Web' : 'Web Developer'} — Balam Studio Creative Media</h4>
-                    <span className="cv-date-badge">Oct 2021 – Oct 2024</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Zapopan, Jal. (Remoto). Desarrollo avanzado de sitios en WordPress y e-commerce con WooCommerce (temas y plugins a la medida), además de soluciones en React, JS y PHP. Implementación de servidores GNU/Linux y Apache.'
-                      : 'Zapopan, Mex. (Remote). Advanced WordPress and WooCommerce e-commerce development (custom themes/plugins), alongside custom React, JS, and PHP solutions. GNU/Linux/Apache server deployments.'}
-                  </p>
-                </div>
-
-                {/* Uzu Digital */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Desarrollador de Sitios Web' : 'Web Developer'} — Uzu Digital / Nauka</h4>
-                    <span className="cv-date-badge">Oct 2017 – Nov 2020</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Guadalajara, Jal. Construcción de sitios corporativos en WordPress y tiendas con WooCommerce (desarrollo de adaptaciones y plugins a la medida), así como programación en PHP/MySQL. Servidores Linux/Apache.'
-                      : 'Guadalajara, Mex. Built corporate websites in WordPress and e-commerce stores in WooCommerce (custom adaptations and plugins), alongside PHP/MySQL programming. Linux/Apache server administration.'}
-                  </p>
-                </div>
-
-                {/* MONDO MARKETING JAPÓN */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Analista de Datos (Prácticas Internacionales)' : 'Data Analyst Intern'} — MONDO MARKETING (問答マーケティング)</h4>
-                    <span className="cv-date-badge">Ago 2018 – Dic 2018</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Nagoya, Prefectura de Aichi, Japón. Análisis de datos de rendimiento de campañas digitales, procesamiento de métricas relacionales de redes sociales y elaboración de informes estratégicos de comunicación digital.'
-                      : 'Nagoya, Aichi Prefecture, Japan. Data analysis of digital marketing campaign metrics, relational social media analytics, and digital communication reporting.'}
-                  </p>
-                </div>
-
-                {/* Nuvi Global */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Desarrollador Web & Creador de Contenidos' : 'Web & Content Developer'} — Nuvi Global</h4>
-                    <span className="cv-date-badge">Feb 2017 – Oct 2017</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Zapopan, Jal. Maquetación y programación del nuevo portal institucional, desarrollo de estrategias digitales de posicionamiento de marca y producción de contenidos audiovisuales.'
-                      : 'Zapopan, Mex. Design and development of the new institutional portal, digital brand positioning strategies, and audiovisual content production.'}
-                  </p>
-                </div>
-
-                {/* Atama */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Content Developer & Consultor de Comunicación' : 'Content Developer & Digital Consultant'} — Atama Estrategia Creativa</h4>
-                    <span className="cv-date-badge">Oct 2015 – Oct 2016</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Zapopan, Jal. Diseño de identidad visual y comunicación digital para #GobiernoAbiertoJal (ITEI Jalisco / OGP México), la plataforma de denuncia #Protocolo409 y estrategia digital para regidores de Zapopan.'
-                      : 'Zapopan, Mex. Visual identity and digital communication design for #GobiernoAbiertoJal (ITEI Jalisco / OGP Mexico), #Protocolo409 citizen platform, and public sector media strategy.'}
-                  </p>
-                </div>
-
-                {/* Web-Gdl */}
-                <div className="cv-item-card" style={{ paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Diseñador y Desarrollador Web' : 'Web Designer & Developer'} — Web-Gdl</h4>
-                    <span className="cv-date-badge">Jun 2013 – Oct 2015</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs 
-                      ? 'Guadalajara, Jal. Implementación de portales corporativos en WordPress y carritos WooCommerce con temas a la medida, programación en PHP + MySQL/JS y optimización SEO orgánico.'
-                      : 'Guadalajara, Mex. Implemented corporate WordPress portals and WooCommerce shopping carts with custom themes, alongside PHP + MySQL/JS web programming and organic SEO.'}
-                  </p>
-                </div>
-
-                {/* Operaciones Internacionales (Centura & Dadicas) */}
-                <div className="cv-item-card" style={{ paddingBottom: '0.8rem', marginBottom: '0.8rem', borderBottom: 'none' }}>
-                  <div className="cv-item-header">
-                    <h4>{isEs ? 'Asistente de Producción & Operaciones de Campo' : 'Production & Field Operations Assistant'} — Centura Building Systems (Canadá) & Dadicas (EE. UU.)</h4>
-                    <span className="cv-date-badge">2022 – 2024</span>
-                  </div>
-                  <p className="cv-item-abstract">
-                    {isEs
-                      ? 'Vancouver, Canadá & San Diego, EE. UU. Montaje de estructuras metálicas, preparación de superficies, logística de transporte pesado y operación de maquinaria (montacargas) en entornos transnacionales.'
-                      : 'Vancouver, Canada & San Diego, US. Structural assembly, surface finishing, heavy logistics, and industrial machinery operation (forklift) in international environments.'}
-                  </p>
-                </div>
+                {cvMaster.experience.filter(exp => exp.id !== 'tejer-red').map((exp, idx, arr) => {
+                  const isLast = idx === arr.length - 1;
+                  return (
+                    <div 
+                      key={exp.id} 
+                      className="cv-item-card" 
+                      style={{ 
+                        paddingBottom: isLast ? '0.8rem' : '1rem', 
+                        marginBottom: isLast ? '0.8rem' : '1.2rem',
+                        borderBottom: isLast ? 'none' : undefined 
+                      }}
+                    >
+                      <div className="cv-item-header">
+                        <h4>{exp.role[lang] || exp.role.es} — {exp.companyDisplay ? (exp.companyDisplay[lang] || exp.companyDisplay.es) : exp.company}</h4>
+                        <span className="cv-date-badge">{exp.displayPeriod[lang] || exp.displayPeriod.es}</span>
+                      </div>
+                      <p className="cv-item-abstract">
+                        {exp.summaryText[lang] || exp.summaryText.es}
+                      </p>
+                    </div>
+                  );
+                })}
 
               </div>
             </section>
@@ -576,40 +509,16 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
                 <h3>{isEs ? 'Stack Tecnológico & Competencias Clave' : 'Core Tech Stack & Skills'}</h3>
               </div>
               <div className="cv-section-body cv-skills-grid">
-                <div className="cv-skill-group">
-                  <span className="cv-skill-label">{isEs ? 'Lenguajes & Desarrollo Web:' : 'Languages & Web Development:'}</span>
-                  <div className="cv-tag-list">
-                    <span className="cv-tag">Python</span>
-                    <span className="cv-tag">JavaScript (ES6+)</span>
-                    <span className="cv-tag">React / Next.js</span>
-                    <span className="cv-tag">Node.js</span>
-                    <span className="cv-tag">PHP</span>
-                    <span className="cv-tag">HTML5 / CSS3</span>
+                {cvMaster.skillsWeb.map((group, idx) => (
+                  <div key={idx} className="cv-skill-group">
+                    <span className="cv-skill-label">{group.category[lang] || group.category.es}</span>
+                    <div className="cv-tag-list">
+                      {group.items.map((item, i) => (
+                        <span key={i} className="cv-tag">{item}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                <div className="cv-skill-group">
-                  <span className="cv-skill-label">{isEs ? 'IA, Machine Learning & NLP:' : 'AI, Machine Learning & NLP:'}</span>
-                  <div className="cv-tag-list">
-                    <span className="cv-tag">TensorFlow</span>
-                    <span className="cv-tag">Roboflow (CNN / ResNet)</span>
-                    <span className="cv-tag">spaCy (NLP)</span>
-                    <span className="cv-tag">TF-IDF & Embeddings</span>
-                    <span className="cv-tag">DBSCAN Clustering</span>
-                    <span className="cv-tag">OpenCV</span>
-                  </div>
-                </div>
-
-                <div className="cv-skill-group">
-                  <span className="cv-skill-label">{isEs ? 'Visualización de Datos & Grafos:' : 'Data Visualization & Graphs:'}</span>
-                  <div className="cv-tag-list">
-                    <span className="cv-tag">Graphology</span>
-                    <span className="cv-tag">SigmaJS (ForceAtlas)</span>
-                    <span className="cv-tag">Leaflet / GIS</span>
-                    <span className="cv-tag">Realidad Aumentada (MindAR)</span>
-                    <span className="cv-tag">MySQL / PostgreSQL</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </section>
 
@@ -621,24 +530,28 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
               </div>
               <div className="cv-section-body">
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                  <div className="cv-item-card" style={{ paddingBottom: '0.8rem', marginBottom: '0.8rem' }}>
-                    <div className="cv-item-header">
-                      <h4>{isEs ? 'Maestría en Estudios de la Comunicación (MA)' : 'Master of Arts in Communication Studies'}</h4>
-                      <span className="cv-date-badge">2020 – 2022</span>
-                    </div>
-                    <p className="cv-item-abstract" style={{ margin: 0 }}>
-                      Universidad de Guadalajara • Becario CONACYT
-                    </p>
-                  </div>
-                  <div className="cv-item-card" style={{ paddingBottom: 0, marginBottom: 0, borderBottom: 'none' }}>
-                    <div className="cv-item-header">
-                      <h4>{isEs ? 'Licenciatura en Sociología (BA)' : 'Bachelor in Sociology'}</h4>
-                      <span className="cv-date-badge">2012 – 2016</span>
-                    </div>
-                    <p className="cv-item-abstract" style={{ margin: 0 }}>
-                      Universidad de Guadalajara • Titulado con Monografía e Investigación
-                    </p>
-                  </div>
+                  {cvMaster.education.map((edu, idx) => {
+                    const isLast = idx === cvMaster.education.length - 1;
+                    return (
+                      <div 
+                        key={edu.id} 
+                        className="cv-item-card" 
+                        style={{ 
+                          paddingBottom: isLast ? 0 : '0.8rem', 
+                          marginBottom: isLast ? 0 : '0.8rem', 
+                          borderBottom: isLast ? 'none' : undefined 
+                        }}
+                      >
+                        <div className="cv-item-header">
+                          <h4>{edu.degree[lang] || edu.degree.es}</h4>
+                          <span className="cv-date-badge">{edu.displayPeriod}</span>
+                        </div>
+                        <p className="cv-item-abstract" style={{ margin: 0 }}>
+                          {edu.subtext[lang] || edu.subtext.es}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </section>
@@ -897,9 +810,11 @@ export default function CVPageClient({ lang = 'es', tailoredData = null, jobSlug
             <h3 className="cv-tailored-title">
               {tailoredData.company} — {tailoredData.targetRole[lang] || tailoredData.targetRole.es}
             </h3>
-            <p className="cv-tailored-summary">
-              {tailoredData.matchSummary[lang] || tailoredData.matchSummary.es}
-            </p>
+            {(tailoredData.matchSummary || tailoredData.summary) && (
+              <p className="cv-tailored-summary">
+                {tailoredData.matchSummary?.[lang] || tailoredData.matchSummary?.es || tailoredData.summary?.[lang] || tailoredData.summary?.es}
+              </p>
+            )}
 
             {tailoredData.requirementsMatchList && (
               <div className="cv-tailored-grid">

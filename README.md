@@ -175,3 +175,16 @@ npm run build
 npm start
 ```
 
+
+---
+
+## Skill de agente: `cv-ats-writer` (CVs a la medida para ATS)
+
+Skill versionada en [`.agents/skills/cv-ats-writer/`](.agents/skills/cv-ats-writer/SKILL.md). Antigravity la detecta automáticamente en este workspace.
+
+- **Qué hace:** define cómo se redactan y matizan los CVs adaptados a una vacante concreta: voz, fórmula de viñetas, keywords ATS literales, encabezados estándar, localización ES/EN y reglas para no inventar experiencia.
+- **Fuentes de verdad:** `src/data/cv/cvMaster.js`, `CV_Master_Completo.md`, `src/data/cvData.js`.
+- **Salida:** una entrada en `src/data/tailoredCvData.js`. Cada viñeta lleva su `sourceBulletId` y los requisitos sin evidencia se listan en `gaps[]`.
+- **Verificación:** `npm run ats:check` (≥ 80 % de keywords y 0 errores de estructura).
+- **Uso:** pega la vacante en el chat y pide *"adapta el CV con cv-ats-writer"*.
+- **Ejemplos de calibración:** [`references/ejemplos.md`](.agents/skills/cv-ats-writer/references/ejemplos.md).

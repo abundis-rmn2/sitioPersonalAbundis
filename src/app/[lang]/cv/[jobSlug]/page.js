@@ -1,35 +1,16 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import CVPageClient from '../../../../components/CVPageClient';
-import { getTailoredCv } from '../../../../data/tailoredCvData';
+import { TAILORED_CVS, getTailoredCv } from '../../../../data/tailoredCvData';
 
 export function generateStaticParams() {
-  return [
-    { lang: 'es', jobSlug: 'intagono-desarrollador-web' },
-    { lang: 'en', jobSlug: 'intagono-desarrollador-web' },
-    { lang: 'es', jobSlug: 'geest' },
-    { lang: 'en', jobSlug: 'geest' },
-    { lang: 'es', jobSlug: 'geest-disenador-ux-ui-react' },
-    { lang: 'en', jobSlug: 'geest-disenador-ux-ui-react' },
-    { lang: 'es', jobSlug: 'Geest' },
-    { lang: 'en', jobSlug: 'Geest' },
-    { lang: 'es', jobSlug: 'pavago' },
-    { lang: 'en', jobSlug: 'pavago' },
-    { lang: 'es', jobSlug: 'pavago-wordpress-developer' },
-    { lang: 'en', jobSlug: 'pavago-wordpress-developer' },
-    { lang: 'es', jobSlug: 'canonical' },
-    { lang: 'en', jobSlug: 'canonical' },
-    { lang: 'es', jobSlug: 'canonical-web-frontend-engineer' },
-    { lang: 'en', jobSlug: 'canonical-web-frontend-engineer' },
-    { lang: 'es', jobSlug: 'fullstack-react-python-data-viz' },
-    { lang: 'en', jobSlug: 'fullstack-react-python-data-viz' },
-    { lang: 'es', jobSlug: 'fullstack-react-python' },
-    { lang: 'en', jobSlug: 'fullstack-react-python' },
-    { lang: 'es', jobSlug: 'frontend-semi-senior-nextjs' },
-    { lang: 'en', jobSlug: 'frontend-semi-senior-nextjs' },
-    { lang: 'es', jobSlug: 'frontend-nextjs' },
-    { lang: 'en', jobSlug: 'frontend-nextjs' }
-  ];
+  const params = [];
+  const slugs = Object.keys(TAILORED_CVS);
+  for (const slug of slugs) {
+    params.push({ lang: 'es', jobSlug: slug });
+    params.push({ lang: 'en', jobSlug: slug });
+  }
+  return params;
 }
 
 export default async function TailoredCVPage(props) {
