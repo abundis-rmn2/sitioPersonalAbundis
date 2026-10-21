@@ -20,11 +20,11 @@ export default function CvListaClient({ cvEntries, lang }) {
   const [selectedCv, setSelectedCv] = useState(null);
 
   return (
-    <div style={{ padding: '60px 20px', fontFamily: 'var(--font-poppins), sans-serif', maxWidth: '860px', margin: '0 auto', color: '#fff' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '10px', color: 'var(--color-principal, #e60000)' }}>
+    <div style={{ padding: '60px 20px', fontFamily: 'var(--font-poppins), sans-serif', maxWidth: '880px', margin: '0 auto', color: '#111111', backgroundColor: '#ffffff' }}>
+      <h1 style={{ fontSize: '2.1rem', marginBottom: '8px', color: '#111111', fontWeight: 800, letterSpacing: '-0.02em' }}>
         {isEs ? 'CVs Tailored & Descargas ATS' : 'Tailored Resumes & ATS Downloads'}
       </h1>
-      <p style={{ marginBottom: '30px', color: '#ccc', lineHeight: 1.5 }}>
+      <p style={{ marginBottom: '32px', color: '#555555', lineHeight: 1.6, fontSize: '0.96rem' }}>
         {isEs 
           ? 'Bitácora privada de vacantes adaptadas, organizadas de las más recientes a las más antiguas. Incluye modal de vacante original y descargas directas en PDF y Word.'
           : 'Private log of tailored job positions, sorted from newest to oldest. Includes original job posting modal and direct PDF & Word downloads.'}
@@ -37,26 +37,28 @@ export default function CvListaClient({ cvEntries, lang }) {
             style={{ 
               marginBottom: '24px', 
               padding: '24px', 
-              backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+              backgroundColor: '#fafafa', 
               borderRadius: '12px', 
-              border: '1px solid rgba(255, 255, 255, 0.12)' 
+              border: '1px solid #e5e7eb',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.03)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '15px' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '1.35rem', fontWeight: '700', color: '#fff' }}>{cv.company}</span>
+                  <span style={{ fontSize: '1.35rem', fontWeight: '800', color: '#111111' }}>{cv.company}</span>
                   {cv.jobPosting?.date && (
                     <span 
                       style={{ 
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '5px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #e5e7eb',
                         padding: '3px 8px',
                         borderRadius: '4px',
                         fontSize: '0.75rem',
-                        color: '#94a3b8'
+                        color: '#666666'
                       }}
                     >
                       <FaCalendarAlt size={11} color="var(--color-principal, #e60000)" />
@@ -65,17 +67,17 @@ export default function CvListaClient({ cvEntries, lang }) {
                   )}
                 </div>
 
-                <div style={{ color: '#ccc', marginTop: '4px', fontSize: '1rem', fontWeight: '500' }}>
+                <div style={{ color: 'var(--color-principal, #e60000)', marginTop: '4px', fontSize: '1.02rem', fontWeight: '700' }}>
                   {cv.targetRole[lang] || cv.targetRole['es']}
                 </div>
 
                 {cv.companySubtitle && (
-                  <div style={{ color: '#888', fontSize: '0.82rem', marginTop: '3px' }}>
+                  <div style={{ color: '#666666', fontSize: '0.84rem', marginTop: '3px' }}>
                     {cv.companySubtitle}
                   </div>
                 )}
                 
-                <div style={{ marginTop: '8px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                <div style={{ marginTop: '10px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                   {cv.jobPosting?.url && (
                     <a
                       href={cv.jobPosting.url}
@@ -85,9 +87,10 @@ export default function CvListaClient({ cvEntries, lang }) {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '5px',
-                        color: '#60a5fa',
-                        fontSize: '0.8rem',
-                        textDecoration: 'underline'
+                        color: 'var(--color-principal, #e60000)',
+                        fontSize: '0.82rem',
+                        textDecoration: 'none',
+                        fontWeight: '600'
                       }}
                     >
                       <FaExternalLinkAlt size={10} />
@@ -106,13 +109,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                         background: 'none',
                         border: 'none',
                         padding: 0,
-                        color: '#38bdf8',
-                        fontSize: '0.8rem',
+                        color: '#111111',
+                        fontSize: '0.82rem',
                         cursor: 'pointer',
-                        textDecoration: 'underline'
+                        textDecoration: 'underline',
+                        fontWeight: '600'
                       }}
                     >
-                      <FaFileAlt size={10} />
+                      <FaFileAlt size={10} color="var(--color-principal, #e60000)" />
                       {isEs ? 'Ver detalle de la vacante (Modal)' : 'View job description (Modal)'}
                     </button>
                   )}
@@ -125,13 +129,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '8px 16px',
+                  padding: '8px 18px',
                   backgroundColor: 'var(--color-principal, #e60000)',
-                  color: '#fff',
+                  color: '#ffffff',
                   textDecoration: 'none',
                   borderRadius: '6px',
-                  fontWeight: '600',
-                  fontSize: '0.88rem'
+                  fontWeight: '700',
+                  fontSize: '0.88rem',
+                  boxShadow: '0 2px 8px rgba(230, 0, 0, 0.25)'
                 }}
               >
                 <FaExternalLinkAlt size={12} />
@@ -144,16 +149,17 @@ export default function CvListaClient({ cvEntries, lang }) {
               <div 
                 style={{ 
                   marginTop: '14px', 
-                  padding: '12px 14px', 
-                  backgroundColor: 'rgba(255, 255, 255, 0.03)', 
-                  borderLeft: '3px solid var(--color-principal, #e60000)',
+                  padding: '12px 16px', 
+                  backgroundColor: '#ffffff', 
+                  border: '1px solid #eef0f3',
+                  borderLeft: '4px solid var(--color-principal, #e60000)',
                   borderRadius: '0 8px 8px 0',
-                  color: '#d1d5db',
-                  fontSize: '0.88rem',
-                  lineHeight: '1.6'
+                  color: '#333333',
+                  fontSize: '0.9rem',
+                  lineHeight: '1.65'
                 }}
               >
-                <span style={{ fontWeight: '600', color: '#fff', display: 'block', marginBottom: '4px', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <span style={{ fontWeight: '700', color: '#111111', display: 'block', marginBottom: '4px', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   {isEs ? 'Resumen / Enfoque:' : 'Abstract / Summary:'}
                 </span>
                 {cv.summary?.[lang] || cv.summary?.es || cv.matchSummary?.[lang] || cv.matchSummary?.es}
@@ -161,8 +167,8 @@ export default function CvListaClient({ cvEntries, lang }) {
             )}
 
             {/* Descargas ATS (PDF & DOCX) en ES y EN */}
-            <div style={{ marginTop: '18px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ fontSize: '0.82rem', fontWeight: '700', color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
+            <div style={{ marginTop: '18px', paddingTop: '16px', borderTop: '1px solid #e5e7eb' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: '800', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
                 <FaDownload style={{ marginRight: '6px', color: 'var(--color-principal, #e60000)' }} />
                 {isEs ? 'Descargas ATS (Servidor):' : 'ATS Downloads (Server-Side):'}
               </div>
@@ -176,14 +182,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(230, 0, 0, 0.15)',
-                    color: '#ff6666',
-                    border: '1px solid rgba(230, 0, 0, 0.4)',
+                    padding: '6px 14px',
+                    backgroundColor: '#ffffff',
+                    color: 'var(--color-principal, #e60000)',
+                    border: '1px solid #fca5a5',
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     textDecoration: 'none',
-                    fontWeight: '500'
+                    fontWeight: '700'
                   }}
                 >
                   <FaFilePdf size={13} />
@@ -198,14 +204,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                    color: '#93c5fd',
-                    border: '1px solid rgba(59, 130, 246, 0.4)',
+                    padding: '6px 14px',
+                    backgroundColor: '#ffffff',
+                    color: '#2563eb',
+                    border: '1px solid #bfdbfe',
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     textDecoration: 'none',
-                    fontWeight: '500'
+                    fontWeight: '700'
                   }}
                 >
                   <FaFileWord size={13} />
@@ -220,14 +226,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(230, 0, 0, 0.15)',
-                    color: '#ff6666',
-                    border: '1px solid rgba(230, 0, 0, 0.4)',
+                    padding: '6px 14px',
+                    backgroundColor: '#ffffff',
+                    color: 'var(--color-principal, #e60000)',
+                    border: '1px solid #fca5a5',
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     textDecoration: 'none',
-                    fontWeight: '500'
+                    fontWeight: '700'
                   }}
                 >
                   <FaFilePdf size={13} />
@@ -242,14 +248,14 @@ export default function CvListaClient({ cvEntries, lang }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                    color: '#93c5fd',
-                    border: '1px solid rgba(59, 130, 246, 0.4)',
+                    padding: '6px 14px',
+                    backgroundColor: '#ffffff',
+                    color: '#2563eb',
+                    border: '1px solid #bfdbfe',
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     textDecoration: 'none',
-                    fontWeight: '500'
+                    fontWeight: '700'
                   }}
                 >
                   <FaFileWord size={13} />
@@ -258,7 +264,31 @@ export default function CvListaClient({ cvEntries, lang }) {
               </div>
             </div>
 
-            <div style={{ marginTop: '12px', fontSize: '0.78rem', color: '#777', wordBreak: 'break-all' }}>
+            {(cv.hasInterviewGuide || cv.interviewGuideUrl) && (
+              <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Link
+                  href={`/${lang}/cv/${slug}/entrevista`}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 16px',
+                    backgroundColor: '#fffbeb',
+                    color: '#b45309',
+                    border: '1px solid #fde68a',
+                    borderRadius: '6px',
+                    fontSize: '0.82rem',
+                    textDecoration: 'none',
+                    fontWeight: '700'
+                  }}
+                >
+                  <FaFileAlt size={12} />
+                  {isEs ? '🎙️ Ver Guía de Entrevista' : '🎙️ View Interview Prep Guide'}
+                </Link>
+              </div>
+            )}
+
+            <div style={{ marginTop: '12px', fontSize: '0.78rem', color: '#888888', wordBreak: 'break-all' }}>
               URL Web: https://abundis.com.mx/{lang}/cv/{slug}
             </div>
           </li>
@@ -266,7 +296,7 @@ export default function CvListaClient({ cvEntries, lang }) {
       </ul>
       
       <div style={{ marginTop: '60px', textAlign: 'center' }}>
-        <Link href={`/${lang}`} style={{ color: '#888', textDecoration: 'underline' }}>
+        <Link href={`/${lang}`} style={{ color: '#666666', textDecoration: 'underline', fontSize: '0.9rem' }}>
           {isEs ? 'Volver al Inicio' : 'Back to Home'}
         </Link>
       </div>
@@ -279,7 +309,7 @@ export default function CvListaClient({ cvEntries, lang }) {
           style={{
             position: 'fixed',
             inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
             backdropFilter: 'blur(4px)',
             display: 'flex',
             alignItems: 'center',
@@ -291,17 +321,17 @@ export default function CvListaClient({ cvEntries, lang }) {
         >
           <div 
             style={{
-              backgroundColor: '#111827',
-              border: '1px solid #374151',
+              backgroundColor: '#ffffff',
+              border: '1px solid #e5e7eb',
               borderRadius: '14px',
               maxWidth: '750px',
               width: '100%',
               maxHeight: '85vh',
               overflowY: 'auto',
               padding: '28px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
               position: 'relative',
-              color: '#f3f4f6'
+              color: '#111111'
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -313,15 +343,15 @@ export default function CvListaClient({ cvEntries, lang }) {
                 position: 'absolute',
                 top: '20px',
                 right: '20px',
-                background: 'rgba(255,255,255,0.1)',
-                border: 'none',
+                background: '#f3f4f6',
+                border: '1px solid #e5e7eb',
                 borderRadius: '50%',
                 width: '32px',
                 height: '32px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#fff',
+                color: '#111111',
                 cursor: 'pointer'
               }}
               title={isEs ? 'Cerrar' : 'Close'}
@@ -331,15 +361,15 @@ export default function CvListaClient({ cvEntries, lang }) {
 
             {/* Encabezado del Modal */}
             <div style={{ marginBottom: '20px', paddingRight: '40px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-principal, #e60000)', fontSize: '0.85rem', fontWeight: '600', textTransform: 'uppercase' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-principal, #e60000)', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase' }}>
                 <FaBuilding />
                 {selectedCv.company}
               </div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '4px', marginBottom: '6px', color: '#fff' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px', marginBottom: '6px', color: '#111111' }}>
                 {selectedCv.targetRole?.[lang] || selectedCv.targetRole?.es}
               </h2>
               
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#9ca3af', marginTop: '6px' }}>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#666666', marginTop: '6px' }}>
                 {selectedCv.jobPosting?.date && (
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                     <FaCalendarAlt color="var(--color-principal, #e60000)" />
@@ -351,7 +381,7 @@ export default function CvListaClient({ cvEntries, lang }) {
                     href={selectedCv.jobPosting.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    style={{ color: '#60a5fa', display: 'inline-flex', alignItems: 'center', gap: '5px', textDecoration: 'underline' }}
+                    style={{ color: 'var(--color-principal, #e60000)', display: 'inline-flex', alignItems: 'center', gap: '5px', textDecoration: 'underline', fontWeight: '600' }}
                   >
                     <FaExternalLinkAlt size={11} />
                     {isEs ? 'Abrir publicación original' : 'Open original job posting'}
@@ -361,19 +391,19 @@ export default function CvListaClient({ cvEntries, lang }) {
             </div>
 
             {/* Contenido de la Vacante */}
-            <div style={{ borderTop: '1px solid #374151', paddingTop: '18px' }}>
-              <h4 style={{ fontSize: '0.9rem', color: '#e5e7eb', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '18px' }}>
+              <h4 style={{ fontSize: '0.9rem', color: '#111111', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '700' }}>
                 {isEs ? 'Texto original de la vacante:' : 'Original job posting text:'}
               </h4>
               <div 
                 style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                  backgroundColor: '#f9fafb',
                   padding: '16px',
                   borderRadius: '8px',
-                  border: '1px solid #1f2937',
+                  border: '1px solid #e5e7eb',
                   fontSize: '0.86rem',
                   lineHeight: '1.65',
-                  color: '#cbd5e1',
+                  color: '#333333',
                   whiteSpace: 'pre-wrap',
                   maxHeight: '350px',
                   overflowY: 'auto'
@@ -385,17 +415,17 @@ export default function CvListaClient({ cvEntries, lang }) {
 
             {/* Requisitos y Coincidencias */}
             {selectedCv.requirementsMatchList && selectedCv.requirementsMatchList.length > 0 && (
-              <div style={{ marginTop: '20px', borderTop: '1px solid #374151', paddingTop: '16px' }}>
-                <h4 style={{ fontSize: '0.9rem', color: '#e5e7eb', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ marginTop: '20px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
+                <h4 style={{ fontSize: '0.9rem', color: '#111111', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '700' }}>
                   {isEs ? 'Alineación de Requisitos:' : 'Requirements Alignment:'}
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {selectedCv.requirementsMatchList.map((item, i) => (
-                    <div key={i} style={{ backgroundColor: 'rgba(255,255,255,0.03)', padding: '10px 12px', borderRadius: '6px', fontSize: '0.82rem' }}>
-                      <div style={{ fontWeight: '600', color: '#f3f4f6', marginBottom: '3px' }}>
+                    <div key={i} style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', padding: '10px 14px', borderRadius: '6px', fontSize: '0.84rem' }}>
+                      <div style={{ fontWeight: '700', color: '#111111', marginBottom: '3px' }}>
                         📌 {item.requirement?.[lang] || item.requirement?.es}
                       </div>
-                      <div style={{ color: '#93c5fd' }}>
+                      <div style={{ color: 'var(--color-principal, #e60000)', fontWeight: '500' }}>
                         {item.match?.[lang] || item.match?.es}
                       </div>
                     </div>
@@ -410,13 +440,13 @@ export default function CvListaClient({ cvEntries, lang }) {
                 type="button"
                 onClick={() => setSelectedCv(null)}
                 style={{
-                  padding: '8px 20px',
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  color: '#fff',
-                  border: '1px solid rgba(255,255,255,0.2)',
+                  padding: '8px 22px',
+                  backgroundColor: '#111111',
+                  color: '#ffffff',
+                  border: 'none',
                   borderRadius: '6px',
                   cursor: 'pointer',
-                  fontWeight: '500',
+                  fontWeight: '700',
                   fontSize: '0.88rem'
                 }}
               >

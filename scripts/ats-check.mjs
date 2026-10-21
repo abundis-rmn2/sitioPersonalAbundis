@@ -246,6 +246,19 @@ for (const slug of targetSlugs) {
       if (/^Data Modeling$/i.test(kw)) return /\b(?:data\s+modeling|modelado\s+de\s+datos)\b/i;
       if (/^Experimentation$/i.test(kw)) return /\b(?:experimentation|experimentaci[óo]n)\b/i;
       if (/^Model Evaluation$/i.test(kw)) return /\b(?:model\s+evaluation|evaluaci[óo]n\s+de\s+modelos)\b/i;
+      if (/^MUI$/i.test(kw)) return /\b(?:mui|material[\s-]ui)\b/i;
+      if (/^Material UI$/i.test(kw)) return /\b(?:mui|material[\s-]ui)\b/i;
+      if (/^Design Systems$/i.test(kw)) return /\b(?:design\s+systems?|sistemas?\s+de\s+diseño)\b/i;
+      if (/^WCAG$/i.test(kw)) return /\b(?:wcag|accesibilidad|accessibility)\b/i;
+      if (/^E-commerce$/i.test(kw)) return /\be-?commerce\b/i;
+      if (/^Google Analytics$/i.test(kw)) return /\b(?:google\s+analytics|ga4)\b/i;
+      if (/^Google Tag Manager$/i.test(kw)) return /\b(?:google\s+tag\s+manager|gtm)\b/i;
+      if (/^CRM$/i.test(kw)) return /\bcrm\b/i;
+      if (/^Zapier$/i.test(kw)) return /\bzapier\b/i;
+      if (/^Website Troubleshooting$/i.test(kw)) return /\b(?:troubleshooting|depuraci[óo]n|incidencias)\b/i;
+      if (/^QA WordPress$/i.test(kw)) return /\b(?:qa|calidad|pruebas)(?:\s+en|\s+de)?\s+wordpress\b/i;
+      if (/^Content Migration$/i.test(kw)) return /\b(?:content\s+migration|migraci[óo]n\s+de\s+contenido)\b/i;
+      if (/^301 Redirects$/i.test(kw)) return /\b(?:301\s+redirects?|redirecciones?\s+301)\b/i;
       return new RegExp(escaped, 'i');
     };
 

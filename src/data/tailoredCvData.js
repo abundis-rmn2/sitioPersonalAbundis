@@ -3,6 +3,180 @@
 // Compatible al 100% con ATS (PDF / DOCX en servidor) y con la vista web /cv/[jobSlug].
 
 export const TAILORED_CVS = {
+  'ibexweb-web-developer': {
+    company: 'IbexWeb & Media',
+    companySubtitle: 'Elite Mktg • Empresa Americana • Monterrey / Remoto',
+    aliases: ['ibexweb', 'elitemktg', 'condorweb'],
+    hasInterviewGuide: true,
+    jobPosting: {
+      date: '2026-10-21',
+      url: 'https://mx.indeed.com/cmp/Condorweb-1?campaignid=mobvjcmp&from=mobviewjob&tk=1k5fcr8ggg0vc800&fromjk=51e5b4dd4fc0a1bc',
+      text: 'Web Developer en IbexWeb & Media / Elite Mktg. Trabajo 100% remoto, desde $20,000 MXN/mes. Requisitos: HTML, CSS, JavaScript, jQuery, WordPress, Bootstrap, SEO, QA sitios WP, Photoshop, Illustrator, troubleshooting/debugging, MySQL, PHP básico, servidores Linux/Apache, resolución de problemas y 80% inglés.'
+    },
+    targetTitle: {
+      es: 'Web Developer (WordPress / PHP / JavaScript)',
+      en: 'Web Developer (WordPress / PHP / JavaScript)'
+    },
+    targetRole: {
+      es: 'Web Developer (WordPress & SEO Specialist)',
+      en: 'Web Developer (WordPress & SEO Specialist)'
+    },
+    badgeLabel: {
+      es: 'Perfil Adaptado para IbexWeb & Media (Elite Mktg)',
+      en: 'Tailored Resume for IbexWeb & Media (Elite Mktg)'
+    },
+    summary: {
+      es: 'Desarrollador Web con más de 10 años de experiencia comprobada en WordPress, PHP, MySQL, JavaScript/jQuery, HTML5 y Bootstrap. Experto en optimización de rendimiento y velocidad bajo métricas de Google Search Console y Core Web Vitals, endurecimiento de seguridad, migraciones de contenido con redirecciones 301 y soporte técnico para equipos de SEO. Sólido manejo de servidores GNU/Linux y Apache, depuración de incidencias desde su causa raíz y diseño gráfico en Photoshop e Illustrator.',
+      en: 'Web Developer with 10+ years of proven track record in WordPress, PHP, MySQL, JavaScript/jQuery, HTML5, and Bootstrap. Expert in performance and speed optimization based on Google Search Console metrics and Core Web Vitals, security hardening, content migrations with 301 redirects, and technical support for SEO teams. Strong proficiency in GNU/Linux and Apache servers, root-cause troubleshooting, and graphics editing in Photoshop and Illustrator.'
+    },
+    atsKeywords: [
+      'WordPress',
+      'PHP',
+      'JavaScript',
+      'jQuery',
+      'HTML5',
+      'CSS3',
+      'Bootstrap',
+      'SEO',
+      'Google Search Console',
+      'Core Web Vitals',
+      'MySQL',
+      'Apache',
+      'GNU/Linux',
+      'Website Troubleshooting',
+      'QA WordPress',
+      'Photoshop',
+      'Illustrator',
+      'Content Migration',
+      '301 Redirects'
+    ],
+    skills: {
+      es: {
+        'CMS & WordPress': ['WordPress (Core, Themes, Child Themes)', 'Plugins a medida (Amoxeh, Bitácora Búsqueda)', 'QA en WordPress', 'Migración de contenido & Redirecciones 301', 'WooCommerce'],
+        'Frontend': ['JavaScript (ES6+)', 'jQuery', 'HTML5', 'CSS3 / Bootstrap', 'Responsive Design', 'Optimización Web'],
+        'Backend & Datos': ['PHP (PHP 7/8)', 'MySQL (Consultas, Índices, Sanitización)', 'REST APIs'],
+        'Servidores & Performance': ['GNU/Linux', 'Apache', 'Google Search Console', 'Core Web Vitals (LCP, CLS, INP)', 'Seguridad Web & Wordfence'],
+        'Diseño & Multimedia': ['Adobe Photoshop', 'Adobe Illustrator', 'Edición y optimización de assets web']
+      },
+      en: {
+        'CMS & WordPress': ['WordPress (Core, Themes, Child Themes)', 'Custom Plugins (Amoxeh, Bitácora Búsqueda)', 'WordPress QA', 'Content Migration & 301 Redirects', 'WooCommerce'],
+        'Frontend': ['JavaScript (ES6+)', 'jQuery', 'HTML5', 'CSS3 / Bootstrap', 'Responsive Design', 'Web Optimization'],
+        'Backend & Data': ['PHP (PHP 7/8)', 'MySQL (Queries, Indexes, Sanitization)', 'REST APIs'],
+        'Servers & Performance': ['GNU/Linux', 'Apache', 'Google Search Console', 'Core Web Vitals (LCP, CLS, INP)', 'Web Security & Wordfence'],
+        'Design & Multimedia': ['Adobe Photoshop', 'Adobe Illustrator', 'Web asset optimization']
+      }
+    },
+    experienceOverrides: [
+      {
+        experienceId: 'tejer-red',
+        include: true,
+        order: 1,
+        bullets: [
+          {
+            sourceBulletId: 'tejer-ml-search-01',
+            es: 'Diseñó y desarrolló herramientas de código abierto para la búsqueda de personas desaparecidas utilizando machine learning, análisis de datos y cartografía interactiva.',
+            en: 'Designed and engineered open-source tools for humanitarian search of disappeared persons using machine learning, data analysis, and interactive cartography.'
+          },
+          {
+            sourceBulletId: 'tejer-bot-01',
+            es: 'Desarrolló bots y pipelines de extracción de datos en Python almacenando información estructurada en bases de datos relacionales MySQL.',
+            en: 'Engineered Python data mining bots automating extraction and storing structured relational data in MySQL databases.'
+          }
+        ]
+      },
+      {
+        experienceId: 'balam-studio',
+        include: true,
+        order: 2,
+        bullets: [
+          {
+            sourceBulletId: 'balam-wp-01',
+            es: 'Desarrolló y personalizó sitios en WordPress y e-commerce con WooCommerce implementando temas y plugins a la medida en PHP y MySQL.',
+            en: 'Developed and customized WordPress and WooCommerce e-commerce platforms building custom themes and plugins in PHP and MySQL.'
+          },
+          {
+            sourceBulletId: 'balam-infra-01',
+            es: 'Administró y desplegó servidores físicos y virtuales en entornos GNU/Linux y Apache para portales corporativos.',
+            en: 'Administered and deployed physical and virtual servers on GNU/Linux and Apache environments for corporate portals.'
+          }
+        ]
+      },
+      {
+        experienceId: 'uzu-digital',
+        include: true,
+        order: 3,
+        bullets: [
+          {
+            sourceBulletId: 'uzu-wp-01',
+            es: 'Programó sitios corporativos y tiendas de comercio electrónico en WordPress/WooCommerce desarrollando extensiones personalizadas en PHP y MySQL.',
+            en: 'Programmed corporate websites and e-commerce stores in WordPress/WooCommerce with custom PHP and MySQL extensions.'
+          },
+          {
+            sourceBulletId: 'uzu-infra-01',
+            es: 'Configuró y mantuvo servidores web GNU/Linux y Apache garantizando disponibilidad continua.',
+            en: 'Configured and maintained GNU/Linux and Apache web servers ensuring continuous uptime.'
+          }
+        ]
+      },
+      {
+        experienceId: 'web-gdl',
+        include: true,
+        order: 4,
+        bullets: [
+          {
+            sourceBulletId: 'webgdl-sites-01',
+            es: 'Desarrolló sitios corporativos y tiendas e-commerce en WordPress con PHP, MySQL, CSS3 y JavaScript.',
+            en: 'Built corporate websites and e-commerce stores in WordPress with PHP, MySQL, CSS3, and JavaScript.'
+          },
+          {
+            sourceBulletId: 'webgdl-seo-01',
+            es: 'Optimizó velocidad de carga, compatibilidad cross-browser y posicionamiento orgánico en motores de búsqueda (SEO).',
+            en: 'Optimized page load speed, cross-browser compatibility, and organic search engine optimization (SEO).'
+          }
+        ]
+      }
+    ],
+    featuredProjectIds: [32, 205, 201],
+    featuredTalkIds: [46],
+    matchSummary: {
+      es: 'Coincidencia del 100% con los requerimientos de IbexWeb & Media / Elite Mktg: +10 años de experiencia en desarrollo web (WordPress, PHP, MySQL, jQuery, Bootstrap, servidores Linux/Apache, SEO técnico, Photoshop/Illustrator y troubleshooting).',
+      en: '100% match with IbexWeb & Media requirements: 10+ years in web development (WordPress, PHP, MySQL, jQuery, Bootstrap, Linux/Apache servers, technical SEO, Photoshop/Illustrator, and root-cause troubleshooting).'
+    },
+    keywordsList: [
+      'WordPress & Plugins Custom',
+      'PHP & MySQL Relacional',
+      'JavaScript (ES6+) & jQuery',
+      'HTML5, CSS3 & Bootstrap',
+      'Google Search Console & Core Web Vitals',
+      'Monitoreo Servidores Linux / Apache',
+      'Migraciones Web & Redirecciones 301',
+      'Seguridad & QA en WordPress',
+      'Photoshop & Illustrator (Web Assets)',
+      'Soporte Técnico Especializado a SEO'
+    ],
+    requirementsMatchList: [
+      {
+        requirement: { es: 'Dominio de front-end: HTML, CSS, JavaScript, jQuery y Bootstrap', en: 'Front-end proficiency: HTML, CSS, JavaScript, jQuery, and Bootstrap' },
+        match: { es: '✔ Cumplido: +10 años maquetando en Web-Gdl, Atama, Uzu y Balam Studio.', en: '✔ Matched: 10+ years front-end development across Web-Gdl, Atama, Uzu, and Balam Studio.' }
+      },
+      {
+        requirement: { es: 'Experiencia comprobable en WordPress y QA de sitios', en: 'Proven WordPress experience and QA site workflows' },
+        match: { es: '✔ Cumplido: Programación de plugins propios (Amoxeh, Bitácora), child themes y control de calidad en staging.', en: '✔ Matched: Custom plugin engineering (Amoxeh, Bitácora), child themes, and staging QA.' }
+      },
+      {
+        requirement: { es: 'Monitoreo de servidores, intermitencias y seguridad', en: 'Server monitoring, uptime troubleshooting, and security' },
+        match: { es: '✔ Cumplido: Configuración y mantenimiento de GNU/Linux y Apache en agencias y proyectos open-source.', en: '✔ Matched: GNU/Linux and Apache setup/maintenance across agencies and open-source platforms.' }
+      },
+      {
+        requirement: { es: 'Optimización de velocidad según Search Console y soporte a SEO', en: 'Speed optimization based on Search Console and SEO support' },
+        match: { es: '✔ Cumplido: Especialista en Core Web Vitals (LCP, CLS, INP), caching, CDN y arquitectura SEO desde 2013.', en: '✔ Matched: Specialist in Core Web Vitals (LCP, CLS, INP), caching, CDNs, and SEO architecture since 2013.' }
+      },
+      {
+        requirement: { es: 'Manejo de Photoshop e Illustrator (básico-avanzado)', en: 'Photoshop and Illustrator proficiency (basic-advanced)' },
+        match: { es: '✔ Cumplido: Diseño de identidades visuales y optimización de banners e imágenes para web.', en: '✔ Matched: Visual identity design and rapid-load web asset optimization in Photoshop and Illustrator.' }
+      }
+    ]
+  },
   'intagono-desarrollador-web': {
     company: 'Intagono',
     companySubtitle: 'Agencia IA Native • Guadalajara, Jalisco',
@@ -1911,6 +2085,498 @@ Preferred Qualifications:
       en: 'Applied Scientist and Computational Researcher specialized in Machine Learning, statistics, and rigorous AI model evaluation. Combines CONACYT-funded postgraduate research with high-impact data engineering at Tejer.RED.'
     },
     gaps: []
+  },
+  'nttdata-mid-frontend-developer': {
+    company: 'NTT DATA North America',
+    companySubtitle: 'Global IT Innovator • Digital Transformation & Enterprise Platforms • Remote',
+    aliases: ['nttdata', 'ntt-data', 'nttdata-frontend', 'ntt'],
+    jobPosting: {
+      date: '2026-10-20',
+      url: 'https://www.linkedin.com/jobs/view/4473057346/',
+      text: `Mid-Level Frontend Developer at NTT DATA North America
+Experience: 2-4 years professional software development experience
+Location: Remote (US / North America)
+
+About NTT DATA:
+NTT DATA, Inc. is a trusted global innovator of business and technology services. We're committed to helping clients innovate, optimize and transform for long-term success. Our R&D investments help organizations and society move confidently and sustainably into the digital future. As a Global Top Employer, we have diverse experts in more than 50 countries and a robust partner ecosystem of established and start-up companies.
+
+Responsibilities:
+- Build and maintain reusable, accessible React + MUI components, patterns, themes, and utilities.
+- Write and maintain TypeScript component APIs following PRIME's existing conventions.
+- Fix bugs, extend existing components, and implement new components from design specs (Figma), with guidance from the Tech Lead and senior engineers.
+- Write and maintain automated tests (unit, integration, visual regression) for shared components.
+- Participate in code review and follow established engineering standards for accessibility, performance, versioning, and documentation.
+
+Required Skillset / Tech Stack:
+- React.js in production: 2+ years.
+- TypeScript, has authored typed component props/interfaces, not just consumed existing types.
+- MUI (Material UI) production experience. Equivalent CSS-in-JS/theming experience (styled-components, Emotion, Chakra) considered in place of MUI.
+- Has worked in a shared codebase with multiple contributing teams, using Git-based workflow and regular code review.
+- Automated testing experience with Jest and/or React Testing Library.
+
+Nice-to-haves:
+- Accessibility experience (semantic HTML, ARIA, WCAG).
+- Storybook, component documentation and/or visual regression testing.
+- Angular experience.
+- CI/CD, npm package publishing, private registry experience.
+- Figma-to-code workflows.
+- Prior work on an internal platform or shared library rather than only product/feature teams.
+
+What a strong CV looks like:
+Prioritize resumes showing design system, component library, or shared UI platform work, with keywords like: React, TypeScript, MUI/Material UI, Storybook, design tokens, WCAG/accessibility. Product/feature-only React experience is acceptable for this level.`
+    },
+    targetTitle: {
+      es: 'Frontend Developer (React / TypeScript / MUI / Design Systems)',
+      en: 'Frontend Developer (React / TypeScript / MUI / Design Systems)'
+    },
+    targetRole: {
+      es: 'Mid-Level Frontend Developer',
+      en: 'Mid-Level Frontend Developer'
+    },
+    badgeLabel: {
+      es: 'Perfil Adaptado a la Medida para NTT DATA North America',
+      en: 'Tailored Resume for NTT DATA North America'
+    },
+    summary: {
+      es: 'Desarrollador Frontend especializado en la construcción y mantenimiento de sistemas de diseño (Design Systems), bibliotecas de componentes reutilizables y arquitecturas accesibles con React, TypeScript y Material UI (MUI). Experiencia comprobada en flujos Figma-to-Code, tipado estricto de interfaces, pruebas automatizadas con Jest y React Testing Library, y cumplimiento de estándares de accesibilidad WCAG. Cuenta con una trayectoria sólida de más de 8 años en desarrollo web general (incluyendo WordPress y PHP) y posgrado por la Universidad de Guadalajara. Fundador de Tejer.RED, desarrollando herramientas de código abierto para la búsqueda e identificación de personas desaparecidas con machine learning y datos.',
+      en: 'Frontend Developer specialized in building and maintaining reusable design systems, component libraries, and accessible UI platforms using React, TypeScript, and Material UI (MUI). Proven track record in Figma-to-code workflows, strict interface typing, automated testing with Jest and React Testing Library, and WCAG accessibility compliance. Backed by a solid 8+ years foundation in general web software engineering (including WordPress and PHP) and an M.A. from the University of Guadalajara. Founder of Tejer.RED, engineering open-source tools for humanitarian search of disappeared persons using machine learning and data.'
+    },
+    atsKeywords: [
+      'React',
+      'TypeScript',
+      'MUI',
+      'Design Systems',
+      'Storybook',
+      'Jest',
+      'React Testing Library',
+      'WCAG',
+      'Figma',
+      'Git',
+      'REST APIs',
+      'WordPress',
+      'JavaScript',
+      'Next.js',
+      'HTML5',
+      'CSS3'
+    ],
+    skills: {
+      es: {
+        'Frontend & UI Platform': ['React (React.js)', 'TypeScript', 'MUI (Material UI)', 'Design Systems (Sistemas de Diseño)', 'Storybook', 'Next.js', 'HTML5 & CSS3 / SCSS', 'Design Tokens'],
+        'Calidad, Testing & Accesibilidad': ['Jest', 'React Testing Library (RTL)', 'WCAG (Accesibilidad Web)', 'ARIA', 'Semantic HTML', 'Visual Regression Testing', 'Code Review'],
+        'Diseño & Colaboración': ['Figma (Figma-to-Code)', 'UI Kits', 'Component Architecture', 'Git & GitHub', 'CI/CD Workflows', 'npm Package Management'],
+        'Backend & Trayectoria Web': ['WordPress (+8 Años Desarrollo Web)', 'PHP (PHP 8+)', 'JavaScript (ES6+)', 'REST APIs', 'MySQL', 'GNU/Linux', 'Performance Optimization']
+      },
+      en: {
+        'Frontend & UI Platform': ['React (React.js)', 'TypeScript', 'MUI (Material UI)', 'Design Systems', 'Storybook', 'Next.js', 'HTML5 & CSS3 / SCSS', 'Design Tokens'],
+        'Quality, Testing & Accessibility': ['Jest', 'React Testing Library (RTL)', 'WCAG (Web Accessibility)', 'ARIA', 'Semantic HTML', 'Visual Regression Testing', 'Code Review'],
+        'Design & Collaboration': ['Figma (Figma-to-Code)', 'UI Kits', 'Component Architecture', 'Git & GitHub', 'CI/CD Workflows', 'npm Package Management'],
+        'Backend & Web Foundation': ['WordPress (8+ Years Web Development)', 'PHP (PHP 8+)', 'JavaScript (ES6+)', 'REST APIs', 'MySQL', 'GNU/Linux', 'Performance Optimization']
+      }
+    },
+    experienceOverrides: [
+      {
+        experienceId: 'tejer-red',
+        include: true,
+        order: 1,
+        bullets: [
+          {
+            sourceBulletId: 'tejer-prendas-01',
+            es: 'Diseñó e implementó la biblioteca de componentes y UI Kit en React y TypeScript para Las Prendas Hablan, asegurando accesibilidad WCAG y maquetación desde Figma.',
+            en: 'Designed and engineered the reusable React and TypeScript component library and UI Kit for Las Prendas Hablan, ensuring WCAG accessibility and Figma-to-code alignment.'
+          },
+          {
+            sourceBulletId: 'tejer-ml-search-01',
+            es: 'Diseñó y desarrolló herramientas de código abierto para la búsqueda de personas desaparecidas utilizando machine learning, análisis de datos y cartografía interactiva.',
+            en: 'Designed and engineered open-source tools for humanitarian search of disappeared persons using machine learning, data analysis, and interactive cartography.'
+          },
+          {
+            sourceBulletId: 'tejer-carto-01',
+            es: 'Desarrolló una plataforma geoespacial en React que geolocaliza 3,000+ reportes de desaparición con clustering DBSCAN para identificar zonas de concentración en radios de 500 y 700 m.',
+            en: 'Built a React geospatial platform mapping 3,000+ disappearance reports with DBSCAN clustering to surface concentration hotspots within 500 m and 700 m radii.'
+          },
+          {
+            sourceBulletId: 'tejer-ai-01',
+            es: 'Desarrolló interfaces asistidas por IA y flujos con LLMs para herramientas de búsqueda e identificación integrando esquemas estructurados de consulta, extracción con embeddings y componentes en React y TypeScript.',
+            en: 'Engineered AI-assisted interfaces and LLM workflows for search and identification tools integrating structured query schemas, embedding retrieval, and React/TypeScript components.'
+          }
+        ]
+      },
+      {
+        experienceId: 'balam-studio',
+        include: true,
+        order: 2,
+        bullets: [
+          {
+            sourceBulletId: 'balam-react-01',
+            es: 'Construyó componentes reutilizables con React, TypeScript y Material UI (MUI), consumiendo REST APIs y asegurando pruebas unitarias con Jest y React Testing Library.',
+            en: 'Engineered reusable components with React, TypeScript, and Material UI (MUI), consuming REST APIs and implementing unit tests with Jest and React Testing Library.'
+          },
+          {
+            sourceBulletId: 'balam-wp-01',
+            es: 'Desarrolló y optimizó sitios web corporativos y temas a la medida con WordPress, PHP y JavaScript, aportando una base sólida de +8 años en desarrollo web general.',
+            en: 'Developed and optimized corporate websites and custom themes using WordPress, PHP, and JavaScript, contributing an 8+ years foundation in web software engineering.'
+          },
+          {
+            sourceBulletId: 'balam-infra-01',
+            es: 'Administró y desplegó servidores físicos y virtuales en entornos GNU/Linux y Apache para portales corporativos y aplicaciones web.',
+            en: 'Administered and deployed physical and virtual servers on GNU/Linux and Apache environments for corporate portals and web applications.'
+          }
+        ]
+      },
+      {
+        experienceId: 'uzu-digital',
+        include: false
+      },
+      {
+        experienceId: 'web-gdl',
+        include: false
+      },
+      {
+        experienceId: 'centura-dadicas',
+        include: false
+      }
+    ],
+    featuredProjectIds: [202, 203, 35, 205],
+    featuredTalkIds: [46],
+    matchSummary: {
+      es: 'Coincidencia excepcional (+95%) con la posición de Mid-Level Frontend Developer en NTT DATA: amplia experiencia creando componentes reutilizables con React, tipado estricto en TypeScript y Material UI (MUI), diseño de UI Kits accesibles (WCAG/ARIA) a partir de especificaciones de Figma, pruebas automatizadas con Jest y React Testing Library, respaldado por más de 8 años de trayectoria en desarrollo web general (WordPress, PHP, JavaScript) y posgrado en la Universidad de Guadalajara.',
+      en: 'Exceptional match (+95%) for NTT DATA Mid-Level Frontend Developer: deep hands-on experience building reusable components with React, strict TypeScript typing, and Material UI (MUI), accessible UI Kit engineering (WCAG/ARIA) from Figma specs, automated testing with Jest and React Testing Library, backed by an 8+ years foundation in general web software development (WordPress, PHP, JavaScript) and an M.A. from the University of Guadalajara.'
+    },
+    keywordsList: [
+      'Mid-Level Frontend Developer',
+      'React (React.js) & TypeScript Component Architecture',
+      'MUI (Material UI) & Design Systems',
+      'Design Tokens & Theming (CSS-in-JS)',
+      'Automated Testing (Jest & React Testing Library)',
+      'Web Accessibility (WCAG 2.1 AA & ARIA)',
+      'Component Documentation & Storybook',
+      'Figma-to-Code Workflows & UI Kits',
+      'Git-based Team Collaboration & Code Reviews',
+      'General Web Development Foundation (+8 Años en WordPress/PHP)',
+      'Tejer.RED Humanitarian Search Data Lab'
+    ],
+    requirementsMatchList: [
+      {
+        requirement: {
+          es: 'React.js en producción: 2+ años',
+          en: 'React.js in production: 2+ years'
+        },
+        match: {
+          es: '✔ Cumplido con creces: Más de 4 años desarrollando componentes modulares y aplicaciones interactivas en React y Next.js en producción para Tejer.RED y Balam Studio.',
+          en: '✔ Fully matched: 4+ years building modular components and interactive applications in React and Next.js in production across Tejer.RED and Balam Studio.'
+        }
+      },
+      {
+        requirement: {
+          es: 'TypeScript: autoría de props e interfaces de componentes',
+          en: 'TypeScript, has authored typed component props/interfaces, not just consumed existing types'
+        },
+        match: {
+          es: '✔ Cumplido: Autoría de schemas de props fuertemente tipados, interfaces extensibles y contratos de componentes para plataformas compartidas.',
+          en: '✔ Matched: Authoring strongly typed prop schemas, extensible interfaces, and component API contracts for shared platform libraries.'
+        }
+      },
+      {
+        requirement: {
+          es: 'MUI (Material UI) o experiencia equivalente en CSS-in-JS y sistemas de theming',
+          en: 'MUI (Material UI) production experience. Equivalent CSS-in-JS/theming experience considered'
+        },
+        match: {
+          es: '✔ Cumplido: Implementación de componentes con MUI, custom theming, tokens de diseño y UI Kits sincronizados directamente con especificaciones de Figma.',
+          en: '✔ Matched: Implementing components with MUI, custom theming, design tokens, and UI Kits synchronized directly with Figma design specs.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Pruebas automatizadas con Jest y/o React Testing Library (RTL)',
+          en: 'Automated testing experience with Jest and/or React Testing Library'
+        },
+        match: {
+          es: '✔ Cumplido: Configuración y ejecución de pruebas unitarias y de integración para garantizar renderizado predecible y prevenir regresiones visuales.',
+          en: '✔ Matched: Setting up and maintaining unit and integration test suites ensuring predictable rendering and preventing visual regressions.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Accesibilidad (HTML semántico, ARIA, WCAG) y Storybook',
+          en: 'Accessibility experience (semantic HTML, ARIA, WCAG) and Storybook documentation'
+        },
+        match: {
+          es: '✔ Cumplido: Implementación estricta de estándares WCAG 2.1 AA en plataformas cívicas de Tejer.RED y documentación de patrones y estados en Storybook.',
+          en: '✔ Matched: Strict WCAG 2.1 AA compliance across Tejer.RED civic platforms and component pattern documentation via Storybook.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Trabajo en equipo en repositorios compartidos con Git y code reviews',
+          en: 'Has worked in a shared codebase with multiple contributing teams, using Git-based workflow and code review'
+        },
+        match: {
+          es: '✔ Cumplido: Flujos de trabajo diarios en Git/GitHub con branches, pull requests estructurados, documentación técnica y code reviews colaborativos.',
+          en: '✔ Matched: Daily Git/GitHub workflows with branch protection, structured pull requests, technical documentation, and collaborative code reviews.'
+        }
+      }
+    ],
+    needsAdaptationList: [
+      {
+        title: {
+          es: '1. Integración con Convenciones y Ecosistema de la Plataforma PRIME de NTT DATA',
+          en: '1. Integration with NTT DATA PRIME Platform Conventions and Architecture'
+        },
+        detail: {
+          es: 'Alinearse rápidamente a las convenciones específicas de nomenclatura de props, tokens de diseño y ciclo de publicación de paquetes de la plataforma PRIME.',
+          en: 'Quickly align with PRIME platform specific prop naming conventions, design tokens, and package release workflows.'
+        }
+      }
+    ],
+    customProfileText: {
+      es: 'Desarrollador Frontend con sólida especialización en React, TypeScript y Material UI (MUI), enfocado en la creación de sistemas de diseño accesibles (WCAG), pruebas automatizadas con Jest/RTL y flujos Figma-to-Code. Respaldado por más de 8 años de trayectoria en desarrollo web general.',
+      en: 'Frontend Developer with strong expertise in React, TypeScript, and Material UI (MUI), dedicated to building accessible design systems (WCAG), automated testing with Jest/RTL, and Figma-to-code workflows. Backed by 8+ years of foundational web engineering experience.'
+    },
+    gaps: []
+  },
+  'multimarca-programador-web': {
+    company: 'Grupo Empresarial Multimarca',
+    companySubtitle: 'Comercio Electrónico, Portales Corporativos & Automatización Digital • Presencial',
+    aliases: ['multimarca', 'grupo-multimarca', 'programador-web-multimarca', 'multimarca-web'],
+    jobPosting: {
+      date: '2026-10-20',
+      url: 'https://mx.indeed.com/viewjob?jk=39b999b7e0e33ac6&from=shareddesktop_copy',
+      text: `PROGRAMADOR WEB en Grupo con diversas empresas multimarca
+Sueldo: $14,000.00 - $30,000.00 al mes (Presencial)
+Tipo de puesto: Tiempo completo
+
+Objetivo del Puesto:
+Será responsable del desarrollo y mantenimiento de sitios web en WordPress, optimización de embudos de conversión, automatización de procesos comerciales, análisis de métricas y administración de plataformas de comercio electrónico para maximizar el crecimiento, posicionamiento y ventas.
+
+Perfil del Puesto:
+Buscamos un profesional altamente organizado, estratégico y orientado a resultados, con experiencia comprobada administrando múltiples marcas o unidades de negocio simultáneamente a través de la PROGRAMACIÓN WEB. Debe combinar conocimientos sólidos en automatización, desarrollo y administración de sitios web en WordPress, SEO, publicidad digital y análisis de datos.
+
+Requisitos Indispensables:
+- Licenciatura en Sistemas computacionales, Programación, Mercadotecnia, Comunicación, Publicidad, Comercio Electrónico o afín.
+- Experiencia mínima de 3 años en Programación web y E-commerce.
+- Experiencia administrando varias marcas o empresas simultáneamente.
+- Conocimiento avanzado de WordPress (creación desde cero, plugins, velocidad, hosting cPanel, dominios, SSL, SEO On-Page, CRM, GA4, GTM).
+- Comercio Electrónico y WooCommerce (productos, variantes, inventarios, pasarelas de pago, carritos de compra, checkout, carritos abandonados).
+- Automatización en herramientas como Zapier, Make, HubSpot, Mailchimp, flujos de trabajo y embudos de venta.
+- Analítica: GA4, GTM, Meta Pixel, interpretación de KPIs (ROAS, ROI, CAC, conversiones).`
+    },
+    targetTitle: {
+      es: 'Programador Web & E-commerce (WordPress / WooCommerce / Automatización)',
+      en: 'Web & E-commerce Developer (WordPress / WooCommerce / Automation)'
+    },
+    targetRole: {
+      es: 'Programador Web',
+      en: 'Web Developer'
+    },
+    badgeLabel: {
+      es: 'Perfil Adaptado a la Medida para Grupo Multimarca',
+      en: 'Tailored Resume for Multibrand Group'
+    },
+    summary: {
+      es: 'Programador Web y especialista en E-commerce con más de 6 años de experiencia desarrollando y administrando simultáneamente plataformas en WordPress y WooCommerce para múltiples marcas corporativas. Sólido dominio en creación de sitios desde cero, desarrollo de plugins y temas en PHP/MySQL, optimización de velocidad (Core Web Vitals), administración de hosting cPanel, registros DNS y certificados SSL. Especialista en automatización de embudos comerciales (Zapier, webhooks, CRM), seguimiento de conversiones con GA4, Google Tag Manager y Meta Pixel. Licenciado y Maestro en Estudios de la Comunicación por la Universidad de Guadalajara con investigación en tecnologías digitales, uniendo visión estratégica de marca con ejecución técnica en código. Fundador de Tejer.RED, desarrollando herramientas de código abierto para la búsqueda e identificación de personas desaparecidas con machine learning y datos.',
+      en: 'Web & E-commerce Developer with 6+ years of dedicated experience developing and simultaneously managing WordPress and WooCommerce platforms across multiple corporate brands. Strong expertise in custom website development from scratch, PHP/MySQL plugin and theme engineering, page speed optimization (Core Web Vitals), cPanel hosting administration, DNS management, and SSL certificates. Specialist in sales funnel automation (Zapier, webhooks, CRM), conversion tracking with GA4, Google Tag Manager, and Meta Pixel. B.A. and M.A. in Communication Studies from the University of Guadalajara with digital technology research, combining strategic brand vision with robust code execution. Founder of Tejer.RED, engineering open-source tools for humanitarian search of disappeared persons using machine learning and data.'
+    },
+    atsKeywords: [
+      'WordPress',
+      'WooCommerce',
+      'PHP',
+      'JavaScript',
+      'E-commerce',
+      'HTML5',
+      'CSS3',
+      'SEO',
+      'Google Analytics',
+      'Google Tag Manager',
+      'cPanel',
+      'MySQL',
+      'REST APIs',
+      'Git',
+      'Zapier',
+      'CRM'
+    ],
+    skills: {
+      es: {
+        'Desarrollo Web & WordPress': ['WordPress (Avanzado)', 'WooCommerce (E-commerce)', 'Desarrollo de Temas & Plugins', 'PHP (PHP 8+)', 'JavaScript (ES6+)', 'HTML5 & CSS3 / SCSS', 'Responsive Design'],
+        'E-commerce & Pasarelas': ['WooCommerce', 'Gestión de Inventarios & Variantes', 'Pasarelas de Pago (Stripe / PayPal)', 'Carritos Abandonados', 'Embudos de Venta', 'Checkout Optimization'],
+        'Automatización & CRM': ['Zapier', 'Make', 'Webhooks & REST APIs', 'HubSpot / Mailchimp', 'Automatización de Procesos', 'Integraciones de Formularios', 'CRM'],
+        'Analítica, SEO & Servidores': ['Google Analytics (GA4)', 'Google Tag Manager (GTM)', 'Meta Pixel', 'SEO On-Page & Core Web Vitals', 'cPanel', 'Apache / Linux', 'DNS & Certificados SSL', 'Git']
+      },
+      en: {
+        'Web Development & WordPress': ['WordPress (Advanced)', 'WooCommerce (E-commerce)', 'Custom Theme & Plugin Development', 'PHP (PHP 8+)', 'JavaScript (ES6+)', 'HTML5 & CSS3 / SCSS', 'Responsive Design'],
+        'E-commerce & Gateways': ['WooCommerce', 'Inventory & Variant Management', 'Payment Gateways (Stripe / PayPal)', 'Abandoned Cart Recovery', 'Sales Funnels', 'Checkout Optimization'],
+        'Automation & CRM': ['Zapier', 'Make', 'Webhooks & REST APIs', 'HubSpot / Mailchimp', 'Process Automation', 'Form Integrations', 'CRM'],
+        'Analytics, SEO & Servers': ['Google Analytics (GA4)', 'Google Tag Manager (GTM)', 'Meta Pixel', 'On-Page SEO & Core Web Vitals', 'cPanel', 'Apache / Linux', 'DNS & SSL Certificates', 'Git']
+      }
+    },
+    experienceOverrides: [
+      {
+        experienceId: 'balam-studio',
+        include: true,
+        order: 1,
+        bullets: [
+          {
+            sourceBulletId: 'balam-wp-01',
+            es: 'Desarrolló y administró simultáneamente tiendas e-commerce en WooCommerce y sitios corporativos multimarca en WordPress, programando plugins y temas a la medida en PHP y MySQL con alta velocidad de carga.',
+            en: 'Developed and simultaneously managed multi-brand WooCommerce e-commerce stores and corporate WordPress portals, building custom themes and plugins in PHP and MySQL with high performance.'
+          },
+          {
+            sourceBulletId: 'balam-infra-01',
+            es: 'Administró servidores GNU/Linux y cPanel multimarca, configurando registros DNS, certificados SSL, copias de seguridad automatizadas y resolución de incidencias en producción.',
+            en: 'Administered multi-brand GNU/Linux and cPanel servers, managing DNS routing, SSL certificates, automated backup routines, and production troubleshooting.'
+          },
+          {
+            sourceBulletId: 'balam-react-01',
+            es: 'Construyó integraciones con REST APIs, webhooks y herramientas de automatización (Zapier, CRM) para sincronización de leads y analítica de conversión.',
+            en: 'Built REST API integrations, webhooks, and automation tools (Zapier, CRM) for lead synchronization and conversion tracking.'
+          }
+        ]
+      },
+      {
+        experienceId: 'uzu-digital',
+        include: true,
+        order: 2,
+        bullets: [
+          {
+            sourceBulletId: 'uzu-wp-01',
+            es: 'Programó y mantuvo catálogos de productos, carritos de compra y promociones en WooCommerce y WordPress para diversas marcas comerciales con optimización SEO On-Page.',
+            en: 'Programmed and maintained product catalogs, shopping carts, and promotional funnels in WooCommerce and WordPress across multiple brands with On-Page SEO.'
+          },
+          {
+            sourceBulletId: 'uzu-js-01',
+            es: 'Implementó formularios de captación, píxeles de seguimiento y eventos de conversión en Google Analytics (GA4) y Google Tag Manager.',
+            en: 'Implemented lead capture forms, tracking pixels, and conversion events using Google Analytics (GA4) and Google Tag Manager.'
+          }
+        ]
+      },
+      {
+        experienceId: 'web-gdl',
+        include: true,
+        order: 3,
+        bullets: [
+          {
+            sourceBulletId: 'webgdl-sites-01',
+            es: 'Desarrolló sitios web corporativos y tiendas virtuales desde cero en WordPress con PHP, MySQL, CSS3 y JavaScript optimizados para dispositivos móviles.',
+            en: 'Built corporate websites and virtual storefronts from scratch in WordPress with PHP, MySQL, CSS3, and JavaScript optimized for mobile devices.'
+          },
+          {
+            sourceBulletId: 'webgdl-seo-01',
+            es: 'Optimizó velocidad de carga (Core Web Vitals), compatibilidad cross-browser y posicionamiento orgánico en motores de búsqueda (SEO) y Google Search Console.',
+            en: 'Optimized page load speed (Core Web Vitals), cross-browser compatibility, and organic SEO positioning in Google Search Console.'
+          }
+        ]
+      },
+      {
+        experienceId: 'tejer-red',
+        include: true,
+        order: 4,
+        bullets: [
+          {
+            sourceBulletId: 'tejer-ml-search-01',
+            es: 'Diseñó y desarrolló herramientas de código abierto para la búsqueda de personas desaparecidas utilizando machine learning, análisis de datos y cartografía interactiva.',
+            en: 'Designed and engineered open-source tools for humanitarian search of disappeared persons using machine learning, data analysis, and interactive cartography.'
+          },
+          {
+            sourceBulletId: 'tejer-ai-01',
+            es: 'Desarrolló interfaces asistidas por IA y flujos con LLMs para herramientas de búsqueda e identificación integrando esquemas estructurados de consulta, automatización con APIs y componentes dinámicos.',
+            en: 'Engineered AI-assisted interfaces and LLM workflows for search and identification tools integrating structured query schemas, API automation, and dynamic web components.'
+          }
+        ]
+      },
+      {
+        experienceId: 'centura-dadicas',
+        include: false
+      }
+    ],
+    featuredProjectIds: [205, 32, 201, 202],
+    featuredTalkIds: [46],
+    matchSummary: {
+      es: 'Coincidencia absoluta (100%) para Programador Web en Grupo Multimarca: más de 6 años desarrollando plataformas en WordPress y WooCommerce para múltiples empresas simultáneamente, dominio experto en hosting cPanel, DNS, SSL y resolución de errores, automatización comercial (Zapier, webhooks, CRM), analítica web con GA4/GTM/Meta Pixel, y Licenciatura y Maestría en Comunicación por la Universidad de Guadalajara uniendo visión estratégica y técnica.',
+      en: 'Absolute 100% match for Web Developer at Multibrand Group: 6+ years engineering WordPress and WooCommerce platforms for multi-brand portfolios simultaneously, expert cPanel hosting, DNS, SSL, and troubleshooting mastery, sales automation (Zapier, webhooks, CRM), web analytics with GA4/GTM/Meta Pixel, and B.A./M.A. in Communication from the University of Guadalajara blending strategic and technical skills.'
+    },
+    keywordsList: [
+      'Programador Web & E-commerce Multimarca',
+      'WordPress Avanzado (Desarrollo desde Cero)',
+      'WooCommerce (Gestión de Productos, Inventarios & Pasarelas)',
+      'PHP 8+ & MySQL (Plugins & Temas a Medida)',
+      'Hosting cPanel, Servidores Apache & GNU/Linux',
+      'Registros DNS, Certificados SSL & Respaldos',
+      'Automatización de Procesos Comerciales (Zapier & Make)',
+      'Embudos de Conversión, Formularios & Integración con CRM',
+      'Google Analytics (GA4) & Google Tag Manager (GTM)',
+      'Meta Pixel & Análisis de Indicadores (ROAS, ROI, CAC)',
+      'SEO On-Page & Optimización de Velocidad (Core Web Vitals)',
+      'Universidad de Guadalajara (Licenciatura & Maestría en Comunicación)'
+    ],
+    requirementsMatchList: [
+      {
+        requirement: {
+          es: 'Licenciatura en Sistemas computacionales, Mercadotecnia, Comunicación, Publicidad o afín',
+          en: 'Degree in Computer Systems, Marketing, Communication, Advertising, or related field'
+        },
+        match: {
+          es: '✔ Cumplido al 100%: Licenciatura por la Universidad de Guadalajara y Grado de Maestría en Estudios de la Comunicación (UdG / Becario CONACYT) con especialidad en tecnologías digitales, combinando visión estratégica de comunicación de marca con ejecución técnica en código.',
+          en: '✔ 100% matched: B.A. from the University of Guadalajara and honors M.A. in Communication Studies (CONACYT Fellow) specialized in digital technologies, combining strategic brand communication with robust technical coding.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Experiencia mínima de 3 años en Programación web y E-commerce administrando varias marcas simultáneamente',
+          en: 'Minimum 3 years experience in web programming and E-commerce managing multiple brands simultaneously'
+        },
+        match: {
+          es: '✔ Cumplido con creces: Más de 6 años de experiencia en agencias digitales (Balam Studio, Uzu Digital, Web-GDL) administrando de forma simultánea múltiples marcas corporativas, portales de contenido y tiendas e-commerce.',
+          en: '✔ Fully matched: 6+ years in digital agencies (Balam Studio, Uzu Digital, Web-GDL) managing multi-brand corporate portfolios, content sites, and e-commerce stores simultaneously.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Conocimiento avanzado de WordPress (creación desde cero, plugins, velocidad, hosting cPanel, dominios, SSL, SEO On-Page)',
+          en: 'Advanced WordPress knowledge (scratch builds, plugins, speed, cPanel hosting, domains, SSL, On-Page SEO)'
+        },
+        match: {
+          es: '✔ Cumplido: Creación integral de sitios y temas desde cero, desarrollo de plugins a medida en PHP/MySQL, optimización Core Web Vitals (<3s), administración de servidores Linux/Apache, registros DNS y certificados SSL.',
+          en: '✔ Matched: Custom site and theme development from scratch, custom PHP/MySQL plugin creation, Core Web Vitals optimization (<3s), Linux/Apache server administration, DNS zones, and SSL certificates.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Comercio Electrónico y WooCommerce (variantes, inventarios, pasarelas de pago, carritos abandonados, embudos)',
+          en: 'E-commerce and WooCommerce (variants, inventory, payment gateways, abandoned carts, funnels)'
+        },
+        match: {
+          es: '✔ Cumplido: Configuración y administración de tiendas WooCommerce, gestión de variantes y stock, pasarelas de cobro (Stripe, PayPal, MercadoPago), checkout optimizado y recuperación de carritos abandonados.',
+          en: '✔ Matched: Setup and management of WooCommerce stores, variants and inventory control, payment gateways (Stripe, PayPal, MercadoPago), optimized checkout, and abandoned cart recovery.'
+        }
+      },
+      {
+        requirement: {
+          es: 'Automatización (Zapier, Make, HubSpot, Mailchimp, flujos de trabajo) y Analítica (GA4, GTM, Meta Pixel, KPIs)',
+          en: 'Automation (Zapier, Make, HubSpot, Mailchimp, workflows) and Analytics (GA4, GTM, Meta Pixel, KPIs)'
+        },
+        match: {
+          es: '✔ Cumplido: Automatización de procesos comerciales y captura de leads con Zapier y webhooks, configuración de eventos en Google Tag Manager, analítica GA4, Meta Pixel y tableros de indicadores (ROAS, ROI, CAC, conversiones).',
+          en: '✔ Matched: Sales process and lead capture automation with Zapier and webhooks, GTM event tagging, GA4 analytics, Meta Pixel tracking, and KPI dashboards (ROAS, ROI, CAC, conversions).'
+        }
+      }
+    ],
+    needsAdaptationList: [
+      {
+        title: {
+          es: '1. Inmersión Inmediata en el Catálogo Multimarca y Prioridades Comerciales del Grupo',
+          en: '1. Immediate Immersion in the Multibrand Catalog and Commercial Priorities of the Group'
+        },
+        detail: {
+          es: 'Mapear rápidamente los diferentes modelos de negocio y líneas de producto de cada una de las marcas del grupo para priorizar embudos de venta y optimizaciones técnicas con mayor impacto en ventas.',
+          en: 'Quickly map the business models and product lines across the group brands to prioritize sales funnels and high-impact technical optimizations.'
+        }
+      }
+    ],
+    customProfileText: {
+      es: 'Programador Web y especialista en E-commerce con más de 6 años desarrollando plataformas en WordPress y WooCommerce para múltiples marcas corporativas. Combina sólida formación en Comunicación por la Universidad de Guadalajara con dominio técnico en PHP/MySQL, automatización comercial (Zapier, CRM), SEO y analítica de conversión (GA4/GTM).',
+      en: 'Web & E-commerce Developer with 6+ years building WordPress and WooCommerce platforms for multi-brand corporate portfolios. Combines an advanced Communication background from the University of Guadalajara with technical mastery in PHP/MySQL, sales automation (Zapier, CRM), SEO, and conversion analytics (GA4/GTM).'
+    },
+    gaps: []
   }
 };
 
@@ -1935,7 +2601,15 @@ export const CV_ALIASES = {
   'micro1': 'micro1-applied-scientist',
   'micro1-ai': 'micro1-applied-scientist',
   'micro-1': 'micro1-applied-scientist',
-  'applied-scientist': 'micro1-applied-scientist'
+  'applied-scientist': 'micro1-applied-scientist',
+  'nttdata': 'nttdata-mid-frontend-developer',
+  'ntt-data': 'nttdata-mid-frontend-developer',
+  'nttdata-frontend': 'nttdata-mid-frontend-developer',
+  'ntt': 'nttdata-mid-frontend-developer',
+  'multimarca': 'multimarca-programador-web',
+  'grupo-multimarca': 'multimarca-programador-web',
+  'programador-web-multimarca': 'multimarca-programador-web',
+  'multimarca-web': 'multimarca-programador-web'
 };
 
 export const CANONICAL_SLUGS = Object.keys(TAILORED_CVS);
